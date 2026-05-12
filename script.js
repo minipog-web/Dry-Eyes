@@ -172,21 +172,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const formSuccess = document.querySelector('.form-success');
   
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      const formData = new FormData(contactForm);
-      
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
-      })
-      .then(() => {
-        contactForm.style.display = 'none';
-        formSuccess.classList.add('show');
-      })
-      .catch((error) => alert(error));
+      try {
+        const formData = new FormData(contactForm);
+        
+        const response = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString(),
+        });
+
+        if (response.ok) {
+          contactForm.style.display = 'none';
+          formSuccess.classList.add('show');
+        } else {
+          const errorText = await response.text();
+          throw new Error(`Submission failed: ${response.status} ${response.statusText}\n${errorText}`);
+        }
+      } catch (error) {
+        console.error('Form submission error:', error);
+        alert('There was an error submitting the form. Please try again or contact us directly.');
+      }
     });
   }
 

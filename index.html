@@ -404,8 +404,7 @@
                     <div class="treatment-header">
                         <div class="treatment-icon">💧</div>
                         <div>
-                            <h3>Miebo® <span class="font-sm font-normal text-muted">(100% Perfluorohexyloctane)</span>
-                            </h3>
+                            <h3>Miebo® <span class="font-sm font-normal text-muted">(100% Perfluorohexyloctane)</span></h3>
                             <span class="treatment-type">Evaporation Shield Drop</span>
                         </div>
                     </div>
@@ -712,6 +711,10 @@
                         <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true">
                             <input type="hidden" name="form-name" value="contact">
                             <input type="hidden" name="subject" value="New Patient Consult Request">
+                            
+                            <div style="display:none">
+                                <label>Don't fill this out: <input name="bot-field" /></label>
+                            </div>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="first-name">First Name</label>
