@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier Dry Eye Care Center | Marano Eye Care</title>
+    <meta name="description"
+        content="Marano Eye Care is Northern New Jersey's Premier Dry Eye Care Center, offering advanced diagnostics and life-changing relief through customized treatments.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">
+                <img src="assets/marano_logo.png" alt="Marano Eye Care" class="logo-img">
+            </a>
+            <button class="mobile-toggle">☰</button>
+            <ul class="nav-links">
+                <li><a href="#understanding">Life Stages</a></li>
+                <li><a href="#diagnostics">Diagnostics</a></li>
+                <li><a href="#treatments">Treatments</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact" class="btn btn-primary nav-cta">Schedule Consultation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="particles"></div>
+        <div class="hero-content">
+            <div class="hero-eye reveal">
+                <!-- Glowing futuristic eye icon -->
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="anim-blink">
+                    <circle cx="50" cy="50" r="48" stroke="rgba(123,150,200,0.2)" stroke-width="2" />
+                    <circle cx="50" cy="50" r="38" stroke="rgba(123,150,200,0.4)" stroke-width="1"
+                        stroke-dasharray="4 4" />
+                    <path d="M10 50 C30 20, 70 20, 90 50 C70 80, 30 80, 10 50 Z" stroke="#7B96C8" stroke-width="3" />
+                    <circle cx="50" cy="50" r="15" fill="#5B6BA8" />
+                    <circle cx="54" cy="46" r="4" fill="#ffffff" class="anim-shimmer" />
+                </svg>
+            </div>
+            <h1 class="reveal reveal-delay-1">New Jersey's Premier <br /><span class="gradient-text">Dry Eye Care Center</span></h1>
+            <p class="subtitle reveal reveal-delay-2">Advanced diagnostics. Proven treatments. Life-changing relief.</p>
+            <div class="hero-buttons reveal reveal-delay-3">
+                <a href="#treatments" class="btn btn-primary btn-glow">Explore Treatments</a>
+                <a href="#contact" class="btn btn-outline">Book an Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNDERSTANDING DRY EYE - LIFE STAGES -->
+    <section class="section section-light" id="understanding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Understanding Dry Eye <br /><span class="gradient-text-green">Through Life Stages</span></h2>
+                <p>Dry eye can affect anyone, but the underlying causes often shift as we progress through different
+                    stages of life.</p>
+            </div>
+
+            <div class="timeline reveal reveal-delay-1">
+                <div class="timeline-node active" data-stage="teens">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-label">Children & Teens</div>
+                </div>
+                <div class="timeline-node" data-stage="young">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-label">Young Adults</div>
+                    <div class="timeline-age">20s &ndash; 30s</div>
+                </div>
+                <div class="timeline-node" data-stage="middle">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-label">Middle Age</div>
+                    <div class="timeline-age">40s &ndash; 50s</div>
+                </div>
+                <div class="timeline-node" data-stage="seniors">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-label">Seniors</div>
+                    <div class="timeline-age">60+</div>
+                </div>
+            </div>
+
+            <div class="stage-content active" id="stage-teens">
+                <h3>Children & Teens</h3>
+                <ul>
+                    <li><span class="cause-title">Screen Time:</span> <span class="cause-desc">Excessive use of digital
+                            devices reduces blink rates, leading to evaporative dry eye.</span></li>
+                    <li><span class="cause-title">Allergies:</span> <span class="cause-desc">Seasonal allergies and
+                            antihistamine use can severely dry out the ocular surface.</span></li>
+                    <li><span class="cause-title">Contact Lenses:</span> <span class="cause-desc">Improper wear
+                            schedules or poor hygiene can disrupt the tear film.</span></li>
+                </ul>
+            </div>
+
+            <div class="stage-content" id="stage-young">
+                <h3>Young Adults (20s-30s)</h3>
+                <ul>
+                    <li><span class="cause-title">Digital Eye Strain:</span> <span class="cause-desc">Prolonged screen
+                            use for work and leisure leading to computer vision syndrome.</span></li>
+                    <li><span class="cause-title">Hormonal Changes:</span> <span class="cause-desc">Pregnancy or birth
+                            control medications can alter tear production.</span></li>
+                    <li><span class="cause-title">Post-LASIK:</span> <span class="cause-desc">Temporary nerve disruption
+                            from refractive surgery can reduce tear signals.</span></li>
+                </ul>
+            </div>
+
+            <div class="stage-content" id="stage-middle">
+                <h3>Middle Age (40s-50s)</h3>
+                <ul>
+                    <li><span class="cause-title">Meibomian Gland Dysfunction (MGD):</span> <span class="cause-desc">The
+                            leading cause of dry eye; oil glands in the eyelids become blocked or inflamed.</span></li>
+                    <li><span class="cause-title">Hormonal Shifts:</span> <span class="cause-desc">Perimenopause and
+                            menopause significantly impact the composition of tears.</span></li>
+                    <li><span class="cause-title">Medications:</span> <span class="cause-desc">Increased use of
+                            antihistamines, antidepressants, and blood pressure medications.</span></li>
+                </ul>
+            </div>
+
+            <div class="stage-content" id="stage-seniors">
+                <h3>Seniors (60+)</h3>
+                <ul>
+                    <li><span class="cause-title">Gland Atrophy:</span> <span class="cause-desc">Age-related reduction
+                            in overall tear production volume.</span></li>
+                    <li><span class="cause-title">Eyelid Laxity:</span> <span class="cause-desc">Changes in eyelid
+                            structure reduce the mechanical efficiency of blinking and spreading tears.</span></li>
+                    <li><span class="cause-title">Post-Surgery:</span> <span class="cause-desc">Cataract surgery can
+                            temporarily disrupt the ocular surface and tear film stability.</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE TEAR FILM -->
+    <section class="section" id="anatomy">
+        <div class="container tear-film-container">
+            <div class="tear-layer-info reveal">
+                <h2>The Anatomy of a <span class="gradient-text">Healthy Tear</span></h2>
+                <p class="text-muted mb-24">Your tears are more than just water. A healthy tear film consists of three
+                    distinct layers. Dysfunction in any single layer can cause severe dry eye symptoms.</p>
+
+                <div class="layer-card active" data-layer="lipid">
+                    <h4><span class="layer-dot bg-yellow"></span> 1. Lipid Layer (Outer)</h4>
+                    <p>Produced by the Meibomian glands in your eyelids. This oily layer seals the tears and prevents
+                        them from evaporating too quickly.</p>
+                </div>
+                <div class="layer-card" data-layer="aqueous">
+                    <h4><span class="layer-dot bg-blue"></span> 2. Aqueous Layer (Middle)</h4>
+                    <p>Produced by the lacrimal glands. This watery layer makes up most of the tear, providing essential
+                        nutrients, oxygen, and washing away particles.</p>
+                </div>
+                <div class="layer-card" data-layer="mucin">
+                    <h4><span class="layer-dot bg-green"></span> 3. Mucin Layer (Inner)</h4>
+                    <p>Produced by goblet cells on the eye's surface. This mucous layer acts like an adhesive, helping
+                        the watery layer stick evenly to the eye.</p>
+                </div>
+            </div>
+            <div class="tear-film-visual reveal reveal-delay-2">
+                <div class="interactive-anatomy-container">
+                    <img src="assets/tear_film_full.png" alt="Healthy Tear Film Anatomy"
+                        class="anatomy-layer anatomy-full active" />
+                    <img src="assets/tear_film_lipid.png" alt="Lipid Layer highlighted"
+                        class="anatomy-layer anatomy-lipid" />
+                    <img src="assets/tear_film_aqueous.png" alt="Aqueous Layer highlighted"
+                        class="anatomy-layer anatomy-aqueous" />
+                    <img src="assets/tear_film_mucin.png" alt="Mucin Layer highlighted"
+                        class="anatomy-layer anatomy-mucin" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIAGNOSTICS -->
+    <section class="section section-light" id="diagnostics">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Precision <span class="gradient-text">Diagnostics</span></h2>
+                <p>We use state-of-the-art technology to pinpoint the exact root cause of your dry eye, allowing us to
+                    customize a treatment plan specifically for you.</p>
+            </div>
+
+            <div class="diagnostics-grid reveal reveal-delay-1">
+                <!-- Card 1 -->
+                <div class="diag-card">
+                    <div class="diag-card-inner">
+                        <div class="diag-front">
+                            <div class="diag-icon">👁️</div>
+                            <h3>LipiView® Interferometry</h3>
+                            <p>Assesses the lipid (oil) layer</p>
+                            <span class="diag-flip-hint">Click to flip</span>
+                        </div>
+                        <div class="diag-back">
+                            <h3>LipiView®</h3>
+                            <p>Measures your lipid layer thickness with nanometer precision and captures your blink
+                                dynamics to identify if you are fully blinking.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="diag-card">
+                    <div class="diag-card-inner">
+                        <div class="diag-front">
+                            <div class="diag-icon">📷</div>
+                            <h3>Meibography</h3>
+                            <p>Infrared gland imaging</p>
+                            <span class="diag-flip-hint">Click to flip</span>
+                        </div>
+                        <div class="diag-back">
+                            <h3>Meibography</h3>
+                            <p>Utilizes advanced infrared imaging to visualize the Meibomian glands inside your eyelids,
+                                assessing them for structural health and dropout (gland loss).</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="diag-card">
+                    <div class="diag-card-inner">
+                        <div class="diag-front">
+                            <div class="diag-icon">⏱️</div>
+                            <h3>Tear Break-Up Time</h3>
+                            <p>Measures tear stability</p>
+                            <span class="diag-flip-hint">Click to flip</span>
+                        </div>
+                        <div class="diag-back">
+                            <h3>TBUT Testing</h3>
+                            <p>Uses a specialized fluorescein dye to measure exactly how many seconds it takes for your
+                                tear film to break apart between blinks.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="diag-card">
+                    <div class="diag-card-inner">
+                        <div class="diag-front">
+                            <div class="diag-icon">💧</div>
+                            <h3>Schirmer's Test</h3>
+                            <p>Measures tear volume</p>
+                            <span class="diag-flip-hint">Click to flip</span>
+                        </div>
+                        <div class="diag-back">
+                            <h3>Schirmer's Test</h3>
+                            <p>A simple, safe paper strip test placed gently on the lower eyelid to measure your
+                                baseline aqueous (water) tear production over 5 minutes.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="diag-card">
+                    <div class="diag-card-inner">
+                        <div class="diag-front">
+                            <div class="diag-icon">🔬</div>
+                            <h3>Osmolarity Testing</h3>
+                            <p>TearLab assessment</p>
+                            <span class="diag-flip-hint">Click to flip</span>
+                        </div>
+                        <div class="diag-back">
+                            <h3>TearLab Osmolarity</h3>
+                            <p>Measures the salt concentration of your tears. A high osmolarity reading is a proven
+                                biomarker indicating the severity of dry eye disease.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="diag-card">
+                    <div class="diag-card-inner">
+                        <div class="diag-front">
+                            <div class="diag-icon">🔥</div>
+                            <h3>Inflammatory Markers</h3>
+                            <p>InflammaDry point-of-care</p>
+                            <span class="diag-flip-hint">Click to flip</span>
+                        </div>
+                        <div class="diag-back">
+                            <h3>InflammaDry</h3>
+                            <p>A rapid test detecting elevated levels of MMP-9, a key inflammatory biomarker that is
+                                often elevated in patients with dry eye disease.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TREATMENTS SECTION -->
+    <section class="section" id="treatments">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Advanced <span class="gradient-text">Treatments</span></h2>
+                <p>We provide a comprehensive spectrum of treatments targeting the specific root causes of your dry eye,
+                    utilizing the latest in pharmaceuticals and in-office procedures.</p>
+            </div>
+
+            <div class="treatments-tabs reveal reveal-delay-1">
+                <button class="tab-btn active" data-target="pharma">Pharmaceutical Treatments</button>
+                <button class="tab-btn" data-target="procedures">In-Office Procedures</button>
+            </div>
+
+            <!-- PHARMACEUTICAL TAB -->
+            <div class="tab-panel active" id="pharma">
+
+                <!-- Restasis -->
+                <div class="treatment-card">
+                    <div class="treatment-header">
+                        <div class="treatment-icon">🧬</div>
+                        <div>
+                            <h3>Restasis® <span class="font-sm font-normal text-muted">(Cyclosporine 0.05%)</span></h3>
+                            <span class="treatment-type">Anti-Inflammatory Drop</span>
+                        </div>
+                    </div>
+                    <div class="treatment-body">
+                        <div class="moa-section">
+                            <h4>How It Works</h4>
+                            <p>Your immune system can mistakenly attack your own tear glands, causing inflammation that
+                                halts tear production. Restasis contains cyclosporine, which calms this specific immune
+                                response—like telling overactive immune cells to stand down—so your glands can produce
+                                tears naturally again.</p>
+                            <div class="ideal-for">
+                                <span class="ideal-tag">Aqueous Deficiency</span>
+                                <span class="ideal-tag">Autoimmune Related</span>
+                            </div>
+                        </div>
+                        <div class="moa-diagram">
+                            <div class="moa-steps">
+                                <div class="moa-step">Immune Attack</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step highlight">Restasis<br />Calms Response</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step border-accent-green">Natural Tears<br />Restored</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Xiidra -->
+                <div class="treatment-card">
+                    <div class="treatment-header">
+                        <div class="treatment-icon">🛑</div>
+                        <div>
+                            <h3>Xiidra® <span class="font-sm font-normal text-muted">(Lifitegrast 5%)</span></h3>
+                            <span class="treatment-type">Targeted Inflammation Blocker</span>
+                        </div>
+                    </div>
+                    <div class="treatment-body">
+                        <div class="moa-section">
+                            <h4>How It Works</h4>
+                            <p>Dry eye inflammation starts when certain immune cells (T-cells) stick to the surface of
+                                your eye. Xiidra works by blocking the molecular "handshake" (LFA-1/ICAM-1 interaction)
+                                that lets these cells latch on, reducing inflammation directly at the source.</p>
+                            <div class="ideal-for">
+                                <span class="ideal-tag">Fast Relief</span>
+                                <span class="ideal-tag">Surface Inflammation</span>
+                            </div>
+                        </div>
+                        <div class="moa-diagram">
+                            <div class="moa-steps">
+                                <div class="moa-step">T-Cells Approach</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step highlight">Xiidra Blocks<br />Connection</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step border-accent-green">Surface<br />Heals</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tryptyr -->
+                <div class="treatment-card">
+                    <div class="treatment-header">
+                        <div class="treatment-icon">👃</div>
+                        <div>
+                            <h3>Tryptyr <span class="font-sm font-normal text-muted">(Neurostimulation spray)</span>
+                            </h3>
+                            <span class="treatment-type">Neurostimulation Spray</span>
+                        </div>
+                    </div>
+                    <div class="treatment-body">
+                        <div class="moa-section">
+                            <h4>How It Works</h4>
+                            <p>Tryptyr is a unique nasal spray that activates a natural nerve pathway connecting your
+                                nose to your tear glands. By stimulating the trigeminal nerve, it signals your body to
+                                produce all three layers of your natural tear film—like flipping a switch that your body
+                                already has.</p>
+                            <div class="ideal-for">
+                                <span class="ideal-tag">Drop-Free Option</span>
+                                <span class="ideal-tag">Comprehensive Tear Production</span>
+                            </div>
+                        </div>
+                        <div class="moa-diagram">
+                            <div class="moa-steps">
+                                <div class="moa-step">Nasal Spray</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step highlight">Trigeminal Nerve<br />Activated</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step border-accent-green">Full Tear<br />Production</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Miebo -->
+                <div class="treatment-card">
+                    <div class="treatment-header">
+                        <div class="treatment-icon">💧</div>
+                        <div>
+                            <h3>Miebo® <span class="font-sm font-normal text-muted">(100% Perfluorohexyloctane)</span>
+                            </h3>
+                            <span class="treatment-type">Evaporation Shield Drop</span>
+                        </div>
+                    </div>
+                    <div class="treatment-body">
+                        <div class="moa-section">
+                            <h4>How It Works</h4>
+                            <p>Miebo is a unique, water-free eye drop that directly targets tear evaporation. It spreads
+                                quickly across the eye's surface to form a protective shield that mimics the natural
+                                lipid layer, preventing your natural tears from evaporating and providing lasting
+                                relief.</p>
+                            <div class="ideal-for">
+                                <span class="ideal-tag">Evaporative Dry Eye</span>
+                                <span class="ideal-tag">Lipid Layer Support</span>
+                            </div>
+                        </div>
+                        <div class="moa-diagram">
+                            <div class="moa-steps">
+                                <div class="moa-step">Drop Applied</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step highlight">Lipid Shield<br />Forms</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step border-accent-green">Evaporation<br />Prevented</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cequa -->
+                <div class="treatment-card">
+                    <div class="treatment-header">
+                        <div class="treatment-icon">🔬</div>
+                        <div>
+                            <h3>Cequa® <span class="font-sm font-normal text-muted">(Cyclosporine 0.09%)</span></h3>
+                            <span class="treatment-type">Nanomicelle Technology</span>
+                        </div>
+                    </div>
+                    <div class="treatment-body">
+                        <div class="moa-section">
+                            <h4>How It Works</h4>
+                            <p>Similar to Restasis but utilizing a breakthrough delivery technology called NCELL™
+                                nanomicelles. These microscopic carriers help the medication penetrate deeper into your
+                                eye tissue, delivering a stronger dose of immune-calming cyclosporine exactly where it's
+                                needed most.</p>
+                            <div class="ideal-for">
+                                <span class="ideal-tag">Deep Penetration</span>
+                                <span class="ideal-tag">Chronic Inflammation</span>
+                            </div>
+                        </div>
+                        <div class="moa-diagram">
+                            <div class="moa-steps">
+                                <div class="moa-step">Nanomicelles</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step highlight">Deep Tissue<br />Penetration</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step border-accent-green">Enhanced<br />Calming Effect</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROCEDURES TAB -->
+            <div class="tab-panel" id="procedures">
+
+                <!-- Punctal Plugs -->
+                <div class="treatment-card">
+                    <div class="treatment-header">
+                        <div class="treatment-icon">🔌</div>
+                        <div>
+                            <h3>Punctal Plugs</h3>
+                            <span class="treatment-type">Tear Conservation Therapy</span>
+                        </div>
+                    </div>
+                    <div class="treatment-body">
+                        <div class="moa-section">
+                            <h4>How It Works</h4>
+                            <p>Your tears naturally drain away through tiny openings called puncta in your eyelid
+                                corners. Punctal plugs are microscopic biocompatible devices (smaller than a grain of
+                                rice) that gently block these drain holes. By slowing tear drainage, your own natural
+                                tears and artificial tears stay on your eyes longer—like putting a stopper in a bathtub
+                                to keep the water in.</p>
+                            <div class="ideal-for">
+                                <span class="ideal-tag">Aqueous Deficiency</span>
+                                <span class="ideal-tag">Post-Surgical Dryness</span>
+                            </div>
+                        </div>
+                        <div class="moa-diagram">
+                            <div class="moa-steps">
+                                <div class="moa-step">Fast Drainage</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step highlight">Plugs Inserted</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step border-accent-green">Tears Retained<br />Longer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LipiFlow -->
+                <div class="treatment-card">
+                    <div class="treatment-header">
+                        <div class="treatment-icon">🌡️</div>
+                        <div>
+                            <h3>LipiFlow®</h3>
+                            <span class="treatment-type">Thermal Pulsation System</span>
+                        </div>
+                    </div>
+                    <div class="treatment-body">
+                        <div class="moa-section">
+                            <h4>How It Works</h4>
+                            <p>LipiFlow is a 12-minute in-office treatment that applies precisely controlled heat to the
+                                inside of your eyelids while simultaneously applying gentle pulsating pressure to the
+                                outside. This combination melts and expresses blocked oils from your Meibomian
+                                glands—like unclogging tiny oil ducts—restoring the protective lipid layer of your
+                                tears.</p>
+                            <div class="ideal-for">
+                                <span class="ideal-tag">Meibomian Gland Dysfunction</span>
+                                <span class="ideal-tag">Evaporative Dry Eye</span>
+                            </div>
+                        </div>
+                        <div class="moa-diagram">
+                            <div class="moa-steps">
+                                <div class="moa-step">Heat Applied</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step highlight">Blocked Oils<br />Melted</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step border-accent-green">Clear Glands &<br />Healthy Tears</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NearTear -->
+                <div class="treatment-card">
+                    <div class="treatment-header">
+                        <div class="treatment-icon">⚡</div>
+                        <div>
+                            <h3>NearTear®</h3>
+                            <span class="treatment-type">Intranasal Neurostimulation</span>
+                        </div>
+                    </div>
+                    <div class="treatment-body">
+                        <div class="moa-section">
+                            <h4>How It Works</h4>
+                            <p>NearTear uses tiny electrical impulses delivered inside your nose to activate the same
+                                natural nerve pathways that trigger tear production. Think of it as gently "turning up
+                                the volume" on your body's own tear-making system. The treatment stimulates both the
+                                aqueous (watery) and lipid (oily) components of your tears.</p>
+                            <div class="ideal-for">
+                                <span class="ideal-tag">Low Tear Volume</span>
+                                <span class="ideal-tag">Natural Tear Stimulation</span>
+                            </div>
+                        </div>
+                        <div class="moa-diagram">
+                            <div class="moa-steps">
+                                <div class="moa-step">Electrical<br />Impulse</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step highlight">Nerve Pathway<br />Activation</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step border-accent-green">Body's Own<br />Tears Produced</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Patient <span class="gradient-text">Success Stories</span></h2>
+                <p>Don't just take our word for it. Hear from Marano Eye Care patients who have found lasting relief.
+                </p>
+            </div>
+
+            <div class="testimonial-carousel reveal reveal-delay-1">
+                <div class="testimonial-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-quote">"I suffered from dry, burning eyes for years. After LipiFlow
+                                treatment at Marano Eye Care, I felt relief within weeks. Dr. Marano and her team
+                                changed my quality of life."</p>
+                            <div class="testimonial-author">Maria T.</div>
+                            <div class="testimonial-location">Denville, NJ</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-quote">"I tried every artificial tear on the market. Dr. Marano
+                                diagnosed my Meibomian gland dysfunction and created a treatment plan that actually
+                                works. I wish I'd come here sooner."</p>
+                            <div class="testimonial-author">Robert K.</div>
+                            <div class="testimonial-location">Livingston, NJ</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-quote">"The diagnostic technology at Marano Eye Care is incredible.
+                                They showed me images of my actual tear glands and explained exactly what was happening.
+                                I finally understood my dry eye."</p>
+                            <div class="testimonial-author">Susan L.</div>
+                            <div class="testimonial-location">Montclair, NJ</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-quote">"After cataract surgery, my dry eye got much worse. Dr. Marano
+                                treated me with a combination of punctal plugs and Xiidra. My eyes feel comfortable for
+                                the first time in years."</p>
+                            <div class="testimonial-author">Patricia M.</div>
+                            <div class="testimonial-location">Cedar Knolls, NJ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn carousel-prev">←</button>
+                    <div class="carousel-dots">
+                        <button class="carousel-dot active" aria-label="Slide 1"></button>
+                        <button class="carousel-dot" aria-label="Slide 2"></button>
+                        <button class="carousel-dot" aria-label="Slide 3"></button>
+                        <button class="carousel-dot" aria-label="Slide 4"></button>
+                    </div>
+                    <button class="carousel-btn carousel-next">→</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-light" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+            </div>
+
+            <div class="faq-list reveal reveal-delay-1">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is dry eye a permanent condition?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>While dry eye is often a chronic condition, it is highly manageable. With the right
+                            diagnostic approach and a tailored treatment plan, we can significantly reduce your
+                            symptoms, prevent further damage to the ocular surface, and restore your quality of life.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long will it take to feel relief from treatments?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>This varies by patient and treatment. Some procedures like LipiFlow or punctal plugs can
+                            provide relief within a few weeks. Prescription drops like Restasis or Xiidra may take 2 to
+                            12 weeks of consistent use to achieve their full anti-inflammatory effect.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Does insurance cover dry eye treatments?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Many diagnostic tests and prescription medications (like Restasis or Xiidra) are covered by
+                            standard health or vision insurance, though co-pays vary. Some advanced in-office procedures
+                            like LipiFlow are typically considered out-of-pocket expenses. Our team will verify your
+                            benefits and explain all costs prior to treatment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA & CONTACT -->
+    <section class="section cta-section" id="contact">
+        <div class="container">
+            <div class="cta-grid">
+                <div class="cta-info reveal">
+                    <h2>Take the First Step Toward Relief</h2>
+                    <p>Don't let dry eye dictate your life. Schedule your comprehensive dry eye evaluation at Marano Eye
+                        Care today.</p>
+
+                    <ul class="cta-details">
+                        <li><span>📍</span> 200 South Orange Ave Suite 209, Livingston NJ, 07039</li>
+                        <li><span>📞</span> (973) 322-0100</li>
+                        <li><span>✉️</span> staff@mec1.net</li>
+                        <li><span>🕒</span> Mon-Fri: 9:00 AM - 5:00 PM</li>
+                    </ul>
+                </div>
+
+                <div class="cta-form reveal reveal-delay-2">
+                    <div class="glass-card p-40">
+                        <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true">
+                            <input type="hidden" name="form-name" value="contact">
+                            <input type="hidden" name="subject" value="New Patient Consult Request">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name</label>
+                                    <input type="text" id="first-name" name="first-name" required placeholder="Jane">
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" id="last-name" name="last-name" required placeholder="Doe">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email-address">Email Address</label>
+                                <input type="email" id="email-address" name="email" required placeholder="jane@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="primary-concern">Primary Concern</label>
+                                <select id="primary-concern" name="concern" required aria-label="Primary Concern">
+                                    <option value="">Select an option...</option>
+                                    <option value="evaluation">New Dry Eye Evaluation</option>
+                                    <option value="lipiflow">Interested in LipiFlow</option>
+                                    <option value="second-opinion">Second Opinion</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message (Optional)</label>
+                                <textarea id="message" name="message" rows="3" placeholder="How can we help you?"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 justify-center mt-16">Request
+                                Appointment</button>
+                        </form>
+                        <div class="form-success">
+                            <h3>Thank You!</h3>
+                            <p>Your request has been received. Our team will contact you shortly to confirm your
+                                appointment time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <img src="assets/marano_logo.png" alt="Marano Eye Care" class="logo-img">
+                    </div>
+                    <p>New Jersey's Premier Destination for Advanced Dry Eye Diagnostics and Customized
+                        Treatment Plans.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#understanding">Life Stages</a></li>
+                        <li><a href="#diagnostics">Diagnostics</a></li>
+                        <li><a href="#treatments">Treatments</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Patient Portal</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Marano Eye Care. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
