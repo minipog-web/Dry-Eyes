@@ -475,7 +475,31 @@
                 <!-- Punctal Plugs -->
                 <div class="treatment-card">
                     <div class="treatment-header">
-                        <div class="treatment-icon">🔌</div>
+                        <div class="treatment-icon">
+                            <svg viewBox="0 0 32 32" class="w-32 h-32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="collagen-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+                                        <stop offset="50%" stop-color="#A8BDE0" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#7B96C8" stop-opacity="0.5" />
+                                    </linearGradient>
+                                    <filter id="collagen-glow" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="1" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                </defs>
+                                <!-- Plug 1 (Left, angled left) -->
+                                <g transform="translate(3, 2)">
+                                    <rect x="6" y="8" width="4" height="14" rx="2" transform="rotate(-15 8 15)" fill="url(#collagen-grad)" filter="url(#collagen-glow)" />
+                                    <ellipse cx="8" cy="8" rx="3.5" ry="1.5" transform="rotate(-15 8 15)" fill="#FFFFFF" />
+                                </g>
+                                <!-- Plug 2 (Right, angled right) -->
+                                <g transform="translate(11, 2)">
+                                    <rect x="8" y="8" width="4" height="14" rx="2" transform="rotate(15 10 15)" fill="url(#collagen-grad)" filter="url(#collagen-glow)" />
+                                    <ellipse cx="10" cy="8" rx="3.5" ry="1.5" transform="rotate(15 10 15)" fill="#FFFFFF" />
+                                </g>
+                            </svg>
+                        </div>
                         <div>
                             <h3>Punctal Plugs</h3>
                             <span class="treatment-type">Tear Conservation Therapy</span>
