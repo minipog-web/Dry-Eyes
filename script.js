@@ -120,16 +120,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Treatments Tabs
+  // Treatments Tabs - Sleek Segmented Slider Control
+  const treatmentsWrapper = document.querySelector('.treatments-control-wrapper');
+  const slidingPillTreatment = document.querySelector('.sliding-pill-bg-treatment');
   const tabBtns = document.querySelectorAll('.tab-btn');
   const tabPanels = document.querySelectorAll('.tab-panel');
+
+  const updateSlidingPillTreatment = (activeTab) => {
+    if (!slidingPillTreatment || !activeTab || !treatmentsWrapper) return;
+    
+    const leftOffset = activeTab.offsetLeft;
+    const tabWidth = activeTab.offsetWidth;
+    
+    slidingPillTreatment.style.width = `${tabWidth}px`;
+    slidingPillTreatment.style.transform = `translateX(${leftOffset}px)`;
+  };
 
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.target;
       
-      tabBtns.forEach(b => b.classList.remove('active'));
+      tabBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      updateSlidingPillTreatment(btn);
 
       tabPanels.forEach(panel => {
         if (panel.id === target) {
@@ -139,6 +157,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+  });
+
+  const initialActiveTreatment = document.querySelector('.tab-btn.active');
+  if (initialActiveTreatment) {
+    setTimeout(() => updateSlidingPillTreatment(initialActiveTreatment), 100);
+  }
+
+  window.addEventListener('resize', () => {
+    const currentActiveTreatment = document.querySelector('.tab-btn.active');
+    if (currentActiveTreatment) {
+      updateSlidingPillTreatment(currentActiveTreatment);
+    }
   });
 
   // Testimonials Carousel
