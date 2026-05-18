@@ -384,6 +384,7 @@ img {
   text-align: center;
   border-radius: 80px;
   transition: color 0.3s ease, transform 0.2s ease;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -744,6 +745,7 @@ img {
   cursor: pointer;
   border-radius: 80px;
   transition: color 0.3s ease, transform 0.2s ease;
+  -webkit-user-select: none;
   user-select: none;
   text-align: center;
 }
