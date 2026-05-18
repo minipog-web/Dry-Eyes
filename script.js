@@ -38,25 +38,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Life Stages Timeline
-  const timelineNodes = document.querySelectorAll('.timeline-node');
+  // Life Stages Timeline - Sleek Segmented Slider Control
+  const stagesWrapper = document.querySelector('.stages-control-wrapper');
+  const slidingPill = document.querySelector('.sliding-pill-bg');
+  const stageTabs = document.querySelectorAll('.stage-tab');
   const stageContents = document.querySelectorAll('.stage-content');
 
-  timelineNodes.forEach(node => {
-    node.addEventListener('click', () => {
-      const stage = node.dataset.stage;
+  const updateSlidingPill = (activeTab) => {
+    if (!slidingPill || !activeTab || !stagesWrapper) return;
+    
+    const leftOffset = activeTab.offsetLeft;
+    const tabWidth = activeTab.offsetWidth;
+    
+    slidingPill.style.width = `${tabWidth}px`;
+    slidingPill.style.transform = `translateX(${leftOffset}px)`;
+  };
+
+  stageTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetStage = tab.dataset.stage;
       
-      timelineNodes.forEach(n => n.classList.remove('active'));
-      node.classList.add('active');
+      stageTabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      updateSlidingPill(tab);
 
       stageContents.forEach(content => {
-        if (content.id === `stage-${stage}`) {
+        if (content.id === `stage-${targetStage}`) {
           content.classList.add('active');
         } else {
           content.classList.remove('active');
         }
       });
     });
+  });
+
+  const initialActiveTab = document.querySelector('.stage-tab.active');
+  if (initialActiveTab) {
+    setTimeout(() => updateSlidingPill(initialActiveTab), 100);
+  }
+
+  window.addEventListener('resize', () => {
+    const currentActiveTab = document.querySelector('.stage-tab.active');
+    if (currentActiveTab) {
+      updateSlidingPill(currentActiveTab);
+    }
   });
 
   // Tear Film Anatomy
