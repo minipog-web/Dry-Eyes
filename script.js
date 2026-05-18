@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const size = Math.random() * 30 + 10;
       const left = Math.random() * 100;
       const duration = Math.random() * 20 + 10;
-      const delay = Math.random() * 10;
+      const delay = -Math.random() * duration;
       
       particle.style.width = `${size}px`;
       particle.style.height = `${size}px`;
