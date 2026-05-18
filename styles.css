@@ -11,7 +11,7 @@
   --surface-card: rgba(27, 45, 69, 0.55);
   --surface-light: #F4F7FB;
   --text-primary: #E8EDF5;
-  --text-muted: #8899B3;
+  --text-muted: #B5C4D9;
   --text-dark: #1A2332;
   --glow: rgba(123, 150, 200, 0.35);
   --glow-green: rgba(111, 168, 122, 0.3);
@@ -246,8 +246,9 @@ img {
   color: #fff;
 }
 
-.nav-cta {
+.nav-links a.nav-cta {
   margin-left: 16px;
+  color: #ffffff;
 }
 
 .mobile-toggle {
@@ -676,20 +677,39 @@ img {
 }
 
 .diag-back {
-  background: linear-gradient(135deg, var(--primary-dark), var(--surface-mid));
+  background: linear-gradient(135deg, #1A283D, #0D1726); /* Rich, deep indigo-slate gradient for high text contrast */
   transform: rotateY(180deg);
-  border: 1px solid rgba(123, 150, 200, 0.2);
+  border: 1px solid rgba(123, 150, 200, 0.3);
+  color: #E2E8F0;
+  box-shadow: 0 12px 32px rgba(13, 27, 42, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .diag-back h3 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
   margin-bottom: 12px;
-  color: #fff;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid rgba(123, 150, 200, 0.2);
+  padding-bottom: 8px;
+  display: inline-block;
+  width: 100%;
 }
 
 .diag-back p {
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #CBD5E1; /* High-contrast light slate gray */
+  font-weight: 400;
+}
+
+/* Explicitly override light section inheritance to prevent any text contrast issue */
+.section-light .diag-back h3 {
+  color: #FFFFFF;
+}
+
+.section-light .diag-back p {
+  color: #CBD5E1;
 }
 
 
@@ -963,9 +983,9 @@ img {
   border-radius: 50px;
   font-size: 0.78rem;
   font-weight: 500;
-  background: rgba(111, 168, 122, 0.15);
-  color: var(--accent-green);
-  border: 1px solid rgba(111, 168, 122, 0.2);
+  background: rgba(111, 168, 122, 0.12);
+  color: #A7D8B1;
+  border: 1px solid rgba(111, 168, 122, 0.35);
 }
 
 /* ===================== TESTIMONIALS ===================== */
@@ -1063,7 +1083,7 @@ img {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(123, 150, 200, 0.3);
+  background: rgba(123, 150, 200, 0.48);
   cursor: pointer;
   transition: all var(--transition);
   border: none;
@@ -1229,6 +1249,11 @@ img {
   font-family: var(--font-body);
   font-size: 0.95rem;
   transition: border-color var(--transition);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(181, 196, 217, 0.65);
 }
 
 .form-group input:focus,
