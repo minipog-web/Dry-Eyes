@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const updateSlidingPill = (activeTab) => {
     if (!slidingPill || !activeTab || !stagesWrapper) return;
     
-    const leftOffset = activeTab.offsetLeft;
+    const leftOffset = activeTab.offsetLeft + activeTab.parentElement.offsetLeft;
     const tabWidth = activeTab.offsetWidth;
     
     slidingPill.style.width = `${tabWidth}px`;
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const updateSlidingPillTreatment = (activeTab) => {
     if (!slidingPillTreatment || !activeTab || !treatmentsWrapper) return;
     
-    const leftOffset = activeTab.offsetLeft;
+    const leftOffset = activeTab.offsetLeft + activeTab.parentElement.offsetLeft;
     const tabWidth = activeTab.offsetWidth;
     
     slidingPillTreatment.style.width = `${tabWidth}px`;
