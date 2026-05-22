@@ -286,6 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const details = document.querySelector('.result-details');
   const severityBadge = document.querySelector('.severity-badge');
   const resultMessage = document.querySelector('.result-message');
+  const scoreValue = document.querySelector('.score-value');
 
   const messages = {
     mild: "Based on your selection, you may be experiencing early signs of dry eye. Simple lifestyle adjustments, reducing screen time, and using preservative-free lubricating drops might offer relief.",
@@ -304,6 +305,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     placeholder.classList.remove('active');
     details.classList.add('active');
+
+    // Update dynamic indicator score display
+    if (scoreValue) {
+      scoreValue.textContent = `${checkedCount} / ${checkboxes.length}`;
+    }
 
     // Update severity levels based on count
     severityBadge.className = 'severity-badge'; // reset
