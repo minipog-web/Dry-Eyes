@@ -279,4 +279,50 @@ document.addEventListener('DOMContentLoaded', () => {
       particlesContainer.appendChild(particle);
     }
   }
+
+  // Dry Eye Self-Assessment Widget
+  const checkboxes = document.querySelectorAll('.symptom-checkbox');
+  const placeholder = document.querySelector('.result-placeholder');
+  const details = document.querySelector('.result-details');
+  const severityBadge = document.querySelector('.severity-badge');
+  const resultMessage = document.querySelector('.result-message');
+
+  const messages = {
+    mild: "Based on your selection, you may be experiencing early signs of dry eye. Simple lifestyle adjustments, reducing screen time, and using preservative-free lubricating drops might offer relief.",
+    moderate: "You exhibit moderate dry eye symptoms. It is recommended to seek a professional diagnostic scan (such as LipiView or TearLab) to pinpoint the exact dysfunctional layer of your tear film.",
+    severe: "Your symptoms suggest advanced ocular surface discomfort. We highly recommend scheduling a comprehensive dry eye evaluation immediately to prevent long-term gland dysfunction or corneal damage."
+  };
+
+  const updateAssessment = () => {
+    const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+    
+    if (checkedCount === 0) {
+      placeholder.classList.add('active');
+      details.classList.remove('active');
+      return;
+    }
+
+    placeholder.classList.remove('active');
+    details.classList.add('active');
+
+    // Update severity levels based on count
+    severityBadge.className = 'severity-badge'; // reset
+    if (checkedCount <= 2) {
+      severityBadge.textContent = 'Mild Irritation';
+      severityBadge.classList.add('status-mild');
+      resultMessage.textContent = messages.mild;
+    } else if (checkedCount <= 4) {
+      severityBadge.textContent = 'Moderate Dry Eye';
+      severityBadge.classList.add('status-moderate');
+      resultMessage.textContent = messages.moderate;
+    } else {
+      severityBadge.textContent = 'Severe OSD';
+      severityBadge.classList.add('status-severe');
+      resultMessage.textContent = messages.severe;
+    }
+  };
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', updateAssessment);
+  });
 });

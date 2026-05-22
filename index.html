@@ -21,6 +21,7 @@
             <button class="mobile-toggle">☰</button>
             <ul class="nav-links">
                 <li><a href="#understanding">Life Stages</a></li>
+                <li><a href="#symptoms">Symptoms</a></li>
                 <li><a href="#diagnostics">Diagnostics</a></li>
                 <li><a href="#treatments">Treatments</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
@@ -171,6 +172,131 @@
                         class="anatomy-layer anatomy-aqueous" />
                     <img src="assets/tear_film_mucin.png" alt="Mucin Layer highlighted"
                         class="anatomy-layer anatomy-mucin" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIGNS & SYMPTOMS -->
+    <section class="section" id="symptoms">
+        <div class="container symptoms-container">
+            <!-- Left: Symptoms Info and Cards -->
+            <div class="symptoms-content reveal">
+                <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+                    <h2>Recognizing the <br /><span class="gradient-text">Signs & Symptoms</span></h2>
+                    <p style="margin: 0; max-width: 100%;">Dry eye syndrome is a multi-layered condition. Its symptoms are often sensory warnings indicating that your tear film is out of balance.</p>
+                </div>
+                
+                <div class="symptoms-grid">
+                    <!-- Card 1 -->
+                    <div class="symptom-card glass-card">
+                        <div class="symptom-card-header">
+                            <span class="symptom-emoji">🔥</span>
+                            <h3>Burning & Stinging</h3>
+                        </div>
+                        <p>A constant hot, irritated sensation, frequently exacerbated by environmental triggers like wind, air conditioning, or smoke.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="symptom-card glass-card">
+                        <div class="symptom-card-header">
+                            <span class="symptom-emoji">🏜️</span>
+                            <h3>Grittiness & Scratchiness</h3>
+                        </div>
+                        <p>The persistent feeling that sand, dust, or a foreign particle is trapped under your eyelids, even after rinsing.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="symptom-card glass-card">
+                        <div class="symptom-card-header">
+                            <span class="symptom-emoji">💧</span>
+                            <h3>Reflex Tearing (Watery Eyes)</h3>
+                        </div>
+                        <p>Excessive watering that occurs as a reflex response to dry surface irritation. These tears lack the lubricating lipid layer and run off without providing relief.</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="symptom-card glass-card">
+                        <div class="symptom-card-header">
+                            <span class="symptom-emoji">🌫️</span>
+                            <h3>Fluctuating / Blurred Vision</h3>
+                        </div>
+                        <p>Vision that blurs or tires quickly, particularly when reading or staring at screens. Vision briefly improves immediately after blinking.</p>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="symptom-card glass-card">
+                        <div class="symptom-card-header">
+                            <span class="symptom-emoji">👁️</span>
+                            <h3>Redness & Inflammation</h3>
+                        </div>
+                        <p>Visible bloodshot eyes and swollen eyelid margins caused by friction and chronic inflammation on the unprotected ocular surface.</p>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="symptom-card glass-card">
+                        <div class="symptom-card-header">
+                            <span class="symptom-emoji">🕸️</span>
+                            <h3>Stringy Discharge</h3>
+                        </div>
+                        <p>A buildup of thick, stringy mucus threads in or around the corners of your eyes, especially noticeable upon waking up.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Interactive Self-Assessment Widget -->
+            <div class="assessment-column reveal reveal-delay-1">
+                <div class="assessment-widget glass-card">
+                    <div class="widget-header">
+                        <div class="widget-badge">Interactive</div>
+                        <h3>Dry Eye Self-Assessment</h3>
+                        <p>Check the symptoms you are experiencing to receive a customized recommendation.</p>
+                    </div>
+                    
+                    <div class="assessment-checklist">
+                        <label class="checklist-item">
+                            <input type="checkbox" class="symptom-checkbox" value="burning">
+                            <span class="custom-checkbox"></span>
+                            <span class="checklist-label">Burning or stinging eyes</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="symptom-checkbox" value="grittiness">
+                            <span class="custom-checkbox"></span>
+                            <span class="checklist-label">Gritty or sandy sensation</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="symptom-checkbox" value="tearing">
+                            <span class="custom-checkbox"></span>
+                            <span class="checklist-label">Excessive watering / tearing</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="symptom-checkbox" value="blur">
+                            <span class="custom-checkbox"></span>
+                            <span class="checklist-label">Blurry or fluctuating vision</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="symptom-checkbox" value="redness">
+                            <span class="custom-checkbox"></span>
+                            <span class="checklist-label">Redness or bloodshot eyes</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="symptom-checkbox" value="mucus">
+                            <span class="custom-checkbox"></span>
+                            <span class="checklist-label">Stringy mucus or discharge</span>
+                        </label>
+                    </div>
+
+                    <div class="assessment-result">
+                        <div class="result-placeholder active">
+                            <span class="placeholder-icon">📋</span>
+                            <p>Select your symptoms above to calculate your indicator score.</p>
+                        </div>
+                        <div class="result-details">
+                            <div class="severity-meter">
+                                <span class="severity-label">Ocular Discomfort Level:</span>
+                                <div class="severity-badge status-mild">Mild Irritation</div>
+                            </div>
+                            <div class="result-message">
+                                Based on your selection, you may be experiencing early signs of dry eye. Simple lifestyle adjustments and over-the-counter drops might offer relief.
+                            </div>
+                            <a href="#contact" class="btn btn-primary widget-cta">Book a Diagnostic Scan</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -915,6 +1041,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#understanding">Life Stages</a></li>
+                        <li><a href="#symptoms">Symptoms</a></li>
                         <li><a href="#diagnostics">Diagnostics</a></li>
                         <li><a href="#treatments">Treatments</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>

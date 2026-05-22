@@ -1713,3 +1713,251 @@ img {
 .form-honeypot {
   display: none !important;
 }
+
+/* ===================== SIGNS & SYMPTOMS ===================== */
+.symptoms-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.symptoms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.symptom-card {
+  padding: 24px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-card);
+  border: 1px solid var(--glass-border);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.symptom-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 30px rgba(91, 107, 168, 0.15);
+}
+
+.symptom-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.symptom-emoji {
+  font-size: 1.5rem;
+}
+
+.symptom-card h3 {
+  font-size: 1.15rem;
+  margin: 0;
+  font-family: var(--font-heading);
+}
+
+.symptom-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Assessment Widget */
+.assessment-widget {
+  padding: 32px;
+  border-radius: var(--radius);
+  background: var(--surface-card);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.widget-header h3 {
+  font-size: 1.4rem;
+  margin: 8px 0 4px 0;
+}
+
+.widget-header p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.widget-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  background: rgba(91, 107, 168, 0.2);
+  color: var(--primary-light);
+  border-radius: 20px;
+  border: 1px solid rgba(91, 107, 168, 0.3);
+}
+
+.assessment-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  user-select: none;
+}
+
+.checklist-item input {
+  display: none;
+}
+
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1.5px solid var(--text-muted);
+  background: rgba(20, 35, 55, 0.4);
+  position: relative;
+  transition: all var(--transition);
+}
+
+.checklist-item:hover .custom-checkbox {
+  border-color: var(--primary-light);
+}
+
+.checklist-item input:checked + .custom-checkbox {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.checklist-item input:checked + .custom-checkbox::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.checklist-label {
+  transition: color var(--transition);
+}
+
+.checklist-item input:checked ~ .checklist-label {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Results Area */
+.assessment-result {
+  background: rgba(13, 27, 42, 0.4);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-placeholder {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.result-placeholder.active {
+  display: flex;
+}
+
+.placeholder-icon {
+  font-size: 1.8rem;
+}
+
+.result-placeholder p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.result-details {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.result-details.active {
+  display: flex;
+}
+
+.severity-meter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(123, 150, 200, 0.1);
+  padding-bottom: 8px;
+}
+
+.severity-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.severity-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.status-mild {
+  background: rgba(78, 122, 88, 0.2);
+  color: #A3D9C9;
+  border: 1px solid rgba(78, 122, 88, 0.4);
+}
+
+.status-moderate {
+  background: rgba(220, 160, 50, 0.2);
+  color: #F3C68F;
+  border: 1px solid rgba(220, 160, 50, 0.4);
+}
+
+.status-severe {
+  background: rgba(217, 83, 79, 0.2);
+  color: #F3A3A1;
+  border: 1px solid rgba(217, 83, 79, 0.4);
+}
+
+.result-message {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.widget-cta {
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+}
+
+@media (max-width: 1024px) {
+  .symptoms-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
