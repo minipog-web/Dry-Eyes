@@ -287,6 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const severityBadge = document.querySelector('.severity-badge');
   const resultMessage = document.querySelector('.result-message');
   const scoreValue = document.querySelector('.score-value');
+  const pathwayValue = document.querySelector('.pathway-value');
 
   const messages = {
     mild: "Based on your selection, you may be experiencing early signs of dry eye. Simple lifestyle adjustments, reducing screen time, and using preservative-free lubricating drops might offer relief.",
@@ -317,18 +318,69 @@ document.addEventListener('DOMContentLoaded', () => {
       severityBadge.textContent = 'Mild Irritation';
       severityBadge.classList.add('status-mild');
       resultMessage.textContent = messages.mild;
+      if (pathwayValue) {
+        pathwayValue.textContent = "Tear Break-Up Time (TBUT) & Volume Scan";
+      }
     } else if (checkedCount <= 4) {
       severityBadge.textContent = 'Moderate Dry Eye';
       severityBadge.classList.add('status-moderate');
       resultMessage.textContent = messages.moderate;
+      if (pathwayValue) {
+        pathwayValue.textContent = "LipiView® Gland Scan & Meibography";
+      }
     } else {
       severityBadge.textContent = 'Severe OSD';
       severityBadge.classList.add('status-severe');
       resultMessage.textContent = messages.severe;
+      if (pathwayValue) {
+        pathwayValue.textContent = "Full Diagnostic Suite (LipiView + Osmolarity + MMP-9)";
+      }
     }
   };
 
   checkboxes.forEach(cb => {
     cb.addEventListener('change', updateAssessment);
   });
+
+  // Handle booking CTA integration from assessment widget
+  const widgetCta = document.querySelector('.widget-cta');
+  if (widgetCta) {
+    widgetCta.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      const checkedSymptoms = Array.from(checkboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.closest('.checklist-item').querySelector('.checklist-label').textContent.trim());
+      
+      const concernSelect = document.getElementById('primary-concern');
+      const messageTextArea = document.getElementById('message');
+      const checkedCount = checkedSymptoms.length;
+      
+      // Set dropdown concern based on severity
+      if (concernSelect) {
+        if (checkedCount >= 5) {
+          concernSelect.value = 'lipiflow'; // Suggest advanced therapy
+        } else {
+          concernSelect.value = 'evaluation'; // Standard consult
+        }
+      }
+      
+      // Pre-fill message
+      if (messageTextArea && checkedSymptoms.length > 0) {
+        messageTextArea.value = `Hello, I completed the self-assessment and scored ${checkedCount}/${checkboxes.length} with these symptoms: ${checkedSymptoms.join(', ')}. I'd like to schedule a diagnostic evaluation.`;
+      }
+      
+      // Scroll smoothly to contact form
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+        
+        // Focus on first name after scroll completes
+        setTimeout(() => {
+          const firstNameInput = document.getElementById('first-name');
+          if (firstNameInput) firstNameInput.focus();
+        }, 800);
+      }
+    });
+  }
 });
