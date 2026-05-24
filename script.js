@@ -8,6 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks.classList.toggle('open');
       mobileToggle.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
     });
+
+    // Close mobile nav when a link is clicked
+    const navLinksItems = document.querySelectorAll('.nav-links a');
+    navLinksItems.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.textContent = '☰';
+      });
+    });
   }
 
   // Navbar Scroll Effect
@@ -329,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pathwayValue.textContent = "LipiView® Gland Scan & Meibography";
       }
     } else {
-      severityBadge.textContent = 'Severe OSD';
+      severityBadge.textContent = 'Severe Dry Eye';
       severityBadge.classList.add('status-severe');
       resultMessage.textContent = messages.severe;
       if (pathwayValue) {
@@ -368,6 +377,23 @@ document.addEventListener('DOMContentLoaded', () => {
       // Pre-fill message
       if (messageTextArea && checkedSymptoms.length > 0) {
         messageTextArea.value = `Hello, I completed the self-assessment and scored ${checkedCount}/${checkboxes.length} with these symptoms: ${checkedSymptoms.join(', ')}. I'd like to schedule a diagnostic evaluation.`;
+      }
+      
+      // Show persuasive banner that details are linked
+      const assessmentBanner = document.getElementById('form-assessment-banner');
+      if (assessmentBanner) {
+        assessmentBanner.style.display = 'flex';
+      }
+      
+      // Add visual pulse effect to form card
+      const bookingCard = document.getElementById('booking-card');
+      if (bookingCard) {
+        bookingCard.classList.remove('pulse-highlight');
+        void bookingCard.offsetWidth; // Trigger reflow to restart animation
+        bookingCard.classList.add('pulse-highlight');
+        setTimeout(() => {
+          bookingCard.classList.remove('pulse-highlight');
+        }, 3000);
       }
       
       // Scroll smoothly to contact form
