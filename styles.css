@@ -912,6 +912,14 @@ img {
   display: block;
 }
 
+.diag-result-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
 
 .diag-card:hover {
   transform: translateY(-8px);
