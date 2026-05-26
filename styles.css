@@ -276,14 +276,14 @@ img {
 /* ===================== NAVBAR ===================== */
 .navbar {
   position: fixed;
-  top: 16px;
+  top: 0;
   left: 0;
   right: 0;
-  margin: 0 auto;
-  width: calc(100% - 48px);
-  max-width: 1152px;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
   z-index: 2000;
-  padding: 12px 24px;
+  padding: 16px 0;
   transition: all var(--transition);
 }
 
@@ -292,23 +292,22 @@ img {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: rgba(13, 27, 42, 0.45);
+  background: rgba(13, 27, 42, 0.55);
   -webkit-backdrop-filter: var(--glass-blur);
   backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: 100px;
-  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   transition: all var(--transition);
 }
 
 .navbar.scrolled {
-  top: 10px;
-  padding: 8px 24px;
+  top: 0;
+  padding: 12px 0;
 }
 
 .navbar.scrolled .navbar-bg {
-  background: rgba(13, 27, 42, 0.85);
-  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.12), 0 12px 40px rgba(0, 0, 0, 0.25);
+  background: rgba(6, 11, 19, 0.95);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
 .navbar .container {
@@ -316,7 +315,6 @@ img {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0;
 }
 
 @media (min-width: 901px) {
@@ -1686,17 +1684,20 @@ img {
   .nav-links {
     display: none;
     position: absolute;
-    top: calc(100% + 12px);
+    top: 100%;
     left: 0;
     right: 0;
-    background: #101F30; /* Solid background to prevent overlapping text from clashing */
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
+    width: 100%;
+    background: rgba(13, 27, 42, 0.98);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border);
+    border-radius: 0 0 16px 16px;
     flex-direction: column;
-    padding: 24px;
-    gap: 8px;
+    padding: 16px 24px;
+    gap: 4px;
     z-index: 2001;
-    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.08), 0 16px 48px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
   }
 
   .nav-links.open {
