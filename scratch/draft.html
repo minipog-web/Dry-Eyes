@@ -7,19 +7,18 @@
     <title>Premier Dry Eye Care Center | Marano Eye Care</title>
     <meta name="description"
         content="Marano Eye Care is Northern New Jersey's Premier Dry Eye Care Center, offering advanced diagnostics and life-changing relief through customized treatments.">
-    <link rel="stylesheet" href="styles.css?v=1.1.5">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="navbar-bg"></div>
         <div class="container">
             <a href="https://maranoeyecare.com" class="nav-logo">
                 <img src="assets/marano_logo.png" alt="Marano Eye Care" class="logo-img">
             </a>
-            <button class="mobile-toggle">☰</button>
+            <button class="mobile-toggle">?</button>
             <ul class="nav-links">
                 <li><a href="#understanding">Life Stages</a></li>
                 <li><a href="#symptoms">Symptoms</a></li>
@@ -55,32 +54,11 @@
                 <a href="#treatments" class="btn btn-primary btn-glow">Explore Treatments</a>
                 <a href="#contact" class="btn btn-outline">Book an Appointment</a>
             </div>
-            
-            <!-- TRUST BAR (Authority & Social Proof) -->
-            <div class="hero-trust-bar reveal reveal-delay-4">
-                <div class="trust-item">
-                    <span class="trust-icon">⭐</span>
-                    <span class="trust-text"><strong>10,000+</strong> Patients Treated</span>
-                </div>
-                <div class="trust-item">
-                    <span class="trust-icon">🛡️</span>
-                    <span class="trust-text"><strong>Board-Certified</strong> Specialists</span>
-                </div>
-                <div class="trust-item">
-                    <span class="trust-icon">🔬</span>
-                    <span class="trust-text"><strong>FDA-Cleared</strong> Diagnostics</span>
-                </div>
-                <div class="trust-item">
-                    <span class="trust-icon">📍</span>
-                    <span class="trust-text"><strong>3 Premier</strong> NJ Locations</span>
-                </div>
-            </div>
         </div>
     </section>
 
-
     <!-- UNDERSTANDING DRY EYE - LIFE STAGES -->
-    <section class="section section-light section-light-warm" id="understanding">
+    <section class="section section-light" id="understanding">
         <div class="container">
             <div class="section-header reveal">
                 <h2>Understanding Dry Eye <br /><span class="gradient-text-green">Through Life Stages</span></h2>
@@ -97,11 +75,11 @@
                     </button>
                     <button class="stage-tab btn-reset" role="tab" aria-selected="false" aria-controls="stage-young" data-stage="young">
                         <span class="stage-tab-label">Young Adults</span>
-                        <span class="stage-tab-age">20s – 30s</span>
+                        <span class="stage-tab-age">20s � 30s</span>
                     </button>
                     <button class="stage-tab btn-reset" role="tab" aria-selected="false" aria-controls="stage-middle" data-stage="middle">
                         <span class="stage-tab-label">Middle Age</span>
-                        <span class="stage-tab-age">40s – 50s</span>
+                        <span class="stage-tab-age">40s � 50s</span>
                     </button>
                     <button class="stage-tab btn-reset" role="tab" aria-selected="false" aria-controls="stage-seniors" data-stage="seniors">
                         <span class="stage-tab-label">Seniors</span>
@@ -162,167 +140,104 @@
 
     <!-- THE TEAR FILM -->
     <section class="section" id="anatomy">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Why Standard Drops <span class="gradient-text">Have Failed You</span></h2>
-                <p class="symptoms-header-p">If you've tried countless over-the-counter drops with no lasting relief, <strong>it is not your fault.</strong> Standard eye drops are mostly water—they just evaporate right off your eye. A healthy tear film requires three distinct layers to work. If your lipid (oil) layer is deficient (MGD, 86% of cases), water cannot stay on your eye.</p>
-            </div>
+        <div class="container tear-film-container">
+            <div class="tear-layer-info reveal">
+                <h2>The Anatomy of a <span class="gradient-text">Healthy Tear</span></h2>
+                <p class="text-muted mb-24">Your tears are more than just water. A healthy tear film consists of three
+                    distinct layers. Dysfunction in any single layer can cause severe dry eye symptoms.</p>
 
-            <div class="tear-film-container mt-48">
-                <div class="tear-layer-info reveal">
-                    <div class="layer-card active" data-layer="lipid">
-                        <h4><span class="layer-dot bg-yellow"></span> 1. Lipid Layer (Outer)</h4>
-                        <p>Produced by the Meibomian glands in your eyelids. This oily layer seals the tears and prevents
-                            them from evaporating too quickly.</p>
-                    </div>
-                    <div class="layer-card" data-layer="aqueous">
-                        <h4><span class="layer-dot bg-blue"></span> 2. Aqueous Layer (Middle)</h4>
-                        <p>Produced by the lacrimal glands. This watery layer makes up most of the tear, providing essential
-                            nutrients, oxygen, and washing away particles.</p>
-                    </div>
-                    <div class="layer-card" data-layer="mucin">
-                        <h4><span class="layer-dot bg-green"></span> 3. Mucin Layer (Inner)</h4>
-                        <p>Produced by goblet cells on the eye's surface. This mucous layer acts like an adhesive, helping
-                            the watery layer stick evenly to the eye.</p>
-                    </div>
+                <div class="layer-card active" data-layer="lipid">
+                    <h4><span class="layer-dot bg-yellow"></span> 1. Lipid Layer (Outer)</h4>
+                    <p>Produced by the Meibomian glands in your eyelids. This oily layer seals the tears and prevents
+                        them from evaporating too quickly.</p>
                 </div>
-                <div class="tear-film-visual reveal reveal-delay-2">
-                    <div class="interactive-anatomy-container">
-                        <img src="assets/tear_film_full.png" alt="Healthy Tear Film Anatomy"
-                            class="anatomy-layer anatomy-full active" />
-                        <img src="assets/tear_film_lipid.png" alt="Lipid Layer highlighted"
-                            class="anatomy-layer anatomy-lipid" />
-                        <img src="assets/tear_film_aqueous.png" alt="Aqueous Layer highlighted"
-                            class="anatomy-layer anatomy-aqueous" />
-                        <img src="assets/tear_film_mucin.png" alt="Mucin Layer highlighted"
-                            class="anatomy-layer anatomy-mucin" />
-                    </div>
+                <div class="layer-card" data-layer="aqueous">
+                    <h4><span class="layer-dot bg-blue"></span> 2. Aqueous Layer (Middle)</h4>
+                    <p>Produced by the lacrimal glands. This watery layer makes up most of the tear, providing essential
+                        nutrients, oxygen, and washing away particles.</p>
+                </div>
+                <div class="layer-card" data-layer="mucin">
+                    <h4><span class="layer-dot bg-green"></span> 3. Mucin Layer (Inner)</h4>
+                    <p>Produced by goblet cells on the eye's surface. This mucous layer acts like an adhesive, helping
+                        the watery layer stick evenly to the eye.</p>
                 </div>
             </div>
-        </div>
-
-        <!-- OTC Drop Trap Comparison (Framing & Mental Accounting) -->
-        <div class="container reveal reveal-delay-3 mt-48">
-            <div class="comparison-reframing">
-                <div class="reframing-card bad-route">
-                    <h5>The OTC Drop Trap</h5>
-                    <p class="cost">Cost: ~$360+/year (recurring)</p>
-                    <ul>
-                        <li>❌ Temporary 15-minute relief</li>
-                        <li>❌ Masks symptoms without treating root causes</li>
-                        <li>❌ Preservatives can cause more surface damage</li>
-                    </ul>
-                </div>
-                <div class="reframing-card good-route">
-                    <h5>The Precision Route</h5>
-                    <p class="cost">Value: Long-term root cause resolution</p>
-                    <ul>
-                        <li>✅ Identifies which of your 3 tear layers is failing</li>
-                        <li>✅ Preserves gland structure before irreversible damage</li>
-                        <li>✅ Tailored medical drops and targeted procedures</li>
-                    </ul>
+            <div class="tear-film-visual reveal reveal-delay-2">
+                <div class="interactive-anatomy-container">
+                    <img src="assets/tear_film_full.png" alt="Healthy Tear Film Anatomy"
+                        class="anatomy-layer anatomy-full active" />
+                    <img src="assets/tear_film_lipid.png" alt="Lipid Layer highlighted"
+                        class="anatomy-layer anatomy-lipid" />
+                    <img src="assets/tear_film_aqueous.png" alt="Aqueous Layer highlighted"
+                        class="anatomy-layer anatomy-aqueous" />
+                    <img src="assets/tear_film_mucin.png" alt="Mucin Layer highlighted"
+                        class="anatomy-layer anatomy-mucin" />
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SIGNS & SYMPTOMS -->
-    <section class="section section-dark-alt" id="symptoms">
-        <div class="container">
-            <!-- Section Header above the columns -->
-            <div class="section-header reveal section-header-left">
-                <h2>The Dry Eye Struggle is Real. <br /><span class="gradient-text">Recognizing the Signs & Symptoms</span></h2>
-                <p class="symptoms-header-p">Chronic dry eye is a complex, progressive disease that affects your daily work, sleep, and confidence. Recognizing these signs and symptoms is the first step toward clinical, root-cause relief.</p>
-            </div>
-            
-            <div class="symptoms-container">
-                <!-- Left: Symptoms Info and Cards -->
-                <div class="symptoms-content reveal">
-                    <div class="symptoms-grid">
+    <section class="section" id="symptoms">
+        <div class="container symptoms-container">
+            <!-- Left: Symptoms Info and Cards -->
+            <div class="symptoms-content reveal">
+                <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+                    <h2>Recognizing the <br /><span class="gradient-text">Signs & Symptoms</span></h2>
+                    <p style="margin: 0; max-width: 100%;">Dry eye syndrome is a multi-layered condition. Its symptoms are often sensory warnings indicating that your tear film is out of balance.</p>
+                </div>
+                
+                <div class="symptoms-grid">
                     <!-- Card 1 -->
                     <div class="symptom-card glass-card">
                         <div class="symptom-card-header">
-                            <span class="symptom-emoji">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="symptom-svg">
-                                    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
-                                </svg>
-                            </span>
-                            <h3>Burning & Screen Fatigue</h3>
+                            <span class="symptom-emoji">??</span>
+                            <h3>Burning & Stinging</h3>
                         </div>
-                        <p>A constant hot, irritated sensation. It makes screen-heavy workdays a struggle, causing severe digital eye strain, watering, and forced breaks.</p>
+                        <p>A constant hot, irritated sensation, frequently exacerbated by environmental triggers like wind, air conditioning, or smoke.</p>
                     </div>
                     <!-- Card 2 -->
                     <div class="symptom-card glass-card">
                         <div class="symptom-card-header">
-                            <span class="symptom-emoji">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="symptom-svg">
-                                    <circle cx="18" cy="7" r="3" />
-                                    <path d="M2 20 Q 8 14, 14 18 T 22 15" />
-                                    <line x1="2" y1="20" x2="22" y2="20" />
-                                </svg>
-                            </span>
-                            <h3>Grittiness (Sandpaper Eyes)</h3>
+                            <span class="symptom-emoji">???</span>
+                            <h3>Grittiness & Scratchiness</h3>
                         </div>
-                        <p>The persistent feeling of sand trapped under your eyelids. It often makes waking up in the morning feel like your eyelids are scraping across dry sandpaper.</p>
+                        <p>The persistent feeling that sand, dust, or a foreign particle is trapped under your eyelids, even after rinsing.</p>
                     </div>
                     <!-- Card 3 -->
                     <div class="symptom-card glass-card">
                         <div class="symptom-card-header">
-                            <span class="symptom-emoji">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="symptom-svg">
-                                    <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-13-7-13S5 10.7 5 15a7 7 0 0 0 7 7z" />
-                                </svg>
-                            </span>
+                            <span class="symptom-emoji">??</span>
                             <h3>Reflex Tearing (Watery Eyes)</h3>
                         </div>
-                        <p>Excessive watering triggered by surface irritation. These reflex tears lack lubricating lipids and run off without providing true relief.</p>
+                        <p>Excessive watering that occurs as a reflex response to dry surface irritation. These tears lack the lubricating lipid layer and run off without providing relief.</p>
                     </div>
                     <!-- Card 4 -->
                     <div class="symptom-card glass-card">
                         <div class="symptom-card-header">
-                            <span class="symptom-emoji">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="symptom-svg">
-                                    <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
-                                    <line x1="6" y1="17" x2="18" y2="17" />
-                                    <line x1="8" y1="21" x2="16" y2="21" />
-                                </svg>
-                            </span>
-                            <h3>Blurry Vision & Glare</h3>
+                            <span class="symptom-emoji">???</span>
+                            <h3>Fluctuating / Blurred Vision</h3>
                         </div>
-                        <p>Vision that tires quickly when reading or staring at screens. It causes glare and halos around headlights, making night driving feel stressful and unsafe.</p>
+                        <p>Vision that blurs or tires quickly, particularly when reading or staring at screens. Vision briefly improves immediately after blinking.</p>
                     </div>
                     <!-- Card 5 -->
                     <div class="symptom-card glass-card">
                         <div class="symptom-card-header">
-                            <span class="symptom-emoji">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="symptom-svg">
-                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                                    <circle cx="12" cy="12" r="3" />
-                                </svg>
-                            </span>
-                            <h3>Redness & Social Discomfort</h3>
+                            <span class="symptom-emoji">???</span>
+                            <h3>Redness & Inflammation</h3>
                         </div>
-                        <p>Bloodshot eyes and swollen lids caused by chronic friction on the eye surface, which often leaves patients feeling self-conscious in social settings.</p>
+                        <p>Visible bloodshot eyes and swollen eyelid margins caused by friction and chronic inflammation on the unprotected ocular surface.</p>
                     </div>
                     <!-- Card 6 -->
                     <div class="symptom-card glass-card">
                         <div class="symptom-card-header">
-                            <span class="symptom-emoji">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="symptom-svg">
-                                    <path d="M12 2v20" />
-                                    <path d="M2 12h20" />
-                                    <path d="m4.93 4.93 14.14 14.14" />
-                                    <path d="m4.93 19.07 14.14-14.14" />
-                                    <path d="M12 6c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6 2.7-6 6-6Z" opacity="0.4" />
-                                    <path d="M12 9c1.6 0 3 1.4 3 3s-1.4 3-3 3-3-1.4-3-3 1.4-3 3-3Z" />
-                                </svg>
-                            </span>
-                            <h3>Stringy Mucus Discharge</h3>
+                            <span class="symptom-emoji">???</span>
+                            <h3>Stringy Discharge</h3>
                         </div>
-                        <p>A buildup of sticky mucus threads in the corners of your eyes, as your ocular system tries to compensate for the lack of healthy tears.</p>
-                    </div>
+                        <p>A buildup of thick, stringy mucus threads in or around the corners of your eyes, especially noticeable upon waking up.</p>
                     </div>
                 </div>
+            </div>
 
             <!-- Right: Interactive Self-Assessment Widget -->
             <div class="assessment-column reveal reveal-delay-1">
@@ -343,11 +258,6 @@
                             <input type="checkbox" class="symptom-checkbox" value="grittiness">
                             <span class="custom-checkbox"></span>
                             <span class="checklist-label">Gritty or sandy sensation</span>
-                        </label>
-                        <label class="checklist-item">
-                            <input type="checkbox" class="symptom-checkbox" value="foreign-body">
-                            <span class="custom-checkbox"></span>
-                            <span class="checklist-label">Foreign body sensation</span>
                         </label>
                         <label class="checklist-item">
                             <input type="checkbox" class="symptom-checkbox" value="tearing">
@@ -373,23 +283,16 @@
 
                     <div class="assessment-result">
                         <div class="result-placeholder active">
-                            <span class="placeholder-icon">📋</span>
+                            <span class="placeholder-icon">??</span>
                             <p>Select your symptoms above to calculate your indicator score.</p>
                         </div>
                         <div class="result-details">
                             <div class="severity-meter">
-                                <span class="severity-label">Ocular Surface Discomfort:</span>
+                                <span class="severity-label">Ocular Discomfort Level:</span>
                                 <div class="severity-badge status-mild">Mild Irritation</div>
-                            </div>
-                            <div class="score-display">
-                                <span class="score-label">Symptom Indicator Score:</span>
-                                <span class="score-value">0 / 7</span>
                             </div>
                             <div class="result-message">
                                 Based on your selection, you may be experiencing early signs of dry eye. Simple lifestyle adjustments and over-the-counter drops might offer relief.
-                            </div>
-                            <div class="result-recommendation">
-                                <strong>Suggested Clinical Pathway:</strong> <span class="pathway-value">LipiView Gland Scan</span>
                             </div>
                             <a href="#contact" class="btn btn-primary widget-cta">Book a Diagnostic Scan</a>
                         </div>
@@ -397,11 +300,10 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- DIAGNOSTICS -->
-    <section class="section section-light section-light-cool" id="diagnostics">
+    <section class="section section-light" id="diagnostics">
         <div class="container">
             <div class="section-header reveal">
                 <h2>Precision <span class="gradient-text">Diagnostics</span></h2>
@@ -414,8 +316,8 @@
                 <div class="diag-card">
                     <div class="diag-card-inner">
                         <div class="diag-front">
-                            <div class="diag-icon">👁️</div>
-                            <h3>LipiView® Interferometry</h3>
+                            <div class="diag-icon">???</div>
+                            <h3>LipiView� Interferometry</h3>
                             <p>Assesses the lipid (oil) layer</p>
                             <span class="diag-flip-hint">
                                 <span>Click to flip</span>
@@ -426,29 +328,9 @@
                             </span>
                         </div>
                         <div class="diag-back">
-                            <h3>LipiView®</h3>
-                            <p>Measures your lipid layer thickness with nanometer precision and captures your blink dynamics to identify if you are fully blinking.</p>
-                            <div class="diag-result-container">
-                                <svg viewBox="0 0 280 44" class="diag-result-svg">
-                                    <defs>
-                                        <linearGradient id="lipi-spectrum" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="0%" stop-color="#EF4444" />
-                                            <stop offset="30%" stop-color="#F59E0B" />
-                                            <stop offset="60%" stop-color="#10B981" />
-                                            <stop offset="90%" stop-color="#3B82F6" />
-                                            <stop offset="100%" stop-color="#8B5CF6" />
-                                        </linearGradient>
-                                    </defs>
-                                    <rect x="10" y="22" width="260" height="8" rx="4" fill="url(#lipi-spectrum)" />
-                                    <text x="12" y="38" font-size="8" fill="#94A3B8" font-family="sans-serif">30nm</text>
-                                    <text x="135" y="38" font-size="8" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">80nm</text>
-                                    <text x="268" y="38" font-size="8" fill="#94A3B8" font-family="sans-serif" text-anchor="end">140nm</text>
-                                    <polygon points="140,18 144,11 136,11" fill="#FFFFFF" />
-                                    <rect x="139" y="20" width="2" height="12" fill="#FFFFFF" opacity="0.8" />
-                                    <text x="10" y="12" font-size="9" font-weight="bold" fill="#38BDF8" font-family="sans-serif" letter-spacing="0.5">LIPIVIEW® RESULT</text>
-                                    <text x="270" y="12" font-size="10" font-weight="bold" fill="#FFFFFF" font-family="sans-serif" text-anchor="end">85 nm <tspan font-size="8" font-weight="normal" fill="#10B981">(Normal)</tspan></text>
-                                </svg>
-                            </div>
+                            <h3>LipiView�</h3>
+                            <p>Measures your lipid layer thickness with nanometer precision and captures your blink
+                                dynamics to identify if you are fully blinking.</p>
                         </div>
                     </div>
                 </div>
@@ -456,7 +338,7 @@
                 <div class="diag-card">
                     <div class="diag-card-inner">
                         <div class="diag-front">
-                            <div class="diag-icon">📷</div>
+                            <div class="diag-icon">??</div>
                             <h3>Meibography</h3>
                             <p>Infrared gland imaging</p>
                             <span class="diag-flip-hint">
@@ -469,10 +351,8 @@
                         </div>
                         <div class="diag-back">
                             <h3>Meibography</h3>
-                            <p>Utilizes advanced infrared imaging to visualize the Meibomian glands inside your eyelids, assessing them for structural health.</p>
-                            <div class="diag-result-container">
-                                <img src="assets/meibography_scan.png" alt="Meibography Gland Infrared Scan" class="diag-result-img">
-                            </div>
+                            <p>Utilizes advanced infrared imaging to visualize the Meibomian glands inside your eyelids,
+                                assessing them for structural health and dropout (gland loss).</p>
                         </div>
                     </div>
                 </div>
@@ -480,7 +360,7 @@
                 <div class="diag-card">
                     <div class="diag-card-inner">
                         <div class="diag-front">
-                            <div class="diag-icon">⏱️</div>
+                            <div class="diag-icon">??</div>
                             <h3>Tear Break-Up Time</h3>
                             <p>Measures tear stability</p>
                             <span class="diag-flip-hint">
@@ -493,27 +373,8 @@
                         </div>
                         <div class="diag-back">
                             <h3>TBUT Testing</h3>
-                            <p>Uses specialized fluorescein dye to measure exactly how many seconds it takes for your tear film to break apart between blinks.</p>
-                            <div class="diag-result-container">
-                                <svg viewBox="0 0 280 44" class="diag-result-svg">
-                                    <defs>
-                                        <radialGradient id="cornea-glow" cx="50%" cy="50%" r="50%">
-                                            <stop offset="0%" stop-color="#1E40AF" />
-                                            <stop offset="100%" stop-color="#0F172A" />
-                                        </radialGradient>
-                                        <linearGradient id="fluo-green" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#ADFF2F" stop-opacity="0.85" />
-                                            <stop offset="100%" stop-color="#00FF00" stop-opacity="0.85" />
-                                        </linearGradient>
-                                    </defs>
-                                    <rect x="0" y="0" width="280" height="44" rx="4" fill="url(#cornea-glow)" />
-                                    <rect x="60" y="4" width="160" height="36" rx="18" fill="url(#fluo-green)" filter="blur(1px)" opacity="0.9" />
-                                    <ellipse cx="110" cy="22" rx="18" ry="10" fill="#1E3A8A" opacity="0.95" />
-                                    <ellipse cx="110" cy="22" rx="14" ry="7" fill="#0F172A" />
-                                    <ellipse cx="170" cy="15" rx="12" ry="6" fill="#1E3A8A" opacity="0.95" />
-                                    <ellipse cx="170" cy="15" rx="8" ry="4" fill="#0F172A" />
-                                </svg>
-                            </div>
+                            <p>Uses a specialized fluorescein dye to measure exactly how many seconds it takes for your
+                                tear film to break apart between blinks.</p>
                         </div>
                     </div>
                 </div>
@@ -521,7 +382,7 @@
                 <div class="diag-card">
                     <div class="diag-card-inner">
                         <div class="diag-front">
-                            <div class="diag-icon">💧</div>
+                            <div class="diag-icon">??</div>
                             <h3>Schirmer's Test</h3>
                             <p>Measures tear volume</p>
                             <span class="diag-flip-hint">
@@ -534,35 +395,8 @@
                         </div>
                         <div class="diag-back">
                             <h3>Schirmer's Test</h3>
-                            <p>A simple paper strip test placed gently on the lower eyelid to measure your baseline aqueous tear production over 5 minutes.</p>
-                            <div class="diag-result-container">
-                                <svg viewBox="0 0 280 44" class="diag-result-svg">
-                                    <rect x="0" y="0" width="280" height="44" rx="4" fill="#090F1C" />
-                                    <rect x="40" y="16" width="200" height="12" rx="2" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-                                    <g stroke="#94A3B8" stroke-width="1">
-                                        <line x1="40" y1="16" x2="40" y2="28" stroke-width="2" />
-                                        <line x1="70" y1="16" x2="70" y2="22" />
-                                        <line x1="100" y1="16" x2="100" y2="24" stroke-width="1.5" />
-                                        <line x1="130" y1="16" x2="130" y2="22" />
-                                        <line x1="160" y1="16" x2="160" y2="24" stroke-width="1.5" />
-                                        <line x1="190" y1="16" x2="190" y2="22" />
-                                        <line x1="220" y1="16" x2="220" y2="24" stroke-width="1.5" />
-                                    </g>
-                                    <g font-size="7" fill="#64748B" font-family="sans-serif" text-anchor="middle">
-                                        <text x="40" y="12">0</text>
-                                        <text x="70" y="12">5</text>
-                                        <text x="100" y="12">10</text>
-                                        <text x="160" y="12">20</text>
-                                        <text x="220" y="12">30</text>
-                                        <text x="238" y="12" text-anchor="start">mm</text>
-                                    </g>
-                                    <rect x="40" y="16" width="30" height="12" rx="2" fill="#38BDF8" opacity="0.6" />
-                                    <line x1="70" y1="16" x2="70" y2="28" stroke="#0284C7" stroke-width="2" />
-                                    <text x="10" y="26" font-size="9" font-weight="bold" fill="#38BDF8" font-family="sans-serif" text-anchor="middle">WET</text>
-                                    <text x="270" y="20" font-size="10" font-weight="bold" fill="#EF4444" font-family="sans-serif" text-anchor="end">5 mm</text>
-                                    <text x="270" y="32" font-size="7" fill="#EF4444" font-family="sans-serif" text-anchor="end">Aqueous Deficiency</text>
-                                </svg>
-                            </div>
+                            <p>A simple, safe paper strip test placed gently on the lower eyelid to measure your
+                                baseline aqueous (water) tear production over 5 minutes.</p>
                         </div>
                     </div>
                 </div>
@@ -570,7 +404,7 @@
                 <div class="diag-card">
                     <div class="diag-card-inner">
                         <div class="diag-front">
-                            <div class="diag-icon">🔬</div>
+                            <div class="diag-icon">??</div>
                             <h3>Osmolarity Testing</h3>
                             <p>TearLab assessment</p>
                             <span class="diag-flip-hint">
@@ -583,28 +417,8 @@
                         </div>
                         <div class="diag-back">
                             <h3>TearLab Osmolarity</h3>
-                            <p>Measures the salt concentration of your tears. High osmolarity is a proven biomarker indicating dry eye disease.</p>
-                            <div class="diag-result-container">
-                                <svg viewBox="0 0 280 44" class="diag-result-svg">
-                                    <rect x="0" y="0" width="280" height="44" rx="4" fill="#0B132B" />
-                                    <rect x="10" y="6" width="130" height="32" rx="2" fill="#1C2541" stroke="#3A506B" stroke-width="1.5" />
-                                    <text x="75" y="24" font-size="14" font-weight="bold" fill="#38BDF8" font-family="monospace" text-anchor="middle">318</text>
-                                    <text x="75" y="33" font-size="7" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">mOsm/L</text>
-                                    <defs>
-                                        <linearGradient id="osmo-scale" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="0%" stop-color="#10B981" />
-                                            <stop offset="50%" stop-color="#F59E0B" />
-                                            <stop offset="100%" stop-color="#EF4444" />
-                                        </linearGradient>
-                                    </defs>
-                                    <rect x="160" y="22" width="100" height="6" rx="3" fill="url(#osmo-scale)" />
-                                    <polygon points="245,18 249,12 241,12" fill="#FFFFFF" />
-                                    <line x1="245" y1="18" x2="245" y2="28" stroke="#FFFFFF" stroke-width="1.5" />
-                                    <text x="160" y="14" font-size="8" fill="#94A3B8" font-family="sans-serif">Normal</text>
-                                    <text x="260" y="14" font-size="8" fill="#EF4444" font-family="sans-serif" text-anchor="end">Hyperosmolar</text>
-                                    <text x="160" y="36" font-size="8" font-weight="bold" fill="#EF4444" font-family="sans-serif">ELEVATED (SEVERE)</text>
-                                </svg>
-                            </div>
+                            <p>Measures the salt concentration of your tears. A high osmolarity reading is a proven
+                                biomarker indicating the severity of dry eye disease.</p>
                         </div>
                     </div>
                 </div>
@@ -612,7 +426,7 @@
                 <div class="diag-card">
                     <div class="diag-card-inner">
                         <div class="diag-front">
-                            <div class="diag-icon">🔥</div>
+                            <div class="diag-icon">??</div>
                             <h3>Inflammatory Markers</h3>
                             <p>InflammaDry point-of-care</p>
                             <span class="diag-flip-hint">
@@ -625,78 +439,11 @@
                         </div>
                         <div class="diag-back">
                             <h3>InflammaDry</h3>
-                            <p>A rapid test detecting elevated levels of MMP-9, a key inflammatory biomarker that is elevated in patients with dry eye.</p>
-                            <div class="diag-result-container">
-                                <svg viewBox="0 0 280 44" class="diag-result-svg">
-                                    <rect x="0" y="0" width="280" height="44" rx="4" fill="#090F1C" />
-                                    <rect x="40" y="10" width="200" height="24" rx="12" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5" />
-                                    <path d="M 40,10 L 65,10 L 65,34 L 40,34 A 12,12 0 0 1 40,10" fill="#CBD5E1" />
-                                    <rect x="45" y="16" width="12" height="12" rx="2" fill="#94A3B8" opacity="0.6" />
-                                    <rect x="100" y="14" width="70" height="16" rx="2" fill="#FFFFFF" stroke="#64748B" stroke-width="1" />
-                                    <line x1="120" y1="15" x2="120" y2="29" stroke="#3B82F6" stroke-width="3" />
-                                    <line x1="150" y1="15" x2="150" y2="29" stroke="#EF4444" stroke-width="3" />
-                                </svg>
-                            </div>
+                            <p>A rapid test detecting elevated levels of MMP-9, a key inflammatory biomarker that is
+                                often elevated in patients with dry eye disease.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- WARNING BOX (Loss Aversion) -->
-            <div class="warning-box reveal reveal-delay-2">
-                <span class="warning-icon">⚠️</span>
-                <div class="warning-text">
-                    <strong>Warning on Gland Health:</strong> Chronic dry eye is progressive. Without early precision diagnostics, blocked oil glands (MGD) eventually <strong>atrophy and die</strong>. Once Meibomian glands are lost, they <strong>cannot regenerate</strong>. Proactive imaging and treatment are vital components of preserving your natural tear function.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STANDARD CARE VS SPECIALIZED CARE -->
-    <section class="section section-dark-alt" id="comparison">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Standard Eye Care vs. <br /><span class="gradient-text">Specialized Dry Eye Care</span></h2>
-                <p>Most general eye clinics treat dry eye as a temporary inconvenience. We treat it as a chronic, multi-faceted disease requiring medical-grade diagnostics and customized treatments.</p>
-            </div>
-            
-            <div class="comp-table-wrapper reveal reveal-delay-1">
-                <table class="comp-table">
-                    <thead>
-                        <tr>
-                            <th>Clinical Feature</th>
-                            <th>Standard Eye Care</th>
-                            <th>Marano Specialty Dry Eye Center</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Diagnostic Approach</strong></td>
-                            <td>Basic eye chart exam & symptom checklist</td>
-                            <td><span class="status-yes">✓</span> LipiView® Interferometry & TearLab® Osmolarity</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Root Cause Analysis</strong></td>
-                            <td>Symptom-based guesswork</td>
-                            <td><span class="status-yes">✓</span> Infrared Meibography (visualizing gland structure)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Treatment Diversity</strong></td>
-                            <td>Generic OTC drops & warm compresses</td>
-                            <td><span class="status-yes">✓</span> Tailored multi-layered drop therapies & office procedures</td>
-                        </tr>
-                        <tr>
-                            <td><strong>In-Office Procedures</strong></td>
-                            <td>Unavailable / not offered</td>
-                            <td><span class="status-yes">✓</span> LipiFlow® Thermal Pulsation & Punctal Plugs</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Insurance & Prescription Support</strong></td>
-                            <td>Standard Rx submission only</td>
-                            <td><span class="status-yes">✓</span> Dedicated prior-authorization team for brand drugs</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </section>
@@ -710,34 +457,23 @@
                     utilizing the latest in pharmaceuticals and in-office procedures.</p>
             </div>
 
-            <div class="treatments-grid">
-                <div class="treatment-block reveal">
-                <h3 class="treatment-block-title">Prescription Medications</h3>
-                <div class="treatment-select-wrapper">
-                    <label for="medication-select" class="treatment-select-label">Select a Medication to Explore:</label>
-                    <div class="select-container">
-                        <select id="medication-select" class="treatment-select">
-                            <option value="restasis" selected>Restasis® (Cyclosporine 0.05%) — Anti-Inflammatory Drop</option>
-                            <option value="xiidra">Xiidra® (Lifitegrast 5%) — Targeted Inflammation Blocker</option>
-                            <option value="tyrvaya">Tyrvaya® (Varenicline Nasal Spray) — Trigeminal Neurostimulator</option>
-                            <option value="tryptyr">Tryptyr (TRPM8 Agonist Drop) — Sensory Receptor Stimulation</option>
-                            <option value="miebo">Miebo® (100% Perfluorohexyloctane) — Evaporation Shield</option>
-                            <option value="cequa">Cequa® (Cyclosporine 0.09%) — Nanomicelle Delivery</option>
-                        </select>
-                        <span class="select-arrow">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-                        </span>
-                    </div>
+            <div class="treatments-control-wrapper reveal reveal-delay-1">
+                <div class="sliding-pill-bg-treatment"></div>
+                <div class="treatments-tablist" role="tablist">
+                    <button class="tab-btn active" data-target="pharma" role="tab" aria-selected="true" aria-controls="pharma">Pharmaceutical Treatments</button>
+                    <button class="tab-btn" data-target="procedures" role="tab" aria-selected="false" aria-controls="procedures">In-Office Procedures</button>
                 </div>
-                
-                <div class="medications-display">
+            </div>
 
-                    <!-- Restasis -->
-                    <div class="treatment-card active" id="treatment-restasis">
+            <!-- PHARMACEUTICAL TAB -->
+            <div class="tab-panel active" id="pharma">
+
+                <!-- Restasis -->
+                <div class="treatment-card">
                     <div class="treatment-header">
-                        <div class="treatment-icon">🧬</div>
+                        <div class="treatment-icon">??</div>
                         <div>
-                            <h3>Restasis® <span class="font-sm font-normal text-muted">(Cyclosporine 0.05%)</span></h3>
+                            <h3>Restasis� <span class="font-sm font-normal text-muted">(Cyclosporine 0.05%)</span></h3>
                             <span class="treatment-type">Anti-Inflammatory Drop</span>
                         </div>
                     </div>
@@ -746,7 +482,7 @@
                             <h4>How It Works</h4>
                             <p>Your immune system can mistakenly attack your own tear glands, causing inflammation that
                                 halts tear production. Restasis contains cyclosporine, which calms this specific immune
-                                response—like telling overactive immune cells to stand down—so your glands can produce
+                                response�like telling overactive immune cells to stand down�so your glands can produce
                                 tears naturally again.</p>
                             <div class="ideal-for">
                                 <span class="ideal-tag">Aqueous Deficiency</span>
@@ -756,9 +492,9 @@
                         <div class="moa-diagram">
                             <div class="moa-steps">
                                 <div class="moa-step">Immune Attack</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step highlight">Restasis<br />Calms Response</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step border-accent-green">Natural Tears<br />Restored</div>
                             </div>
                         </div>
@@ -766,11 +502,11 @@
                 </div>
 
                 <!-- Xiidra -->
-                <div class="treatment-card" id="treatment-xiidra">
+                <div class="treatment-card">
                     <div class="treatment-header">
-                        <div class="treatment-icon">🛑</div>
+                        <div class="treatment-icon">??</div>
                         <div>
-                            <h3>Xiidra® <span class="font-sm font-normal text-muted">(Lifitegrast 5%)</span></h3>
+                            <h3>Xiidra� <span class="font-sm font-normal text-muted">(Lifitegrast 5%)</span></h3>
                             <span class="treatment-type">Targeted Inflammation Blocker</span>
                         </div>
                     </div>
@@ -788,9 +524,9 @@
                         <div class="moa-diagram">
                             <div class="moa-steps">
                                 <div class="moa-step">T-Cells Approach</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step highlight">Xiidra Blocks<br />Connection</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step border-accent-green">Surface<br />Heals</div>
                             </div>
                         </div>
@@ -798,20 +534,20 @@
                 </div>
 
                 <!-- Tyrvaya -->
-                <div class="treatment-card" id="treatment-tyrvaya">
+                <div class="treatment-card">
                     <div class="treatment-header">
-                        <div class="treatment-icon">👃</div>
+                        <div class="treatment-icon">??</div>
                         <div>
-                            <h3>Tyrvaya® <span class="font-sm font-normal text-muted">(Varenicline Solution 0.03 mg)</span></h3>
+                            <h3>Tyrvaya� <span class="font-sm font-normal text-muted">(Varenicline Solution 0.03 mg)</span></h3>
                             <span class="treatment-type">Neurostimulation Nasal Spray</span>
                         </div>
                     </div>
                     <div class="treatment-body">
                         <div class="moa-section">
                             <h4>How It Works</h4>
-                            <p>Tyrvaya® is a preservative-free nasal spray that activates a natural nerve pathway connecting your
+                            <p>Tyrvaya� is a preservative-free nasal spray that activates a natural nerve pathway connecting your
                                 nose to your tear glands. By stimulating the trigeminal nerve, it signals your body to
-                                produce all three layers of your natural tear film—allowing you to generate your own real tears.</p>
+                                produce all three layers of your natural tear film�allowing you to generate your own real tears.</p>
                             <div class="ideal-for">
                                 <span class="ideal-tag">Drop-Free Option</span>
                                 <span class="ideal-tag">Stimulates Natural Tears</span>
@@ -820,9 +556,9 @@
                         <div class="moa-diagram">
                             <div class="moa-steps">
                                 <div class="moa-step">Nasal Spray</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step highlight">Trigeminal Nerve<br />Activated</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step border-accent-green">Natural Tears<br />Produced</div>
                             </div>
                         </div>
@@ -830,9 +566,9 @@
                 </div>
 
                 <!-- Tryptyr -->
-                <div class="treatment-card" id="treatment-tryptyr">
+                <div class="treatment-card">
                     <div class="treatment-header">
-                        <div class="treatment-icon">⚡</div>
+                        <div class="treatment-icon">??</div>
                         <div>
                             <h3>Tryptyr <span class="font-sm font-normal text-muted">(TRPM8 Agonist Drop)</span></h3>
                             <span class="treatment-type">Sensory Receptor Eye Drop</span>
@@ -850,9 +586,9 @@
                         <div class="moa-diagram">
                             <div class="moa-steps">
                                 <div class="moa-step">Cooling Drop</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step highlight">TRPM8 Receptors<br />Activated</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step border-accent-green">Reflex Tears<br />& Blinking</div>
                             </div>
                         </div>
@@ -862,11 +598,11 @@
 
 
                 <!-- Miebo -->
-                <div class="treatment-card" id="treatment-miebo">
+                <div class="treatment-card">
                     <div class="treatment-header">
-                        <div class="treatment-icon">🛡️</div>
+                        <div class="treatment-icon">??</div>
                         <div>
-                            <h3>Miebo® <span class="font-sm font-normal text-muted">(100% Perfluorohexyloctane)</span></h3>
+                            <h3>Miebo� <span class="font-sm font-normal text-muted">(100% Perfluorohexyloctane)</span></h3>
                             <span class="treatment-type">Evaporation Shield Drop</span>
                         </div>
                     </div>
@@ -885,9 +621,9 @@
                         <div class="moa-diagram">
                             <div class="moa-steps">
                                 <div class="moa-step">Drop Applied</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step highlight">Lipid Shield<br />Forms</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step border-accent-green">Evaporation<br />Prevented</div>
                             </div>
                         </div>
@@ -895,18 +631,18 @@
                 </div>
 
                 <!-- Cequa -->
-                <div class="treatment-card" id="treatment-cequa">
+                <div class="treatment-card">
                     <div class="treatment-header">
-                        <div class="treatment-icon">🔬</div>
+                        <div class="treatment-icon">??</div>
                         <div>
-                            <h3>Cequa® <span class="font-sm font-normal text-muted">(Cyclosporine 0.09%)</span></h3>
+                            <h3>Cequa� <span class="font-sm font-normal text-muted">(Cyclosporine 0.09%)</span></h3>
                             <span class="treatment-type">Nanomicelle Technology</span>
                         </div>
                     </div>
                     <div class="treatment-body">
                         <div class="moa-section">
                             <h4>How It Works</h4>
-                            <p>Similar to Restasis but utilizing a breakthrough delivery technology called NCELL™
+                            <p>Similar to Restasis but utilizing a breakthrough delivery technology called NCELL�
                                 nanomicelles. These microscopic carriers help the medication penetrate deeper into your
                                 eye tissue, delivering a stronger dose of immune-calming cyclosporine exactly where it's
                                 needed most.</p>
@@ -918,38 +654,21 @@
                         <div class="moa-diagram">
                             <div class="moa-steps">
                                 <div class="moa-step">Nanomicelles</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step highlight">Deep Tissue<br />Penetration</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step border-accent-green">Enhanced<br />Calming Effect</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> <!-- Close medications-display -->
-        </div> <!-- Close first treatment-block -->
-
-        <!-- SECTION 2: IN-OFFICE CLINICAL PROCEDURES -->
-        <div class="treatment-block reveal reveal-delay-1">
-            <h3 class="treatment-block-title">In-Office Procedures</h3>
-            <div class="treatment-select-wrapper">
-                <label for="procedure-select" class="treatment-select-label">Select a Procedure to Explore:</label>
-                <div class="select-container">
-                    <select id="procedure-select" class="treatment-select">
-                        <option value="plugs" selected>Punctal Plugs — Tear Conservation Therapy</option>
-                        <option value="lipiflow">LipiFlow® — Thermal Pulsation System</option>
-                        <option value="neartear">NearTear® — Intranasal Neurostimulation</option>
-                    </select>
-                    <span class="select-arrow">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-                    </span>
-                </div>
             </div>
-            
-            <div class="procedures-display">
+
+            <!-- PROCEDURES TAB -->
+            <div class="tab-panel" id="procedures">
 
                 <!-- Punctal Plugs -->
-                <div class="treatment-card active" id="treatment-plugs">
+                <div class="treatment-card">
                     <div class="treatment-header">
                         <div class="treatment-icon">
                             <svg viewBox="0 0 32 32" class="w-32 h-32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -987,7 +706,7 @@
                             <p>Your tears naturally drain away through tiny openings called puncta in your eyelid
                                 corners. Punctal plugs are microscopic biocompatible devices (smaller than a grain of
                                 rice) that gently block these drain holes. By slowing tear drainage, your own natural
-                                tears and artificial tears stay on your eyes longer—like putting a stopper in a bathtub
+                                tears and artificial tears stay on your eyes longer�like putting a stopper in a bathtub
                                 to keep the water in.</p>
                             <div class="ideal-for">
                                 <span class="ideal-tag">Aqueous Deficiency</span>
@@ -997,9 +716,9 @@
                         <div class="moa-diagram">
                             <div class="moa-steps">
                                 <div class="moa-step">Fast Drainage</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step highlight">Plugs Inserted</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step border-accent-green">Tears Retained<br />Longer</div>
                             </div>
                         </div>
@@ -1007,11 +726,11 @@
                 </div>
 
                 <!-- LipiFlow -->
-                <div class="treatment-card" id="treatment-lipiflow">
+                <div class="treatment-card">
                     <div class="treatment-header">
-                        <div class="treatment-icon">🌡️</div>
+                        <div class="treatment-icon">???</div>
                         <div>
-                            <h3>LipiFlow®</h3>
+                            <h3>LipiFlow�</h3>
                             <span class="treatment-type">Thermal Pulsation System</span>
                         </div>
                     </div>
@@ -1021,7 +740,7 @@
                             <p>LipiFlow is a 12-minute in-office treatment that applies precisely controlled heat to the
                                 inside of your eyelids while simultaneously applying gentle pulsating pressure to the
                                 outside. This combination melts and expresses blocked oils from your Meibomian
-                                glands—like unclogging tiny oil ducts—restoring the protective lipid layer of your
+                                glands�like unclogging tiny oil ducts�restoring the protective lipid layer of your
                                 tears.</p>
                             <div class="ideal-for">
                                 <span class="ideal-tag">Meibomian Gland Dysfunction</span>
@@ -1031,9 +750,9 @@
                         <div class="moa-diagram">
                             <div class="moa-steps">
                                 <div class="moa-step">Heat Applied</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step highlight">Blocked Oils<br />Melted</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step border-accent-green">Clear Glands &<br />Healthy Tears</div>
                             </div>
                         </div>
@@ -1041,11 +760,11 @@
                 </div>
 
                 <!-- NearTear -->
-                <div class="treatment-card" id="treatment-neartear">
+                <div class="treatment-card">
                     <div class="treatment-header">
-                        <div class="treatment-icon">⚡</div>
+                        <div class="treatment-icon">?</div>
                         <div>
-                            <h3>NearTear®</h3>
+                            <h3>NearTear�</h3>
                             <span class="treatment-type">Intranasal Neurostimulation</span>
                         </div>
                     </div>
@@ -1064,23 +783,23 @@
                         <div class="moa-diagram">
                             <div class="moa-steps">
                                 <div class="moa-step">Electrical<br />Impulse</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step highlight">Nerve Pathway<br />Activation</div>
-                                <div class="moa-arrow">→</div>
+                                <div class="moa-arrow">?</div>
                                 <div class="moa-step border-accent-green">Body's Own<br />Tears Produced</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-            </div> <!-- Close procedures-display -->
-        </div> <!-- Close second treatment-block -->
-    </div> <!-- Close treatments-grid -->
-</div> <!-- Close container -->
-</section>
+
+
+            </div>
+        </div>
+    </section>
 
     <!-- TESTIMONIALS -->
-    <section class="section section-dark-deep testimonials-section" id="testimonials">
+    <section class="section testimonials-section" id="testimonials">
         <div class="container">
             <div class="section-header reveal">
                 <h2>Patient <span class="gradient-text">Success Stories</span></h2>
@@ -1092,7 +811,7 @@
                 <div class="testimonial-track">
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
+                            <div class="testimonial-stars">?????</div>
                             <p class="testimonial-quote">"I suffered from dry, burning eyes for years. After LipiFlow
                                 treatment at Marano Eye Care, I felt relief within weeks. Dr. Marano and his team
                                 changed my quality of life."</p>
@@ -1102,7 +821,7 @@
                     </div>
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
+                            <div class="testimonial-stars">?????</div>
                             <p class="testimonial-quote">"I tried every artificial tear on the market. Dr. Marano
                                 diagnosed my Meibomian gland dysfunction and created a treatment plan that actually
                                 works. I wish I'd come here sooner."</p>
@@ -1112,7 +831,7 @@
                     </div>
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
+                            <div class="testimonial-stars">?????</div>
                             <p class="testimonial-quote">"The diagnostic technology at Marano Eye Care is incredible.
                                 They showed me images of my actual tear glands and explained exactly what was happening.
                                 I finally understood my dry eye."</p>
@@ -1122,7 +841,7 @@
                     </div>
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
-                            <div class="testimonial-stars">★★★★★</div>
+                            <div class="testimonial-stars">?????</div>
                             <p class="testimonial-quote">"After cataract surgery, my dry eye got much worse. Dr. Marano
                                 treated me with a combination of punctal plugs and Xiidra. My eyes feel comfortable for
                                 the first time in years."</p>
@@ -1132,21 +851,21 @@
                     </div>
                 </div>
                 <div class="carousel-controls">
-                    <button class="carousel-btn carousel-prev">←</button>
+                    <button class="carousel-btn carousel-prev">?</button>
                     <div class="carousel-dots">
                         <button class="carousel-dot active" aria-label="Slide 1"></button>
                         <button class="carousel-dot" aria-label="Slide 2"></button>
                         <button class="carousel-dot" aria-label="Slide 3"></button>
                         <button class="carousel-dot" aria-label="Slide 4"></button>
                     </div>
-                    <button class="carousel-btn carousel-next">→</button>
+                    <button class="carousel-btn carousel-next">?</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section section-light section-light-warm" id="faq">
+    <section class="section section-light" id="faq">
         <div class="container">
             <div class="section-header reveal">
                 <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
@@ -1192,73 +911,6 @@
         </div>
     </section>
 
-    <!-- PATHWAY SECTION (Goal-Gradient Effect) -->
-    <section class="section section-dark-deep" id="pathway">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Your 3-Step Pathway to <br /><span class="gradient-text">Lasting Relief</span></h2>
-                <p>Resolving chronic dry eye doesn't have to be complicated. We've structured a clear, seamless path to restoring your comfort.</p>
-            </div>
-            
-            <div class="pathway-steps reveal reveal-delay-1">
-                <div class="pathway-step-card glass-card">
-                    <div class="step-number">1</div>
-                    <h4>15-Min Precision Scan</h4>
-                    <p>We use non-invasive LipiView® interferometry and TearLab® osmolarity testing to map your tear chemistry and image your actual oil glands. No pain, no guesswork.</p>
-                </div>
-                <div class="pathway-step-card glass-card">
-                    <div class="step-number">2</div>
-                    <h4>Tailored Medical Plan</h4>
-                    <p>Our board-certified cornea specialists design a target-specific regimen combining FDA-cleared in-office thermal pulsation (LipiFlow®) and advanced prescription drops.</p>
-                </div>
-                <div class="pathway-step-card glass-card">
-                    <div class="step-number">3</div>
-                    <h4>Restore Natural Tears</h4>
-                    <p>By treating the root cause (MGD/inflammation), we reactivate your own natural tear film, allowing you to live, work, and drive without constant burning.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PHYSICIAN PROFILE SECTION -->
-    <section class="section section-light section-light-cool" id="physician">
-        <div class="container">
-            <div class="doctor-profile-grid">
-                <div class="doctor-image-wrapper reveal">
-                    <div class="doctor-image-glow"></div>
-                    <img src="assets/dr_marano.png" alt="Dr. Matthew J. Marano, Jr., MD" class="doctor-headshot">
-                </div>
-                <div class="doctor-info reveal reveal-delay-1">
-                    <span class="doctor-tag">Cornea & Dry Eye Specialist</span>
-                    <h2>Meet Dr. Matthew J. Marano, Jr., MD</h2>
-                    <p class="doctor-subtitle">Board-Certified Ophthalmologist & Medical Director</p>
-                    
-                    <p class="doctor-bio">Dr. Matthew Marano is a leading board-certified ophthalmologist specializing in advanced dry eye care and corneal diseases. Over the past three decades, he has helped thousands of patients in Northern New Jersey restore their visual comfort through pioneering, target-specific dry eye diagnostics and state-of-the-art therapies. He is dedicated to offering personalized care that treats the root biological causes of dry eye rather than just masking symptoms.</p>
-                    
-                    <h4 class="doctor-credentials-title">Professional Credentials</h4>
-                    <ul class="doctor-credentials">
-                        <li>
-                            <svg viewBox="0 0 24 24" class="cred-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span><strong>Board Certification:</strong> American Board of Ophthalmology</span>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" class="cred-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span><strong>Clinical Leadership:</strong> Chief of Ophthalmology at St. Michael's Medical Center</span>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" class="cred-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span><strong>Specialization:</strong> Fellowship-Trained Cornea, Refractive & Anterior Segment Surgery</span>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" class="cred-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span><strong>Medical Education:</strong> George Washington University School of Medicine</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA & CONTACT -->
     <section class="section cta-section" id="contact">
         <div class="container">
@@ -1273,40 +925,35 @@
                         <div class="cta-location-item">
                             <h4>Livingston Office</h4>
                             <div class="cta-location-details">
-                                <span>📍 200 South Orange Ave, Suite 209, Livingston, NJ 07039</span>
-                                <span>📞 Phone: <a href="tel:9733220100">(973) 322-0100</a></span>
+                                <span>?? 200 South Orange Ave, Suite 209, Livingston, NJ 07039</span>
+                                <span>?? Phone: <a href="tel:9733220100">(973) 322-0100</a></span>
                             </div>
                         </div>
                         <div class="cta-location-item">
                             <h4>Denville Office</h4>
                             <div class="cta-location-details">
-                                <span>📍 16 Pocono Road, Suite 301, Denville, NJ 07834</span>
-                                <span>📞 Phone: <a href="tel:9736257970">(973) 625-7970</a></span>
+                                <span>?? 16 Pocono Road, Suite 301, Denville, NJ 07834</span>
+                                <span>?? Phone: <a href="tel:9736257970">(973) 625-7970</a></span>
                             </div>
                         </div>
                         <div class="cta-location-item">
                             <h4>Newark Office</h4>
                             <div class="cta-location-details">
-                                <span>📍 306 Martin Luther King Blvd, Newark, NJ 07102</span>
-                                <span>📞 Phone: <a href="tel:9738775534">(973) 877-5534</a></span>
+                                <span>?? 306 Martin Luther King Blvd, Newark, NJ 07102</span>
+                                <span>?? Phone: <a href="tel:9738775534">(973) 877-5534</a></span>
                             </div>
                         </div>
                     </div>
 
                     <ul class="cta-details">
-                        <li><span>✉️</span> staff@mec1.net</li>
-                        <li><span>🕒</span> Mon-Thu: 8:00 AM - 5:00 PM | Fri: 8:00 AM - 4:00 PM</li>
+                        <li><span>??</span> staff@mec1.net</li>
+                        <li><span>??</span> Mon-Thu: 8:00 AM - 5:00 PM | Fri: 8:00 AM - 4:00 PM</li>
                     </ul>
                 </div>
 
-                <div class="cta-form reveal reveal-delay-2" id="cta-form-container">
-                    <div class="glass-card p-40" id="booking-card">
-                        <!-- Persuasive Banner (Endowment/Feedback loop) -->
-                        <div class="form-banner form-banner-hidden" id="form-assessment-banner">
-                            <span class="banner-icon">📋</span>
-                            <span class="banner-text">Self-Assessment details successfully linked to your request!</span>
-                        </div>
-                        <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true">
+                <div class="cta-form reveal reveal-delay-2">
+                    <div class="glass-card p-40">
+                        <form class='contact-form' id='contact-form' method='POST' name='contact'>
                             <input type="hidden" name="form-name" value="contact">
                             <input type="hidden" name="subject" value="New Patient Consult Request">
                             
@@ -1432,7 +1079,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.1.4"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
