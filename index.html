@@ -772,19 +772,29 @@
                     utilizing the latest in pharmaceuticals and in-office procedures.</p>
             </div>
 
-            <div class="treatments-control-wrapper reveal reveal-delay-1">
-                <div class="sliding-pill-bg-treatment"></div>
-                <div class="treatments-tablist" role="tablist">
-                    <button class="tab-btn active" data-target="pharma" role="tab" aria-selected="true" aria-controls="pharma">Pharmaceutical Treatments</button>
-                    <button class="tab-btn" data-target="procedures" role="tab" aria-selected="false" aria-controls="procedures">In-Office Procedures</button>
+            <div class="treatment-block reveal">
+                <h3 class="treatment-block-title">Prescription Medications</h3>
+                <div class="treatment-select-wrapper">
+                    <label for="medication-select" class="treatment-select-label">Select a Medication to Explore:</label>
+                    <div class="select-container">
+                        <select id="medication-select" class="treatment-select">
+                            <option value="restasis" selected>Restasis® (Cyclosporine 0.05%) — Anti-Inflammatory Drop</option>
+                            <option value="xiidra">Xiidra® (Lifitegrast 5%) — Targeted Inflammation Blocker</option>
+                            <option value="tyrvaya">Tyrvaya® (Varenicline Nasal Spray) — Trigeminal Neurostimulator</option>
+                            <option value="tryptyr">Tryptyr (TRPM8 Agonist Drop) — Sensory Receptor Stimulation</option>
+                            <option value="miebo">Miebo® (100% Perfluorohexyloctane) — Evaporation Shield</option>
+                            <option value="cequa">Cequa® (Cyclosporine 0.09%) — Nanomicelle Delivery</option>
+                        </select>
+                        <span class="select-arrow">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                        </span>
+                    </div>
                 </div>
-            </div>
+                
+                <div class="medications-display">
 
-            <!-- PHARMACEUTICAL TAB -->
-            <div class="tab-panel active" id="pharma">
-
-                <!-- Restasis -->
-                <div class="treatment-card">
+                    <!-- Restasis -->
+                    <div class="treatment-card active" id="treatment-restasis">
                     <div class="treatment-header">
                         <div class="treatment-icon">🧬</div>
                         <div>
@@ -817,7 +827,7 @@
                 </div>
 
                 <!-- Xiidra -->
-                <div class="treatment-card">
+                <div class="treatment-card" id="treatment-xiidra">
                     <div class="treatment-header">
                         <div class="treatment-icon">🛑</div>
                         <div>
@@ -849,7 +859,7 @@
                 </div>
 
                 <!-- Tyrvaya -->
-                <div class="treatment-card">
+                <div class="treatment-card" id="treatment-tyrvaya">
                     <div class="treatment-header">
                         <div class="treatment-icon">👃</div>
                         <div>
@@ -881,7 +891,7 @@
                 </div>
 
                 <!-- Tryptyr -->
-                <div class="treatment-card">
+                <div class="treatment-card" id="treatment-tryptyr">
                     <div class="treatment-header">
                         <div class="treatment-icon">⚡</div>
                         <div>
@@ -913,7 +923,7 @@
 
 
                 <!-- Miebo -->
-                <div class="treatment-card">
+                <div class="treatment-card" id="treatment-miebo">
                     <div class="treatment-header">
                         <div class="treatment-icon">🛡️</div>
                         <div>
@@ -946,7 +956,7 @@
                 </div>
 
                 <!-- Cequa -->
-                <div class="treatment-card">
+                <div class="treatment-card" id="treatment-cequa">
                     <div class="treatment-header">
                         <div class="treatment-icon">🔬</div>
                         <div>
@@ -977,13 +987,32 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> <!-- Close medications-display -->
+        </div> <!-- Close first treatment-block -->
 
-            <!-- PROCEDURES TAB -->
-            <div class="tab-panel" id="procedures">
+        <div class="treatment-block-divider"></div>
+
+        <!-- SECTION 2: IN-OFFICE CLINICAL PROCEDURES -->
+        <div class="treatment-block reveal reveal-delay-1">
+            <h3 class="treatment-block-title">In-Office Procedures</h3>
+            <div class="treatment-select-wrapper">
+                <label for="procedure-select" class="treatment-select-label">Select a Procedure to Explore:</label>
+                <div class="select-container">
+                    <select id="procedure-select" class="treatment-select">
+                        <option value="plugs" selected>Punctal Plugs — Tear Conservation Therapy</option>
+                        <option value="lipiflow">LipiFlow® — Thermal Pulsation System</option>
+                        <option value="neartear">NearTear® — Intranasal Neurostimulation</option>
+                    </select>
+                    <span class="select-arrow">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="procedures-display">
 
                 <!-- Punctal Plugs -->
-                <div class="treatment-card">
+                <div class="treatment-card active" id="treatment-plugs">
                     <div class="treatment-header">
                         <div class="treatment-icon">
                             <svg viewBox="0 0 32 32" class="w-32 h-32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -1041,7 +1070,7 @@
                 </div>
 
                 <!-- LipiFlow -->
-                <div class="treatment-card">
+                <div class="treatment-card" id="treatment-lipiflow">
                     <div class="treatment-header">
                         <div class="treatment-icon">🌡️</div>
                         <div>
@@ -1075,7 +1104,7 @@
                 </div>
 
                 <!-- NearTear -->
-                <div class="treatment-card">
+                <div class="treatment-card" id="treatment-neartear">
                     <div class="treatment-header">
                         <div class="treatment-icon">⚡</div>
                         <div>
@@ -1107,11 +1136,10 @@
                     </div>
                 </div>
 
-
-
-            </div>
-        </div>
-    </section>
+            </div> <!-- Close procedures-display -->
+        </div> <!-- Close second treatment-block -->
+    </div> <!-- Close container -->
+</section>
 
     <!-- TESTIMONIALS -->
     <section class="section section-dark-deep testimonials-section" id="testimonials">

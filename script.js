@@ -129,56 +129,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Treatments Tabs - Sleek Segmented Slider Control
-  const treatmentsWrapper = document.querySelector('.treatments-control-wrapper');
-  const slidingPillTreatment = document.querySelector('.sliding-pill-bg-treatment');
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabPanels = document.querySelectorAll('.tab-panel');
+  // Treatments Selection Dropdown Selector Control
+  const medicationSelect = document.getElementById('medication-select');
+  const medicationCards = document.querySelectorAll('.medications-display .treatment-card');
+  const procedureSelect = document.getElementById('procedure-select');
+  const procedureCards = document.querySelectorAll('.procedures-display .treatment-card');
 
-  const updateSlidingPillTreatment = (activeTab) => {
-    if (!slidingPillTreatment || !activeTab || !treatmentsWrapper) return;
-    
-    const leftOffset = activeTab.offsetLeft + activeTab.parentElement.offsetLeft;
-    const tabWidth = activeTab.offsetWidth;
-    
-    slidingPillTreatment.style.width = `${tabWidth}px`;
-    slidingPillTreatment.style.transform = `translateX(${leftOffset}px)`;
-  };
+  if (medicationSelect) {
+    medicationSelect.addEventListener('change', (e) => {
+      const selectedValue = e.target.value;
+      const targetId = `treatment-${selectedValue}`;
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.dataset.target;
-      
-      tabBtns.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-
-      updateSlidingPillTreatment(btn);
-
-      tabPanels.forEach(panel => {
-        if (panel.id === target) {
-          panel.classList.add('active');
+      medicationCards.forEach(card => {
+        if (card.id === targetId) {
+          card.classList.add('active');
         } else {
-          panel.classList.remove('active');
+          card.classList.remove('active');
         }
       });
     });
-  });
-
-  const initialActiveTreatment = document.querySelector('.tab-btn.active');
-  if (initialActiveTreatment) {
-    setTimeout(() => updateSlidingPillTreatment(initialActiveTreatment), 100);
   }
 
-  window.addEventListener('resize', () => {
-    const currentActiveTreatment = document.querySelector('.tab-btn.active');
-    if (currentActiveTreatment) {
-      updateSlidingPillTreatment(currentActiveTreatment);
-    }
-  });
+  if (procedureSelect) {
+    procedureSelect.addEventListener('change', (e) => {
+      const selectedValue = e.target.value;
+      const targetId = `treatment-${selectedValue}`;
+
+      procedureCards.forEach(card => {
+        if (card.id === targetId) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+    });
+  }
 
   // Testimonials Carousel
   const track = document.querySelector('.testimonial-track');

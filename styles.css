@@ -981,103 +981,138 @@ img {
 }
 
 /* ===================== TREATMENTS ===================== */
-.treatments-control-wrapper {
+.treatment-select-wrapper {
   position: relative;
-  max-width: 580px;
+  max-width: 640px;
   margin: 0 auto 48px;
-  padding: 6px;
-  background: rgba(123, 150, 200, 0.06);
-  border: 1px solid rgba(123, 150, 200, 0.15);
-  border-radius: 100px;
-  display: flex;
-  overflow: hidden;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
-}
-
-.sliding-pill-bg-treatment {
-  position: absolute;
-  top: 6px;
-  bottom: 6px;
-  left: 0;
-  width: 0;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  border-radius: 80px;
-  z-index: 1;
-  box-shadow: 0 8px 24px rgba(123, 150, 200, 0.3);
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-              width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  pointer-events: none;
-}
-
-.treatments-tablist {
-  display: flex;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-}
-
-.tab-btn {
-  flex: 1;
-  padding: 14px 28px;
-  border: none;
-  background: transparent;
-  color: var(--text-muted);
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  border-radius: 80px;
-  transition: color 0.3s ease, transform 0.2s ease;
-  -webkit-user-select: none;
-  user-select: none;
   text-align: center;
 }
 
-.tab-btn:hover {
-  color: var(--primary-light);
+.treatment-select-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.select-container {
+  position: relative;
+  width: 100%;
+}
+
+.treatment-select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: rgba(20, 35, 55, 0.85); /* Premium glass background */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 16px 54px 16px 24px;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: border-color var(--transition), box-shadow var(--transition), transform 0.2s ease;
+  outline: none;
+}
+
+.treatment-select:hover {
+  border-color: var(--primary-light);
+  box-shadow: 0 12px 40px rgba(123, 150, 200, 0.18);
   transform: translateY(-1px);
 }
 
-.tab-btn.active {
-  color: #FFFFFF !important;
+.treatment-select:focus {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(168, 189, 224, 0.25);
 }
 
-/* Mobile & Tablet Responsiveness for Treatments Selector */
-@media (max-width: 768px) {
-  .treatments-control-wrapper {
-    border-radius: 20px;
-    padding: 8px;
-    max-width: 100%;
-  }
-  
-  .treatments-tablist {
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .tab-btn {
-    padding: 12px 16px;
-    border-radius: 12px;
-    background: rgba(123, 150, 200, 0.04);
-  }
-  
-  .sliding-pill-bg-treatment {
-    display: none;
-  }
-  
-  .tab-btn.active {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    box-shadow: 0 4px 12px rgba(123, 150, 200, 0.2);
-  }
+.select-arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
 }
 
-.tab-panel {
-  display: none;
-  animation: fadeInUp 0.5s ease;
+.treatment-select:hover + .select-arrow,
+.treatment-select:focus + .select-arrow {
+  color: var(--primary-light);
 }
 
-.tab-panel.active {
+/* Style optgroup and options inside standard dropdown */
+.treatment-select optgroup {
+  background: #111D2D;
+  color: var(--primary-light);
+  font-weight: 700;
+  font-family: var(--font-heading);
+  padding: 8px;
+}
+
+.treatment-select option {
+  background: #111D2D;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-family: var(--font-body);
+  padding: 10px;
+}
+
+.treatment-block {
+  margin-bottom: 48px;
+}
+
+.treatment-block-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.treatment-block-title::after {
+  content: '';
   display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--primary);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.treatment-block-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+  margin: 56px auto;
+  width: 80%;
+}
+
+.medications-display .treatment-card,
+.procedures-display .treatment-card {
+  display: none;
+}
+
+.medications-display .treatment-card.active,
+.procedures-display .treatment-card.active {
+  display: block;
+  animation: fadeInUp 0.5s ease;
 }
 
 .treatment-card {
