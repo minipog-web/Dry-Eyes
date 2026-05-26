@@ -2578,3 +2578,29 @@ img {
 .form-banner-hidden {
   display: none;
 }
+
+/* Lucide Icon SVG Styling Overrides */
+.struggle-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--primary-light, #38BDF8);
+  stroke-width: 2;
+  fill: none;
+  display: block;
+}
+
+.symptom-emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary, #3B82F6);
+}
+
+.symptom-emoji svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  display: block;
+}
