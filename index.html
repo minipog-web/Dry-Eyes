@@ -429,8 +429,28 @@
                         </div>
                         <div class="diag-back">
                             <h3>LipiView®</h3>
-                            <p>Measures your lipid layer thickness with nanometer precision and captures your blink
-                                dynamics to identify if you are fully blinking.</p>
+                            <p>Measures your lipid layer thickness with nanometer precision and captures your blink dynamics to identify if you are fully blinking.</p>
+                            <div class="diag-result-container">
+                                <svg viewBox="0 0 280 44" class="diag-result-svg">
+                                    <defs>
+                                        <linearGradient id="lipi-spectrum" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#EF4444" />
+                                            <stop offset="30%" stop-color="#F59E0B" />
+                                            <stop offset="60%" stop-color="#10B981" />
+                                            <stop offset="90%" stop-color="#3B82F6" />
+                                            <stop offset="100%" stop-color="#8B5CF6" />
+                                        </linearGradient>
+                                    </defs>
+                                    <rect x="10" y="22" width="260" height="8" rx="4" fill="url(#lipi-spectrum)" />
+                                    <text x="12" y="38" font-size="8" fill="#94A3B8" font-family="sans-serif">30nm</text>
+                                    <text x="135" y="38" font-size="8" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">80nm</text>
+                                    <text x="268" y="38" font-size="8" fill="#94A3B8" font-family="sans-serif" text-anchor="end">140nm</text>
+                                    <polygon points="140,18 144,11 136,11" fill="#FFFFFF" />
+                                    <rect x="139" y="20" width="2" height="12" fill="#FFFFFF" opacity="0.8" />
+                                    <text x="10" y="12" font-size="9" font-weight="bold" fill="#38BDF8" font-family="sans-serif" letter-spacing="0.5">LIPIVIEW® RESULT</text>
+                                    <text x="270" y="12" font-size="10" font-weight="bold" fill="#FFFFFF" font-family="sans-serif" text-anchor="end">85 nm <tspan font-size="8" font-weight="normal" fill="#10B981">(Normal)</tspan></text>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -451,8 +471,34 @@
                         </div>
                         <div class="diag-back">
                             <h3>Meibography</h3>
-                            <p>Utilizes advanced infrared imaging to visualize the Meibomian glands inside your eyelids,
-                                assessing them for structural health and dropout (gland loss).</p>
+                            <p>Utilizes advanced infrared imaging to visualize the Meibomian glands inside your eyelids, assessing them for structural health.</p>
+                            <div class="diag-result-container">
+                                <svg viewBox="0 0 280 44" class="diag-result-svg">
+                                    <rect x="0" y="0" width="280" height="44" rx="4" fill="#090F1C" />
+                                    <path d="M 0,38 Q 140,32 280,38 L 280,44 L 0,44 Z" fill="#1E293B" opacity="0.6" />
+                                    <g stroke="#F8FAFC" stroke-width="3" stroke-linecap="round" opacity="0.85">
+                                        <line x1="20" y1="8" x2="20" y2="34" />
+                                        <line x1="40" y1="8" x2="40" y2="34" />
+                                        <line x1="60" y1="10" x2="60" y2="34" />
+                                        <line x1="80" y1="8" x2="80" y2="34" />
+                                        <line x1="100" y1="12" x2="100" y2="34" />
+                                        <line x1="120" y1="10" x2="120" y2="34" />
+                                        <line x1="140" y1="8" x2="140" y2="34" />
+                                    </g>
+                                    <g stroke="#EF4444" stroke-width="3" stroke-linecap="round" opacity="0.9">
+                                        <line x1="160" y1="20" x2="160" y2="34" stroke="#F8FAFC" opacity="0.4" />
+                                        <line x1="160" y1="20" x2="160" y2="28" stroke="#EF4444" />
+                                        <line x1="180" y1="24" x2="180" y2="34" stroke="#F8FAFC" opacity="0.4" />
+                                        <line x1="180" y1="24" x2="180" y2="28" stroke="#EF4444" />
+                                        <circle cx="200" cy="22" r="3" fill="none" stroke="#EF4444" stroke-width="1" />
+                                        <circle cx="220" cy="22" r="3" fill="none" stroke="#EF4444" stroke-width="1" />
+                                        <circle cx="240" cy="22" r="3" fill="none" stroke="#EF4444" stroke-width="1" />
+                                    </g>
+                                    <text x="15" y="14" font-size="8" fill="#10B981" font-weight="bold" font-family="sans-serif">HEALTHY GLANDS</text>
+                                    <text x="265" y="14" font-size="8" fill="#EF4444" font-weight="bold" font-family="sans-serif" text-anchor="end">45% DROPOUT</text>
+                                    <path d="M 0,38 Q 140,32 280,38" stroke="#475569" stroke-width="1.5" fill="none" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -473,8 +519,32 @@
                         </div>
                         <div class="diag-back">
                             <h3>TBUT Testing</h3>
-                            <p>Uses a specialized fluorescein dye to measure exactly how many seconds it takes for your
-                                tear film to break apart between blinks.</p>
+                            <p>Uses specialized fluorescein dye to measure exactly how many seconds it takes for your tear film to break apart between blinks.</p>
+                            <div class="diag-result-container">
+                                <svg viewBox="0 0 280 44" class="diag-result-svg">
+                                    <defs>
+                                        <radialGradient id="cornea-glow" cx="50%" cy="50%" r="50%">
+                                            <stop offset="0%" stop-color="#1E40AF" />
+                                            <stop offset="100%" stop-color="#0F172A" />
+                                        </radialGradient>
+                                        <linearGradient id="fluo-green" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#ADFF2F" stop-opacity="0.85" />
+                                            <stop offset="100%" stop-color="#00FF00" stop-opacity="0.85" />
+                                        </linearGradient>
+                                    </defs>
+                                    <rect x="0" y="0" width="280" height="44" rx="4" fill="url(#cornea-glow)" />
+                                    <rect x="60" y="4" width="160" height="36" rx="18" fill="url(#fluo-green)" filter="blur(1px)" opacity="0.9" />
+                                    <ellipse cx="110" cy="22" rx="18" ry="10" fill="#1E3A8A" opacity="0.95" />
+                                    <ellipse cx="110" cy="22" rx="14" ry="7" fill="#0F172A" />
+                                    <text x="110" y="24" font-size="7" fill="#EF4444" font-weight="bold" font-family="sans-serif" text-anchor="middle">DRY SPOT</text>
+                                    <ellipse cx="170" cy="15" rx="12" ry="6" fill="#1E3A8A" opacity="0.95" />
+                                    <ellipse cx="170" cy="15" rx="8" ry="4" fill="#0F172A" />
+                                    <text x="10" y="16" font-size="9" font-weight="bold" fill="#38BDF8" font-family="sans-serif" letter-spacing="0.5">COBALT BLUE SCAN</text>
+                                    <text x="10" y="30" font-size="7" fill="#94A3B8" font-family="sans-serif">Fluorescein Dye</text>
+                                    <text x="270" y="18" font-size="10" font-weight="bold" fill="#EF4444" font-family="sans-serif" text-anchor="end">4.2s TBUT</text>
+                                    <text x="270" y="30" font-size="7" fill="#EF4444" font-family="sans-serif" text-anchor="end">Severe Instability</text>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -495,8 +565,35 @@
                         </div>
                         <div class="diag-back">
                             <h3>Schirmer's Test</h3>
-                            <p>A simple, safe paper strip test placed gently on the lower eyelid to measure your
-                                baseline aqueous (water) tear production over 5 minutes.</p>
+                            <p>A simple paper strip test placed gently on the lower eyelid to measure your baseline aqueous tear production over 5 minutes.</p>
+                            <div class="diag-result-container">
+                                <svg viewBox="0 0 280 44" class="diag-result-svg">
+                                    <rect x="0" y="0" width="280" height="44" rx="4" fill="#090F1C" />
+                                    <rect x="40" y="16" width="200" height="12" rx="2" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+                                    <g stroke="#94A3B8" stroke-width="1">
+                                        <line x1="40" y1="16" x2="40" y2="28" stroke-width="2" />
+                                        <line x1="70" y1="16" x2="70" y2="22" />
+                                        <line x1="100" y1="16" x2="100" y2="24" stroke-width="1.5" />
+                                        <line x1="130" y1="16" x2="130" y2="22" />
+                                        <line x1="160" y1="16" x2="160" y2="24" stroke-width="1.5" />
+                                        <line x1="190" y1="16" x2="190" y2="22" />
+                                        <line x1="220" y1="16" x2="220" y2="24" stroke-width="1.5" />
+                                    </g>
+                                    <g font-size="7" fill="#64748B" font-family="sans-serif" text-anchor="middle">
+                                        <text x="40" y="12">0</text>
+                                        <text x="70" y="12">5</text>
+                                        <text x="100" y="12">10</text>
+                                        <text x="160" y="12">20</text>
+                                        <text x="220" y="12">30</text>
+                                        <text x="238" y="12" text-anchor="start">mm</text>
+                                    </g>
+                                    <rect x="40" y="16" width="30" height="12" rx="2" fill="#38BDF8" opacity="0.6" />
+                                    <line x1="70" y1="16" x2="70" y2="28" stroke="#0284C7" stroke-width="2" />
+                                    <text x="10" y="26" font-size="9" font-weight="bold" fill="#38BDF8" font-family="sans-serif" text-anchor="middle">WET</text>
+                                    <text x="270" y="20" font-size="10" font-weight="bold" fill="#EF4444" font-family="sans-serif" text-anchor="end">5 mm</text>
+                                    <text x="270" y="32" font-size="7" fill="#EF4444" font-family="sans-serif" text-anchor="end">Aqueous Deficiency</text>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -517,8 +614,28 @@
                         </div>
                         <div class="diag-back">
                             <h3>TearLab Osmolarity</h3>
-                            <p>Measures the salt concentration of your tears. A high osmolarity reading is a proven
-                                biomarker indicating the severity of dry eye disease.</p>
+                            <p>Measures the salt concentration of your tears. High osmolarity is a proven biomarker indicating dry eye disease.</p>
+                            <div class="diag-result-container">
+                                <svg viewBox="0 0 280 44" class="diag-result-svg">
+                                    <rect x="0" y="0" width="280" height="44" rx="4" fill="#0B132B" />
+                                    <rect x="10" y="6" width="130" height="32" rx="2" fill="#1C2541" stroke="#3A506B" stroke-width="1.5" />
+                                    <text x="75" y="24" font-size="14" font-weight="bold" fill="#38BDF8" font-family="monospace" text-anchor="middle">318</text>
+                                    <text x="75" y="33" font-size="7" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">mOsm/L</text>
+                                    <defs>
+                                        <linearGradient id="osmo-scale" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#10B981" />
+                                            <stop offset="50%" stop-color="#F59E0B" />
+                                            <stop offset="100%" stop-color="#EF4444" />
+                                        </linearGradient>
+                                    </defs>
+                                    <rect x="160" y="22" width="100" height="6" rx="3" fill="url(#osmo-scale)" />
+                                    <polygon points="245,18 249,12 241,12" fill="#FFFFFF" />
+                                    <line x1="245" y1="18" x2="245" y2="28" stroke="#FFFFFF" stroke-width="1.5" />
+                                    <text x="160" y="14" font-size="8" fill="#94A3B8" font-family="sans-serif">Normal</text>
+                                    <text x="260" y="14" font-size="8" fill="#EF4444" font-family="sans-serif" text-anchor="end">Hyperosmolar</text>
+                                    <text x="160" y="36" font-size="8" font-weight="bold" fill="#EF4444" font-family="sans-serif">ELEVATED (SEVERE)</text>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -539,8 +656,23 @@
                         </div>
                         <div class="diag-back">
                             <h3>InflammaDry</h3>
-                            <p>A rapid test detecting elevated levels of MMP-9, a key inflammatory biomarker that is
-                                often elevated in patients with dry eye disease.</p>
+                            <p>A rapid test detecting elevated levels of MMP-9, a key inflammatory biomarker that is elevated in patients with dry eye.</p>
+                            <div class="diag-result-container">
+                                <svg viewBox="0 0 280 44" class="diag-result-svg">
+                                    <rect x="0" y="0" width="280" height="44" rx="4" fill="#090F1C" />
+                                    <rect x="40" y="10" width="200" height="24" rx="12" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5" />
+                                    <path d="M 40,10 L 65,10 L 65,34 L 40,34 A 12,12 0 0 1 40,10" fill="#CBD5E1" />
+                                    <rect x="45" y="16" width="12" height="12" rx="2" fill="#94A3B8" opacity="0.6" />
+                                    <rect x="100" y="14" width="70" height="16" rx="2" fill="#FFFFFF" stroke="#64748B" stroke-width="1" />
+                                    <line x1="120" y1="15" x2="120" y2="29" stroke="#3B82F6" stroke-width="3" />
+                                    <text x="120" y="38" font-size="7" font-weight="bold" fill="#64748B" font-family="sans-serif" text-anchor="middle">C</text>
+                                    <line x1="150" y1="15" x2="150" y2="29" stroke="#EF4444" stroke-width="3" />
+                                    <text x="150" y="38" font-size="7" font-weight="bold" fill="#EF4444" font-family="sans-serif" text-anchor="middle">T</text>
+                                    <text x="205" y="24" font-size="8" font-weight="bold" fill="#1E293B" font-family="sans-serif">MMP-9</text>
+                                    <text x="10" y="26" font-size="9" font-weight="bold" fill="#EF4444" font-family="sans-serif">POS</text>
+                                    <text x="270" y="26" font-size="8" font-weight="bold" fill="#EF4444" font-family="sans-serif" text-anchor="end">INFLAMMADRY® (+)</text>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>

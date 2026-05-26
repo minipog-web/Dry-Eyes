@@ -857,25 +857,27 @@ img {
   border: 1px solid rgba(123, 150, 200, 0.3);
   color: #E2E8F0;
   box-shadow: 0 12px 32px rgba(13, 27, 42, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  padding: 20px 24px;
 }
 
 .diag-back h3 {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
   color: #FFFFFF;
   letter-spacing: 0.5px;
   border-bottom: 2px solid rgba(123, 150, 200, 0.2);
-  padding-bottom: 8px;
+  padding-bottom: 4px;
   display: inline-block;
   width: 100%;
 }
 
 .diag-back p {
-  font-size: 0.92rem;
-  line-height: 1.7;
+  font-size: 0.8rem;
+  line-height: 1.45;
   color: #CBD5E1; /* High-contrast light slate gray */
   font-weight: 400;
+  margin-bottom: 10px;
 }
 
 /* Explicitly override light section inheritance to prevent any text contrast issue */
@@ -885,6 +887,29 @@ img {
 
 .section-light .diag-back p {
   color: #CBD5E1;
+}
+
+/* Diagnostic Result Mockup Styles */
+.diag-result-container {
+  width: 100%;
+  height: 52px;
+  margin-top: auto;
+  border-radius: 6px;
+  background: rgba(13, 23, 38, 0.7);
+  border: 1px solid rgba(123, 150, 200, 0.25);
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.diag-result-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 
