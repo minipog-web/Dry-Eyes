@@ -2397,6 +2397,15 @@ img {
   color: #E8EDF5;
 }
 
+.reframing-card.bad-route {
+  background: rgba(255, 143, 156, 0.05);
+  border-color: rgba(255, 143, 156, 0.2);
+}
+
+.reframing-card.bad-route li {
+  color: #E8EDF5;
+}
+
 @media (max-width: 600px) {
   .comparison-reframing {
     grid-template-columns: 1fr;
