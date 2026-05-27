@@ -129,38 +129,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Treatments Selection Dropdown Selector Control
-  const medicationSelect = document.getElementById('medication-select');
+  // Treatments Selection custom tab buttons controller
+  const medicationTabs = document.getElementById('medication-tabs');
   const medicationCards = document.querySelectorAll('.medications-display .treatment-card');
-  const procedureSelect = document.getElementById('procedure-select');
+  const procedureTabs = document.getElementById('procedure-tabs');
   const procedureCards = document.querySelectorAll('.procedures-display .treatment-card');
 
-  if (medicationSelect) {
-    medicationSelect.addEventListener('change', (e) => {
-      const selectedValue = e.target.value;
-      const targetId = `treatment-${selectedValue}`;
+  if (medicationTabs) {
+    const tabButtons = medicationTabs.querySelectorAll('.tab-btn');
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const selectedValue = btn.dataset.value;
+        const targetId = `treatment-${selectedValue}`;
 
-      medicationCards.forEach(card => {
-        if (card.id === targetId) {
-          card.classList.add('active');
-        } else {
-          card.classList.remove('active');
-        }
+        medicationCards.forEach(card => {
+          if (card.id === targetId) {
+            card.classList.add('active');
+          } else {
+            card.classList.remove('active');
+          }
+        });
       });
     });
   }
 
-  if (procedureSelect) {
-    procedureSelect.addEventListener('change', (e) => {
-      const selectedValue = e.target.value;
-      const targetId = `treatment-${selectedValue}`;
+  if (procedureTabs) {
+    const tabButtons = procedureTabs.querySelectorAll('.tab-btn');
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-      procedureCards.forEach(card => {
-        if (card.id === targetId) {
-          card.classList.add('active');
-        } else {
-          card.classList.remove('active');
-        }
+        const selectedValue = btn.dataset.value;
+        const targetId = `treatment-${selectedValue}`;
+
+        procedureCards.forEach(card => {
+          if (card.id === targetId) {
+            card.classList.add('active');
+          } else {
+            card.classList.remove('active');
+          }
+        });
       });
     });
   }
@@ -276,12 +290,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Dry Eye Self-Assessment Widget
   const checkboxes = document.querySelectorAll('.symptom-checkbox');
-  const placeholder = document.querySelector('.result-placeholder');
-  const details = document.querySelector('.result-details');
-  const severityBadge = document.querySelector('.severity-badge');
-  const resultMessage = document.querySelector('.result-message');
-  const scoreValue = document.querySelector('.score-value');
-  const pathwayValue = document.querySelector('.pathway-value');
+  const widgetDescription = document.getElementById('widget-description');
+  const quizStepsContainer = document.getElementById('quiz-steps-container');
+  const quizSlides = document.querySelectorAll('.quiz-step-slide');
+  const quizProgressWrapper = document.getElementById('quiz-progress-wrapper');
+  const quizCurrentStepSpan = document.getElementById('quiz-current-step');
+  const quizStepNameSpan = document.getElementById('quiz-step-name');
+  const quizProgressBarFill = document.getElementById('quiz-progress-bar-fill');
+  const quizResultsContainer = document.getElementById('quiz-results-container');
+  
+  const stepTitles = [
+    "Burning & Strain",
+    "Grittiness",
+    "Scratchy Sensation",
+    "Watery Eyes",
+    "Blurry Vision",
+    "Eye Redness",
+    "Mucus Discharge"
+  ];
+  
+  let currentQuizStep = 0;
 
   const messages = {
     mild: "Based on your selection, you may be experiencing early signs of dry eye. Simple lifestyle adjustments, reducing screen time, and using preservative-free lubricating drops might offer relief.",
@@ -289,52 +317,287 @@ document.addEventListener('DOMContentLoaded', () => {
     severe: "Your symptoms suggest advanced ocular surface discomfort. We highly recommend scheduling a comprehensive dry eye evaluation immediately to prevent long-term gland dysfunction or corneal damage."
   };
 
-  const updateAssessment = () => {
-    const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
-    
-    if (checkedCount === 0) {
-      placeholder.classList.add('active');
-      details.classList.remove('active');
-      return;
+  const updateQuizUI = () => {
+    quizSlides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === currentQuizStep);
+    });
+
+    if (quizCurrentStepSpan) {
+      quizCurrentStepSpan.textContent = currentQuizStep + 1;
     }
-
-    placeholder.classList.remove('active');
-    details.classList.add('active');
-
-    // Update dynamic indicator score display
-    if (scoreValue) {
-      scoreValue.textContent = `${checkedCount} / ${checkboxes.length}`;
+    if (quizStepNameSpan) {
+      quizStepNameSpan.textContent = stepTitles[currentQuizStep];
     }
-
-    // Update severity levels based on count
-    severityBadge.className = 'severity-badge'; // reset
-    if (checkedCount <= 2) {
-      severityBadge.textContent = 'Mild Irritation';
-      severityBadge.classList.add('status-mild');
-      resultMessage.textContent = messages.mild;
-      if (pathwayValue) {
-        pathwayValue.textContent = "Tear Break-Up Time (TBUT) & Volume Scan";
-      }
-    } else if (checkedCount <= 4) {
-      severityBadge.textContent = 'Moderate Dry Eye';
-      severityBadge.classList.add('status-moderate');
-      resultMessage.textContent = messages.moderate;
-      if (pathwayValue) {
-        pathwayValue.textContent = "LipiView® Gland Scan & Meibography";
-      }
-    } else {
-      severityBadge.textContent = 'Severe Dry Eye';
-      severityBadge.classList.add('status-severe');
-      resultMessage.textContent = messages.severe;
-      if (pathwayValue) {
-        pathwayValue.textContent = "Full Diagnostic Suite (LipiView + Osmolarity + MMP-9)";
-      }
+    if (quizProgressBarFill) {
+      const progressPercent = ((currentQuizStep + 1) / quizSlides.length) * 100;
+      quizProgressBarFill.style.width = `${progressPercent}%`;
     }
   };
 
-  checkboxes.forEach(cb => {
-    cb.addEventListener('change', updateAssessment);
+  const updateGlandVisualizer = (checkedCount) => {
+    const glandHealthLabel = document.getElementById('gland-health-label');
+    const glandGroups = [
+      document.getElementById('gland-group-1'),
+      document.getElementById('gland-group-2'),
+      document.getElementById('gland-group-3'),
+      document.getElementById('gland-group-4'),
+      document.getElementById('gland-group-5')
+    ];
+
+    let healthPercent = "100%";
+    if (checkedCount === 1) healthPercent = "95%";
+    else if (checkedCount === 2) healthPercent = "85%";
+    else if (checkedCount === 3) healthPercent = "70%";
+    else if (checkedCount === 4) healthPercent = "55%";
+    else if (checkedCount === 5) healthPercent = "35%";
+    else if (checkedCount === 6) healthPercent = "20%";
+    else if (checkedCount === 7) healthPercent = "10%";
+
+    if (glandHealthLabel) {
+      glandHealthLabel.textContent = `${healthPercent} Function`;
+      if (checkedCount <= 2) {
+        glandHealthLabel.style.color = '#A7D8B1';
+      } else if (checkedCount <= 4) {
+        glandHealthLabel.style.color = '#F3C68F';
+      } else {
+        glandHealthLabel.style.color = '#F3A3A1';
+      }
+    }
+
+    glandGroups.forEach((gland, index) => {
+      if (!gland) return;
+      gland.className = 'gland-svg-group'; // Reset classes
+      
+      if (checkedCount <= 2) {
+        gland.classList.add('gland-state-healthy');
+      } else if (checkedCount <= 4) {
+        if (index === 1 || index === 3) {
+          gland.classList.add('gland-state-blocked');
+        } else {
+          gland.classList.add('gland-state-healthy');
+        }
+      } else {
+        if (index === 0 || index === 2) {
+          gland.classList.add('gland-state-blocked');
+        } else {
+          gland.classList.add('gland-state-atrophied');
+        }
+      }
+    });
+  };
+
+  const calculateQuizScore = () => {
+    const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+    
+    // Update score value display
+    const resultScoreValue = document.getElementById('result-score-value');
+    if (resultScoreValue) {
+      resultScoreValue.textContent = `${checkedCount} / ${checkboxes.length}`;
+    }
+
+    // Update progress bar
+    const progressPercent = (checkedCount / checkboxes.length) * 100;
+    const progressBar = document.getElementById('severity-progress');
+    const markerMild = document.getElementById('marker-mild');
+    const markerModerate = document.getElementById('marker-moderate');
+    const markerSevere = document.getElementById('marker-severe');
+    
+    if (progressBar) {
+      progressBar.style.width = `${progressPercent}%`;
+      progressBar.className = 'severity-progress-bar'; // reset class
+    }
+    
+    if (markerMild) markerMild.classList.remove('active');
+    if (markerModerate) markerModerate.classList.remove('active');
+    if (markerSevere) markerSevere.classList.remove('active');
+
+    // Update severity levels based on count
+    const severityBadge = document.getElementById('result-severity-badge');
+    const resultMessageText = document.getElementById('result-message-text');
+    const resultPathwayValue = document.getElementById('result-pathway-value');
+
+    if (severityBadge) {
+      severityBadge.className = 'severity-badge'; // reset
+    }
+
+    if (checkedCount <= 2) {
+      if (severityBadge) {
+        severityBadge.textContent = 'Mild Irritation';
+        severityBadge.classList.add('status-mild');
+      }
+      if (progressBar) progressBar.classList.add('status-mild');
+      if (markerMild) markerMild.classList.add('active');
+      if (resultMessageText) resultMessageText.textContent = messages.mild;
+      if (resultPathwayValue) {
+        resultPathwayValue.textContent = "Tear Break-Up Time (TBUT) & Volume Scan";
+      }
+    } else if (checkedCount <= 4) {
+      if (severityBadge) {
+        severityBadge.textContent = 'Moderate Dry Eye';
+        severityBadge.classList.add('status-moderate');
+      }
+      if (progressBar) progressBar.classList.add('status-moderate');
+      if (markerModerate) markerModerate.classList.add('active');
+      if (resultMessageText) resultMessageText.textContent = messages.moderate;
+      if (resultPathwayValue) {
+        resultPathwayValue.textContent = "LipiView® Gland Scan & Meibography";
+      }
+    } else {
+      if (severityBadge) {
+        severityBadge.textContent = 'Severe Dry Eye';
+        severityBadge.classList.add('status-severe');
+      }
+      if (progressBar) progressBar.classList.add('status-severe');
+      if (markerSevere) markerSevere.classList.add('active');
+      if (resultMessageText) resultMessageText.textContent = messages.severe;
+      if (resultPathwayValue) {
+        resultPathwayValue.textContent = "Full Diagnostic Suite (LipiView + Osmolarity + MMP-9)";
+      }
+    }
+
+    // Update gland health visuals
+    updateGlandVisualizer(checkedCount);
+  };
+
+  const showQuizResults = () => {
+    if (quizStepsContainer) quizStepsContainer.style.display = 'none';
+    if (quizProgressWrapper) quizProgressWrapper.style.display = 'none';
+    if (widgetDescription) widgetDescription.textContent = 'Your self-assessment results are ready.';
+    if (quizResultsContainer) quizResultsContainer.style.display = 'flex';
+
+    calculateQuizScore();
+  };
+
+  const handleQuizChoice = (isYes) => {
+    const activeSlide = quizSlides[currentQuizStep];
+    if (!activeSlide) return;
+
+    const symptomName = activeSlide.dataset.symptom;
+    const checkbox = document.getElementById(`check-${symptomName}`);
+    if (checkbox) {
+      checkbox.checked = isYes;
+    }
+
+    if (currentQuizStep < quizSlides.length - 1) {
+      currentQuizStep++;
+      updateQuizUI();
+    } else {
+      showQuizResults();
+    }
+  };
+
+  // Wire up quiz event listeners
+  const yesBtns = document.querySelectorAll('.btn-quiz-yes');
+  const noBtns = document.querySelectorAll('.btn-quiz-no');
+  yesBtns.forEach(btn => btn.addEventListener('click', () => handleQuizChoice(true)));
+  noBtns.forEach(btn => btn.addEventListener('click', () => handleQuizChoice(false)));
+
+  const backBtns = document.querySelectorAll('.btn-quiz-back');
+  backBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (currentQuizStep > 0) {
+        currentQuizStep--;
+        updateQuizUI();
+      }
+    });
   });
+
+  const btnQuizRestart = document.getElementById('btn-quiz-restart');
+  if (btnQuizRestart) {
+    btnQuizRestart.addEventListener('click', () => {
+      checkboxes.forEach(cb => cb.checked = false);
+      currentQuizStep = 0;
+      updateQuizUI();
+      if (quizResultsContainer) quizResultsContainer.style.display = 'none';
+      if (quizStepsContainer) quizStepsContainer.style.display = 'flex';
+      if (quizProgressWrapper) quizProgressWrapper.style.display = 'block';
+      if (widgetDescription) {
+        widgetDescription.textContent = 'Answer 7 quick questions to estimate your gland health and find your pathway.';
+      }
+    });
+  }
+
+  // Initialize Quiz UI
+  if (quizSlides.length > 0) {
+    updateQuizUI();
+  }
+
+  // Multi-Step Form Navigation and Validation
+  const form = document.getElementById('contact-form');
+  let activeStepIndex = 0;
+  let updateFormSteps = () => {};
+
+  if (form) {
+    const steps = Array.from(form.querySelectorAll('.form-step-content'));
+    const markers = Array.from(document.querySelectorAll('.form-progress .form-step'));
+    const lines = Array.from(document.querySelectorAll('.form-progress .form-step-line'));
+
+    updateFormSteps = () => {
+      steps.forEach((step, index) => {
+        step.classList.toggle('active', index === activeStepIndex);
+      });
+
+      markers.forEach((marker, index) => {
+        marker.classList.toggle('active', index === activeStepIndex);
+        marker.classList.toggle('completed', index < activeStepIndex);
+      });
+
+      lines.forEach((line, index) => {
+        line.classList.toggle('completed', index < activeStepIndex);
+      });
+    };
+
+    const validateStep = (stepContent) => {
+      const inputs = Array.from(stepContent.querySelectorAll('input[required], select[required], textarea[required]'));
+      let isValid = true;
+      inputs.forEach(input => {
+        if (!input.value.trim() || (input.type === 'email' && !input.validity.valid) || (input.type === 'tel' && input.value.trim().length < 7)) {
+          isValid = false;
+          input.style.borderColor = 'rgba(217, 83, 79, 0.5)';
+        } else {
+          input.style.borderColor = 'rgba(123, 150, 200, 0.15)';
+        }
+      });
+      return isValid;
+    };
+
+    form.querySelectorAll('.form-next-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const currentStepContent = steps[activeStepIndex];
+        if (validateStep(currentStepContent)) {
+          if (activeStepIndex < steps.length - 1) {
+            activeStepIndex++;
+            updateFormSteps();
+          }
+        }
+      });
+    });
+
+    form.querySelectorAll('.form-prev-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (activeStepIndex > 0) {
+          activeStepIndex--;
+          updateFormSteps();
+        }
+      });
+    });
+
+    markers.forEach((marker, index) => {
+      marker.addEventListener('click', () => {
+        if (index <= activeStepIndex) {
+          activeStepIndex = index;
+          updateFormSteps();
+        } else if (index === activeStepIndex + 1) {
+          if (validateStep(steps[activeStepIndex])) {
+            activeStepIndex = index;
+            updateFormSteps();
+          }
+        }
+      });
+    });
+  }
 
   // Handle booking CTA integration from assessment widget
   const widgetCta = document.querySelector('.widget-cta');
@@ -344,49 +607,59 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const checkedSymptoms = Array.from(checkboxes)
         .filter(cb => cb.checked)
-        .map(cb => cb.closest('.checklist-item').querySelector('.checklist-label').textContent.trim());
+        .map(cb => {
+          const val = cb.value;
+          const map = {
+            burning: "Burning & Screen Fatigue",
+            grittiness: "Grittiness (Sandpaper Eyes)",
+            "foreign-body": "Foreign Body Sensation",
+            tearing: "Watery Eyes / Reflex Tearing",
+            blur: "Blurry Vision & Glare",
+            redness: "Redness & Social Discomfort",
+            mucus: "Stringy Mucus Discharge"
+          };
+          return map[val] || val;
+        });
       
       const concernSelect = document.getElementById('primary-concern');
       const messageTextArea = document.getElementById('message');
       const checkedCount = checkedSymptoms.length;
       
-      // Set dropdown concern based on severity
       if (concernSelect) {
         if (checkedCount >= 5) {
-          concernSelect.value = 'lipiflow'; // Suggest advanced therapy
+          concernSelect.value = 'lipiflow';
         } else {
-          concernSelect.value = 'evaluation'; // Standard consult
+          concernSelect.value = 'evaluation';
         }
       }
       
-      // Pre-fill message
       if (messageTextArea && checkedSymptoms.length > 0) {
         messageTextArea.value = `Hello, I completed the self-assessment and scored ${checkedCount}/${checkboxes.length} with these symptoms: ${checkedSymptoms.join(', ')}. I'd like to schedule a diagnostic evaluation.`;
       }
       
-      // Show persuasive banner that details are linked
       const assessmentBanner = document.getElementById('form-assessment-banner');
       if (assessmentBanner) {
         assessmentBanner.style.display = 'flex';
       }
       
-      // Add visual pulse effect to form card
       const bookingCard = document.getElementById('booking-card');
       if (bookingCard) {
         bookingCard.classList.remove('pulse-highlight');
-        void bookingCard.offsetWidth; // Trigger reflow to restart animation
+        void bookingCard.offsetWidth;
         bookingCard.classList.add('pulse-highlight');
         setTimeout(() => {
           bookingCard.classList.remove('pulse-highlight');
         }, 3000);
       }
+
+      // Reset form to step 1
+      activeStepIndex = 0;
+      updateFormSteps();
       
-      // Scroll smoothly to contact form
       const contactSection = document.getElementById('contact');
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: 'smooth' });
         
-        // Focus on first name after scroll completes
         setTimeout(() => {
           const firstNameInput = document.getElementById('first-name');
           if (firstNameInput) firstNameInput.focus();

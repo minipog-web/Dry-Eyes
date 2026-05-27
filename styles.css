@@ -2744,11 +2744,516 @@ img {
     max-width: 360px;
   }
   
-  .doctor-info h2 {
-    font-size: 1.8rem;
-  }
-  
   .doctor-bio {
     text-align: center;
   }
 }
+
+/* ===================== NEW PREMIUM STYLES ===================== */
+
+/* --- SEVERITY PROGRESS BAR --- */
+.severity-progress-container {
+  width: 100%;
+  margin: 16px 0 8px;
+  text-align: left;
+}
+
+.severity-progress-bg {
+  width: 100%;
+  height: 8px;
+  background: rgba(13, 27, 42, 0.6);
+  border: 1px solid rgba(123, 150, 200, 0.15);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.severity-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-green), var(--primary));
+  border-radius: 100px;
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1), background 0.6s ease;
+}
+
+.severity-progress-bar.status-mild {
+  background: linear-gradient(90deg, #A3D9C9, var(--accent-green));
+}
+
+.severity-progress-bar.status-moderate {
+  background: linear-gradient(90deg, var(--accent-green), #F3C68F);
+}
+
+.severity-progress-bar.status-severe {
+  background: linear-gradient(90deg, #F3C68F, #F3A3A1);
+}
+
+.severity-progress-markers {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.progress-marker {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.progress-marker.active {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* --- CUSTOM TAB SEGMENTED CONTROLLERS (TREATMENTS) --- */
+.custom-tab-container {
+  display: flex;
+  background: rgba(13, 27, 42, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 4px;
+  gap: 4px;
+  margin-top: 12px;
+  width: 100%;
+  overflow-x: auto;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.custom-tab-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.custom-tab-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+@supports (scrollbar-width: none) {
+  .custom-tab-container {
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition);
+  min-width: 100px;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(123, 150, 200, 0.25);
+}
+
+/* --- FORM MULTI-STEP PROGRESS --- */
+.form-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  position: relative;
+  padding: 0 8px;
+}
+
+.form-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(13, 27, 42, 0.8);
+  border: 2px solid var(--glass-border);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: all var(--transition);
+}
+
+.step-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all var(--transition);
+}
+
+.form-step.active .step-num {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #FFFFFF;
+  box-shadow: 0 0 12px var(--glow);
+  transform: scale(1.1);
+}
+
+.form-step.active .step-label {
+  color: #FFFFFF;
+}
+
+.form-step.completed .step-num {
+  background: var(--accent-green);
+  border-color: var(--accent-green);
+  color: #FFFFFF;
+  box-shadow: 0 0 12px var(--glow-green);
+}
+
+.form-step.completed .step-label {
+  color: #A7D8B1;
+}
+
+.form-step-line {
+  flex: 1;
+  height: 2px;
+  background: var(--glass-border);
+  margin-bottom: 24px; /* Align line vertically with center of circles */
+  position: relative;
+  z-index: 1;
+  transition: background 0.4s ease;
+}
+
+.form-step-line.completed {
+  background: var(--accent-green);
+}
+
+/* --- MULTI-STEP CONTENT TRANSITIONS --- */
+.form-step-content {
+  display: none;
+  animation: slideDownFade 0.4s ease forwards;
+}
+
+.form-step-content.active {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.form-nav-buttons .btn {
+  flex: 1;
+  justify-content: center;
+}
+
+/* ===================== QUIZ ENGAGEMENT OPTIMIZATIONS ===================== */
+
+/* Progress Bar */
+.quiz-progress-wrapper {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.quiz-progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.quiz-progress-text strong {
+  color: var(--primary-light);
+}
+
+.quiz-progress-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: rgba(13, 27, 42, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.quiz-progress-bar-fill {
+  height: 100%;
+  width: 14.28%; /* 1/7 initially */
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 10px;
+  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Quiz slides container */
+.quiz-steps-container {
+  position: relative;
+  min-height: 240px;
+  margin: 28px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-step-slide {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: slideDownFade 0.4s ease forwards;
+}
+
+.quiz-step-slide.active {
+  display: flex;
+}
+
+.quiz-step-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(123, 150, 200, 0.1);
+  border: 1px solid rgba(123, 150, 200, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-light);
+  margin-bottom: 16px;
+}
+
+.quiz-step-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.quiz-question-text {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  max-width: 90%;
+}
+
+.quiz-options {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 20px;
+}
+
+.btn-quiz-opt {
+  flex: 1;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: 1.5px solid var(--primary);
+  outline: none;
+}
+
+.btn-quiz-yes {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #ffffff;
+  box-shadow: 0 4px 16px var(--glow);
+}
+
+.btn-quiz-yes:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--glow);
+}
+
+.btn-quiz-no {
+  background: transparent;
+  color: var(--primary-light);
+}
+
+.btn-quiz-no:hover {
+  background: rgba(123, 150, 200, 0.08);
+  transform: translateY(-2px);
+}
+
+.quiz-nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn-quiz-back {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: color var(--transition);
+  padding: 6px 12px;
+}
+
+.btn-quiz-back:hover {
+  color: #ffffff;
+}
+
+.nav-placeholder {
+  height: 29px; /* Matches back button height to prevent content shifting */
+}
+
+/* Results Display styles */
+.quiz-results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  animation: slideDownFade 0.5s ease forwards;
+}
+
+.quiz-results-nav-buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.quiz-results-nav-buttons .btn {
+  flex: 1;
+  justify-content: center;
+  height: 48px;
+  box-sizing: border-box;
+  padding: 0 24px;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.quiz-results-nav-buttons .widget-cta {
+  width: auto;
+  margin-top: 0;
+}
+
+/* Gland Visualizer Card */
+.gland-visualizer-card {
+  background: rgba(13, 27, 42, 0.4);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gland-visualizer-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.gland-visualizer-header strong {
+  font-family: var(--font-heading);
+}
+
+.glands-container {
+  background: rgba(6, 11, 19, 0.65);
+  border: 1px solid rgba(123, 150, 200, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.glands-row-svg {
+  width: 100%;
+  height: auto;
+  max-width: 240px;
+  display: block;
+}
+
+/* Gland SVG Group Styles */
+.gland-svg-group {
+  transition: all 0.6s ease;
+}
+
+.gland-main-duct {
+  stroke-width: 3.5px;
+  stroke-linecap: round;
+  transition: stroke 0.6s ease, stroke-dasharray 0.6s ease, opacity 0.6s ease;
+}
+
+.gland-acinus {
+  transition: fill 0.6s ease, opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* State: Healthy (Cyan/Green glow) */
+.gland-svg-group.gland-state-healthy .gland-main-duct {
+  stroke: #6FA87A;
+}
+
+.gland-svg-group.gland-state-healthy .gland-acinus {
+  fill: #A7D8B1;
+}
+
+/* State: Blocked (Orange warnings) */
+.gland-svg-group.gland-state-blocked .gland-main-duct {
+  stroke: #F59E0B;
+}
+
+.gland-svg-group.gland-state-blocked .gland-acinus {
+  fill: #F3C68F;
+}
+
+/* State: Atrophied (Faded Red/Gray) */
+.gland-svg-group.gland-state-atrophied {
+  opacity: 0.25;
+}
+
+.gland-svg-group.gland-state-atrophied .gland-main-duct {
+  stroke: #EF4444;
+  stroke-dasharray: 4, 4; /* representing structural breakdown */
+}
+
+.gland-svg-group.gland-state-atrophied .gland-acinus {
+  fill: #EF4444;
+  transform: scale(0.7); /* representing shrinkage */
+  transform-origin: center;
+}
+
+.hidden-checklist {
+  display: none;
+}
+
+.quiz-results-container {
+  display: none;
+}
+
+
