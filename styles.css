@@ -341,7 +341,7 @@ img {
 
 /* Visibility Utilities */
 .mobile-only {
-  display: none !important;
+  display: none;
 }
 
 .desktop-only {
@@ -350,11 +350,11 @@ img {
 
 @media (max-width: 900px) {
   .mobile-only {
-    display: block !important;
+    display: block;
   }
 
   .desktop-only {
-    display: none !important;
+    display: none;
   }
 }
 
@@ -400,8 +400,9 @@ img {
   color: #fff;
 }
 
-.nav-cta {
-  color: #ffffff !important;
+.nav-links .nav-cta,
+.nav-actions .nav-cta {
+  color: #ffffff;
 }
 
 .mobile-toggle {
@@ -547,8 +548,8 @@ img {
   transform: translateY(-1px);
 }
 
-.stage-tab.active {
-  color: #FFFFFF !important;
+.stages-tablist .stage-tab.active {
+  color: #FFFFFF;
 }
 
 .stage-tab-label {
@@ -1980,7 +1981,7 @@ img {
 }
 
 .form-honeypot {
-  display: none !important;
+  display: none;
 }
 
 /* ===================== SIGNS & SYMPTOMS ===================== */
@@ -3256,4 +3257,33 @@ img {
   display: none;
 }
 
+/* ===================== PREMIUM FOCUS & INTERACTIVE STATES ===================== */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 4px;
+}
 
+.btn:active,
+.stage-tab:active,
+.layer-card:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
+}
+
+/* Ensure mobile-friendly touch targets for form navigation buttons */
+@media (max-width: 768px) {
+  .btn, 
+  .carousel-btn, 
+  .faq-question, 
+  .stage-tab,
+  .tab-btn {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
