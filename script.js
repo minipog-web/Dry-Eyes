@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Google Analytics Event Tracking Helper
+  const trackEvent = (eventName, params = {}) => {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params);
+    } else {
+      console.debug('[GA4 Telemetry]', eventName, params);
+    }
+  };
+
   // Mobile Nav Toggle
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navLinks = document.querySelector('.nav-links');
@@ -6,28 +15,74 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileToggle) {
     mobileToggle.addEventListener('click', () => {
       navLinks.classList.toggle('open');
-      mobileToggle.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+      const isOpen = navLinks.classList.contains('open');
+      mobileToggle.textContent = isOpen ? '✕' : '☰';
+      trackEvent('mobile_menu_toggle', { state: isOpen ? 'open' : 'close' });
     });
 
     // Close mobile nav when a link is clicked
     const navLinksItems = document.querySelectorAll('.nav-links a');
     navLinksItems.forEach(link => {
       link.addEventListener('click', () => {
+        trackEvent('nav_click', {
+          link_text: link.textContent.trim(),
+          link_url: link.getAttribute('href')
+        });
         navLinks.classList.remove('open');
         mobileToggle.textContent = '☰';
       });
     });
   }
 
-  // Navbar Scroll Effect
+  // Logo & CTA clicks
+  const navLogo = document.querySelector('.nav-logo');
+  if (navLogo) {
+    navLogo.addEventListener('click', () => {
+      trackEvent('nav_click', { link_text: 'Logo', link_url: navLogo.getAttribute('href') });
+    });
+  }
+
+  const navCTAs = document.querySelectorAll('.nav-cta');
+  navCTAs.forEach(cta => {
+    cta.addEventListener('click', () => {
+      trackEvent('nav_click', { link_text: 'Schedule Consultation (CTA)', link_url: cta.getAttribute('href') });
+    });
+  });
+
+  // Hero Section Buttons
+  const heroButtons = document.querySelectorAll('.hero-buttons a');
+  heroButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isPrimary = btn.classList.contains('btn-primary');
+      trackEvent('hero_cta_click', {
+        cta_type: isPrimary ? 'explore_treatments' : 'book_appointment',
+        link_text: btn.textContent.trim()
+      });
+    });
+  });
+
+  // Navbar Scroll Effect using IntersectionObserver (GPU-friendly, zero layout thrashing)
   const navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+  const scrollSentinel = document.createElement('div');
+  scrollSentinel.style.position = 'absolute';
+  scrollSentinel.style.top = '50px';
+  scrollSentinel.style.left = '0';
+  scrollSentinel.style.width = '1px';
+  scrollSentinel.style.height = '1px';
+  scrollSentinel.style.pointerEvents = 'none';
+  scrollSentinel.style.visibility = 'hidden';
+  document.body.prepend(scrollSentinel);
+
+  const navbarObserver = new IntersectionObserver((entries) => {
+    const entry = entries[0];
+    if (!entry.isIntersecting) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
-  });
+  }, { root: null, threshold: 0 });
+
+  navbarObserver.observe(scrollSentinel);
 
   // Reveal Animations on Scroll
   const observerOptions = {
@@ -75,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.setAttribute('aria-selected', 'true');
 
       updateSlidingPill(tab);
+      trackEvent('life_stage_view', { stage_name: targetStage });
 
       stageContents.forEach(content => {
         if (content.id === `stage-${targetStage}`) {
@@ -118,14 +174,32 @@ document.addEventListener('DOMContentLoaded', () => {
           img.classList.remove('active');
         }
       });
+
+      trackEvent('anatomy_layer_view', { layer_name: targetLayer });
     });
   });
 
   // Diagnostics Flip Cards
   const diagCards = document.querySelectorAll('.diag-card');
   diagCards.forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('flipped');
+    const toggleFlip = () => {
+      const isFlipped = card.classList.toggle('flipped');
+      card.setAttribute('aria-expanded', isFlipped ? 'true' : 'false');
+      if (isFlipped) {
+        const heading = card.querySelector('h3');
+        const cardName = heading ? heading.textContent.trim() : 'Unknown';
+        trackEvent('diagnostic_card_flip', { card_name: cardName });
+      }
+    };
+
+    card.addEventListener('click', toggleFlip);
+
+    // Keyboard support (Space and Enter)
+    card.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        toggleFlip();
+      }
     });
   });
 
@@ -145,6 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const selectedValue = btn.dataset.value;
         const targetId = `treatment-${selectedValue}`;
+        trackEvent('treatment_tab_click', { treatment_type: 'medications', tab_name: selectedValue });
 
         medicationCards.forEach(card => {
           if (card.id === targetId) {
@@ -167,6 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const selectedValue = btn.dataset.value;
         const targetId = `treatment-${selectedValue}`;
+        trackEvent('treatment_tab_click', { treatment_type: 'procedures', tab_name: selectedValue });
 
         procedureCards.forEach(card => {
           if (card.id === targetId) {
@@ -198,11 +274,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextSlide = () => {
       currentSlide = (currentSlide + 1) % slides.length;
       updateCarousel();
+      trackEvent('testimonial_nav', { action_type: 'next' });
     };
 
     const prevSlide = () => {
       currentSlide = (currentSlide - 1 + slides.length) % slides.length;
       updateCarousel();
+      trackEvent('testimonial_nav', { action_type: 'prev' });
     };
 
     if (nextBtn) nextBtn.addEventListener('click', nextSlide);
@@ -212,6 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dot.addEventListener('click', () => {
         currentSlide = index;
         updateCarousel();
+        trackEvent('testimonial_nav', { action_type: 'dot', slide_index: index });
       });
     });
 
@@ -231,6 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       if (!isOpen) {
         item.classList.add('open');
+        trackEvent('faq_expand', { question_text: question.textContent.trim() });
       }
     });
   });
@@ -242,6 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      trackEvent('form_submit_attempt');
       
       try {
         const formData = new FormData(contactForm);
@@ -255,11 +336,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           contactForm.style.display = 'none';
           formSuccess.classList.add('show');
+          trackEvent('form_submit_success');
         } else {
           const errorText = await response.text();
+          trackEvent('form_submit_error', { error_message: errorText });
           throw new Error(`Submission failed: ${response.status} ${response.statusText}\n${errorText}`);
         }
       } catch (error) {
+        trackEvent('form_submit_error', { error_message: error.message });
         console.error('Form submission error:', error);
         alert('There was an error submitting the form. Please try again or contact us directly.');
       }
@@ -466,9 +550,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (quizResultsContainer) quizResultsContainer.style.display = 'flex';
 
     calculateQuizScore();
+
+    const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+    let severity = 'mild';
+    let pathway = 'Tear Break-Up Time (TBUT) & Volume Scan';
+    if (checkedCount > 2 && checkedCount <= 4) {
+      severity = 'moderate';
+      pathway = 'LipiView® Gland Scan & Meibography';
+    } else if (checkedCount > 4) {
+      severity = 'severe';
+      pathway = 'Full Diagnostic Suite (LipiView + Osmolarity + MMP-9)';
+    }
+
+    trackEvent('quiz_complete', {
+      score: checkedCount,
+      severity: severity,
+      pathway: pathway
+    });
   };
 
+  let quizStarted = false;
+
   const handleQuizChoice = (isYes) => {
+    if (!quizStarted) {
+      quizStarted = true;
+      trackEvent('quiz_start');
+    }
     const activeSlide = quizSlides[currentQuizStep];
     if (!activeSlide) return;
 
@@ -477,6 +584,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (checkbox) {
       checkbox.checked = isYes;
     }
+
+    trackEvent('quiz_question_answer', {
+      step_number: currentQuizStep + 1,
+      question_title: stepTitles[currentQuizStep] || symptomName,
+      choice: isYes ? 'yes' : 'no'
+    });
 
     if (currentQuizStep < quizSlides.length - 1) {
       currentQuizStep++;
@@ -505,6 +618,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnQuizRestart = document.getElementById('btn-quiz-restart');
   if (btnQuizRestart) {
     btnQuizRestart.addEventListener('click', () => {
+      quizStarted = false;
+      trackEvent('quiz_restart');
       checkboxes.forEach(cb => cb.checked = false);
       currentQuizStep = 0;
       updateQuizUI();
@@ -561,14 +676,28 @@ document.addEventListener('DOMContentLoaded', () => {
       return isValid;
     };
 
+    let formStarted = false;
+    form.addEventListener('focusin', () => {
+      if (!formStarted) {
+        formStarted = true;
+        trackEvent('form_start');
+      }
+    }, { once: true });
+
     form.querySelectorAll('.form-next-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const currentStepContent = steps[activeStepIndex];
         if (validateStep(currentStepContent)) {
           if (activeStepIndex < steps.length - 1) {
+            const fromStep = activeStepIndex + 1;
             activeStepIndex++;
             updateFormSteps();
+            trackEvent('form_step_nav', {
+              direction: 'next',
+              from_step: fromStep,
+              to_step: activeStepIndex + 1
+            });
           }
         }
       });
@@ -578,8 +707,14 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         if (activeStepIndex > 0) {
+          const fromStep = activeStepIndex + 1;
           activeStepIndex--;
           updateFormSteps();
+          trackEvent('form_step_nav', {
+            direction: 'prev',
+            from_step: fromStep,
+            to_step: activeStepIndex + 1
+          });
         }
       });
     });
@@ -587,12 +722,24 @@ document.addEventListener('DOMContentLoaded', () => {
     markers.forEach((marker, index) => {
       marker.addEventListener('click', () => {
         if (index <= activeStepIndex) {
+          const fromStep = activeStepIndex + 1;
           activeStepIndex = index;
           updateFormSteps();
+          trackEvent('form_step_nav', {
+            direction: 'marker',
+            from_step: fromStep,
+            to_step: activeStepIndex + 1
+          });
         } else if (index === activeStepIndex + 1) {
           if (validateStep(steps[activeStepIndex])) {
+            const fromStep = activeStepIndex + 1;
             activeStepIndex = index;
             updateFormSteps();
+            trackEvent('form_step_nav', {
+              direction: 'marker',
+              from_step: fromStep,
+              to_step: activeStepIndex + 1
+            });
           }
         }
       });
@@ -625,6 +772,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const messageTextArea = document.getElementById('message');
       const checkedCount = checkedSymptoms.length;
       
+      trackEvent('form_widget_cta_click', {
+        checked_count: checkedCount,
+        suggested_pathway: concernSelect ? concernSelect.value : ''
+      });
+
       if (concernSelect) {
         if (checkedCount >= 5) {
           concernSelect.value = 'lipiflow';
