@@ -211,6 +211,15 @@ img {
   color: #5A6A7A;
 }
 
+.section-header-left {
+  text-align: left;
+}
+
+.section-header-left p {
+  margin-left: 0;
+  margin-right: auto;
+}
+
 /* --- GLASS CARD --- */
 .glass-card {
   background: var(--surface-card);
@@ -789,28 +798,36 @@ img {
 .diagnostics-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  gap: 28px;
+  margin-bottom: 8px;
 }
 
 .diag-card {
-  perspective: 1000px;
-  height: 260px;
+  perspective: 1200px;
+  height: 280px;
   cursor: pointer;
-  transition: transform var(--transition);
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.35s ease;
   outline: none;
+  position: relative;
 }
+
+/* Per-card accent color via top border — cycles through brand palette */
+.diag-card:nth-child(1) .diag-front { border-top: 4px solid #7B96C8; }
+.diag-card:nth-child(2) .diag-front { border-top: 4px solid #5B6BA8; }
+.diag-card:nth-child(3) .diag-front { border-top: 4px solid #38BDF8; }
+.diag-card:nth-child(4) .diag-front { border-top: 4px solid #6EE7B7; }
+.diag-card:nth-child(5) .diag-front { border-top: 4px solid #F59E0B; }
+.diag-card:nth-child(6) .diag-front { border-top: 4px solid #F3A3A1; }
 
 .diag-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s ease;
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
   transform-style: preserve-3d;
 }
 
-.diag-card.flipped .diag-card-inner,
-.diag-card:focus-within .diag-card-inner,
-.diag-card.focus .diag-card-inner {
+.diag-card.flipped .diag-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -827,48 +844,82 @@ img {
 }
 
 .diag-front {
-  background: var(--surface-card);
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  background: #FFFFFF;
+  border: 1px solid rgba(10, 30, 70, 0.11);
+  border-top-width: 4px; /* Reserve space for per-card accent override */
   text-align: center;
+  /* Three-layer shadow: deep ambient + directional lift + tight edge definition */
+  box-shadow:
+    0 2px 4px rgba(10, 30, 70, 0.06),
+    0 8px 24px rgba(10, 30, 70, 0.09),
+    0 24px 48px rgba(10, 30, 70, 0.07);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* Icon ring badge — light variant for white card */
 .diag-front .diag-icon {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-bottom: 18px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(123, 150, 200, 0.08);
+  border: 1.5px solid rgba(123, 150, 200, 0.18);
+  box-shadow: 0 2px 12px rgba(123, 150, 200, 0.1);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease, background 0.35s ease;
 }
 
 .diag-front h3 {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   margin-bottom: 8px;
+  color: #0D1A2E;
+  letter-spacing: 0.01em;
 }
 
 .diag-front p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  font-size: 0.82rem;
+  color: #4A5568;
+  line-height: 1.5;
 }
 
-.section-light .diag-front {
+/* Ensure white card is consistent inside light/light-cool sections */
+.section-light .diag-front,
+.section-light-cool .diag-front {
   background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(10, 30, 70, 0.11);
+  border-top-width: 4px;
+  box-shadow:
+    0 2px 4px rgba(10, 30, 70, 0.06),
+    0 8px 24px rgba(10, 30, 70, 0.09),
+    0 24px 48px rgba(10, 30, 70, 0.07);
 }
 
-.section-light .diag-front h3 {
-  color: var(--text-dark);
+.section-light .diag-front h3,
+.section-light-cool .diag-front h3 {
+  color: #0D1A2E;
 }
 
-.section-light .diag-front p {
+.section-light .diag-front p,
+.section-light-cool .diag-front p {
   color: #4A5568;
 }
 
 .diag-back {
-  background: linear-gradient(135deg, #1A283D, #0D1726); /* Rich, deep indigo-slate gradient for high text contrast */
+  background: linear-gradient(150deg, #1A283D 0%, #0B1525 100%);
   transform: rotateY(180deg);
-  border: 1px solid rgba(123, 150, 200, 0.3);
+  border: 1px solid rgba(123, 150, 200, 0.35);
   color: #E2E8F0;
-  box-shadow: 0 12px 32px rgba(13, 27, 42, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
   padding: 20px 24px;
 }
 
@@ -887,27 +938,29 @@ img {
 .diag-back p {
   font-size: 0.8rem;
   line-height: 1.45;
-  color: #CBD5E1; /* High-contrast light slate gray */
+  color: #CBD5E1;
   font-weight: 400;
   margin-bottom: 10px;
 }
 
-/* Explicitly override light section inheritance to prevent any text contrast issue */
-.section-light .diag-back h3 {
+/* Ensure back face overrides light section inheritance */
+.section-light .diag-back h3,
+.section-light-cool .diag-back h3 {
   color: #FFFFFF;
 }
 
-.section-light .diag-back p {
+.section-light .diag-back p,
+.section-light-cool .diag-back p {
   color: #CBD5E1;
 }
 
 /* Diagnostic Result Mockup Styles */
 .diag-result-container {
   width: 100%;
-  height: 52px;
+  height: 60px;
   margin-top: auto;
   border-radius: 6px;
-  background: rgba(13, 23, 38, 0.7);
+  background: rgba(6, 12, 24, 0.85);
   border: 1px solid rgba(123, 150, 200, 0.25);
   padding: 4px 8px;
   display: flex;
@@ -915,7 +968,7 @@ img {
   justify-content: center;
   box-sizing: border-box;
   overflow: hidden;
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 .diag-result-svg {
@@ -932,60 +985,62 @@ img {
   display: block;
 }
 
-
+/* --- Hover: Dramatic lift + intensified accent glow --- */
 .diag-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px) scale(1.015);
+  filter: drop-shadow(0 20px 40px rgba(10, 25, 60, 0.18));
 }
 
 .diag-front {
-  transition: all var(--transition);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .diag-card:hover .diag-front {
-  border-color: var(--primary);
-  box-shadow: 0 12px 32px var(--glow), 0 0 0 1px rgba(123, 150, 200, 0.15);
-}
-
-.diag-front .diag-icon {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-color: rgba(123, 150, 200, 0.4);
+  /* Shadow amplifies dramatically on hover — lifts card visually off the page */
+  box-shadow:
+    0 2px 4px rgba(10, 30, 70, 0.06),
+    0 16px 40px rgba(10, 30, 70, 0.14),
+    0 40px 72px rgba(10, 30, 70, 0.1);
 }
 
 .diag-card:hover .diag-icon {
-  transform: scale(1.18) translateY(-4px);
+  transform: scale(1.2) translateY(-3px);
+  box-shadow: 0 4px 20px rgba(123, 150, 200, 0.22);
+  background: rgba(123, 150, 200, 0.14);
+  border-color: rgba(123, 150, 200, 0.35);
 }
 
 .diag-flip-hint {
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: rgba(148, 163, 184, 0.7);
   margin-top: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: rgba(123, 150, 200, 0.08);
+  background: rgba(123, 150, 200, 0.07);
   padding: 6px 14px;
   border-radius: 50px;
-  border: 1px solid rgba(123, 150, 200, 0.12);
+  border: 1px solid rgba(123, 150, 200, 0.14);
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  transition: all var(--transition);
+  transition: all 0.3s ease;
   font-weight: 500;
 }
 
 .diag-flip-hint .hint-svg {
   width: 12px;
   height: 12px;
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .diag-card:hover .diag-flip-hint {
-  background: linear-gradient(135deg, rgba(123, 150, 200, 0.15), rgba(123, 150, 200, 0.25));
-  color: var(--primary-light);
-  border-color: rgba(123, 150, 200, 0.3);
-  box-shadow: 0 4px 12px rgba(123, 150, 200, 0.1);
+  background: rgba(123, 150, 200, 0.16);
+  color: #93B5E1;
+  border-color: rgba(123, 150, 200, 0.32);
+  box-shadow: 0 2px 10px rgba(123, 150, 200, 0.14);
 }
 
 .diag-card:hover .diag-flip-hint .hint-svg {
@@ -1561,6 +1616,21 @@ img {
   font-size: 1.2rem;
 }
 
+/* Subtle standing out style for the booking form card */
+#booking-card {
+  background: rgba(13, 27, 42, 0.75); /* more solid than default surface-card to stand out */
+  border: 1px solid rgba(123, 150, 200, 0.35); /* higher contrast border */
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45), 0 0 32px rgba(123, 150, 200, 0.12); /* smooth floating shadow + subtle soft blue backdrop glow */
+  border-top: 3px solid var(--primary); /* subtle horizontal accent bar at the top edge */
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+#booking-card:hover {
+  border-color: rgba(123, 150, 200, 0.5);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.55), 0 0 40px rgba(123, 150, 200, 0.18);
+  transform: translateY(-3px);
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -2116,9 +2186,14 @@ img {
 .assessment-widget {
   padding: 32px;
   border-radius: var(--radius);
-  background: var(--surface-card);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(rgba(10, 20, 38, 0.95), rgba(6, 12, 24, 0.98)),
+              repeating-linear-gradient(0deg, rgba(123, 150, 200, 0.03) 0px, rgba(123, 150, 200, 0.03) 1px, transparent 1px, transparent 8px),
+              repeating-linear-gradient(90deg, rgba(123, 150, 200, 0.03) 0px, rgba(123, 150, 200, 0.03) 1px, transparent 1px, transparent 8px);
+  border: 1px solid rgba(123, 150, 200, 0.35);
+  border-top: 3px solid var(--primary-light);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 24px rgba(123, 150, 200, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .widget-header h3 {
@@ -2133,16 +2208,43 @@ img {
 }
 
 .widget-badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   padding: 4px 10px;
-  background: rgba(91, 107, 168, 0.2);
-  color: var(--primary-light);
-  border-radius: 20px;
-  border: 1px solid rgba(91, 107, 168, 0.3);
+  background: rgba(111, 168, 122, 0.15);
+  color: #A7D8B1;
+  border-radius: 4px;
+  border: 1px solid rgba(111, 168, 122, 0.35);
+  box-shadow: 0 0 10px rgba(111, 168, 122, 0.1);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-green);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px var(--accent-green);
+  animation: pulse-dot 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 8px var(--accent-green);
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+    box-shadow: 0 0 12px var(--accent-green);
+  }
 }
 
 .assessment-checklist {
@@ -3047,6 +3149,23 @@ img {
 .form-nav-buttons .btn {
   flex: 1;
   justify-content: center;
+  border-radius: 2px;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: var(--primary);
+  color: #040810;
+  box-shadow: none;
+  padding: 16px 24px;
+}
+
+.form-nav-buttons .btn:hover {
+  background: #FFFFFF;
+  color: #040810;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
 }
 
 /* ===================== QUIZ ENGAGEMENT OPTIMIZATIONS ===================== */
@@ -3071,18 +3190,21 @@ img {
 
 .quiz-progress-bar-bg {
   width: 100%;
-  height: 6px;
-  background: rgba(13, 27, 42, 0.6);
-  border: 1px solid var(--glass-border);
-  border-radius: 10px;
+  height: 10px;
+  background: rgba(6, 12, 24, 0.85);
+  border: 1px solid rgba(123, 150, 200, 0.35);
+  border-radius: 2px;
   overflow: hidden;
+  padding: 1px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .quiz-progress-bar-fill {
   height: 100%;
   width: 14.28%; /* 1/7 initially */
-  background: linear-gradient(90deg, var(--primary), var(--primary-light));
-  border-radius: 10px;
+  background: repeating-linear-gradient(45deg, var(--primary) 0px, var(--primary) 6px, var(--primary-light) 6px, var(--primary-light) 12px);
+  border-radius: 1px;
+  box-shadow: 0 0 10px var(--glow);
   transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -3148,35 +3270,45 @@ img {
 .btn-quiz-opt {
   flex: 1;
   padding: 12px 24px;
-  border-radius: 30px;
-  font-family: var(--font-heading);
-  font-weight: 600;
+  border-radius: 4px; /* tactile sharp corners */
+  font-family: monospace; /* HUD code aesthetic */
+  font-weight: 700;
   font-size: 0.95rem;
   cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   transition: all var(--transition);
-  border: 1.5px solid var(--primary);
+  border: 1.5px solid rgba(123, 150, 200, 0.45);
   outline: none;
 }
 
 .btn-quiz-yes {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  color: #ffffff;
-  box-shadow: 0 4px 16px var(--glow);
+  background: rgba(123, 150, 200, 0.15);
+  color: var(--primary-light);
+  border-color: var(--primary);
+  box-shadow: inset 0 0 8px rgba(123, 150, 200, 0.15);
 }
 
 .btn-quiz-yes:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px var(--glow);
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 0 16px var(--glow), inset 0 0 8px rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
 }
 
 .btn-quiz-no {
-  background: transparent;
-  color: var(--primary-light);
+  background: rgba(217, 83, 79, 0.05);
+  color: #F3A3A1;
+  border-color: rgba(217, 83, 79, 0.45);
+  box-shadow: inset 0 0 8px rgba(217, 83, 79, 0.05);
 }
 
 .btn-quiz-no:hover {
-  background: rgba(123, 150, 200, 0.08);
-  transform: translateY(-2px);
+  background: #d9534f;
+  color: #ffffff;
+  border-color: #d9534f;
+  box-shadow: 0 0 16px rgba(217, 83, 79, 0.4), inset 0 0 8px rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
 }
 
 .quiz-nav {
@@ -3259,14 +3391,16 @@ img {
 }
 
 .glands-container {
-  background: rgba(6, 11, 19, 0.65);
-  border: 1px solid rgba(123, 150, 200, 0.15);
+  background: linear-gradient(rgba(6, 12, 24, 0.9), rgba(6, 12, 24, 0.95)),
+              repeating-linear-gradient(0deg, rgba(123, 150, 200, 0.04) 0px, rgba(123, 150, 200, 0.04) 1px, transparent 1px, transparent 6px),
+              repeating-linear-gradient(90deg, rgba(123, 150, 200, 0.04) 0px, rgba(123, 150, 200, 0.04) 1px, transparent 1px, transparent 6px);
+  border: 1px solid rgba(123, 150, 200, 0.35);
   border-radius: var(--radius-sm);
-  padding: 16px 20px;
+  padding: 20px 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.6), 0 0 20px rgba(6, 12, 24, 0.5);
 }
 
 .glands-row-svg {
@@ -3334,18 +3468,66 @@ img {
 }
 
 /* ===================== PREMIUM FOCUS & INTERACTIVE STATES ===================== */
+/* Custom focus rings using high-tech glowing shadows and outlines */
+:focus-visible {
+  outline: none;
+}
+
 button:focus-visible,
 a:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid var(--primary-light);
-  outline-offset: 4px;
+.btn:focus-visible,
+.stage-tab:focus-visible,
+.tab-btn:focus-visible,
+.layer-card:focus-visible,
+.faq-question:focus-visible,
+.carousel-dot:focus-visible,
+.carousel-btn:focus-visible,
+.btn-quiz-opt:focus-visible,
+.btn-quiz-back:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(123, 150, 200, 0.45), 0 0 16px var(--glow);
+  border-color: var(--primary-light) !important;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Specific focus indicator for diagnostics cards (preserves 3D flip visual flow) */
+.diag-card:focus-visible {
+  outline: none;
+}
+
+.diag-card:focus-visible .diag-card-inner {
+  box-shadow: 0 0 0 3px rgba(123, 150, 200, 0.55), 0 0 20px var(--glow);
+  border-radius: var(--radius);
+}
+
+/* Premium form and input states with hover and focus transitions */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+  border-color: rgba(123, 150, 200, 0.4);
+  background: rgba(13, 27, 42, 0.7);
+}
+
+.form-group input:focus-visible,
+.form-group textarea:focus-visible,
+.form-group select:focus-visible {
+  outline: none;
+  border-color: var(--primary-light) !important;
+  background: rgba(13, 27, 42, 0.85);
+  box-shadow: 0 0 0 3px rgba(123, 150, 200, 0.3), 0 0 12px var(--glow) !important;
 }
 
 .btn:active,
 .stage-tab:active,
-.layer-card:active {
+.layer-card:active,
+.tab-btn:active,
+.btn-quiz-opt:active {
   transform: scale(0.97);
   transition: transform 0.1s ease;
 }
@@ -3363,3 +3545,240 @@ textarea:focus-visible {
     justify-content: center;
   }
 }
+
+
+
+
+
+/* --- TACTILE BACKGROUND NOISE TEXTURE --- */
+.section-dark-alt::before,
+.section-dark-deep::before,
+.cta-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Ensure content containers stack above background noise */
+.section-dark-alt > *,
+.section-dark-deep > *,
+.cta-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- INTERACTIVE COMPARISON SLIDER --- */
+.slider-comparison {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(123, 150, 200, 0.18);
+  --slide-pos: 50%;
+  background: var(--surface-dark);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.slider-image-before {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.slider-image-before img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slider-image-after {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  clip-path: polygon(0 0, var(--slide-pos) 0, var(--slide-pos) 100%, 0 100%);
+  pointer-events: none; /* Let range input capture click/drags underneath */
+}
+
+.slider-comparison.slider-transitioning .slider-image-after {
+  transition: clip-path 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slider-image-after .interactive-anatomy-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  border: none;
+}
+
+.slider-range-control {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 5;
+  margin: 0;
+}
+
+.slider-comparison.slider-disabled .slider-range-control {
+  pointer-events: none;
+}
+
+.slider-divider-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--slide-pos);
+  width: 2px;
+  background: rgba(255, 255, 255, 0.4);
+  z-index: 3;
+  transform: translateX(-50%);
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+}
+
+.slider-comparison.slider-transitioning .slider-divider-line {
+  transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+}
+
+.slider-divider-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42px;
+  height: 42px;
+  background: var(--primary-dark);
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px var(--glow);
+  pointer-events: none;
+  z-index: 4;
+  color: #ffffff;
+  gap: 2px;
+  transition: background-color var(--transition), transform 0.2s ease, opacity 0.3s ease;
+}
+
+.slider-comparison.slider-disabled .slider-divider-line,
+.slider-comparison.slider-disabled .slider-divider-handle {
+  opacity: 0;
+}
+
+.slider-comparison:hover .slider-divider-handle {
+  background: var(--primary);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.handle-arrow {
+  width: 12px;
+  height: 12px;
+  stroke: #ffffff;
+}
+
+/* --- SVG GLAND STATE PULSING & ATROPHY --- */
+@keyframes glandPulse {
+  0% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 2px rgba(243, 198, 143, 0.4));
+  }
+  50% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 8px rgba(243, 198, 143, 0.85));
+  }
+  100% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 2px rgba(243, 198, 143, 0.4));
+  }
+}
+
+@keyframes glandDegrade {
+  0% {
+    opacity: 0.2;
+    stroke-dasharray: 2 4;
+  }
+  50% {
+    opacity: 0.45;
+    stroke-dasharray: 4 2;
+  }
+  100% {
+    opacity: 0.2;
+    stroke-dasharray: 2 4;
+  }
+}
+
+.gland-svg-group {
+  transition: stroke var(--transition), fill var(--transition), opacity var(--transition);
+}
+
+.gland-svg-group .gland-main-duct {
+  stroke: #E2E8F0;
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  transition: stroke 0.5s ease;
+}
+
+.gland-svg-group .gland-acinus {
+  fill: #F8FAFC;
+  stroke: #E2E8F0;
+  stroke-width: 1.2;
+  transition: fill 0.5s ease, stroke 0.5s ease;
+}
+
+/* Gland States */
+.gland-state-healthy .gland-main-duct {
+  stroke: #A7D8B1;
+}
+.gland-state-healthy .gland-acinus {
+  fill: #D1F2D9;
+  stroke: #A7D8B1;
+}
+
+.gland-state-blocked {
+  animation: glandPulse 3s ease-in-out infinite;
+}
+.gland-state-blocked .gland-main-duct {
+  stroke: #F3C68F;
+}
+.gland-state-blocked .gland-acinus {
+  fill: #FEEBC8;
+  stroke: #F3C68F;
+}
+
+.gland-state-atrophied {
+  animation: glandDegrade 4s ease-in-out infinite;
+}
+.gland-state-atrophied .gland-main-duct {
+  stroke: #F3A3A1;
+  stroke-width: 2; /* Atrophy shrinks the duct */
+  opacity: 0.35;
+}
+.gland-state-atrophied .gland-acinus {
+  fill: rgba(243, 163, 161, 0.2);
+  stroke: #F3A3A1;
+  opacity: 0.25;
+}
+
+
+

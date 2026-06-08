@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks.classList.toggle('open');
       const isOpen = navLinks.classList.contains('open');
       mobileToggle.textContent = isOpen ? '✕' : '☰';
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       trackEvent('mobile_menu_toggle', { state: isOpen ? 'open' : 'close' });
     });
 
@@ -140,6 +141,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+
+    // Keyboard support for tablist navigation
+    tab.addEventListener('keydown', (e) => {
+      const tabArray = Array.from(stageTabs);
+      const index = tabArray.indexOf(tab);
+      let targetTab = null;
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        targetTab = tabArray[(index + 1) % tabArray.length];
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        targetTab = tabArray[(index - 1 + tabArray.length) % tabArray.length];
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        targetTab = tabArray[0];
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        targetTab = tabArray[tabArray.length - 1];
+      }
+
+      if (targetTab) {
+        targetTab.focus();
+        targetTab.click();
+      }
+    });
   });
 
   const initialActiveTab = document.querySelector('.stage-tab.active');
@@ -175,6 +202,61 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
+      // Update slider visibility based on active layer (Only show slider on Lipid layer)
+      const sliderContainer = document.querySelector('.slider-comparison');
+      const sliderInput = document.querySelector('.slider-range-control');
+      if (sliderContainer && sliderInput) {
+        sliderContainer.classList.add('slider-transitioning');
+        
+        if (targetLayer === 'lipid') {
+          sliderContainer.classList.remove('slider-disabled');
+          // Smoothly animate back to 50% split comparison
+          let currentVal = parseFloat(sliderInput.value);
+          const targetVal = 50;
+          const steps = 15;
+          const stepVal = (targetVal - currentVal) / steps;
+          let stepCount = 0;
+          
+          const animateSlider = () => {
+            if (stepCount < steps) {
+              currentVal += stepVal;
+              sliderInput.value = currentVal;
+              sliderInput.dispatchEvent(new Event('input'));
+              stepCount++;
+              requestAnimationFrame(animateSlider);
+            } else {
+              sliderInput.value = targetVal;
+              sliderInput.dispatchEvent(new Event('input'));
+              sliderContainer.classList.remove('slider-transitioning');
+            }
+          };
+          animateSlider();
+        } else {
+          sliderContainer.classList.add('slider-disabled');
+          // Smoothly animate to 100% to fully hide comparison
+          let currentVal = parseFloat(sliderInput.value);
+          const targetVal = 100;
+          const steps = 15;
+          const stepVal = (targetVal - currentVal) / steps;
+          let stepCount = 0;
+          
+          const animateSlider = () => {
+            if (stepCount < steps) {
+              currentVal += stepVal;
+              sliderInput.value = currentVal;
+              sliderInput.dispatchEvent(new Event('input'));
+              stepCount++;
+              requestAnimationFrame(animateSlider);
+            } else {
+              sliderInput.value = targetVal;
+              sliderInput.dispatchEvent(new Event('input'));
+              sliderContainer.classList.remove('slider-transitioning');
+            }
+          };
+          animateSlider();
+        }
+      }
+
       trackEvent('anatomy_layer_view', { layer_name: targetLayer });
     });
   });
@@ -201,6 +283,15 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleFlip();
       }
     });
+
+    // Automatically flip back when mouse leaves
+    card.addEventListener('mouseleave', () => {
+      if (card.classList.contains('flipped')) {
+        card.classList.remove('flipped');
+        card.setAttribute('aria-expanded', 'false');
+      }
+      card.blur();
+    });
   });
 
   // Treatments Selection custom tab buttons controller
@@ -214,8 +305,12 @@ document.addEventListener('DOMContentLoaded', () => {
     tabButtons.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        tabButtons.forEach(b => b.classList.remove('active'));
+        tabButtons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
         
         const selectedValue = btn.dataset.value;
         const targetId = `treatment-${selectedValue}`;
@@ -229,6 +324,32 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       });
+
+      // Keyboard support for medication tabs navigation
+      btn.addEventListener('keydown', (e) => {
+        const btnArray = Array.from(tabButtons);
+        const index = btnArray.indexOf(btn);
+        let targetBtn = null;
+
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          targetBtn = btnArray[(index + 1) % btnArray.length];
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          targetBtn = btnArray[(index - 1 + btnArray.length) % btnArray.length];
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          targetBtn = btnArray[0];
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          targetBtn = btnArray[btnArray.length - 1];
+        }
+
+        if (targetBtn) {
+          targetBtn.focus();
+          targetBtn.click();
+        }
+      });
     });
   }
 
@@ -237,8 +358,12 @@ document.addEventListener('DOMContentLoaded', () => {
     tabButtons.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        tabButtons.forEach(b => b.classList.remove('active'));
+        tabButtons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
 
         const selectedValue = btn.dataset.value;
         const targetId = `treatment-${selectedValue}`;
@@ -251,6 +376,32 @@ document.addEventListener('DOMContentLoaded', () => {
             card.classList.remove('active');
           }
         });
+      });
+
+      // Keyboard support for procedure tabs navigation
+      btn.addEventListener('keydown', (e) => {
+        const btnArray = Array.from(tabButtons);
+        const index = btnArray.indexOf(btn);
+        let targetBtn = null;
+
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          targetBtn = btnArray[(index + 1) % btnArray.length];
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          targetBtn = btnArray[(index - 1 + btnArray.length) % btnArray.length];
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          targetBtn = btnArray[0];
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          targetBtn = btnArray[btnArray.length - 1];
+        }
+
+        if (targetBtn) {
+          targetBtn.focus();
+          targetBtn.click();
+        }
       });
     });
   }
@@ -305,11 +456,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const item = question.parentElement;
       const isOpen = item.classList.contains('open');
       
-      // Close all other FAQs
-      document.querySelectorAll('.faq-item').forEach(faq => faq.classList.remove('open'));
+      // Close all other FAQs and reset aria-expanded
+      document.querySelectorAll('.faq-item').forEach(faq => {
+        faq.classList.remove('open');
+        const btn = faq.querySelector('.faq-question');
+        if (btn) {
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
       
       if (!isOpen) {
         item.classList.add('open');
+        question.setAttribute('aria-expanded', 'true');
         trackEvent('faq_expand', { question_text: question.textContent.trim() });
       }
     });
@@ -637,45 +795,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateQuizUI();
   }
 
-  // Multi-Step Form Navigation and Validation
+  // Form Event Tracking
   const form = document.getElementById('contact-form');
-  let activeStepIndex = 0;
-  let updateFormSteps = () => {};
-
   if (form) {
-    const steps = Array.from(form.querySelectorAll('.form-step-content'));
-    const markers = Array.from(document.querySelectorAll('.form-progress .form-step'));
-    const lines = Array.from(document.querySelectorAll('.form-progress .form-step-line'));
-
-    updateFormSteps = () => {
-      steps.forEach((step, index) => {
-        step.classList.toggle('active', index === activeStepIndex);
-      });
-
-      markers.forEach((marker, index) => {
-        marker.classList.toggle('active', index === activeStepIndex);
-        marker.classList.toggle('completed', index < activeStepIndex);
-      });
-
-      lines.forEach((line, index) => {
-        line.classList.toggle('completed', index < activeStepIndex);
-      });
-    };
-
-    const validateStep = (stepContent) => {
-      const inputs = Array.from(stepContent.querySelectorAll('input[required], select[required], textarea[required]'));
-      let isValid = true;
-      inputs.forEach(input => {
-        if (!input.value.trim() || (input.type === 'email' && !input.validity.valid) || (input.type === 'tel' && input.value.trim().length < 7)) {
-          isValid = false;
-          input.style.borderColor = 'rgba(217, 83, 79, 0.5)';
-        } else {
-          input.style.borderColor = 'rgba(123, 150, 200, 0.15)';
-        }
-      });
-      return isValid;
-    };
-
     let formStarted = false;
     form.addEventListener('focusin', () => {
       if (!formStarted) {
@@ -683,67 +805,6 @@ document.addEventListener('DOMContentLoaded', () => {
         trackEvent('form_start');
       }
     }, { once: true });
-
-    form.querySelectorAll('.form-next-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const currentStepContent = steps[activeStepIndex];
-        if (validateStep(currentStepContent)) {
-          if (activeStepIndex < steps.length - 1) {
-            const fromStep = activeStepIndex + 1;
-            activeStepIndex++;
-            updateFormSteps();
-            trackEvent('form_step_nav', {
-              direction: 'next',
-              from_step: fromStep,
-              to_step: activeStepIndex + 1
-            });
-          }
-        }
-      });
-    });
-
-    form.querySelectorAll('.form-prev-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (activeStepIndex > 0) {
-          const fromStep = activeStepIndex + 1;
-          activeStepIndex--;
-          updateFormSteps();
-          trackEvent('form_step_nav', {
-            direction: 'prev',
-            from_step: fromStep,
-            to_step: activeStepIndex + 1
-          });
-        }
-      });
-    });
-
-    markers.forEach((marker, index) => {
-      marker.addEventListener('click', () => {
-        if (index <= activeStepIndex) {
-          const fromStep = activeStepIndex + 1;
-          activeStepIndex = index;
-          updateFormSteps();
-          trackEvent('form_step_nav', {
-            direction: 'marker',
-            from_step: fromStep,
-            to_step: activeStepIndex + 1
-          });
-        } else if (index === activeStepIndex + 1) {
-          if (validateStep(steps[activeStepIndex])) {
-            const fromStep = activeStepIndex + 1;
-            activeStepIndex = index;
-            updateFormSteps();
-            trackEvent('form_step_nav', {
-              direction: 'marker',
-              from_step: fromStep,
-              to_step: activeStepIndex + 1
-            });
-          }
-        }
-      });
-    });
   }
 
   // Handle booking CTA integration from assessment widget
@@ -804,9 +865,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
       }
 
-      // Reset form to step 1
-      activeStepIndex = 0;
-      updateFormSteps();
+
       
       const contactSection = document.getElementById('contact');
       if (contactSection) {
@@ -819,4 +878,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+
+
+  // --- INTERACTIVE COMPARISON SLIDER & ANATOMY LAYERS CONNECT ---
+  const sliderContainer = document.querySelector('.slider-comparison');
+  const sliderInput = document.querySelector('.slider-range-control');
+  
+  if (sliderContainer && sliderInput) {
+    const updateSliderPosition = () => {
+      const value = sliderInput.value;
+      sliderContainer.style.setProperty('--slide-pos', `${value}%`);
+    };
+    
+    sliderInput.addEventListener('input', updateSliderPosition);
+    updateSliderPosition();
+
+  }
+
+
 });
