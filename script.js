@@ -445,8 +445,29 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Auto-advance
-    setInterval(nextSlide, 8000);
+    // Auto-advance with pause on interaction (WCAG 2.2.2)
+    let autoAdvanceInterval = setInterval(nextSlide, 8000);
+
+    const pauseCarousel = () => {
+      if (autoAdvanceInterval) {
+        clearInterval(autoAdvanceInterval);
+        autoAdvanceInterval = null;
+      }
+    };
+
+    const resumeCarousel = () => {
+      if (!autoAdvanceInterval) {
+        autoAdvanceInterval = setInterval(nextSlide, 8000);
+      }
+    };
+
+    const carouselContainer = document.querySelector('.testimonial-carousel');
+    if (carouselContainer) {
+      carouselContainer.addEventListener('mouseenter', pauseCarousel);
+      carouselContainer.addEventListener('mouseleave', resumeCarousel);
+      carouselContainer.addEventListener('focusin', pauseCarousel);
+      carouselContainer.addEventListener('focusout', resumeCarousel);
+    }
   }
 
   // FAQ Accordion
@@ -840,7 +861,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (concernSelect) {
         if (checkedCount >= 5) {
-          concernSelect.value = 'lipiflow';
+          concernSelect.value = 'procedures';
         } else {
           concernSelect.value = 'evaluation';
         }

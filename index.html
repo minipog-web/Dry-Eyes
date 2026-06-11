@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.1.9">
+    <link rel="stylesheet" href="styles.css?v=1.2.0">
 </head>
 
 <body>
@@ -56,7 +56,7 @@
         <div class="hero-content">
             <div class="hero-eye reveal">
                 <!-- Glowing futuristic eye icon -->
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="anim-blink" aria-hidden="true">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="anim-blink" aria-hidden="true" width="180" height="180">
                     <circle cx="50" cy="50" r="48" stroke="rgba(123,150,200,0.2)" stroke-width="2" />
                     <circle cx="50" cy="50" r="38" stroke="rgba(123,150,200,0.4)" stroke-width="1"
                         stroke-dasharray="4 4" />
@@ -66,7 +66,7 @@
                 </svg>
             </div>
             <h1 class="reveal reveal-delay-1">New Jersey's Premier <br /><span class="gradient-text">Dry Eye Care Center</span></h1>
-            <p class="subtitle reveal reveal-delay-2">Advanced diagnostics. Proven treatments. Life-changing relief.</p>
+            <p class="subtitle reveal reveal-delay-2">Advanced diagnostics. Proven treatments. Life-changing <strong>relief</strong>.</p>
             <div class="hero-buttons reveal reveal-delay-3">
                 <a href="#treatments" class="btn btn-primary btn-glow">Explore Treatments</a>
                 <a href="#contact" class="btn btn-outline">Book an Appointment</a>
@@ -76,7 +76,7 @@
             <div class="hero-trust-bar reveal reveal-delay-4">
                 <div class="trust-item">
                     <span class="trust-icon">⭐</span>
-                    <span class="trust-text"><strong>10,000+</strong> Patients Treated</span>
+                    <span class="trust-text"><strong>30,000+</strong> Patients Treated</span>
                 </div>
                 <div class="trust-item">
                     <span class="trust-icon">🛡️</span>
@@ -181,7 +181,7 @@
         <div class="container">
             <div class="section-header reveal">
                 <h2>Why Standard Drops <span class="gradient-text">Have Failed You</span></h2>
-                <p class="symptoms-header-p">If you've tried countless over-the-counter drops with no lasting relief, <strong>it is not your fault.</strong> Standard eye drops are mostly water—they just evaporate right off your eye. A healthy tear film requires three distinct layers to work. If your lipid (oil) layer is deficient (MGD, 86% of cases), water cannot stay on your eye.</p>
+                <p class="symptoms-header-p">If you've tried countless over-the-counter drops with no lasting relief, <strong>it is not your fault.</strong> Standard eye drops are mostly water—they just evaporate right off your eye. A healthy tear film requires three distinct layers to work. If your lipid (oil) layer is deficient (MGD), as found in 86% of dry eye cases, water cannot stay on your eye.</p>
             </div>
 
             <div class="tear-film-container mt-48">
@@ -249,18 +249,18 @@
                     <h5>The OTC Drop Trap</h5>
                     <p class="cost">Cost: ~$360+/year (recurring)</p>
                     <ul>
-                        <li>❌ Temporary 15-minute relief</li>
-                        <li>❌ Masks symptoms without treating root causes</li>
-                        <li>❌ Preservatives can cause more surface damage</li>
+                        <li>❌ Out-of-pocket expenses that compound annually</li>
+                        <li>❌ Delaying diagnosis while active gland damage progresses</li>
+                        <li>❌ Risk of preservative toxicity from frequent application</li>
                     </ul>
                 </div>
                 <div class="reframing-card good-route">
                     <h5>The Precision Route</h5>
-                    <p class="cost">Value: Long-term root cause resolution</p>
+                    <p class="cost">Value: Definitive root-cause resolution</p>
                     <ul>
-                        <li>✅ Identifies which of your 3 tear layers is failing</li>
-                        <li>✅ Preserves gland structure before irreversible damage</li>
-                        <li>✅ Tailored medical drops and targeted procedures</li>
+                        <li>✅ A clinical assessment to pinpoint your failing tear layer</li>
+                        <li>✅ Early intervention to save gland structures from atrophy</li>
+                        <li>✅ Customized medical therapies covered by insurance</li>
                     </ul>
                 </div>
             </div>
@@ -555,7 +555,8 @@
                             </div>
                             <div class="glands-container" id="glands-container">
                                 <!-- 5 glands represented in SVG -->
-                                <svg viewBox="0 0 250 80" class="glands-row-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <svg viewBox="0 0 250 80" class="glands-row-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="gland-chart-title">
+                                    <title id="gland-chart-title">Estimated Meibomian Gland Structure and Function Visualizer</title>
                                     <!-- Gland 1 -->
                                     <g class="gland-svg-group" id="gland-group-1">
                                         <line x1="25" y1="10" x2="25" y2="70" class="gland-main-duct" />
@@ -688,7 +689,7 @@
                     <div class="diag-card-inner">
                         <div class="diag-front">
                             <div class="diag-icon">
-                                <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:34px;height:34px;">
+                                <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="34" height="34">
                                     <!-- Camera body -->
                                     <rect x="3" y="11" width="30" height="21" rx="3" fill="#5B6EA8"/>
                                     <!-- Top ridge / viewfinder bump -->
@@ -890,11 +891,10 @@
                 </div>
             </div>
 
-            <!-- WARNING BOX (Loss Aversion) -->
             <div class="warning-box reveal reveal-delay-2">
                 <span class="warning-icon">⚠️</span>
                 <div class="warning-text">
-                    <strong>Warning on Gland Health:</strong> Chronic dry eye is progressive. Without early precision diagnostics, blocked oil glands (MGD) eventually <strong>atrophy and die</strong>. Once Meibomian glands are lost, they <strong>cannot regenerate</strong>. Proactive imaging and treatment are vital components of preserving your natural tear function.
+                    <strong>Important Clinical Fact:</strong> Meibomian Gland Dysfunction (MGD) is progressive. Once blocked oil glands atrophy, they <strong>cannot regenerate</strong>. Preserving your natural tear film requires early diagnostic imaging before irreversible gland structure loss occurs.
                 </div>
             </div>
         </div>
@@ -919,29 +919,29 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Diagnostic Approach</strong></td>
-                            <td>Basic eye chart exam & symptom checklist</td>
-                            <td><span class="status-yes">✓</span> LipiView® Interferometry & TearLab® Osmolarity</td>
+                            <td data-label="Clinical Feature"><strong>Diagnostic Approach</strong></td>
+                            <td data-label="Standard Eye Care">Basic eye chart exam & symptom checklist</td>
+                            <td data-label="Marano Specialty"><span class="status-yes">✓</span> LipiView® Interferometry & TearLab® Osmolarity</td>
                         </tr>
                         <tr>
-                            <td><strong>Root Cause Analysis</strong></td>
-                            <td>Symptom-based guesswork</td>
-                            <td><span class="status-yes">✓</span> Infrared Meibography (visualizing gland structure)</td>
+                            <td data-label="Clinical Feature"><strong>Root Cause Analysis</strong></td>
+                            <td data-label="Standard Eye Care">Symptom-based guesswork</td>
+                            <td data-label="Marano Specialty"><span class="status-yes">✓</span> Infrared Meibography (visualizing gland structure)</td>
                         </tr>
                         <tr>
-                            <td><strong>Treatment Diversity</strong></td>
-                            <td>Generic OTC drops & warm compresses</td>
-                            <td><span class="status-yes">✓</span> Tailored multi-layered drop therapies & office procedures</td>
+                            <td data-label="Clinical Feature"><strong>Treatment Diversity</strong></td>
+                            <td data-label="Standard Eye Care">Generic OTC drops & warm compresses</td>
+                            <td data-label="Marano Specialty"><span class="status-yes">✓</span> Tailored multi-layered drop therapies & office procedures</td>
                         </tr>
                         <tr>
-                            <td><strong>In-Office Procedures</strong></td>
-                            <td>Unavailable / not offered</td>
-                            <td><span class="status-yes">✓</span> LipiFlow® Thermal Pulsation & Punctal Plugs</td>
+                            <td data-label="Clinical Feature"><strong>In-Office Procedures</strong></td>
+                            <td data-label="Standard Eye Care">Unavailable / not offered</td>
+                            <td data-label="Marano Specialty"><span class="status-yes">✓</span> Punctal Plugs & NearTear® Neurostimulation</td>
                         </tr>
                         <tr>
-                            <td><strong>Insurance & Prescription Support</strong></td>
-                            <td>Standard Rx submission only</td>
-                            <td><span class="status-yes">✓</span> Dedicated prior-authorization team for brand drugs</td>
+                            <td data-label="Clinical Feature"><strong>Insurance & Rx Support</strong></td>
+                            <td data-label="Standard Eye Care">Standard Rx submission only</td>
+                            <td data-label="Marano Specialty"><span class="status-yes">✓</span> Dedicated prior-authorization team for brand drugs</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1112,10 +1112,7 @@
                     <div class="treatment-body">
                         <div class="moa-section">
                             <h4>How It Works</h4>
-                            <p>Miebo is a unique, water-free eye drop that directly targets tear evaporation. It spreads
-                                quickly across the eye's surface to form a protective shield that mimics the natural
-                                lipid layer, preventing your natural tears from evaporating and providing lasting
-                                relief.</p>
+                            <p>Miebo is a unique, water-free eye drop that directly targets tear evaporation. As the first FDA-approved prescription medication specifically designed to target evaporative dry eye disease, it spreads quickly across the eye's surface to form a protective shield that mimics the natural lipid layer, preventing your natural tears from evaporating and providing lasting relief.</p>
                             <div class="ideal-for">
                                 <span class="ideal-tag">Evaporative Dry Eye</span>
                                 <span class="ideal-tag">Lipid Layer Support</span>
@@ -1175,7 +1172,6 @@
                 <span class="treatment-select-label">Select a Procedure to Explore:</span>
                 <div class="custom-tab-container" id="procedure-tabs" role="tablist" aria-label="In-Office Procedures">
                     <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="treatment-plugs" id="tab-plugs" data-value="plugs">Punctal Plugs</button>
-                    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-lipiflow" id="tab-lipiflow" data-value="lipiflow">LipiFlow®</button>
                     <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-neartear" id="tab-neartear" data-value="neartear">NearTear®</button>
                 </div>
             </div>
@@ -1240,39 +1236,7 @@
                     </div>
                 </div>
 
-                <!-- LipiFlow -->
-                <div class="treatment-card" id="treatment-lipiflow" role="tabpanel" aria-labelledby="tab-lipiflow">
-                    <div class="treatment-header">
-                        <div class="treatment-icon">🌡️</div>
-                        <div>
-                            <h3>LipiFlow®</h3>
-                            <span class="treatment-type">Thermal Pulsation System</span>
-                        </div>
-                    </div>
-                    <div class="treatment-body">
-                        <div class="moa-section">
-                            <h4>How It Works</h4>
-                            <p>LipiFlow is a 12-minute in-office treatment that applies precisely controlled heat to the
-                                inside of your eyelids while simultaneously applying gentle pulsating pressure to the
-                                outside. This combination melts and expresses blocked oils from your Meibomian
-                                glands—like unclogging tiny oil ducts—restoring the protective lipid layer of your
-                                tears.</p>
-                            <div class="ideal-for">
-                                <span class="ideal-tag">Meibomian Gland Dysfunction</span>
-                                <span class="ideal-tag">Evaporative Dry Eye</span>
-                            </div>
-                        </div>
-                        <div class="moa-diagram">
-                            <div class="moa-steps">
-                                <div class="moa-step">Heat Applied</div>
-                                <div class="moa-arrow">→</div>
-                                <div class="moa-step highlight">Blocked Oils<br />Melted</div>
-                                <div class="moa-arrow">→</div>
-                                <div class="moa-step border-accent-green">Clear Glands &<br />Healthy Tears</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
                 <!-- NearTear -->
                 <div class="treatment-card" id="treatment-neartear" role="tabpanel" aria-labelledby="tab-neartear">
@@ -1327,9 +1291,7 @@
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-quote">"I suffered from dry, burning eyes for years. After LipiFlow
-                                treatment at Marano Eye Care, I felt relief within weeks. Dr. Marano and his team
-                                changed my quality of life."</p>
+                            <p class="testimonial-quote">"I suffered from dry, burning eyes for years. After receiving a customized treatment plan at Marano Eye Care, I felt relief within weeks. The specialist team changed my quality of life."</p>
                             <div class="testimonial-author">Maria T.</div>
                             <div class="testimonial-location">Denville, NJ</div>
                         </div>
@@ -1366,14 +1328,14 @@
                     </div>
                 </div>
                 <div class="carousel-controls">
-                    <button class="carousel-btn carousel-prev">←</button>
+                    <button class="carousel-btn carousel-prev" aria-label="Previous testimonial">←</button>
                     <div class="carousel-dots">
-                        <button class="carousel-dot active" aria-label="Slide 1"></button>
-                        <button class="carousel-dot" aria-label="Slide 2"></button>
-                        <button class="carousel-dot" aria-label="Slide 3"></button>
-                        <button class="carousel-dot" aria-label="Slide 4"></button>
+                        <button class="carousel-dot active" aria-label="Go to testimonial slide 1"></button>
+                        <button class="carousel-dot" aria-label="Go to testimonial slide 2"></button>
+                        <button class="carousel-dot" aria-label="Go to testimonial slide 3"></button>
+                        <button class="carousel-dot" aria-label="Go to testimonial slide 4"></button>
                     </div>
-                    <button class="carousel-btn carousel-next">→</button>
+                    <button class="carousel-btn carousel-next" aria-label="Next testimonial">→</button>
                 </div>
             </div>
         </div>
@@ -1406,7 +1368,7 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
-                        <p>This varies by patient and treatment. Some procedures like LipiFlow or punctal plugs can
+                        <p>This varies by patient and treatment. Some procedures like punctal plugs or NearTear® can
                             provide relief within a few weeks. Prescription drops like Restasis or Xiidra may take 2 to
                             12 weeks of consistent use to achieve their full anti-inflammatory effect.</p>
                     </div>
@@ -1419,7 +1381,7 @@
                     <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3">
                         <p>Many diagnostic tests and prescription medications (like Restasis or Xiidra) are covered by
                             standard health or vision insurance, though co-pays vary. Some advanced in-office procedures
-                            like LipiFlow are typically considered out-of-pocket expenses. Our team will verify your
+                            or specific custom options may be considered out-of-pocket expenses. Our team will verify your
                             benefits and explain all costs prior to treatment.</p>
                     </div>
                 </div>
@@ -1444,7 +1406,7 @@
                 <div class="pathway-step-card glass-card">
                     <div class="step-number">2</div>
                     <h4>Tailored Medical Plan</h4>
-                    <p>Our board-certified eye specialists design a target-specific regimen combining FDA-cleared in-office thermal pulsation (LipiFlow®) and advanced prescription drops.</p>
+                    <p>Our board-certified eye specialists design a target-specific regimen combining advanced in-office procedures and target-specific prescription drops.</p>
                 </div>
                 <div class="pathway-step-card glass-card">
                     <div class="step-number">3</div>
@@ -1461,32 +1423,32 @@
             <div class="doctor-profile-grid">
                 <div class="doctor-image-wrapper reveal">
                     <div class="doctor-image-glow"></div>
-                    <img src="assets/dr_marano.png" alt="Dr. Matthew J. Marano, Jr., MD" class="doctor-headshot" width="400" height="500" loading="lazy">
+                    <img src="assets/dr_marano.png" alt="Dr. Matthew J. Marano, Jr., MD" class="doctor-headshot" width="400" height="480" loading="lazy">
                 </div>
                 <div class="doctor-info reveal reveal-delay-1">
-                    <span class="doctor-tag">Ophthalmologist & Dry Eye Specialist</span>
-                    <h2>Meet Dr. Matthew J. Marano, Jr., MD</h2>
-                    <p class="doctor-subtitle">Board-Certified Ophthalmologist & Medical Director</p>
+                    <span class="doctor-tag">Board-Certified Dry Eye Specialists</span>
+                    <h2>Meet Our Specialist Team</h2>
+                    <p class="doctor-subtitle">Led by Dr. Matthew J. Marano, Jr., MD | Medical Director & Chief of Ophthalmology</p>
                     
-                    <p class="doctor-bio">Dr. Matthew Marano is a leading board-certified ophthalmologist specializing in advanced dry eye care, laser cataract surgery, and custom vision correction. Over the past three decades, he has helped thousands of patients in Northern New Jersey restore their visual comfort through pioneering, target-specific dry eye diagnostics and state-of-the-art therapies. He is dedicated to offering personalized care that treats the root biological causes of dry eye rather than just masking symptoms.</p>
+                    <p class="doctor-bio">At Marano Eye Care, our team of board-certified dry eye specialists is dedicated to diagnosing and treating the root biological causes of dry eye rather than just masking symptoms. Led by Medical Director Dr. Matthew J. Marano, Jr., MD—a leading board-certified ophthalmologist who earned his medical degree from the George Washington University School of Medicine and completed his undergraduate studies at Columbia University. With over three decades of clinical practice pioneering dry eye diagnostics in Northern New Jersey, Dr. Marano has dedicated decades of his career to educating other physicians in advanced ophthalmic care, ensuring our clinical team remains at the forefront of customized treatment plans to restore your visual comfort.</p>
                     
-                    <h4 class="doctor-credentials-title">Professional Credentials</h4>
+                    <h4 class="doctor-credentials-title">Our Practice Credentials</h4>
                     <ul class="doctor-credentials">
                         <li>
                             <svg viewBox="0 0 24 24" class="cred-icon" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span><strong>Board Certification:</strong> American Board of Ophthalmology</span>
+                            <span><strong>Board Certification:</strong> Board-Certified Eye Specialists & Surgeons</span>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" class="cred-icon" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span><strong>Clinical Leadership:</strong> Chief of Ophthalmology at CBMC & St. Michael's Medical Center</span>
+                            <span><strong>Clinical Leadership:</strong> Dr. Marano is Chief of Ophthalmology at Cooperman Barnabas Medical Center and St. Michael's Medical Center</span>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" class="cred-icon" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span><strong>Specialization:</strong> Advanced Cataract, LASIK & Glaucoma Surgery</span>
+                            <span><strong>Advanced Procedures:</strong> Punctal Plugs, NearTear® & Custom Drop Therapies</span>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" class="cred-icon" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span><strong>Medical Education:</strong> George Washington University School of Medicine</span>
+                            <span><strong>Diagnostic Excellence:</strong> In-Office LipiView® Interferometry & TearLab® Osmolarity</span>
                         </li>
                     </ul>
                 </div>
@@ -1529,7 +1491,7 @@
 
                     <ul class="cta-details">
                         <li><span>✉️</span> staff@mec1.net</li>
-                        <li><span>🕒</span> Mon-Thu: 8:00 AM - 5:00 PM | Fri: 8:00 AM - 4:00 PM</li>
+                        <li><span>🕒</span> Mon-Thu: 9:00 AM - 5:00 PM | Fri: 8:00 AM - 4:00 PM</li>
                     </ul>
                 </div>
 
@@ -1551,11 +1513,11 @@
                             <!-- Row 1: Names -->
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="first-name">First Name</label>
+                                    <label for="first-name">First Name <span class="required-asterisk" aria-hidden="true">*</span></label>
                                     <input type="text" id="first-name" name="first-name" required placeholder="Jane" autocomplete="given-name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="last-name">Last Name</label>
+                                    <label for="last-name">Last Name <span class="required-asterisk" aria-hidden="true">*</span></label>
                                     <input type="text" id="last-name" name="last-name" required placeholder="Doe" autocomplete="family-name">
                                 </div>
                             </div>
@@ -1563,11 +1525,11 @@
                             <!-- Row 2: Contact -->
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="email-address">Email Address</label>
+                                    <label for="email-address">Email Address <span class="required-asterisk" aria-hidden="true">*</span></label>
                                     <input type="email" id="email-address" name="email" required placeholder="jane@example.com" autocomplete="email">
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone-number">Phone Number</label>
+                                    <label for="phone-number">Phone Number <span class="required-asterisk" aria-hidden="true">*</span></label>
                                     <input type="tel" id="phone-number" name="phone" required placeholder="(555) 000-0000" autocomplete="tel">
                                 </div>
                             </div>
@@ -1575,17 +1537,17 @@
                             <!-- Row 3: Selections -->
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="primary-concern">Primary Concern</label>
+                                    <label for="primary-concern">Primary Concern <span class="required-asterisk" aria-hidden="true">*</span></label>
                                     <select id="primary-concern" name="concern" required aria-label="Primary Concern">
                                         <option value="">Select an concern...</option>
                                         <option value="evaluation">New Dry Eye Evaluation</option>
-                                        <option value="lipiflow">Interested in LipiFlow</option>
+                                        <option value="procedures">Interested in In-Office Procedures</option>
                                         <option value="second-opinion">Second Opinion</option>
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="preferred-location">Preferred Location</label>
+                                    <label for="preferred-location">Preferred Location <span class="required-asterisk" aria-hidden="true">*</span></label>
                                     <select id="preferred-location" name="preferred-location" required aria-label="Preferred Location">
                                         <option value="">Select a location...</option>
                                         <option value="livingston">Livingston, NJ</option>
@@ -1598,7 +1560,7 @@
                             <!-- Row 4: Contact Method & Message -->
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="contact-method">Preferred Contact Method</label>
+                                    <label for="contact-method">Preferred Contact Method <span class="required-asterisk" aria-hidden="true">*</span></label>
                                     <select id="contact-method" name="contact-method" required aria-label="Preferred Contact Method">
                                         <option value="">Select a method...</option>
                                         <option value="email">Email</option>
@@ -1608,13 +1570,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="message">Message (Optional)</label>
-                                    <textarea id="message" name="message" rows="1" placeholder="How can we help you?" style="min-height: 46px; resize: vertical;"></textarea>
+                                    <textarea id="message" name="message" rows="1" placeholder="How can we help you?"></textarea>
                                 </div>
                             </div>
 
                             <!-- Submit button -->
-                            <div class="form-nav-buttons" style="justify-content: center; margin-top: 24px;">
-                                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Request Consultation</button>
+                            <div class="form-nav-buttons justify-center">
+                                <button type="submit" class="btn btn-primary w-100 justify-center">Request Consultation</button>
                             </div>
                         </form>
                         <div class="form-success">
@@ -1687,7 +1649,7 @@
     </footer>
 
 
-    <script src="script.js?v=1.1.9"></script>
+    <script src="script.js?v=1.2.0"></script>
 </body>
 
 </html>
