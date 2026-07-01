@@ -524,7 +524,16 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (error) {
         trackEvent('form_submit_error', { error_message: error.message });
         console.error('Form submission error:', error);
-        alert('There was an error submitting the form. Please try again or contact us directly.');
+        const formError = document.querySelector('.form-error-message');
+        if (formError) {
+          formError.classList.add('show');
+          const closeBtn = formError.querySelector('.error-close-btn');
+          if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+              formError.classList.remove('show');
+            });
+          }
+        }
       }
     });
   }

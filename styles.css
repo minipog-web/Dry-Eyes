@@ -101,6 +101,17 @@ a:hover {
   color: #fff;
 }
 
+strong {
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.18);
+}
+
+.section-light strong,
+.section-light-warm strong,
+.section-light-cool strong {
+  text-shadow: none;
+}
+
 /* --- FOCUS STATES (Accessibility) --- */
 a:focus-visible,
 button:focus-visible,
@@ -141,6 +152,7 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 2px 10px rgba(123, 150, 200, 0.35));
 }
 
 .gradient-text-green {
@@ -148,12 +160,14 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 2px 10px rgba(111, 168, 122, 0.3));
 }
 
 /* --- SECTION BASE --- */
 .section {
   padding: 100px 0;
   position: relative;
+  background: var(--bg-dark-deep);
 }
 
 .section-light {
@@ -179,6 +193,7 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 1px 3px rgba(27, 54, 93, 0.15));
 }
 
 .section-light-warm .faq-item {
@@ -195,6 +210,7 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 1px 3px rgba(45, 90, 39, 0.15));
 }
 
 /* Crisp Ice-Blue — Diagnostics */
@@ -213,6 +229,7 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 1px 3px rgba(27, 54, 93, 0.15));
 }
 
 .section-light-cool .diag-front {
@@ -375,8 +392,11 @@ img {
 }
 
 .navbar.scrolled .navbar-bg {
-  background: rgba(6, 11, 19, 0.95);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  background: rgba(6, 11, 19, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
 }
 
 .navbar .container {
@@ -897,12 +917,12 @@ img {
 }
 
 /* Per-card accent color via top border — cycles through brand palette */
-.diag-card:nth-child(1) .diag-front { border-top: 4px solid var(--primary); }
-.diag-card:nth-child(2) .diag-front { border-top: 4px solid var(--primary-dark); }
-.diag-card:nth-child(3) .diag-front { border-top: 4px solid var(--accent-blue); }
-.diag-card:nth-child(4) .diag-front { border-top: 4px solid var(--accent-mint); }
-.diag-card:nth-child(5) .diag-front { border-top: 4px solid var(--accent-orange); }
-.diag-card:nth-child(6) .diag-front { border-top: 4px solid var(--accent-pink); }
+.diag-card:nth-child(1) .diag-front { border-top: 8px solid var(--primary); }
+.diag-card:nth-child(2) .diag-front { border-top: 8px solid var(--primary-dark); }
+.diag-card:nth-child(3) .diag-front { border-top: 8px solid var(--accent-blue); }
+.diag-card:nth-child(4) .diag-front { border-top: 8px solid var(--accent-mint); }
+.diag-card:nth-child(5) .diag-front { border-top: 8px solid var(--accent-orange); }
+.diag-card:nth-child(6) .diag-front { border-top: 8px solid var(--accent-pink); }
 
 .diag-card-inner {
   position: relative;
@@ -930,14 +950,13 @@ img {
 
 .diag-front {
   background: var(--white);
-  border: 1px solid rgba(10, 30, 70, 0.11);
-  border-top-width: 4px; /* Reserve space for per-card accent override */
+  border: 8px solid rgba(123, 150, 200, 0.06);
+  border-top-width: 8px; /* Reserve space for per-card accent override */
   text-align: center;
-  /* Three-layer shadow: deep ambient + directional lift + tight edge definition */
   box-shadow:
-    0 2px 4px rgba(10, 30, 70, 0.06),
-    0 8px 24px rgba(10, 30, 70, 0.09),
-    0 24px 48px rgba(10, 30, 70, 0.07);
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 0 1px rgba(123, 150, 200, 0.12),
+    0 8px 32px rgba(10, 30, 70, 0.08);
   transition: all var(--transition);
 }
 
@@ -978,12 +997,12 @@ img {
 .section-light .diag-front,
 .section-light-cool .diag-front {
   background: var(--white);
-  border: 1px solid rgba(10, 30, 70, 0.11);
-  border-top-width: 4px;
+  border: 8px solid rgba(123, 150, 200, 0.06);
+  border-top-width: 8px;
   box-shadow:
-    0 2px 4px rgba(10, 30, 70, 0.06),
-    0 8px 24px rgba(10, 30, 70, 0.09),
-    0 24px 48px rgba(10, 30, 70, 0.07);
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 0 1px rgba(123, 150, 200, 0.12),
+    0 8px 32px rgba(10, 30, 70, 0.08);
 }
 
 .section-light .diag-front h3,
@@ -999,12 +1018,12 @@ img {
 .diag-back {
   background: linear-gradient(150deg, #1A283D 0%, #0B1525 100%);
   transform: rotateY(180deg);
-  border: 1px solid var(--glass-border);
+  border: 8px solid rgba(255, 255, 255, 0.02);
   color: var(--text-primary);
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.4),
-    0 4px 16px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 8px 32px rgba(0, 0, 0, 0.25);
   padding: var(--space-sm) var(--space-md);
 }
 
@@ -1286,7 +1305,11 @@ img {
   background: var(--surface-card);
   -webkit-backdrop-filter: var(--glass-blur);
   backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  border: 6px solid rgba(255, 255, 255, 0.02);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 8px 32px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius);
   padding: 24px;
   margin-bottom: 24px;
@@ -1759,6 +1782,17 @@ img {
   height: 50px;
 }
 
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPSdub25lJyBzdHJva2U9JyNCNUM0RDknIHN0cm9rZS13aWR0aD0nMi41JyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnPjxwb2x5bGluZSBwb2ludHM9JzYgOSAxMiAxNSAxOCA5Jz48L3BvbHlsaW5lPjwvc3ZnPg==");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 16px;
+  padding-right: 45px;
+}
+
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: rgba(181, 196, 217, 0.65);
@@ -1801,6 +1835,56 @@ img {
   justify-content: center;
   gap: 16px;
   animation: slideDownFade 0.5s ease forwards;
+}
+
+.form-error-message {
+  display: none;
+  background: rgba(197, 48, 48, 0.1);
+  border: 1px solid var(--warning-red-dark);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+  margin-top: 24px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.form-error-message.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  animation: slideDownFade 0.5s ease forwards;
+}
+
+.form-error-message h3 {
+  color: var(--warning-red-light);
+  font-size: 1.25rem;
+  font-family: var(--font-heading);
+  margin-bottom: 4px;
+}
+
+.form-error-message p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 480px;
+}
+
+.error-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: color var(--transition);
+}
+
+.error-close-btn:hover {
+  color: var(--white);
 }
 
 /* Elegant clinical draw checkmark */
