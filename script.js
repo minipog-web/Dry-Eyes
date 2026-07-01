@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const initialActiveTab = document.querySelector('.stage-tab.active');
   if (initialActiveTab) {
-    setTimeout(() => updateSlidingPill(initialActiveTab), 100);
+    requestAnimationFrame(() => updateSlidingPill(initialActiveTab));
   }
 
   window.addEventListener('resize', () => {
@@ -186,12 +186,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const anatomyLayers = document.querySelectorAll('.anatomy-layer');
 
   layerCards.forEach(card => {
-    card.addEventListener('click', () => {
+    const activateLayer = () => {
       const targetLayer = card.dataset.layer;
       
-      // Update cards
-      layerCards.forEach(c => c.classList.remove('active'));
+      // Update cards and accessibility states
+      layerCards.forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-selected', 'false');
+      });
       card.classList.add('active');
+      card.setAttribute('aria-selected', 'true');
       
       // Update images
       anatomyLayers.forEach(img => {
@@ -258,6 +262,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       trackEvent('anatomy_layer_view', { layer_name: targetLayer });
+    };
+
+    card.addEventListener('click', activateLayer);
+
+    // Keyboard support for space and enter
+    card.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        activateLayer();
+      }
     });
   });
 
@@ -284,13 +298,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Automatically flip back when mouse leaves
-    card.addEventListener('mouseleave', () => {
-      if (card.classList.contains('flipped')) {
-        card.classList.remove('flipped');
-        card.setAttribute('aria-expanded', 'false');
+    // Flip back when focus leaves the card
+    card.addEventListener('focusout', (e) => {
+      if (!card.contains(e.relatedTarget)) {
+        if (card.classList.contains('flipped')) {
+          card.classList.remove('flipped');
+          card.setAttribute('aria-expanded', 'false');
+        }
       }
-      card.blur();
     });
   });
 
@@ -515,6 +530,31 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           contactForm.style.display = 'none';
           formSuccess.classList.add('show');
+          
+          // Google Ads Enhanced Conversions Integration
+          if (typeof gtag === 'function') {
+            const emailVal = document.getElementById('email-address')?.value || '';
+            const phoneVal = document.getElementById('phone-number')?.value || '';
+            const firstNameVal = document.getElementById('first-name')?.value || '';
+            const lastNameVal = document.getElementById('last-name')?.value || '';
+            
+            gtag('set', 'user_data', {
+              'email': emailVal.trim().toLowerCase(),
+              'phone_number': phoneVal.trim(),
+              'address': {
+                'first_name': firstNameVal.trim(),
+                'last_name': lastNameVal.trim()
+              }
+            });
+
+            // Google Ads Conversion Event
+            gtag('event', 'conversion', {
+              'send_to': 'AW-18197167741/lead_form_submit',
+              'value': 1.0,
+              'currency': 'USD'
+            });
+          }
+
           trackEvent('form_submit_success');
         } else {
           const errorText = await response.text();
@@ -926,5 +966,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
+  // Google Ads Call-to-Conversion Tracking
+  document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      const phoneNo = link.getAttribute('href').replace('tel:', '');
+      trackEvent('phone_link_click', { phone_number: phoneNo });
+      
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18197167741/phone_call_click',
+          'value': 1.0,
+          'currency': 'USD'
+        });
+      }
+    });
+  });
 
 });

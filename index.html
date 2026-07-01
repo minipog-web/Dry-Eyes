@@ -181,22 +181,22 @@
         <div class="container">
             <div class="section-header reveal">
                 <h2>Why Standard Drops <span class="gradient-text">Have Failed You</span></h2>
-                <p class="symptoms-header-p">If you've tried countless over-the-counter drops with no lasting relief, <strong>it is not your fault.</strong> Standard eye drops are mostly water—they just evaporate right off your eye. A healthy tear film requires three distinct layers to work. If your lipid (oil) layer is deficient (MGD), as found in 86% of dry eye cases, water cannot stay on your eye.</p>
+                <p class="symptoms-header-p">If you've tried countless over-the-counter drops with no lasting relief, <strong>it is not your fault.</strong> Standard eye drops are mostly water—they just evaporate right off your eye. A healthy tear film requires three distinct layers to work. If your lipid (oil) layer is deficient (MGD), as found in 86% of dry eye cases, tears evaporate rapidly and cannot stay on your eye.</p>
             </div>
 
             <div class="tear-film-container mt-48">
-                <div class="tear-layer-info reveal">
-                    <div class="layer-card active" data-layer="lipid">
+                <div class="tear-layer-info reveal" role="tablist" aria-label="Tear Film Layers">
+                    <div class="layer-card active" data-layer="lipid" tabindex="0" role="tab" aria-selected="true">
                         <h4><span class="layer-dot bg-yellow"></span> 1. Lipid Layer (Outer)</h4>
                         <p>Produced by the Meibomian glands in your eyelids. This oily layer seals the tears and prevents
                             them from evaporating too quickly.</p>
                     </div>
-                    <div class="layer-card" data-layer="aqueous">
+                    <div class="layer-card" data-layer="aqueous" tabindex="0" role="tab" aria-selected="false">
                         <h4><span class="layer-dot bg-blue"></span> 2. Aqueous Layer (Middle)</h4>
                         <p>Produced by the lacrimal glands. This watery layer makes up most of the tear, providing essential
                             nutrients, oxygen, and washing away particles.</p>
                     </div>
-                    <div class="layer-card" data-layer="mucin">
+                    <div class="layer-card" data-layer="mucin" tabindex="0" role="tab" aria-selected="false">
                         <h4><span class="layer-dot bg-green"></span> 3. Mucin Layer (Inner)</h4>
                         <p>Produced by goblet cells on the eye's surface. This mucous layer acts like an adhesive, helping
                             the watery layer stick evenly to the eye.</p>
@@ -530,7 +530,7 @@
                     </div>
 
                     <!-- Quiz Results Display -->
-                    <div class="quiz-results-container" id="quiz-results-container">
+                    <div class="quiz-results-container" id="quiz-results-container" role="status" aria-live="polite">
                         <div class="severity-meter">
                             <span class="severity-label">Ocular Surface Discomfort:</span>
                             <div class="severity-badge status-mild" id="result-severity-badge">Mild Irritation</div>
@@ -720,7 +720,7 @@
                             <h3>Meibography</h3>
                             <p>Utilizes advanced infrared imaging to visualize the Meibomian glands inside your eyelids, assessing them for structural health.</p>
                             <div class="diag-result-container">
-                                <img src="assets/meibography_scan.png" alt="Meibography Gland Infrared Scan" class="diag-result-img">
+                                <img src="assets/meibography_scan.png" alt="Meibography Gland Infrared Scan" class="diag-result-img" width="260" height="120" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -797,7 +797,7 @@
                                         <line x1="190" y1="20" x2="190" y2="26" />
                                         <line x1="220" y1="20" x2="220" y2="28" stroke-width="1.5" />
                                     </g>
-                                    <g font-size="7" fill="#64748B" font-family="sans-serif" text-anchor="middle">
+                                    <g font-size="7" fill="#94A3B8" font-family="sans-serif" text-anchor="middle">
                                         <text x="40" y="14">0</text>
                                         <text x="70" y="14">5</text>
                                         <text x="100" y="14">10</text>
@@ -1385,6 +1385,33 @@
                             benefits and explain all costs prior to treatment.</p>
                     </div>
                 </div>
+                <div class="faq-item">
+                    <button class="faq-question" id="faq-question-4" aria-expanded="false" aria-controls="faq-answer-4">
+                        Are the diagnostic scans and in-office procedures painful?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4">
+                        <p>No. All of our diagnostic tests—including LipiView® interferometry and infrared Meibography—are completely non-invasive, quick, and touch-free. For procedures like Punctal Plugs, we use numbing drops to ensure you feel no pain or scratchiness. Most patients describe the sensation as a mild cooling or pressure, and you can resume normal activities immediately after your visit.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" id="faq-question-5" aria-expanded="false" aria-controls="faq-answer-5">
+                        How many treatments or visits will it take to feel a difference?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5">
+                        <p>While some patients experience relief within days of starting prescription drops or having punctal plugs inserted, chronic dry eye is a progressive disease that takes time to heal. Most patients notice a significant improvement in comfort and screen-time endurance within 2 to 6 weeks. We schedule follow-up checks at 1 month and 3 months to monitor gland function and adjust your plan as your tear film stabilizes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" id="faq-question-6" aria-expanded="false" aria-controls="faq-answer-6">
+                        I get temporary relief from drugstore eye drops. Why should I switch to a clinical treatment?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6">
+                        <p>Drugstore drops act as a temporary band-aid, masking symptoms for minutes without treating the underlying cause. If your meibomian glands are blocked, tears will continue to evaporate instantly. Over time, untreated gland blockage leads to irreversible gland atrophy (shrinkage). Our treatments target the root cause—inflammation and gland blockages—to restore your eyes' natural ability to produce and maintain tears, preventing permanent damage.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1506,8 +1533,8 @@
                             <input type="hidden" name="form-name" value="contact">
                             <input type="hidden" name="subject" value="New Patient Consult Request">
                             
-                            <div class="form-honeypot">
-                                <label>Don't fill this out: <input name="bot-field" /></label>
+                            <div class="form-honeypot" aria-hidden="true">
+                                <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
                             </div>
 
                             <!-- Row 1: Names -->
@@ -1579,7 +1606,7 @@
                                 <button type="submit" class="btn btn-primary w-100 justify-center">Request Consultation</button>
                             </div>
                         </form>
-                        <div class="form-success">
+                        <div class="form-success" role="status" aria-live="polite">
                             <div class="success-checkmark-wrapper">
                                 <svg class="success-checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" aria-hidden="true">
                                     <circle class="success-checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
@@ -1589,7 +1616,7 @@
                             <h3>Request Received!</h3>
                             <p>Thank you. Your self-assessment and request have been safely routed to our team. We will call you shortly to confirm your scheduled diagnostic evaluation.</p>
                         </div>
-                        <div class="form-error-message">
+                        <div class="form-error-message" role="alert" aria-live="assertive">
                             <span class="error-close-btn" aria-label="Close error message">✕</span>
                             <h3>Oops, something went wrong</h3>
                             <p class="error-text">We encountered a temporary network issue. Please call us at (973) 322-0100 or email info@maranoeyecare.com so we can secure your booking immediately.</p>
@@ -1643,7 +1670,7 @@
                     <ul>
                         <li><a href="#contact">Contact Us</a></li>
                         <li><a href="#">Patient Portal</a></li>
-                        <li><a href="https://maranoeyecare.com/privacy-policy/" target="_blank">Privacy Policy</a></li>
+                        <li><a href="https://maranoeyecare.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
