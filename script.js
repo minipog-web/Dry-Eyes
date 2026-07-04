@@ -624,9 +624,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentQuizStep = 0;
 
   const messages = {
-    mild: "Based on your selection, you may be experiencing early signs of dry eye. Simple lifestyle adjustments, reducing screen time, and using preservative-free lubricating drops might offer relief.",
-    moderate: "You exhibit moderate dry eye symptoms. It is recommended to seek a professional diagnostic scan (such as LipiView or TearLab) to pinpoint the exact dysfunctional layer of your tear film.",
-    severe: "Your symptoms suggest advanced ocular surface discomfort. We highly recommend scheduling a comprehensive dry eye evaluation immediately to prevent long-term gland dysfunction or corneal damage."
+    mild: "You're showing early signs of ocular surface discomfort. Even mild symptoms can signal the start of Meibomian Gland Dysfunction (MGD) — a baseline Tear Break-Up Time (TBUT) scan can catch gland issues before they progress.",
+    moderate: "You exhibit moderate dry eye symptoms. We recommend a professional diagnostic scan (such as LipiView® or TearLab®) to pinpoint the exact dysfunctional layer of your tear film.",
+    severe: "Your symptoms suggest advanced ocular surface disease (OSD). We highly recommend scheduling a comprehensive dry eye evaluation immediately to prevent long-term gland dysfunction or corneal damage."
   };
 
   const updateQuizUI = () => {

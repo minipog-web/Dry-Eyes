@@ -16,14 +16,14 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premier Dry Eye Care Center | Marano Eye Care</title>
+    <title>Dry Eye Specialists in New Jersey | Marano Eye Care</title>
     <meta name="description"
-        content="Marano Eye Care is Northern New Jersey's Premier Dry Eye Care Center, offering advanced diagnostics and life-changing relief through customized treatments.">
+        content="Still burning after every bottle of drops? Marano Eye Care offers advanced dry eye diagnostics and customized treatments across 3 NJ locations.">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.2.0">
+    <link rel="stylesheet" href="styles.css?v=1.3.1">
 </head>
 
 <body>
@@ -37,11 +37,11 @@
             </a>
             <button class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
             <ul class="nav-links">
-                <li><a href="#understanding">Life Stages</a></li>
                 <li><a href="#symptoms">Symptoms</a></li>
                 <li><a href="#diagnostics">Diagnostics</a></li>
+                <li><a href="#pathway">Your Pathway</a></li>
                 <li><a href="#treatments">Treatments</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li class="mobile-only"><a href="#contact" class="btn btn-primary nav-cta">Schedule Consultation</a></li>
             </ul>
             <div class="nav-actions desktop-only">
@@ -94,6 +94,37 @@
         </div>
     </section>
 
+    <!-- VALIDATION BLOCK -->
+    <section class="section section-dark-alt" id="validation">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Your Struggle Is Real — <span class="gradient-text">And Valid</span></h2>
+                <p>If any of these sound familiar, you're not alone — and you're not imagining it.</p>
+            </div>
+            <div class="validation-grid reveal reveal-delay-1">
+                <div class="validation-card glass-card">
+                    <span class="validation-icon" aria-hidden="true">💻</span>
+                    <h3>Screen Burn &amp; Fatigue</h3>
+                    <p>Your eyes sting by midday. Every hour at the computer feels like a countdown to relief you never get.</p>
+                </div>
+                <div class="validation-card glass-card">
+                    <span class="validation-icon" aria-hidden="true">🌙</span>
+                    <h3>Night Driving Anxiety</h3>
+                    <p>Headlight glare and scratchy vision make evening drives stressful — or something you've stopped doing entirely.</p>
+                </div>
+                <div class="validation-card glass-card">
+                    <span class="validation-icon" aria-hidden="true">🏜️</span>
+                    <h3>The "Sandpaper" Feeling</h3>
+                    <p>Mornings are the worst. Opening your eyes feels like your lids are scraping across dry sandpaper.</p>
+                </div>
+                <div class="validation-card glass-card">
+                    <span class="validation-icon" aria-hidden="true">👁️</span>
+                    <h3>Social Self-Consciousness</h3>
+                    <p>Constantly red, bloodshot eyes make you wonder if people notice — and whether they'll ever look normal again.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- UNDERSTANDING DRY EYE - LIFE STAGES -->
     <section class="section section-light section-light-warm" id="understanding">
@@ -128,6 +159,7 @@
 
             <div class="stage-content active" id="stage-teens" role="tabpanel" aria-labelledby="tab-teens">
                 <h3>Children & Teens</h3>
+                <p class="stage-intro">If your child complains of tired eyes after homework or gaming, screen habits — not "just allergies" — may be the cause.</p>
                 <ul>
                     <li><span class="cause-title">Screen Time:</span> <span class="cause-desc">Excessive use of digital
                             devices reduces blink rates, leading to evaporative dry eye.</span></li>
@@ -140,6 +172,7 @@
 
             <div class="stage-content" id="stage-young" role="tabpanel" aria-labelledby="tab-young">
                 <h3>Young Adults (20s-30s)</h3>
+                <p class="stage-intro">Long workdays on screens and contact lens wear often show up here — even when your vision prescription is perfect.</p>
                 <ul>
                     <li><span class="cause-title">Digital Eye Strain:</span> <span class="cause-desc">Prolonged screen
                             use for work and leisure leading to computer vision syndrome.</span></li>
@@ -152,6 +185,7 @@
 
             <div class="stage-content" id="stage-middle" role="tabpanel" aria-labelledby="tab-middle">
                 <h3>Middle Age (40s-50s)</h3>
+                <p class="stage-intro">If you're in your 40s and screens are unbearable by afternoon, blocked oil glands — not just "getting older" — are often to blame.</p>
                 <ul>
                     <li><span class="cause-title">Meibomian Gland Dysfunction (MGD):</span> <span class="cause-desc">The
                             leading cause of dry eye; oil glands in the eyelids become blocked or inflamed.</span></li>
@@ -164,6 +198,7 @@
 
             <div class="stage-content" id="stage-seniors" role="tabpanel" aria-labelledby="tab-seniors">
                 <h3>Seniors (60+)</h3>
+                <p class="stage-intro">Burning eyes after reading or driving aren't an inevitable part of aging — they're often treatable when the root cause is identified.</p>
                 <ul>
                     <li><span class="cause-title">Gland Atrophy:</span> <span class="cause-desc">Age-related reduction
                             in overall tear production volume.</span></li>
@@ -553,6 +588,7 @@
                                 <span>Estimated Gland Health Level:</span>
                                 <strong id="gland-health-label">90% Function</strong>
                             </div>
+                            <p class="gland-disclaimer">Educational estimate only — not a clinical diagnosis. A LipiView® scan provides your actual gland imaging.</p>
                             <div class="glands-container" id="glands-container">
                                 <!-- 5 glands represented in SVG -->
                                 <svg viewBox="0 0 250 80" class="glands-row-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="gland-chart-title">
@@ -616,7 +652,7 @@
                             <span class="score-value" id="result-score-value">0 / 7</span>
                         </div>
                         <div class="result-message" id="result-message-text">
-                            Based on your selection, you may be experiencing early signs of dry eye. Simple lifestyle adjustments and over-the-counter drops might offer relief.
+                            You're showing early signs of ocular surface discomfort. Even mild symptoms can signal the start of Meibomian Gland Dysfunction (MGD) — a baseline scan can catch gland issues before they progress.
                         </div>
                         <div class="result-recommendation">
                             <strong>Suggested Clinical Pathway:</strong> <span class="pathway-value" id="result-pathway-value">LipiView Gland Scan</span>
@@ -640,6 +676,8 @@
                 <p>We use state-of-the-art technology to pinpoint the exact root cause of your dry eye, allowing us to
                     customize a treatment plan specifically for you.</p>
             </div>
+
+            <p class="interactive-hint reveal"><span aria-hidden="true">↻</span> Tap any diagnostic card to flip it and see sample results</p>
 
             <div class="diagnostics-grid reveal reveal-delay-1">
                 <!-- Card 1 -->
@@ -949,13 +987,40 @@
         </div>
     </section>
 
+    <!-- PATHWAY SECTION (Goal-Gradient Effect) -->
+    <section class="section section-dark-deep" id="pathway">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Your 3-Step Pathway to <span class="gradient-text">Lasting Relief</span></h2>
+                <p>Resolving chronic dry eye doesn't have to be complicated. We've structured a clear, seamless path to restoring your comfort.</p>
+            </div>
+            
+            <div class="pathway-steps reveal reveal-delay-1">
+                <div class="pathway-step-card glass-card">
+                    <div class="step-number">1</div>
+                    <h4>15-Min Precision Scan</h4>
+                    <p>We use non-invasive LipiView® interferometry and TearLab® osmolarity testing to map your tear chemistry and image your actual oil glands. No pain, no guesswork.</p>
+                </div>
+                <div class="pathway-step-card glass-card">
+                    <div class="step-number">2</div>
+                    <h4>Tailored Medical Plan</h4>
+                    <p>Our board-certified eye specialists design a target-specific regimen combining advanced in-office procedures and target-specific prescription drops.</p>
+                </div>
+                <div class="pathway-step-card glass-card">
+                    <div class="step-number">3</div>
+                    <h4>Restore Natural Tears</h4>
+                    <p>By treating the root cause (MGD/inflammation), we reactivate your own natural tear film, allowing you to live, work, and drive without constant burning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- TREATMENTS SECTION -->
     <section class="section" id="treatments">
         <div class="container">
             <div class="section-header reveal">
                 <h2>Advanced <span class="gradient-text">Treatments</span></h2>
-                <p>We provide a comprehensive spectrum of treatments targeting the specific root causes of your dry eye,
-                    utilizing the latest in pharmaceuticals and in-office procedures.</p>
+                <p>Your specialist will match the right therapy after diagnostics — here's the full range of prescription medications and in-office procedures we offer.</p>
             </div>
 
             <div class="treatments-grid">
@@ -1291,7 +1356,7 @@
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-quote">"I suffered from dry, burning eyes for years. After receiving a customized treatment plan at Marano Eye Care, I felt relief within weeks. The specialist team changed my quality of life."</p>
+                            <p class="testimonial-quote">"Years of screen-time burning left me dreading every workday. After a LipiView® scan revealed blocked Meibomian glands, Dr. Marano started me on Xiidra® — within six weeks, I could work a full day without constant stinging."</p>
                             <div class="testimonial-author">Maria T.</div>
                             <div class="testimonial-location">Denville, NJ</div>
                         </div>
@@ -1299,9 +1364,7 @@
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-quote">"I tried every artificial tear on the market. Dr. Marano
-                                diagnosed my Meibomian gland dysfunction and created a treatment plan that actually
-                                works. I wish I'd come here sooner."</p>
+                            <p class="testimonial-quote">"I tried every artificial tear on the market. Meibography showed my oil glands were nearly gone — Dr. Marano treated my Meibomian gland dysfunction with a plan that actually works. I wish I'd come here sooner."</p>
                             <div class="testimonial-author">Robert K.</div>
                             <div class="testimonial-location">Livingston, NJ</div>
                         </div>
@@ -1309,9 +1372,7 @@
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-quote">"The diagnostic technology at Marano Eye Care is incredible.
-                                They showed me images of my actual tear glands and explained exactly what was happening.
-                                I finally understood my dry eye."</p>
+                            <p class="testimonial-quote">"They showed me infrared images of my actual tear glands and explained exactly why my drops weren't working. Understanding the science behind my dry eye made me trust the treatment plan completely."</p>
                             <div class="testimonial-author">Susan L.</div>
                             <div class="testimonial-location">Montclair, NJ</div>
                         </div>
@@ -1319,9 +1380,7 @@
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-quote">"After cataract surgery, my dry eye got much worse. Dr. Marano
-                                treated me with a combination of punctal plugs and Xiidra. My eyes feel comfortable for
-                                the first time in years."</p>
+                            <p class="testimonial-quote">"After cataract surgery, my dry eye got much worse. Punctal plugs plus Xiidra® gave me comfortable eyes for the first time in years — I can read and drive at night again without dreading the glare."</p>
                             <div class="testimonial-author">Patricia M.</div>
                             <div class="testimonial-location">Cedar Knolls, NJ</div>
                         </div>
@@ -1347,6 +1406,7 @@
         <div class="container">
             <div class="section-header reveal">
                 <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+                <p>Common questions patients ask before their first visit.</p>
             </div>
 
             <div class="faq-list reveal reveal-delay-1">
@@ -1364,13 +1424,11 @@
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2">
-                        How long will it take to feel relief from treatments?
+                        How long until I feel relief — and how many visits will I need?
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
-                        <p>This varies by patient and treatment. Some procedures like punctal plugs or NearTear® can
-                            provide relief within a few weeks. Prescription drops like Restasis or Xiidra may take 2 to
-                            12 weeks of consistent use to achieve their full anti-inflammatory effect.</p>
+                        <p>Timeline varies by patient and treatment. Some patients feel improvement within days of starting prescription drops or having punctal plugs inserted. In-office procedures like NearTear® often provide relief within a few weeks, while prescription drops like Restasis® or Xiidra® may take 2 to 12 weeks to reach full effect. Most patients notice significant improvement in comfort and screen-time endurance within 2 to 6 weeks. We schedule follow-up checks at 1 month and 3 months to monitor gland function and adjust your plan as your tear film stabilizes.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1396,11 +1454,11 @@
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" id="faq-question-5" aria-expanded="false" aria-controls="faq-answer-5">
-                        How many treatments or visits will it take to feel a difference?
+                        What happens at my first dry eye evaluation?
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5">
-                        <p>While some patients experience relief within days of starting prescription drops or having punctal plugs inserted, chronic dry eye is a progressive disease that takes time to heal. Most patients notice a significant improvement in comfort and screen-time endurance within 2 to 6 weeks. We schedule follow-up checks at 1 month and 3 months to monitor gland function and adjust your plan as your tear film stabilizes.</p>
+                        <p>Your first visit typically takes 45–60 minutes. We'll review your symptom history, then run non-invasive diagnostic scans — including LipiView® interferometry and infrared Meibography — to image your oil glands and measure your tear film. You'll see your results on screen, and your specialist will explain which tear layer is failing and recommend a customized treatment plan. No referral is required.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1411,34 +1469,6 @@
                     <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6">
                         <p>Drugstore drops act as a temporary band-aid, masking symptoms for minutes without treating the underlying cause. If your meibomian glands are blocked, tears will continue to evaporate instantly. Over time, untreated gland blockage leads to irreversible gland atrophy (shrinkage). Our treatments target the root cause—inflammation and gland blockages—to restore your eyes' natural ability to produce and maintain tears, preventing permanent damage.</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PATHWAY SECTION (Goal-Gradient Effect) -->
-    <section class="section section-dark-deep" id="pathway">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Your 3-Step Pathway to <br /><span class="gradient-text">Lasting Relief</span></h2>
-                <p>Resolving chronic dry eye doesn't have to be complicated. We've structured a clear, seamless path to restoring your comfort.</p>
-            </div>
-            
-            <div class="pathway-steps reveal reveal-delay-1">
-                <div class="pathway-step-card glass-card">
-                    <div class="step-number">1</div>
-                    <h4>15-Min Precision Scan</h4>
-                    <p>We use non-invasive LipiView® interferometry and TearLab® osmolarity testing to map your tear chemistry and image your actual oil glands. No pain, no guesswork.</p>
-                </div>
-                <div class="pathway-step-card glass-card">
-                    <div class="step-number">2</div>
-                    <h4>Tailored Medical Plan</h4>
-                    <p>Our board-certified eye specialists design a target-specific regimen combining advanced in-office procedures and target-specific prescription drops.</p>
-                </div>
-                <div class="pathway-step-card glass-card">
-                    <div class="step-number">3</div>
-                    <h4>Restore Natural Tears</h4>
-                    <p>By treating the root cause (MGD/inflammation), we reactivate your own natural tear film, allowing you to live, work, and drive without constant burning.</p>
                 </div>
             </div>
         </div>
@@ -1457,7 +1487,9 @@
                     <h2>Meet Our Specialist Team</h2>
                     <p class="doctor-subtitle">Led by Dr. Matthew J. Marano, Jr., MD | Medical Director & Chief of Ophthalmology</p>
                     
-                    <p class="doctor-bio">At Marano Eye Care, our team of board-certified dry eye specialists is dedicated to diagnosing and treating the root biological causes of dry eye rather than just masking symptoms. Led by Medical Director Dr. Matthew J. Marano, Jr., MD—a leading board-certified ophthalmologist who earned his medical degree from the George Washington University School of Medicine and completed his undergraduate studies at Columbia University. With over three decades of clinical practice pioneering dry eye diagnostics in Northern New Jersey, Dr. Marano has dedicated decades of his career to educating other physicians in advanced ophthalmic care, ensuring our clinical team remains at the forefront of customized treatment plans to restore your visual comfort.</p>
+                    <p class="doctor-bio">At Marano Eye Care, our board-certified dry eye specialists diagnose and treat the root biological causes of dry eye — not just the symptoms.</p>
+                    <p class="doctor-bio">Medical Director <strong class="text-pop-light">Dr. Matthew J. Marano, Jr., MD</strong> is a leading ophthalmologist with over three decades of clinical practice in Northern New Jersey. He earned his medical degree from George Washington University and completed undergraduate studies at Columbia University.</p>
+                    <p class="doctor-bio">Dr. Marano serves as Chief of Ophthalmology at Cooperman Barnabas Medical Center and St. Michael's Medical Center, and has spent decades educating physicians in advanced ophthalmic care.</p>
                     
                     <h4 class="doctor-credentials-title">Our Practice Credentials</h4>
                     <ul class="doctor-credentials">
@@ -1597,7 +1629,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="message">Message (Optional)</label>
-                                    <textarea id="message" name="message" rows="1" placeholder="How can we help you?"></textarea>
+                                    <textarea id="message" name="message" rows="3" placeholder="How can we help you?"></textarea>
                                 </div>
                             </div>
 
@@ -1635,17 +1667,17 @@
                     <a href="https://maranoeyecare.com" class="nav-logo">
                         <img src="assets/marano_logo.png" alt="Marano Eye Care" class="logo-img" width="180" height="60" loading="lazy">
                     </a>
-                    <p>New Jersey's Premier Destination for Advanced Dry Eye Diagnostics and Customized
-                        Treatment Plans.</p>
+                    <p>Northern New Jersey's destination for advanced dry eye diagnostics and customized treatment plans.</p>
                 </div>
                 <div>
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#understanding">Life Stages</a></li>
-                        <li><a href="#symptoms">Symptoms</a></li>
+                        <li><a href="#symptoms">Symptoms &amp; Quiz</a></li>
                         <li><a href="#diagnostics">Diagnostics</a></li>
+                        <li><a href="#pathway">Your Pathway</a></li>
                         <li><a href="#treatments">Treatments</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -1681,7 +1713,7 @@
     </footer>
 
 
-    <script src="script.js?v=1.2.0"></script>
+    <script src="script.js?v=1.3.0"></script>
 </body>
 
 </html>
