@@ -28,6 +28,9 @@
 
 <body>
 
+    <!-- Skip Link for Keyboard Accessibility -->
+    <a href="#home" class="skip-link">Skip to main content</a>
+
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="navbar-bg"></div>
@@ -52,6 +55,7 @@
 
     <!-- HERO SECTION -->
     <section class="hero" id="home">
+        <div class="ambient-glow"></div>
         <div class="particles"></div>
         <div class="hero-content">
             <div class="hero-eye reveal">
@@ -99,7 +103,7 @@
         <div class="container">
             <div class="section-header reveal">
                 <h2>Your Struggle Is Real — <span class="gradient-text">And Valid</span></h2>
-                <p>If any of these sound familiar, you're not alone — and you're not imagining it.</p>
+                <p style="max-width: none;">If any of these sound familiar, you're not alone — and you're not imagining&nbsp;it.</p>
             </div>
             <div class="validation-grid reveal reveal-delay-1">
                 <div class="validation-card glass-card">
@@ -162,7 +166,7 @@
                 <p class="stage-intro">If your child complains of tired eyes after homework or gaming, screen habits — not "just allergies" — may be the cause.</p>
                 <ul>
                     <li><span class="cause-title">Screen Time:</span> <span class="cause-desc">Excessive use of digital
-                            devices reduces blink rates, leading to evaporative dry eye.</span></li>
+                            devices reduces blink rates, leading to evaporative dry eye.<sup class="cite"><a href="#ref-4">[4]</a></sup></span></li>
                     <li><span class="cause-title">Allergies:</span> <span class="cause-desc">Seasonal allergies and
                             antihistamine use can severely dry out the ocular surface.</span></li>
                     <li><span class="cause-title">Contact Lenses:</span> <span class="cause-desc">Improper wear
@@ -216,7 +220,7 @@
         <div class="container">
             <div class="section-header reveal">
                 <h2>Why Standard Drops <span class="gradient-text">Have Failed You</span></h2>
-                <p class="symptoms-header-p">If you've tried countless over-the-counter drops with no lasting relief, <strong>it is not your fault.</strong> Standard eye drops are mostly water—they just evaporate right off your eye. A healthy tear film requires three distinct layers to work. If your lipid (oil) layer is deficient (MGD), as found in 86% of dry eye cases, tears evaporate rapidly and cannot stay on your eye.</p>
+                <p class="symptoms-header-p">If you've tried countless over-the-counter drops with no lasting relief, <strong>it is not your fault.</strong> Standard eye drops are mostly water—they just evaporate right off your eye. A healthy tear film requires three distinct layers to <span style="white-space: nowrap;">work.<sup class="cite"><a href="#ref-2">[2]</a></sup></span> If your lipid (oil) layer is deficient (MGD), as found in 86% of dry eye <span style="white-space: nowrap;">cases,<sup class="cite"><a href="#ref-1">[1]</a></sup></span> tears evaporate rapidly and cannot stay on your eye.</p>
             </div>
 
             <div class="tear-film-container mt-48">
@@ -224,7 +228,7 @@
                     <div class="layer-card active" data-layer="lipid" tabindex="0" role="tab" aria-selected="true">
                         <h4><span class="layer-dot bg-yellow"></span> 1. Lipid Layer (Outer)</h4>
                         <p>Produced by the Meibomian glands in your eyelids. This oily layer seals the tears and prevents
-                            them from evaporating too quickly.</p>
+                            them from evaporating too quickly.<sup class="cite">[2]</sup></p>
                     </div>
                     <div class="layer-card" data-layer="aqueous" tabindex="0" role="tab" aria-selected="false">
                         <h4><span class="layer-dot bg-blue"></span> 2. Aqueous Layer (Middle)</h4>
@@ -241,19 +245,19 @@
                     <div class="slider-comparison">
                         <!-- Left Side (Dry Eye) -->
                         <div class="slider-image-before">
-                            <img src="assets/tear_film_dry.png" alt="Exposed Dry Eye Surface" class="anatomy-dry" width="500" height="500" loading="lazy" />
+                            <img src="assets/tear_film_dry.webp" alt="Exposed Dry Eye Surface" class="anatomy-dry" width="500" height="500" loading="lazy" />
                         </div>
                         
                         <!-- Right Side (Healthy & Clickable Layers) -->
                         <div class="slider-image-after">
                             <div class="interactive-anatomy-container">
-                                <img src="assets/tear_film_full.png" alt="Healthy Tear Film Anatomy"
+                                <img src="assets/tear_film_full.webp" alt="Healthy Tear Film Anatomy"
                                     class="anatomy-layer anatomy-full active" width="500" height="500" loading="lazy" />
-                                <img src="assets/tear_film_full.png" alt="Lipid Layer highlighted"
+                                <img src="assets/tear_film_full.webp" alt="Lipid Layer highlighted"
                                     class="anatomy-layer anatomy-lipid" width="500" height="500" loading="lazy" />
-                                <img src="assets/tear_film_aqueous.png" alt="Aqueous Layer highlighted"
+                                <img src="assets/tear_film_aqueous.webp" alt="Aqueous Layer highlighted"
                                     class="anatomy-layer anatomy-aqueous" width="500" height="500" loading="lazy" />
-                                <img src="assets/tear_film_mucin.png" alt="Mucin Layer highlighted"
+                                <img src="assets/tear_film_mucin.webp" alt="Mucin Layer highlighted"
                                     class="anatomy-layer anatomy-mucin" width="500" height="500" loading="lazy" />
                             </div>
                         </div>
@@ -286,7 +290,7 @@
                     <ul>
                         <li>❌ Out-of-pocket expenses that compound annually</li>
                         <li>❌ Delaying diagnosis while active gland damage progresses</li>
-                        <li>❌ Risk of preservative toxicity from frequent application</li>
+                        <li>❌ Risk of preservative toxicity from frequent application<sup class="cite"><a href="#ref-5">[5]</a></sup></li>
                     </ul>
                 </div>
                 <div class="reframing-card good-route">
@@ -670,6 +674,7 @@
 
     <!-- DIAGNOSTICS -->
     <section class="section section-light section-light-cool" id="diagnostics">
+        <div class="ambient-glow"></div>
         <div class="container">
             <div class="section-header reveal">
                 <h2>Precision <span class="gradient-text">Diagnostics</span></h2>
@@ -758,7 +763,7 @@
                             <h3>Meibography</h3>
                             <p>Utilizes advanced infrared imaging to visualize the Meibomian glands inside your eyelids, assessing them for structural health.</p>
                             <div class="diag-result-container">
-                                <img src="assets/meibography_scan.png" alt="Meibography Gland Infrared Scan" class="diag-result-img" width="260" height="120" loading="lazy">
+                                <img src="assets/meibography_scan.webp" alt="Meibography Gland Infrared Scan" class="diag-result-img" width="260" height="120" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -870,7 +875,7 @@
                         </div>
                         <div class="diag-back">
                             <h3>TearLab Osmolarity</h3>
-                            <p>Measures the salt concentration of your tears. High osmolarity is a proven biomarker indicating dry eye disease.</p>
+                            <p>Measures the salt concentration of your tears. High osmolarity is a proven biomarker indicating dry eye disease.<sup class="cite">[6]</sup></p>
                             <div class="diag-result-container">
                                 <svg viewBox="0 0 280 44" class="diag-result-svg">
                                     <rect x="0" y="0" width="280" height="44" rx="4" fill="#0B132B" />
@@ -912,7 +917,7 @@
                         </div>
                         <div class="diag-back">
                             <h3>InflammaDry</h3>
-                            <p>A rapid test detecting elevated levels of MMP-9, a key inflammatory biomarker that is elevated in patients with dry eye.</p>
+                            <p>A rapid test detecting elevated levels of MMP-9, a key inflammatory biomarker that is elevated in patients with dry eye.<sup class="cite">[7]</sup></p>
                             <div class="diag-result-container">
                                 <svg viewBox="0 0 280 44" class="diag-result-svg">
                                     <rect x="0" y="0" width="280" height="44" rx="4" fill="#090F1C" />
@@ -932,7 +937,7 @@
             <div class="warning-box reveal reveal-delay-2">
                 <span class="warning-icon">⚠️</span>
                 <div class="warning-text">
-                    <strong>Important Clinical Fact:</strong> Meibomian Gland Dysfunction (MGD) is progressive. Once blocked oil glands atrophy, they <strong>cannot regenerate</strong>. Preserving your natural tear film requires early diagnostic imaging before irreversible gland structure loss occurs.
+                    <strong>Important Clinical Fact:</strong> Meibomian Gland Dysfunction (MGD) is progressive. Once blocked oil glands atrophy, they <strong>are difficult to restore</strong>.<sup class="cite"><a href="#ref-3">[3]</a></sup> Preserving your natural tear film requires early diagnostic imaging before irreversible gland structure loss occurs.
                 </div>
             </div>
         </div>
@@ -1388,7 +1393,7 @@
                 </div>
                 <div class="carousel-controls">
                     <button class="carousel-btn carousel-prev" aria-label="Previous testimonial">←</button>
-                    <div class="carousel-dots">
+                    <div class="carousel-dots" role="group" aria-label="Testimonial slide indicators">
                         <button class="carousel-dot active" aria-label="Go to testimonial slide 1"></button>
                         <button class="carousel-dot" aria-label="Go to testimonial slide 2"></button>
                         <button class="carousel-dot" aria-label="Go to testimonial slide 3"></button>
@@ -1480,7 +1485,7 @@
             <div class="doctor-profile-grid">
                 <div class="doctor-image-wrapper reveal">
                     <div class="doctor-image-glow"></div>
-                    <img src="assets/dr_marano.png" alt="Dr. Matthew J. Marano, Jr., MD" class="doctor-headshot" width="400" height="480" loading="lazy">
+                    <img src="assets/dr_marano.webp" alt="Dr. Matthew J. Marano, Jr., MD" class="doctor-headshot" width="400" height="480" loading="lazy">
                 </div>
                 <div class="doctor-info reveal reveal-delay-1">
                     <span class="doctor-tag">Board-Certified Dry Eye Specialists</span>
@@ -1703,11 +1708,27 @@
                         <li><a href="#contact">Contact Us</a></li>
                         <li><a href="#">Patient Portal</a></li>
                         <li><a href="https://maranoeyecare.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+                        <li><a href="https://maranoeyecare.com/terms-of-service/" target="_blank" rel="noopener noreferrer">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
+            <div class="footer-references" id="references" aria-label="Clinical References">
+                <h4 class="references-heading">Clinical References</h4>
+                <ol class="references-list">
+                    <li id="ref-1">Lemp MA, Crews LA, Bron AJ, Foulks GN, Sullivan BD. Distribution of aqueous-deficient and evaporative dry eye in a clinic-based patient cohort: a retrospective study. <em>Cornea.</em> 2012;31(5):472-478. <a href="https://pubmed.ncbi.nlm.nih.gov/22378109/" target="_blank" rel="noopener noreferrer">PMID: 22378109</a></li>
+                    <li id="ref-2">Craig JP, et al. TFOS DEWS II Report Executive Summary. <em>Ocular Surface.</em> 2017;15(4):802-812. <a href="https://pubmed.ncbi.nlm.nih.gov/28736337/" target="_blank" rel="noopener noreferrer">PMID: 28736337</a></li>
+                    <li id="ref-3">Nichols KK, et al. The international workshop on meibomian gland dysfunction: executive summary. <em>Invest Ophthalmol Vis Sci.</em> 2011;52(4):1922-1929. <a href="https://pubmed.ncbi.nlm.nih.gov/21450913/" target="_blank" rel="noopener noreferrer">PMID: 21450913</a></li>
+                    <li id="ref-4">Alghamdi WM, et al. Evaluation of digital eye strain and associated factors among non-medical university students in Saudi Arabia. <em>BMJ Open Ophthalmol.</em> 2021;6(1):e000795. <a href="https://pubmed.ncbi.nlm.nih.gov/34527809/" target="_blank" rel="noopener noreferrer">PMID: 34527809</a></li>
+                    <li id="ref-5">Baudouin C, et al. Preservatives in eyedrops: the good, the bad and the ugly. <em>Prog Retin Eye Res.</em> 2010;29(4):312-334. <a href="https://pubmed.ncbi.nlm.nih.gov/20302969/" target="_blank" rel="noopener noreferrer">PMID: 20302969</a></li>
+                    <li id="ref-6">Lemp MA, et al. The definition and classification of dry eye disease: report of the Definition and Classification Subcommittee of the International Dry Eye WorkShop (2007). <em>Ocular Surface.</em> 2007;5(2):75-92. <a href="https://pubmed.ncbi.nlm.nih.gov/17508116/" target="_blank" rel="noopener noreferrer">PMID: 17508116</a></li>
+                    <li id="ref-7">Sambursky R, et al. Prospective, multicenter, clinical evaluation of point-of-care, real-time detection of tear matrix metalloproteinase 9. <em>Cornea.</em> 2013;32(10):1384-1389. <a href="https://pubmed.ncbi.nlm.nih.gov/23907141/" target="_blank" rel="noopener noreferrer">PMID: 23907141</a></li>
+                </ol>
+            </div>
             <div class="footer-bottom">
-                &copy; 2026 Marano Eye Care. All Rights Reserved.
+                <p class="medical-disclaimer">
+                    <strong>Medical Disclaimer:</strong> The information on this website is for educational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider regarding a medical condition.
+                </p>
+                <p>&copy; 2026 Marano Eye Care. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
