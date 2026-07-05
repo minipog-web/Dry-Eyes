@@ -33,8 +33,70 @@
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=1.3.1">
+
+    <!-- LocalBusiness / MedicalBusiness Structured JSON-LD Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "MedicalBusiness",
+          "@id": "https://maranoeyecare.com/#organization",
+          "name": "Marano Eye Care - Dry Eye Care Center",
+          "url": "https://maranoeyecare.com",
+          "logo": "https://maranoeyecare.com/assets/marano_logo.png",
+          "image": "https://maranoeyecare.com/assets/meibography_scan.png",
+          "description": "New Jersey's premier dry eye care center specializing in advanced, FDA-cleared diagnostics and customized treatments.",
+          "telephone": "(973) 322-0100"
+        },
+        {
+          "@type": "MedicalBusiness",
+          "@id": "https://maranoeyecare.com/#livingston",
+          "name": "Marano Eye Care - Livingston Office",
+          "telephone": "(973) 322-0100",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "200 South Orange Ave, Suite 209",
+            "addressLocality": "Livingston",
+            "addressRegion": "NJ",
+            "postalCode": "07039",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "MedicalBusiness",
+          "@id": "https://maranoeyecare.com/#denville",
+          "name": "Marano Eye Care - Denville Office",
+          "telephone": "(973) 625-7970",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "16 Pocono Road, Suite 301",
+            "addressLocality": "Denville",
+            "addressRegion": "NJ",
+            "postalCode": "07834",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "MedicalBusiness",
+          "@id": "https://maranoeyecare.com/#newark",
+          "name": "Marano Eye Care - Newark Office",
+          "telephone": "(973) 877-5534",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "306 Martin Luther King Blvd",
+            "addressLocality": "Newark",
+            "addressRegion": "NJ",
+            "postalCode": "07102",
+            "addressCountry": "US"
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -1577,6 +1639,22 @@
                             <span class="banner-icon">📋</span>
                             <span class="banner-text">Self-Assessment details successfully linked to your request!</span>
                         </div>
+
+                        <!-- Step Progress Indicator -->
+                        <div class="form-steps-indicator">
+                            <div class="form-step-node active" id="form-badge-1" data-step="1">
+                                <span class="node-num">1</span>
+                                <span class="node-label">Preferences</span>
+                            </div>
+                            <div class="form-step-line-bg">
+                                <div class="form-step-line-fill" id="form-indicator-line"></div>
+                            </div>
+                            <div class="form-step-node" id="form-badge-2" data-step="2">
+                                <span class="node-num">2</span>
+                                <span class="node-label">Contact Details</span>
+                            </div>
+                        </div>
+
                         <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true">
                             <input type="hidden" name="form-name" value="contact">
                             <input type="hidden" name="subject" value="New Patient Consult Request">
@@ -1585,73 +1663,88 @@
                                 <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
                             </div>
 
-                            <!-- Row 1: Names -->
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="first-name">First Name <span class="required-asterisk" aria-hidden="true">*</span></label>
-                                    <input type="text" id="first-name" name="first-name" required placeholder="Jane" autocomplete="given-name">
+                            <!-- Step 1 Panel: Consultation Intent (Low Friction selections) -->
+                            <div class="form-step-panel active" id="step-panel-1" data-step="1">
+                                <h3 class="form-step-heading">Tell us about your needs</h3>
+                                <p class="form-step-description">Select your preferences below. No contact information is required yet.</p>
+
+                                <div class="form-group-vertical">
+                                    <div class="form-group">
+                                        <label for="preferred-location">Preferred Location <span class="required-asterisk" aria-hidden="true">*</span></label>
+                                        <select id="preferred-location" name="preferred-location" required aria-label="Preferred Location">
+                                            <option value="">Choose your preferred location...</option>
+                                            <option value="livingston">Livingston, NJ</option>
+                                            <option value="denville">Denville, NJ</option>
+                                            <option value="newark">Newark, NJ</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="primary-concern">Primary Concern <span class="required-asterisk" aria-hidden="true">*</span></label>
+                                        <select id="primary-concern" name="concern" required aria-label="Primary Concern">
+                                            <option value="">Select your primary concern...</option>
+                                            <option value="evaluation">New Dry Eye Evaluation</option>
+                                            <option value="procedures">Interested in In-Office Procedures</option>
+                                            <option value="second-opinion">Second Opinion</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="contact-method">Preferred Contact Method <span class="required-asterisk" aria-hidden="true">*</span></label>
+                                        <select id="contact-method" name="contact-method" required aria-label="Preferred Contact Method">
+                                            <option value="">How should we contact you?</option>
+                                            <option value="email">Email</option>
+                                            <option value="phone">Phone Call</option>
+                                            <option value="text">Text Message</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="last-name">Last Name <span class="required-asterisk" aria-hidden="true">*</span></label>
-                                    <input type="text" id="last-name" name="last-name" required placeholder="Doe" autocomplete="family-name">
+
+                                <div class="form-nav-buttons justify-center">
+                                    <button type="button" class="btn btn-primary w-100 justify-center btn-step-next" id="btn-next-step">Continue to Contact Details →</button>
                                 </div>
                             </div>
 
-                            <!-- Row 2: Contact -->
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="email-address">Email Address <span class="required-asterisk" aria-hidden="true">*</span></label>
-                                    <input type="email" id="email-address" name="email" required placeholder="jane@example.com" autocomplete="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone-number">Phone Number <span class="required-asterisk" aria-hidden="true">*</span></label>
-                                    <input type="tel" id="phone-number" name="phone" required placeholder="(555) 000-0000" autocomplete="tel">
-                                </div>
-                            </div>
+                            <!-- Step 2 Panel: Contact Details -->
+                            <div class="form-step-panel" id="step-panel-2" data-step="2">
+                                <h3 class="form-step-heading">Secure Your Appointment</h3>
+                                <p class="form-step-description">Provide your contact info so Dr. Marano's team can confirm your date.</p>
 
-                            <!-- Row 3: Selections -->
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="primary-concern">Primary Concern <span class="required-asterisk" aria-hidden="true">*</span></label>
-                                    <select id="primary-concern" name="concern" required aria-label="Primary Concern">
-                                        <option value="">Select your primary concern...</option>
-                                        <option value="evaluation">New Dry Eye Evaluation</option>
-                                        <option value="procedures">Interested in In-Office Procedures</option>
-                                        <option value="second-opinion">Second Opinion</option>
-                                        <option value="other">Other</option>
-                                    </select>
+                                <!-- Row 1: Names -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="first-name">First Name <span class="required-asterisk" aria-hidden="true">*</span></label>
+                                        <input type="text" id="first-name" name="first-name" required placeholder="Jane" autocomplete="given-name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="last-name">Last Name <span class="required-asterisk" aria-hidden="true">*</span></label>
+                                        <input type="text" id="last-name" name="last-name" required placeholder="Doe" autocomplete="family-name">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="preferred-location">Preferred Location <span class="required-asterisk" aria-hidden="true">*</span></label>
-                                    <select id="preferred-location" name="preferred-location" required aria-label="Preferred Location">
-                                        <option value="">Choose your preferred location...</option>
-                                        <option value="livingston">Livingston, NJ</option>
-                                        <option value="denville">Denville, NJ</option>
-                                        <option value="newark">Newark, NJ</option>
-                                    </select>
-                                </div>
-                            </div>
 
-                            <!-- Row 4: Contact Method & Message -->
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="contact-method">Preferred Contact Method <span class="required-asterisk" aria-hidden="true">*</span></label>
-                                    <select id="contact-method" name="contact-method" required aria-label="Preferred Contact Method">
-                                        <option value="">How should we contact you?</option>
-                                        <option value="email">Email</option>
-                                        <option value="phone">Phone Call</option>
-                                        <option value="text">Text Message</option>
-                                    </select>
+                                <!-- Row 2: Contact -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email-address">Email Address <span class="required-asterisk" aria-hidden="true">*</span></label>
+                                        <input type="email" id="email-address" name="email" required placeholder="jane@example.com" autocomplete="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone-number">Phone Number <span class="required-asterisk" aria-hidden="true">*</span></label>
+                                        <input type="tel" id="phone-number" name="phone" required placeholder="(973) 000-0000" autocomplete="tel">
+                                    </div>
                                 </div>
-                                <div class="form-group">
+
+                                <!-- Message -->
+                                <div class="form-group" style="width: 100%; margin-bottom: 25px;">
                                     <label for="message">Message (Optional)</label>
                                     <textarea id="message" name="message" rows="3" placeholder="How can we help you?"></textarea>
                                 </div>
-                            </div>
 
-                            <!-- Submit button -->
-                            <div class="form-nav-buttons justify-center">
-                                <button type="submit" class="btn btn-primary w-100 justify-center">Request Consultation</button>
+                                <div class="form-step-actions">
+                                    <button type="button" class="btn btn-outline btn-step-back" id="btn-prev-step">← Back</button>
+                                    <button type="submit" class="btn btn-primary btn-submit-consultation">Submit Request</button>
+                                </div>
                             </div>
                         </form>
                         <div class="form-success" role="status" aria-live="polite">

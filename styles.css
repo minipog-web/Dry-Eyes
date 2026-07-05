@@ -4267,3 +4267,170 @@ sup.cite a:hover {
   color: #ffffff;
   text-decoration: underline;
 }
+
+/* --- TWO-STEP BOOKING FORM STYLES --- */
+.form-steps-indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  max-width: 320px;
+  margin: 0 auto 30px auto;
+}
+
+.form-step-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.form-step-node .node-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #17243c;
+  border: 2px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.form-step-node.active .node-num {
+  background: var(--gradient-primary);
+  border-color: var(--primary-light);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(123, 150, 200, 0.4);
+  transform: scale(1.1);
+}
+
+.form-step-node.completed .node-num {
+  background: #10b981;
+  border-color: #10b981;
+  color: #ffffff;
+}
+
+.form-step-node .node-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 8px;
+  transition: color 0.3s ease;
+}
+
+.form-step-node.active .node-label {
+  color: var(--primary-light);
+  font-weight: 700;
+}
+
+.form-step-line-bg {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background: #17243c;
+  z-index: 1;
+}
+
+.form-step-line-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--gradient-primary);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Form step panels with luxury fade/slide animation */
+.form-step-panel {
+  display: none;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.form-step-panel.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form-step-heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.form-step-description {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.form-group-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.form-step-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.form-step-actions button {
+  flex: 1;
+  justify-content: center;
+}
+
+/* Fine-tuning input states & pulse highlight */
+.contact-form select,
+.contact-form input,
+.contact-form textarea {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-form select:focus,
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(123, 150, 200, 0.15);
+  background: rgba(23, 36, 60, 0.8);
+  transform: translateY(-1px);
+}
+
+/* Pulse highlight on booking card when linked from quiz */
+@keyframes pulseHighlight {
+  0% {
+    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.15);
+    border-color: var(--glass-border);
+  }
+  50% {
+    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.15), 0 0 30px rgba(123, 150, 200, 0.3);
+    border-color: var(--primary-light);
+  }
+  100% {
+    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.15);
+    border-color: var(--glass-border);
+  }
+}
+
+.glass-card.pulse-highlight {
+  animation: pulseHighlight 2s cubic-bezier(0.16, 1, 0.3, 1) ease-in-out infinite;
+}
+

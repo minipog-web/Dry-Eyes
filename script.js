@@ -797,6 +797,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  const saveQuizState = () => {
+    const symptomStates = {};
+    checkboxes.forEach(cb => {
+      symptomStates[cb.id] = cb.checked;
+    });
+    const state = {
+      currentQuizStep,
+      quizStarted,
+      quizCompleted: quizResultsContainer ? quizResultsContainer.style.display === 'flex' : false,
+      symptomStates
+    };
+    localStorage.setItem('dryeye_quiz_state', JSON.stringify(state));
+  };
+
+  const loadQuizState = () => {
+    try {
+      const saved = localStorage.getItem('dryeye_quiz_state');
+      if (saved) {
+        const state = JSON.parse(saved);
+        currentQuizStep = state.currentQuizStep || 0;
+        quizStarted = state.quizStarted || false;
+        
+        if (state.symptomStates) {
+          checkboxes.forEach(cb => {
+            if (cb.id in state.symptomStates) {
+              cb.checked = state.symptomStates[cb.id];
+            }
+          });
+        }
+        
+        if (state.quizCompleted) {
+          showQuizResults();
+        } else {
+          if (quizResultsContainer) quizResultsContainer.style.display = 'none';
+          if (quizStepsContainer) quizStepsContainer.style.display = 'flex';
+          if (quizProgressWrapper) quizProgressWrapper.style.display = 'block';
+          updateQuizUI();
+        }
+      }
+    } catch (e) {
+      console.error('Error loading quiz state:', e);
+    }
+  };
+
   let quizStarted = false;
 
   const handleQuizChoice = (isYes) => {
@@ -822,8 +866,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentQuizStep < quizSlides.length - 1) {
       currentQuizStep++;
       updateQuizUI();
+      saveQuizState();
     } else {
       showQuizResults();
+      saveQuizState();
     }
   };
 
@@ -839,6 +885,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentQuizStep > 0) {
         currentQuizStep--;
         updateQuizUI();
+        saveQuizState();
       }
     });
   });
@@ -857,12 +904,126 @@ document.addEventListener('DOMContentLoaded', () => {
       if (widgetDescription) {
         widgetDescription.textContent = 'Answer 7 quick questions to estimate your gland health and find your pathway.';
       }
+      localStorage.removeItem('dryeye_quiz_state');
     });
   }
 
-  // Initialize Quiz UI
+  // Initialize Quiz UI & restore progress if available
   if (quizSlides.length > 0) {
     updateQuizUI();
+    loadQuizState();
+  }
+
+  // --- TWO-STEP BOOKING FORM CONTROLLER ---
+  let currentFormStep = 1;
+
+  const stepPanel1 = document.getElementById('step-panel-1');
+  const stepPanel2 = document.getElementById('step-panel-2');
+  const formBadge1 = document.getElementById('form-badge-1');
+  const formBadge2 = document.getElementById('form-badge-2');
+  const formIndicatorLine = document.getElementById('form-indicator-line');
+
+  const updateFormStepUI = () => {
+    if (currentFormStep === 1) {
+      if (stepPanel1) stepPanel1.classList.add('active');
+      if (stepPanel2) stepPanel2.classList.remove('active');
+      if (formBadge1) {
+        formBadge1.classList.add('active');
+        formBadge1.classList.remove('completed');
+      }
+      if (formBadge2) {
+        formBadge2.classList.remove('active');
+        formBadge2.classList.remove('completed');
+      }
+      if (formIndicatorLine) {
+        formIndicatorLine.style.width = '0%';
+      }
+    } else {
+      if (stepPanel1) stepPanel1.classList.remove('active');
+      if (stepPanel2) stepPanel2.classList.add('active');
+      if (formBadge1) {
+        formBadge1.classList.remove('active');
+        formBadge1.classList.add('completed');
+      }
+      if (formBadge2) {
+        formBadge2.classList.add('active');
+        formBadge2.classList.remove('completed');
+      }
+      if (formIndicatorLine) {
+        formIndicatorLine.style.width = '100%';
+      }
+    }
+  };
+
+  const validateStep1 = () => {
+    const preferredLocation = document.getElementById('preferred-location');
+    const primaryConcern = document.getElementById('primary-concern');
+    const contactMethod = document.getElementById('contact-method');
+
+    if (preferredLocation && !preferredLocation.value) return false;
+    if (primaryConcern && !primaryConcern.value) return false;
+    if (contactMethod && !contactMethod.value) return false;
+
+    return true;
+  };
+
+  const reportStep1Validity = () => {
+    const preferredLocation = document.getElementById('preferred-location');
+    const primaryConcern = document.getElementById('primary-concern');
+    const contactMethod = document.getElementById('contact-method');
+
+    if (preferredLocation && !preferredLocation.value) {
+      preferredLocation.reportValidity();
+      return;
+    }
+    if (primaryConcern && !primaryConcern.value) {
+      primaryConcern.reportValidity();
+      return;
+    }
+    if (contactMethod && !contactMethod.value) {
+      contactMethod.reportValidity();
+      return;
+    }
+  };
+
+  const btnNextStep = document.getElementById('btn-next-step');
+  if (btnNextStep) {
+    btnNextStep.addEventListener('click', () => {
+      if (validateStep1()) {
+        currentFormStep = 2;
+        updateFormStepUI();
+        trackEvent('form_step_1_complete');
+      } else {
+        reportStep1Validity();
+      }
+    });
+  }
+
+  const btnPrevStep = document.getElementById('btn-prev-step');
+  if (btnPrevStep) {
+    btnPrevStep.addEventListener('click', () => {
+      currentFormStep = 1;
+      updateFormStepUI();
+      trackEvent('form_step_2_back');
+    });
+  }
+
+  if (formBadge1) {
+    formBadge1.addEventListener('click', () => {
+      currentFormStep = 1;
+      updateFormStepUI();
+    });
+  }
+
+  if (formBadge2) {
+    formBadge2.addEventListener('click', () => {
+      if (validateStep1()) {
+        currentFormStep = 2;
+        updateFormStepUI();
+      } else {
+        reportStep1Validity();
+      }
+    });
   }
 
   // Form Event Tracking
@@ -915,6 +1076,17 @@ document.addEventListener('DOMContentLoaded', () => {
           concernSelect.value = 'evaluation';
         }
       }
+
+      // Pre-fill Step 1 selections to minimize booking friction
+      const preferredLocation = document.getElementById('preferred-location');
+      if (preferredLocation && !preferredLocation.value) {
+        preferredLocation.value = 'livingston';
+      }
+
+      const contactMethod = document.getElementById('contact-method');
+      if (contactMethod && !contactMethod.value) {
+        contactMethod.value = 'email';
+      }
       
       if (messageTextArea && checkedSymptoms.length > 0) {
         messageTextArea.value = `Hello, I completed the self-assessment and scored ${checkedCount}/${checkboxes.length} with these symptoms: ${checkedSymptoms.join(', ')}. I'd like to schedule a diagnostic evaluation.`;
@@ -925,6 +1097,10 @@ document.addEventListener('DOMContentLoaded', () => {
         assessmentBanner.style.display = 'flex';
       }
       
+      // Since Step 1 is now fully selected, programmatically skip to Step 2
+      currentFormStep = 2;
+      updateFormStepUI();
+
       const bookingCard = document.getElementById('booking-card');
       if (bookingCard) {
         bookingCard.classList.remove('pulse-highlight');
@@ -934,8 +1110,6 @@ document.addEventListener('DOMContentLoaded', () => {
           bookingCard.classList.remove('pulse-highlight');
         }, 3000);
       }
-
-
       
       const contactSection = document.getElementById('contact');
       if (contactSection) {
