@@ -8,6 +8,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Provide clear, helpful, and localized form error messages (UX Clarity)
+  const getCustomErrorMessage = (field) => {
+    if (!field) return 'This field is required.';
+    
+    // Treat select element missing values as valueMissing
+    const isSelect = field.tagName === 'SELECT';
+    if (field.validity.valueMissing || (isSelect && !field.value)) {
+      switch (field.id) {
+        case 'preferred-location':
+          return 'Please select a preferred office location near you to continue.';
+        case 'primary-concern':
+          return 'Please select your primary concern so our specialists can prepare for your visit.';
+        case 'contact-method':
+          return 'Please choose how you would prefer our clinic to contact you.';
+        case 'first-name':
+          return 'First name is required to personalize your consultation request.';
+        case 'last-name':
+          return 'Last name is required to register your secure record.';
+        case 'email-address':
+          return 'Please provide an email address where we can send your appointment details.';
+        case 'phone-number':
+          return 'A phone number is required so our clinical coordinators can reach you.';
+        default:
+          return 'This field is required.';
+      }
+    }
+
+    if (field.validity.typeMismatch || field.validity.patternMismatch) {
+      if (field.id === 'email-address') {
+        return 'Email address format appears incorrect. Please include an "@" symbol and a valid domain (e.g., name@example.com).';
+      }
+      if (field.id === 'phone-number') {
+        return 'Please enter a valid 10-digit phone number (e.g., (973) 555-0100).';
+      }
+    }
+
+    return field.validationMessage || 'Please enter a valid value.';
+  };
+
   // Mobile Nav Toggle
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navLinks = document.querySelector('.nav-links');
@@ -31,7 +70,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         navLinks.classList.remove('open');
         mobileToggle.textContent = '☰';
+        mobileToggle.setAttribute('aria-expanded', 'false');
       });
+    });
+
+    // Trap keyboard focus inside the mobile menu when open
+    document.addEventListener('keydown', (e) => {
+      if (navLinks && navLinks.classList.contains('open')) {
+        const focusableElements = [mobileToggle, ...Array.from(navLinks.querySelectorAll('a'))];
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.key === 'Tab') {
+          if (e.shiftKey) { // Shift + Tab
+            if (document.activeElement === firstElement) {
+              lastElement.focus();
+              e.preventDefault();
+            }
+          } else { // Tab
+            if (document.activeElement === lastElement) {
+              firstElement.focus();
+              e.preventDefault();
+            }
+          }
+        } else if (e.key === 'Escape') {
+          navLinks.classList.remove('open');
+          mobileToggle.textContent = '☰';
+          mobileToggle.setAttribute('aria-expanded', 'false');
+          mobileToggle.focus();
+          e.preventDefault();
+        }
+      }
     });
   }
 
@@ -266,11 +335,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     card.addEventListener('click', activateLayer);
 
-    // Keyboard support for space and enter
+    // Keyboard support for space, enter, and arrow keys (standard WAI-ARIA tablist pattern)
     card.addEventListener('keydown', (e) => {
+      const cards = Array.from(layerCards);
+      const index = cards.indexOf(card);
+      let targetIndex = -1;
+
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
         activateLayer();
+      } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        targetIndex = (index + 1) % cards.length;
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        targetIndex = (index - 1 + cards.length) % cards.length;
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        targetIndex = 0;
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        targetIndex = cards.length - 1;
+      }
+
+      if (targetIndex !== -1) {
+        const targetCard = cards[targetIndex];
+        targetCard.focus();
+        targetCard.click(); // Programmatic click activates the layer and syncs UI
       }
     });
   });
@@ -509,6 +600,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Phone number sanitization to E.164 standard (+1...)
+  const sanitizePhoneNumber = (phone) => {
+    const cleaned = phone.replace(/\D/g, '');
+    if (cleaned.length === 10) {
+      return `+1${cleaned}`;
+    } else if (cleaned.length === 11 && cleaned.startsWith('1')) {
+      return `+${cleaned}`;
+    } else if (cleaned.length > 0) {
+      return `+${cleaned}`;
+    }
+    return phone;
+  };
+
   // Form Submission Simulator
   const contactForm = document.getElementById('contact-form');
   const formSuccess = document.querySelector('.form-success');
@@ -516,11 +620,70 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      
+      // Perform final check of all fields across steps using our custom error system
+      let formIsValid = true;
+      let firstInvalid = null;
+
+      // Step 1 check
+      const preferredLocation = document.getElementById('preferred-location');
+      const primaryConcern = document.getElementById('primary-concern');
+      const contactMethod = document.getElementById('contact-method');
+
+      if (preferredLocation && !preferredLocation.value) {
+        showError(preferredLocation, getCustomErrorMessage(preferredLocation));
+        formIsValid = false;
+        if (!firstInvalid) firstInvalid = preferredLocation;
+      }
+      if (primaryConcern && !primaryConcern.value) {
+        showError(primaryConcern, getCustomErrorMessage(primaryConcern));
+        formIsValid = false;
+        if (!firstInvalid) firstInvalid = primaryConcern;
+      }
+      if (contactMethod && !contactMethod.value) {
+        showError(contactMethod, getCustomErrorMessage(contactMethod));
+        formIsValid = false;
+        if (!firstInvalid) firstInvalid = contactMethod;
+      }
+
+      // Step 2 check
+      const step2FieldsToValidate = ['first-name', 'last-name', 'email-address', 'phone-number'];
+      step2FieldsToValidate.forEach(id => {
+        const field = document.getElementById(id);
+        if (field) {
+          if (!field.checkValidity()) {
+            showError(field, getCustomErrorMessage(field));
+            formIsValid = false;
+            if (!firstInvalid) firstInvalid = field;
+          } else {
+            clearError(field);
+          }
+        }
+      });
+
+      if (!formIsValid) {
+        if (firstInvalid) {
+          const firstInvalidStep = firstInvalid.closest('.form-step-panel')?.dataset.step;
+          if (firstInvalidStep && parseInt(firstInvalidStep) !== currentFormStep) {
+            currentFormStep = parseInt(firstInvalidStep);
+            updateFormStepUI();
+          }
+          firstInvalid.focus();
+        }
+        return;
+      }
+
       trackEvent('form_submit_attempt');
       
       try {
         const formData = new FormData(contactForm);
         
+        // Also sanitize phone format in formData payload before sending
+        const phoneInput = document.getElementById('phone-number');
+        if (phoneInput) {
+          formData.set('phone-number', sanitizePhoneNumber(phoneInput.value));
+        }
+
         const response = await fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -534,13 +697,14 @@ document.addEventListener('DOMContentLoaded', () => {
           // Google Ads Enhanced Conversions Integration
           if (typeof gtag === 'function') {
             const emailVal = document.getElementById('email-address')?.value || '';
-            const phoneVal = document.getElementById('phone-number')?.value || '';
+            const phoneValRaw = document.getElementById('phone-number')?.value || '';
+            const phoneVal = sanitizePhoneNumber(phoneValRaw);
             const firstNameVal = document.getElementById('first-name')?.value || '';
             const lastNameVal = document.getElementById('last-name')?.value || '';
             
             gtag('set', 'user_data', {
               'email': emailVal.trim().toLowerCase(),
-              'phone_number': phoneVal.trim(),
+              'phone_number': phoneVal,
               'address': {
                 'first_name': firstNameVal.trim(),
                 'last_name': lastNameVal.trim()
@@ -955,6 +1119,73 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const showError = (field, message) => {
+    const formGroup = field.closest('.form-group');
+    if (!formGroup) return;
+
+    formGroup.classList.add('has-error');
+    
+    // Check if error message element already exists
+    let errorSpan = formGroup.querySelector('.input-error-message');
+    if (!errorSpan) {
+      errorSpan = document.createElement('span');
+      errorSpan.className = 'input-error-message';
+      errorSpan.id = `${field.id}-error`;
+      formGroup.appendChild(errorSpan);
+    }
+    errorSpan.textContent = message;
+    errorSpan.style.display = 'block';
+    
+    field.setAttribute('aria-invalid', 'true');
+    field.setAttribute('aria-describedby', errorSpan.id);
+  };
+
+  const clearError = (field) => {
+    const formGroup = field.closest('.form-group');
+    if (!formGroup) return;
+
+    formGroup.classList.remove('has-error');
+    const errorSpan = formGroup.querySelector('.input-error-message');
+    if (errorSpan) {
+      errorSpan.textContent = '';
+      errorSpan.style.display = 'none';
+    }
+    
+    field.removeAttribute('aria-invalid');
+    field.removeAttribute('aria-describedby');
+  };
+
+  // Real-time clearance of validation errors
+  const step1Fields = ['preferred-location', 'primary-concern', 'contact-method'];
+  step1Fields.forEach(id => {
+    const field = document.getElementById(id);
+    if (field) {
+      field.addEventListener('change', () => {
+        if (field.value) {
+          clearError(field);
+        } else {
+          showError(field, getCustomErrorMessage(field));
+        }
+      });
+    }
+  });
+
+  const step2Fields = ['first-name', 'last-name', 'email-address', 'phone-number'];
+  step2Fields.forEach(id => {
+    const field = document.getElementById(id);
+    if (field) {
+      const handleInput = () => {
+        if (field.checkValidity()) {
+          clearError(field);
+        } else {
+          showError(field, getCustomErrorMessage(field));
+        }
+      };
+      field.addEventListener('input', handleInput);
+      field.addEventListener('change', handleInput);
+    }
+  });
+
   const validateStep1 = () => {
     const preferredLocation = document.getElementById('preferred-location');
     const primaryConcern = document.getElementById('primary-concern');
@@ -972,17 +1203,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const primaryConcern = document.getElementById('primary-concern');
     const contactMethod = document.getElementById('contact-method');
 
+    let firstInvalid = null;
+
     if (preferredLocation && !preferredLocation.value) {
-      preferredLocation.reportValidity();
-      return;
+      showError(preferredLocation, getCustomErrorMessage(preferredLocation));
+      if (!firstInvalid) firstInvalid = preferredLocation;
     }
     if (primaryConcern && !primaryConcern.value) {
-      primaryConcern.reportValidity();
-      return;
+      showError(primaryConcern, getCustomErrorMessage(primaryConcern));
+      if (!firstInvalid) firstInvalid = primaryConcern;
     }
     if (contactMethod && !contactMethod.value) {
-      contactMethod.reportValidity();
-      return;
+      showError(contactMethod, getCustomErrorMessage(contactMethod));
+      if (!firstInvalid) firstInvalid = contactMethod;
+    }
+
+    if (firstInvalid) {
+      firstInvalid.focus();
     }
   };
 
@@ -1150,7 +1387,8 @@ document.addEventListener('DOMContentLoaded', () => {
         gtag('event', 'conversion', {
           'send_to': 'AW-18197167741/phone_call_click',
           'value': 1.0,
-          'currency': 'USD'
+          'currency': 'USD',
+          'transport': 'beacon'
         });
       }
     });

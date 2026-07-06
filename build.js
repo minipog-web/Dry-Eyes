@@ -50,6 +50,10 @@ function copyFolderSync(from, to) {
     if (stat.isDirectory()) {
       copyFolderSync(fromPath, toPath);
     } else {
+      // Exclude heavy unoptimized PNG source assets to keep the production build fast and light
+      if (item.endsWith('.png') && stat.size > 100 * 1024) {
+        continue;
+      }
       fs.copyFileSync(fromPath, toPath);
     }
   }
