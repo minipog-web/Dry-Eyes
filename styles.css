@@ -613,6 +613,14 @@ img {
   text-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);
 }
 
+.hero h1 .gradient-text {
+  background: linear-gradient(135deg, #FFFDF0 0%, #FCDA8F 25%, #EFA84E 50%, #FCE0A2 75%, #FFFBF2 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.95)) drop-shadow(0px 0px 15px rgba(239, 168, 78, 0.35)) !important;
+}
+
 .hero .subtitle {
   font-size: clamp(1.05rem, 2.5vw, 1.35rem);
   color: var(--text-muted);
