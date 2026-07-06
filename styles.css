@@ -2,11 +2,11 @@
   --primary: #C5A880;
   --primary-light: #E2D5C3;
   --primary-dark: #9A8068;
-  --metal-gold: linear-gradient(135deg, #F3E4CD 0%, #D8B06C 25%, #8C6527 50%, #C3984E 75%, #F0DDB5 100%);
-  --metal-gold-light: linear-gradient(135deg, #F3E4CD 0%, #EAD6BB 50%, #C59B5F 100%);
+  --metal-gold: linear-gradient(135deg, #FFF4E0 0%, #ECC280 25%, #C7954C 50%, #E6C285 75%, #FFF8EB 100%);
+  --metal-gold-light: linear-gradient(135deg, #FFF4E0 0%, #F3D9AB 50%, #C7954C 100%);
   --metal-platinum: linear-gradient(135deg, #A8B5CD 0%, #F5F7FA 35%, #CCD5E6 70%, #FFFFFF 100%);
-  --metal-border: linear-gradient(135deg, rgba(216, 176, 108, 0.4) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(197, 155, 95, 0.4) 100%);
-  --gradient-primary: linear-gradient(135deg, #F3E4CD 0%, #D8B06C 25%, #8C6527 50%, #C3984E 75%, #F0DDB5 100%);
+  --metal-border: linear-gradient(135deg, rgba(236, 194, 128, 0.4) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(199, 149, 76, 0.4) 100%);
+  --gradient-primary: linear-gradient(135deg, #FFF4E0 0%, #ECC280 25%, #C7954C 50%, #E6C285 75%, #FFF8EB 100%);
   --accent-green: #6FA87A;
   --accent-green-dark: #4E7A58;
   --surface-dark: #0B0D12; /* Rich warm-obsidian */
@@ -162,7 +162,7 @@ img {
 
 /* --- GRADIENT TEXT --- */
 .gradient-text {
-  background: linear-gradient(135deg, #F3E4CD 0%, #D8B06C 25%, #8C6527 50%, #C3984E 75%, #F0DDB5 100%) !important;
+  background: linear-gradient(135deg, #FFF4E0 0%, #ECC280 25%, #C7954C 50%, #E6C285 75%, #FFF8EB 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
@@ -4600,14 +4600,14 @@ sup.cite a:hover {
   font-family: var(--font-heading) !important;
   font-weight: 900 !important;
   font-style: italic !important;
-  background: linear-gradient(135deg, #F3E4CD 0%, #D8B06C 25%, #8C6527 50%, #C3984E 75%, #F0DDB5 100%) !important;
+  background: linear-gradient(135deg, #FFF4E0 0%, #ECC280 25%, #C7954C 50%, #E6C285 75%, #FFF8EB 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
   text-fill-color: transparent !important;
   display: inline-block !important;
   text-shadow: none !important;
-  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0px 0px 15px rgba(216, 176, 108, 0.35)) !important;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0px 0px 15px rgba(236, 194, 128, 0.35)) !important;
   letter-spacing: -0.01em !important;
   padding-right: 4px; /* Avoid clipping the italic overhang */
 }
