@@ -4703,7 +4703,6 @@ sup.cite a:hover {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
-  text-fill-color: transparent !important;
   display: inline-block !important;
   text-shadow: none !important;
   filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0px 0px 15px rgba(236, 194, 128, 0.35)) !important;
