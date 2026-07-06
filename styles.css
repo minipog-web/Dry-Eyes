@@ -162,10 +162,12 @@ img {
 
 /* --- GRADIENT TEXT --- */
 .gradient-text {
-  background: var(--metal-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: linear-gradient(135deg, #FFF3D1 0%, #F4C430 35%, #D49B00 70%, #FFFDF0 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.01em;
 }
 
 .gradient-text-green {
@@ -4598,7 +4600,7 @@ sup.cite a:hover {
   font-family: var(--font-heading) !important;
   font-weight: 900 !important;
   font-style: italic !important;
-  background: var(--metal-gold) !important;
+  background: linear-gradient(135deg, #FFF3D1 0%, #F4C430 35%, #D49B00 70%, #FFFDF0 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
