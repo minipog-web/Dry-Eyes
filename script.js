@@ -719,7 +719,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
           }
 
-          trackEvent('form_submit_success');
+          // GA4 Rich Form Submit Success Event
+          const locationVal = document.getElementById('preferred-location')?.value || 'Not Specified';
+          const concernVal = document.getElementById('primary-concern')?.value || 'Not Specified';
+          const contactMethodVal = document.getElementById('contact-method')?.value || 'Not Specified';
+
+          trackEvent('form_submit_success', {
+            'event_category': 'Engagement',
+            'event_label': 'Lead Consultation Form',
+            'preferred_location': locationVal,
+            'primary_concern': concernVal,
+            'preferred_contact_method': contactMethodVal
+          });
         } else {
           const errorText = await response.text();
           trackEvent('form_submit_error', { error_message: errorText });
@@ -1381,8 +1392,16 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href^="tel:"]').forEach(link => {
     link.addEventListener('click', () => {
       const phoneNo = link.getAttribute('href').replace('tel:', '');
-      trackEvent('phone_link_click', { phone_number: phoneNo });
-      
+      // Infer section context for advanced localized analysis
+      const sectionId = link.closest('section')?.getAttribute('id') || link.closest('header')?.getAttribute('id') || 'unknown';
+      const labelText = link.textContent.trim() || 'Phone Link';
+
+      trackEvent('phone_link_click', {
+        'phone_number': phoneNo,
+        'click_section': sectionId,
+        'click_text': labelText
+      });
+
       if (typeof gtag === 'function') {
         gtag('event', 'conversion', {
           'send_to': 'AW-18197167741/phone_call_click',
