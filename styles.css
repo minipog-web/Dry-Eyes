@@ -570,6 +570,10 @@ img {
   color: var(--text-primary);
   font-size: 1.5rem;
   cursor: pointer;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ===================== HERO ===================== */
@@ -2264,15 +2268,11 @@ img {
   }
 
   .mobile-toggle {
-    display: block;
+    display: flex;
     z-index: 1001;
   }
 
   .tear-film-container {
-    grid-template-columns: 1fr;
-  }
-
-  .treatment-body {
     grid-template-columns: 1fr;
   }
 
@@ -2302,7 +2302,7 @@ img {
   }
 
   .diagnostics-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
   .form-row {
@@ -4684,5 +4684,171 @@ sup.cite a:hover {
   border-radius: 50%;
   z-index: 100;
   animation: floatGoldSparkle 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===================== PRINT STYLES ===================== */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #111827 !important; /* Force high-contrast dark text */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Hide interactive, digital-only, and promotional components */
+  header,
+  .navbar,
+  .mobile-toggle,
+  .mobile-nav-toggle,
+  #hero .hero-buttons,
+  #quiz-section,
+  #self-assessment,
+  #consultation,
+  .form-security-badge,
+  .practice-trust-badges,
+  .floating-contact-buttons,
+  .contact-bar-sticky,
+  .faq-icon,
+  .carousel-btn,
+  .carousel-dots,
+  footer .footer-bottom,
+  iframe,
+  input,
+  button,
+  select,
+  textarea {
+    display: none !important;
+  }
+
+  /* Layout and page structure */
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .section {
+    padding: 20px 0 !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  h1, h2, h3, h4 {
+    color: #111827 !important;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  h1 {
+    font-size: 24pt !important;
+    margin-bottom: 15px !important;
+  }
+
+  h2 {
+    font-size: 18pt !important;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 5px;
+    margin-top: 30px !important;
+  }
+
+  h3 {
+    font-size: 14pt !important;
+  }
+
+  /* Make gradients solid dark clinical text */
+  .gradient-text,
+  .gradient-text-green,
+  .text-pop-gold {
+    background: none !important;
+    -webkit-text-fill-color: #111827 !important;
+    color: #111827 !important;
+    font-weight: bold !important;
+  }
+
+  /* Format clinical grids beautifully in print */
+  .diagnostics-grid,
+  .treatment-body,
+  .cta-grid,
+  .footer-grid {
+    display: block !important;
+  }
+
+  .diag-card,
+  .treatment-card,
+  .faq-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 4px !important;
+    padding: 15px !important;
+    margin-bottom: 15px !important;
+    height: auto !important;
+    background: #ffffff !important;
+  }
+
+  /* Make sure flipped diagnostics cards print both front and back cleanly */
+  .diag-card {
+    perspective: none !important;
+    transform: none !important;
+  }
+
+  .diag-inner {
+    transform: none !important;
+    display: block !important;
+    height: auto !important;
+    position: static !important;
+  }
+
+  .diag-front,
+  .diag-back {
+    position: static !important;
+    height: auto !important;
+    opacity: 1 !important;
+    transform: none !important;
+    display: block !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 10px;
+    backface-visibility: visible !important;
+  }
+
+  .diag-back {
+    border-top: 1px dashed #e5e7eb !important;
+    padding-top: 10px !important;
+  }
+
+  /* Keep outbound validation links readable */
+  a {
+    text-decoration: underline !important;
+    color: #111827 !important;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+  }
+
+  /* FAQ Accordion formatting for printing */
+  .faq-answer {
+    display: block !important;
+    max-height: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    grid-template-rows: none !important;
+  }
+
+  .faq-answer-inner {
+    padding: 10px 0 0 0 !important;
+    border-top: 1px dashed #e5e7eb;
+  }
 }
 
