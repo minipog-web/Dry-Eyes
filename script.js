@@ -946,11 +946,38 @@ document.addEventListener('DOMContentLoaded', () => {
     updateGlandVisualizer(checkedCount);
   };
 
+  const triggerGoldCelebration = () => {
+    const parent = document.getElementById('quiz-results-container');
+    if (!parent) return;
+    const rect = parent.getBoundingClientRect();
+    const count = 35;
+    for (let i = 0; i < count; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'gold-sparkle-particle';
+      if (Math.random() > 0.5) {
+        particle.style.borderRadius = '2px'; // diamond particles
+      }
+      const size = Math.random() * 6 + 4;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${Math.random() * rect.width}px`;
+      particle.style.top = `${Math.random() * 20}px`;
+      particle.style.animationDelay = `${Math.random() * 0.3}s`;
+      particle.style.animationDuration = `${Math.random() * 1.2 + 1.2}s`;
+      
+      parent.appendChild(particle);
+      setTimeout(() => particle.remove(), 3000);
+    }
+  };
+
   const showQuizResults = () => {
     if (quizStepsContainer) quizStepsContainer.style.display = 'none';
     if (quizProgressWrapper) quizProgressWrapper.style.display = 'none';
     if (widgetDescription) widgetDescription.textContent = 'Your self-assessment results are ready.';
-    if (quizResultsContainer) quizResultsContainer.style.display = 'flex';
+    if (quizResultsContainer) {
+      quizResultsContainer.style.display = 'flex';
+      triggerGoldCelebration();
+    }
 
     calculateQuizScore();
 
