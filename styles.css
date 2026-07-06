@@ -2125,6 +2125,60 @@ img {
   font-size: 0.82rem;
 }
 
+/* --- MEDICAL REVIEW BADGE --- */
+.medical-review-badge {
+  margin: 8px 0 16px 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.medical-review-badge .review-icon {
+  color: var(--primary);
+  margin-right: 4px;
+}
+
+.medical-review-badge .review-name {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* --- SECTION HEADER FULL WIDTH --- */
+.section-header-full-width {
+  max-width: none;
+}
+
+/* --- TESTIMONIAL PROFILE --- */
+.testimonial-profile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 16px;
+  text-align: left;
+}
+
+.testimonial-avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.testimonial-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid rgba(197, 168, 128, 0.45);
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  display: block;
+}
+
+.testimonial-author-name {
+  margin-bottom: 2px;
+}
+
 /* ===================== ANIMATIONS ===================== */
 @keyframes fadeInUp {
   from {
@@ -3134,6 +3188,10 @@ img {
 
 .mt-48 {
   margin-top: 48px;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 .section-header-left {
@@ -4593,6 +4651,39 @@ sup.cite a:hover {
 
 .glass-card.pulse-highlight {
   animation: pulseHighlight 2s cubic-bezier(0.16, 1, 0.3, 1) ease-in-out infinite;
+}
+
+/* --- ABO VERIFY LINK --- */
+.abo-verify-link {
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--transition-fast);
+}
+
+/* --- FORM SECURITY BADGE --- */
+.form-security-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+}
+
+.form-security-badge .security-icon {
+  font-size: 1rem;
+}
+
+/* --- MESSAGE FORM GROUP --- */
+.form-group-message {
+  width: 100%;
+  margin-bottom: 25px;
 }
 
 /* --- BOUTIQUE LUXURY UTILITY CLASSES --- */

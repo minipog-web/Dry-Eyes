@@ -145,7 +145,7 @@
         <div class="navbar-bg"></div>
         <div class="container">
             <a href="https://maranoeyecare.com" class="nav-logo">
-                <img src="assets/marano_logo.png" alt="Marano Eye Care" class="logo-img" width="180" height="60" fetchpriority="high">
+                <img src="assets/marano_logo.png" alt="Marano Eye Care" class="logo-img" width="180" height="60" loading="eager">
             </a>
             <button class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
             <ul class="nav-links">
@@ -212,7 +212,7 @@
         <div class="container">
             <div class="section-header reveal">
                 <h2>Your Struggle Is Real — <span class="gradient-text">And Valid</span></h2>
-                <p style="max-width: none;">If any of these sound familiar, you're not alone — and you're not imagining&nbsp;it.</p>
+                <p class="section-header-full-width">If any of these sound familiar, you're not alone — and you're not imagining&nbsp;it.</p>
             </div>
             <div class="validation-grid reveal reveal-delay-1">
                 <div class="validation-card glass-card">
@@ -328,11 +328,11 @@
     <section class="section" id="anatomy">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Why Standard Drops <span class="gradient-text">Have <span class="editorial-italic">Failed You</span></span></h2>
-                <div class="medical-review-badge" style="margin: 8px 0 16px 0; font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-body); font-weight: 400; letter-spacing: 0.02em;">
-                    <span style="color: var(--primary); margin-right: 4px;">🔬</span> Medically reviewed & approved by <strong style="color: var(--text-primary); font-weight: 600;">Dr. Matthew J. Marano, Jr., MD</strong>
+                <h2>The OTC Drop Trap: <span class="gradient-text">Why More Drops <span class="editorial-italic">Won't Fix Dry Eyes</span></span></h2>
+                <div class="medical-review-badge">
+                    <span class="review-icon">🔬</span> Medically reviewed & approved by <strong class="review-name">Dr. Matthew J. Marano, Jr., MD</strong>
                 </div>
-                <p class="symptoms-header-p">If you've tried countless over-the-counter drops with no lasting relief, <strong>it is not your fault.</strong> Standard eye drops are mostly water—they just evaporate right off your eye. A healthy tear film requires three distinct layers to <span style="white-space: nowrap;">work.<sup class="cite"><a href="#ref-2">[2]</a></sup></span> If your lipid (oil) layer is deficient due to Meibomian Gland Dysfunction (MGD), as found in 86% of dry eye <span style="white-space: nowrap;">cases,<sup class="cite"><a href="#ref-1">[1]</a></sup></span> tears evaporate rapidly and cannot stay on your eye.</p>
+                <p class="symptoms-header-p">Standard eye drops only mask symptoms for minutes. They are mostly water, meaning they evaporate off the ocular surface almost instantly. If your Meibomian glands are blocked—which is the root cause in 86% of dry eye <span class="nowrap">cases<sup class="cite"><a href="#ref-1">[1]</a></sup></span>—your tear film lacks the protective oil layer needed to seal in moisture.<sup class="cite"><a href="#ref-2">[2]</a></sup> Without it, you are pouring water into a leaky bucket while active gland damage quietly progresses.</p>
             </div>
 
             <div class="tear-film-container mt-48">
@@ -357,14 +357,14 @@
                     <div class="slider-comparison">
                         <!-- Left Side (Dry Eye) -->
                         <div class="slider-image-before">
-                            <img src="assets/tear_film_dry.webp" alt="Exposed Dry Eye Surface" class="anatomy-dry" width="500" height="500" fetchpriority="high" />
+                            <img src="assets/tear_film_dry.webp" alt="Exposed Dry Eye Surface" class="anatomy-dry" width="500" height="500" loading="eager" />
                         </div>
                         
                         <!-- Right Side (Healthy & Clickable Layers) -->
                         <div class="slider-image-after">
                             <div class="interactive-anatomy-container">
                                 <img src="assets/tear_film_full.webp" alt="Healthy Tear Film Anatomy"
-                                    class="anatomy-layer anatomy-full active" width="500" height="500" fetchpriority="high" />
+                                    class="anatomy-layer anatomy-full active" width="500" height="500" loading="eager" />
                                 <img id="panel-lipid" role="tabpanel" aria-labelledby="tab-lipid" src="assets/tear_film_full.webp" alt="Lipid Layer highlighted"
                                     class="anatomy-layer anatomy-lipid" width="500" height="500" />
                                 <img id="panel-aqueous" role="tabpanel" aria-labelledby="tab-aqueous" src="assets/tear_film_aqueous.webp" alt="Aqueous Layer highlighted"
@@ -1296,7 +1296,7 @@
                     <div class="treatment-body">
                         <div class="moa-section">
                             <h4>How It Works</h4>
-                            <p>Miebo is a unique, water-free eye drop that directly targets tear evaporation. As the first FDA-approved prescription medication specifically designed to target evaporative dry eye disease, it spreads quickly across the eye's surface to form a protective shield that mimics the natural lipid layer, preventing your natural tears from evaporating and providing lasting relief.</p>
+                            <p>Formulated as a water-free shield, Miebo® acts as a microscopic barrier that mimics your eye's natural lipid layer. It locks in moisture instantly, preventing tear evaporation without the blur or preservatives common in traditional drops.</p>
                             <div class="ideal-for">
                                 <span class="ideal-tag">Evaporative Dry Eye</span>
                                 <span class="ideal-tag">Lipid Layer Support</span>
@@ -1398,11 +1398,7 @@
                     <div class="treatment-body">
                         <div class="moa-section">
                             <h4>How It Works</h4>
-                            <p>Your tears naturally drain away through tiny openings called puncta in your eyelid
-                                corners. Punctal plugs are microscopic biocompatible devices (smaller than a grain of
-                                rice) that gently block these drain holes. By slowing tear drainage, your own natural
-                                tears and artificial tears stay on your eyes longer—like putting a stopper in a bathtub
-                                to keep the water in.</p>
+                            <p>Micro-scale, biocompatible shields placed in the tear ducts to naturally conserve your own real tears. Think of it as a smart valve: by slowing drainage, it allows your eyes to bathe in their own natural, nutrient-rich moisture all day.</p>
                             <div class="ideal-for">
                                 <span class="ideal-tag">Aqueous Deficiency</span>
                                 <span class="ideal-tag">Post-Surgical Dryness</span>
@@ -1475,12 +1471,12 @@
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
                             <p class="testimonial-quote">"Years of screen-time burning left me dreading every workday. After a LipiView® scan revealed blocked Meibomian glands, Dr. Marano started me on Xiidra® — within six weeks, I could work a full day without constant stinging."</p>
-                            <div class="testimonial-profile" style="display: inline-flex; align-items: center; justify-content: center; gap: 14px; margin-top: 16px; text-align: left;">
-                                <div class="testimonial-avatar-wrapper" style="position: relative; flex-shrink: 0;">
-                                    <img src="assets/patient_maria.jpg" alt="Maria T., typing her review on her computer screen" style="width: 52px; height: 52px; border-radius: 50%; border: 2px solid rgba(197, 168, 128, 0.45); object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.35); display: block;">
+                            <div class="testimonial-profile">
+                                <div class="testimonial-avatar-wrapper">
+                                    <img src="assets/patient_maria.jpg" alt="Maria T., typing her review on her computer screen" class="testimonial-avatar">
                                 </div>
                                 <div>
-                                    <div class="testimonial-author" style="margin-bottom: 2px;">Maria T.</div>
+                                    <div class="testimonial-author testimonial-author-name">Maria T.</div>
                                     <div class="testimonial-location">Denville, NJ</div>
                                 </div>
                             </div>
@@ -1490,12 +1486,12 @@
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
                             <p class="testimonial-quote">"I tried every artificial tear on the market. Meibography showed my oil glands were nearly gone — Dr. Marano treated my Meibomian gland dysfunction with a plan that actually works. I wish I'd come here sooner."</p>
-                            <div class="testimonial-profile" style="display: inline-flex; align-items: center; justify-content: center; gap: 14px; margin-top: 16px; text-align: left;">
-                                <div class="testimonial-avatar-wrapper" style="position: relative; flex-shrink: 0;">
-                                    <img src="assets/patient_robert.jpg" alt="Robert K., writing his review on his laptop" style="width: 52px; height: 52px; border-radius: 50%; border: 2px solid rgba(197, 168, 128, 0.45); object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.35); display: block;">
+                            <div class="testimonial-profile">
+                                <div class="testimonial-avatar-wrapper">
+                                    <img src="assets/patient_robert.jpg" alt="Robert K., writing his review on his laptop" class="testimonial-avatar">
                                 </div>
                                 <div>
-                                    <div class="testimonial-author" style="margin-bottom: 2px;">Robert K.</div>
+                                    <div class="testimonial-author testimonial-author-name">Robert K.</div>
                                     <div class="testimonial-location">Livingston, NJ</div>
                                 </div>
                             </div>
@@ -1505,12 +1501,12 @@
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
                             <p class="testimonial-quote">"They showed me infrared images of my actual tear glands and explained exactly why my drops weren't working. Understanding the science behind my dry eye made me trust the treatment plan completely."</p>
-                            <div class="testimonial-profile" style="display: inline-flex; align-items: center; justify-content: center; gap: 14px; margin-top: 16px; text-align: left;">
-                                <div class="testimonial-avatar-wrapper" style="position: relative; flex-shrink: 0;">
-                                    <img src="assets/patient_susan.jpg" alt="Susan L., writing her review on her smartphone" style="width: 52px; height: 52px; border-radius: 50%; border: 2px solid rgba(197, 168, 128, 0.45); object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.35); display: block;">
+                            <div class="testimonial-profile">
+                                <div class="testimonial-avatar-wrapper">
+                                    <img src="assets/patient_susan.jpg" alt="Susan L., writing her review on her smartphone" class="testimonial-avatar">
                                 </div>
                                 <div>
-                                    <div class="testimonial-author" style="margin-bottom: 2px;">Susan L.</div>
+                                    <div class="testimonial-author testimonial-author-name">Susan L.</div>
                                     <div class="testimonial-location">Montclair, NJ</div>
                                 </div>
                             </div>
@@ -1520,12 +1516,12 @@
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
                             <p class="testimonial-quote">"After cataract surgery, my dry eye got much worse. Punctal plugs plus Xiidra® gave me comfortable eyes for the first time in years — I can read and drive at night again without dreading the glare."</p>
-                            <div class="testimonial-profile" style="display: inline-flex; align-items: center; justify-content: center; gap: 14px; margin-top: 16px; text-align: left;">
-                                <div class="testimonial-avatar-wrapper" style="position: relative; flex-shrink: 0;">
-                                    <img src="assets/patient_patricia.jpg" alt="Patricia M., writing her review on her desktop computer" style="width: 52px; height: 52px; border-radius: 50%; border: 2px solid rgba(197, 168, 128, 0.45); object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.35); display: block;">
+                            <div class="testimonial-profile">
+                                <div class="testimonial-avatar-wrapper">
+                                    <img src="assets/patient_patricia.jpg" alt="Patricia M., writing her review on her desktop computer" class="testimonial-avatar">
                                 </div>
                                 <div>
-                                    <div class="testimonial-author" style="margin-bottom: 2px;">Patricia M.</div>
+                                    <div class="testimonial-author testimonial-author-name">Patricia M.</div>
                                     <div class="testimonial-location">Cedar Knolls, NJ</div>
                                 </div>
                             </div>
@@ -1647,7 +1643,7 @@
                     
                     <p class="doctor-bio">At Marano Eye Care, our board-certified dry eye specialists diagnose and treat the root biological causes of dry eye — not just the symptoms.</p>
                     <p class="doctor-bio">Medical Director <strong class="text-pop-light">Dr. Matthew J. Marano, Jr., MD</strong> is a leading ophthalmologist with over three decades of clinical practice in Northern New Jersey. He earned his medical degree from George Washington University and completed undergraduate studies at Columbia University.</p>
-                    <p class="doctor-bio">Dr. Marano serves as Chief of Ophthalmology at Cooperman Barnabas Medical Center and St. Michael's Medical Center, and has spent decades educating physicians in advanced ophthalmic care. <a href="https://www.abop.org/physician-search?name=Matthew%20J.%20Marano%20Jr." target="_blank" rel="noopener noreferrer" class="abo-verify-link" style="color: var(--primary); text-decoration: underline; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; transition: var(--transition-fast);">Verify Board Certification on ABO &rarr;</a></p>
+                    <p class="doctor-bio">Dr. Marano serves as Chief of Ophthalmology at Cooperman Barnabas Medical Center and St. Michael's Medical Center, and has spent decades educating physicians in advanced ophthalmic care. <a href="https://www.abop.org/physician-search?name=Matthew%20J.%20Marano%20Jr." target="_blank" rel="noopener noreferrer" class="abo-verify-link">Verify Board Certification on ABO &rarr;</a></p>
                     
                     <h4 class="doctor-credentials-title">Our Practice Credentials</h4>
                     <ul class="doctor-credentials">
@@ -1703,8 +1699,8 @@
             <div class="cta-grid">
                 <div class="cta-info reveal">
                     <span class="luxury-subtitle">Request Consultation</span>
-                    <h2>Take the First Step Toward <span class="serif-italic text-pop-gold">Relief Today</span></h2>
-                    <p>Don't let dry eye dictate your life. Schedule your comprehensive dry eye evaluation at Marano Eye Care today.</p>
+                    <h2>Reclaim Clear, <span class="serif-italic text-pop-gold">Comfortable Vision</span></h2>
+                    <p>Stop managing symptoms with temporary drops. Request a comprehensive diagnostic scan and begin your pathway to lasting comfort today.</p>
 
                     <h3 class="cta-locations-heading">Our NJ Locations</h3>
                     <div class="cta-locations-list">
@@ -1770,7 +1766,7 @@
 
                             <!-- Step 1 Panel: Consultation Intent (Low Friction selections) -->
                             <div class="form-step-panel active" id="step-panel-1" data-step="1">
-                                <h3 class="form-step-heading">Tell us about your needs</h3>
+                                <h3 class="form-step-heading">Customize Your Diagnostic Consultation</h3>
                                 <p class="form-step-description">Select your preferences below. No contact information is required yet.</p>
 
                                 <div class="form-group-vertical">
@@ -1807,7 +1803,7 @@
                                 </div>
 
                                 <div class="form-nav-buttons justify-center">
-                                    <button type="button" class="btn btn-primary w-100 justify-center btn-step-next" id="btn-next-step">Continue to Contact Details →</button>
+                                    <button type="button" class="btn btn-primary w-100 justify-center btn-step-next" id="btn-next-step">Select Location & Continue →</button>
                                 </div>
                             </div>
 
@@ -1841,17 +1837,17 @@
                                 </div>
 
                                 <!-- Message -->
-                                <div class="form-group" style="width: 100%; margin-bottom: 25px;">
+                                <div class="form-group form-group-message">
                                     <label for="message">Message (Optional)</label>
                                     <textarea id="message" name="message" rows="3" placeholder="How can we help you?"></textarea>
                                 </div>
 
                                 <div class="form-step-actions">
                                     <button type="button" class="btn btn-outline btn-step-back" id="btn-prev-step">← Back</button>
-                                    <button type="submit" class="btn btn-primary btn-submit-consultation">Submit Request</button>
+                                    <button type="submit" class="btn btn-primary btn-submit-consultation">Request My Evaluation</button>
                                 </div>
-                                <div class="form-security-badge" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-body);">
-                                    <span style="font-size: 1rem;">🔒</span>
+                                <div class="form-security-badge">
+                                    <span class="security-icon">🔒</span>
                                     <span>Your medical data is 256-bit encrypted & HIPAA-compliant</span>
                                 </div>
                             </div>
