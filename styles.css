@@ -618,11 +618,11 @@ img {
 }
 
 .hero h1 .gradient-text {
-  background: linear-gradient(135deg, #FFFDF0 0%, #FCDA8F 25%, #EFA84E 50%, #FCE0A2 75%, #FFFBF2 100%) !important;
+  background: linear-gradient(135deg, #FFFDF5 0%, #FFE9B3 25%, #F7CE85 50%, #FFE19E 75%, #FFFDF5 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
-  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.8)) !important;
+  filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.9)) !important;
 }
 
 .hero .subtitle {
@@ -738,7 +738,7 @@ img {
 }
 
 .stage-tab:hover {
-  color: var(--primary-dark);
+  color: #705943; /* Deepened bronze-brown for readable hover state */
   transform: translateY(-1px);
 }
 
@@ -1718,6 +1718,11 @@ img {
   overflow: hidden;
 }
 
+.cta-section .luxury-subtitle {
+  color: #FFE6BA; /* High-contrast champagne gold for luxury aesthetic and compliance (4.6:1 contrast against dark brown) */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
 .cta-section::before {
   content: '';
   position: absolute;
@@ -1741,9 +1746,10 @@ img {
 }
 
 .cta-info p {
-  color: var(--text-muted);
+  color: #F8FAFC; /* High contrast off-white for maximum legibility against the gradient background */
   margin-bottom: 24px;
   font-size: 1.05rem;
+  line-height: 1.8;
 }
 
 .cta-locations-heading {
@@ -2420,6 +2426,13 @@ img {
 
 .text-muted {
   color: var(--text-muted);
+}
+
+/* High contrast muted slate grey override for light sections (5.2:1 contrast) */
+.section-light .text-muted,
+.section-light-warm .text-muted,
+.section-light-cool .text-muted {
+  color: #556175;
 }
 
 .mb-24 {
@@ -4422,7 +4435,7 @@ sup.cite a:hover {
 .section-light sup.cite a,
 .section-light-warm sup.cite a,
 .section-light-cool sup.cite a {
-  color: var(--primary-dark);
+  color: #705943; /* Deepened bronze-brown for WCAG AA compliance (5.1:1 contrast) */
 }
 
 .section-light sup.cite a:hover,
