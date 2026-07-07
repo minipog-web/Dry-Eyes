@@ -4776,6 +4776,394 @@ sup.cite a:hover {
   animation: floatGoldSparkle 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+
+/* --- INTERACTIVE COST CALCULATOR --- */
+.calculator-container {
+  margin-top: 48px;
+  background: var(--surface-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.calculator-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.calculator-header h4 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.calculator-header p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .calculator-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.calculator-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+}
+
+.slider-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.slider-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.slider-label-row label {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.slider-value {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-light);
+  background: rgba(197, 168, 128, 0.1);
+  padding: 2px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(197, 168, 128, 0.2);
+}
+
+/* Custom styled range slider */
+.calc-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  margin: 10px 0;
+  transition: background 0.3s;
+}
+
+.calc-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--metal-gold-light);
+  cursor: pointer;
+  margin-top: -7px;
+  box-shadow: 0 0 10px rgba(197, 168, 128, 0.5);
+  transition: transform 0.1s ease, background 0.2s;
+}
+
+.calc-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.calc-slider::-webkit-slider-thumb:active {
+  transform: scale(1.3);
+}
+
+/* Firefox compatibility */
+.calc-slider::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+
+.calc-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: var(--metal-gold-light);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(197, 168, 128, 0.5);
+  transition: transform 0.1s ease;
+}
+
+.calc-slider::-moz-range-thumb:hover {
+  transform: scale(1.2);
+}
+
+.calc-slider::-moz-range-thumb:active {
+  transform: scale(1.3);
+}
+
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+  margin-top: -4px;
+}
+
+.slider-ticks span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.slider-subtext {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  opacity: 0.8;
+}
+
+.calculator-results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cost-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .cost-card-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cost-card {
+  background: rgba(10, 15, 22, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all var(--transition);
+}
+
+.cost-card.highlight {
+  background: linear-gradient(135deg, rgba(197, 168, 128, 0.08) 0%, rgba(10, 15, 22, 0.6) 100%);
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  box-shadow: 0 8px 24px rgba(197, 168, 128, 0.05);
+}
+
+.cost-card-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.cost-card-amount {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.cost-card.highlight .cost-card-amount {
+  font-size: 2.3rem;
+}
+
+.calculator-verdict {
+  background: rgba(197, 168, 128, 0.04);
+  border-left: 3px solid var(--primary);
+  padding: 16px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.verdict-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.verdict-text {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.calculator-footer {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.calculator-footer p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  max-width: 500px;
+}
+
+@media (max-width: 768px) {
+  .calculator-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* --- HIGH-FIDELITY MEIBOMIAN GLAND VISUALIZERS --- */
+.glands-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+  margin: 16px 0;
+}
+
+.glands-row-svg {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  overflow: visible;
+}
+
+/* Ducts */
+.gland-main-duct {
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 3.5px;
+  stroke-linecap: round;
+  fill: none;
+  transition: stroke var(--transition-slow), opacity var(--transition-slow);
+}
+
+/* Orifice exit point */
+.gland-orifice {
+  fill: rgba(255, 255, 255, 0.25);
+  transition: fill var(--transition-slow);
+}
+
+/* Gland Acini (cells) */
+.gland-acinus {
+  fill: rgba(255, 255, 255, 0.08);
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 0.75px;
+  transition: fill var(--transition-slow), stroke var(--transition-slow), r var(--transition-slow), opacity var(--transition-slow), transform var(--transition-slow);
+  transform-origin: center;
+}
+
+/* Blockage Plug */
+.gland-plug {
+  fill: #EF4444;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: center;
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+/* GLAND VISUAL STATES */
+
+/* State: Healthy (Score 0-2) */
+.gland-state-healthy .gland-main-duct {
+  stroke: url(#lipid-grad-healthy);
+  stroke-width: 4px;
+}
+
+.gland-state-healthy .gland-acinus {
+  fill: url(#lipid-grad-healthy);
+  stroke: rgba(197, 168, 128, 0.4);
+  filter: url(#gland-glow);
+  r: 4.5;
+  opacity: 1;
+}
+
+.gland-state-healthy .gland-orifice {
+  fill: #ECC280;
+}
+
+/* State: Blocked (Score 3-4) */
+.gland-state-blocked .gland-main-duct {
+  stroke: #A855F7; /* Violet hue for congested look */
+  opacity: 0.85;
+}
+
+.gland-state-blocked .gland-acinus {
+  fill: url(#lipid-grad-blocked);
+  stroke: rgba(239, 68, 68, 0.4);
+  r: 4.5;
+  opacity: 0.9;
+}
+
+.gland-state-blocked .gland-plug {
+  opacity: 1;
+  transform: scale(1.1);
+  animation: pulse-blockage 2s infinite ease-in-out;
+}
+
+.gland-state-blocked .gland-orifice {
+  fill: #EF4444;
+}
+
+/* State: Atrophied (Score 5-7) */
+.gland-state-atrophied {
+  animation: wither-fade 1.5s ease-out forwards;
+}
+
+.gland-state-atrophied .gland-main-duct {
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-dasharray: 4 3; /* fragmented, decaying duct */
+  stroke-width: 2px;
+}
+
+.gland-state-atrophied .gland-acinus {
+  fill: rgba(255, 255, 255, 0.02);
+  stroke: rgba(255, 255, 255, 0.08);
+  r: 2; /* shriveled acini */
+  opacity: 0.15;
+}
+
+.gland-state-atrophied .gland-orifice {
+  fill: rgba(255, 255, 255, 0.05);
+}
+
+/* KEYFRAMES FOR SIMULATOR */
+@keyframes pulse-blockage {
+  0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(239, 68, 68, 0)); }
+  50% { transform: scale(1.2); filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.8)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(239, 68, 68, 0)); }
+}
+
+@keyframes wither-fade {
+  from { opacity: 0.8; }
+  to { opacity: 0.35; }
+}
+
 /* ===================== PRINT STYLES ===================== */
 @media print {
   *,
