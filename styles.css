@@ -180,6 +180,16 @@ img {
   filter: drop-shadow(0 2px 10px rgba(111, 168, 122, 0.3));
 }
 
+.section-light .gradient-text,
+.section-light-warm .gradient-text,
+.section-light-cool .gradient-text {
+  background: linear-gradient(135deg, #705943 0%, #A07F59 50%, #4D3C2C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.5));
+}
+
 /* --- SECTION BASE --- */
 .section {
   padding: clamp(80px, 8vw, 120px) 0;
@@ -2915,6 +2925,35 @@ img {
   border: 1px solid rgba(197, 168, 128, 0.15);
 }
 
+.validation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.validation-header .card-eyebrow {
+  margin-bottom: 0;
+}
+
+.validation-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(197, 168, 128, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(197, 168, 128, 0.2);
+}
+
+.validation-svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
 .validation-card h3 {
   font-size: 1.15rem;
   margin-bottom: 10px;
@@ -3419,6 +3458,48 @@ img {
   height: 15px;
   fill: #664D31;
   flex-shrink: 0;
+}
+
+/* --- DARK PROFILE OPTIMIZATION --- */
+.section-dark-alt .doctor-info h2 {
+  color: #ffffff;
+}
+
+.section-dark-alt .doctor-subtitle {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.section-dark-alt .doctor-bio {
+  color: var(--text-muted);
+}
+
+.section-dark-alt .doctor-credentials-title {
+  color: #ffffff;
+}
+
+.section-dark-alt .doctor-credentials li {
+  color: var(--text-muted);
+}
+
+.section-dark-alt .doctor-credentials li strong {
+  color: #ffffff;
+}
+
+.section-dark-alt .doctor-image-wrapper {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(123, 150, 200, 0.18);
+}
+
+.section-dark-alt .trust-badge-item {
+  background: rgba(197, 168, 128, 0.08);
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  color: var(--primary-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.section-dark-alt .trust-badge-item svg {
+  fill: var(--primary);
 }
 
 /* Responsive Overrides for Doctor Profile */
@@ -4697,6 +4778,66 @@ sup.cite a:hover {
   align-items: center;
   gap: 4px;
   transition: var(--transition-fast);
+}
+
+/* --- CTA CONTACT DETAILS SVG ICONS --- */
+.cta-details {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cta-details li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.cta-details li .contact-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(197, 168, 128, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(197, 168, 128, 0.15);
+  flex-shrink: 0;
+}
+
+.cta-details li .contact-svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.2;
+}
+
+.cta-location-details {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cta-location-details .loc-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.cta-location-details .loc-icon {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.2;
+  color: var(--primary);
+  flex-shrink: 0;
 }
 
 /* --- FORM SECURITY BADGE --- */
