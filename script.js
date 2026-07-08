@@ -8,6 +8,81 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // --- DYNAMIC TEXT REPLACEMENT (DTR) SYSTEM ---
+  const initDTR = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // Sanitization helper to prevent XSS
+    const sanitizeInput = (str, maxLength = 100) => {
+      if (!str) return '';
+      // Strip any HTML tags
+      let cleaned = str.replace(/<\/?[^>]+(>|$)/g, "");
+      // Trim and limit length to prevent layout breakage
+      cleaned = cleaned.trim();
+      if (cleaned.length > maxLength) {
+        cleaned = cleaned.substring(0, maxLength);
+      }
+      return cleaned;
+    };
+
+    // Headline replacement
+    const rawHeadline = urlParams.get('headline') || urlParams.get('utm_term') || urlParams.get('keyword');
+    if (rawHeadline) {
+      const sanitizedHeadline = sanitizeInput(rawHeadline, 120);
+      const headlineEl = document.querySelector('[data-dtr="headline"]');
+      if (headlineEl && sanitizedHeadline) {
+        headlineEl.textContent = sanitizedHeadline;
+        trackEvent('dtr_replacement', { parameter: 'headline', value: sanitizedHeadline });
+      }
+    }
+
+    // Subheadline replacement
+    const rawSubheadline = urlParams.get('subheadline') || urlParams.get('sub');
+    if (rawSubheadline) {
+      const sanitizedSubheadline = sanitizeInput(rawSubheadline, 200);
+      const subheadlineEl = document.querySelector('[data-dtr="subheadline"]');
+      if (subheadlineEl && sanitizedSubheadline) {
+        subheadlineEl.textContent = sanitizedSubheadline;
+        trackEvent('dtr_replacement', { parameter: 'subheadline', value: sanitizedSubheadline });
+      }
+    }
+
+    // Location personalization & form pre-fill
+    const rawLocation = urlParams.get('location') || urlParams.get('utm_loc') || urlParams.get('town');
+    if (rawLocation) {
+      const sanitizedLocation = sanitizeInput(rawLocation, 30).toLowerCase();
+      const validLocations = ['livingston', 'denville', 'newark'];
+      
+      if (validLocations.includes(sanitizedLocation)) {
+        // Pre-fill location select in form
+        const locationSelect = document.getElementById('preferred-location');
+        if (locationSelect) {
+          locationSelect.value = sanitizedLocation;
+          locationSelect.dispatchEvent(new Event('change'));
+        }
+
+        // Highlight matching location item in the contacts list
+        const locationCards = document.querySelectorAll('.cta-location-item');
+        locationCards.forEach(card => {
+          const title = card.querySelector('h4')?.textContent.toLowerCase() || '';
+          if (title.includes(sanitizedLocation)) {
+            card.classList.add('highlighted-location');
+          } else {
+            card.classList.remove('highlighted-location');
+          }
+        });
+
+        trackEvent('dtr_replacement', { parameter: 'location', value: sanitizedLocation });
+      }
+    }
+  };
+
+  try {
+    initDTR();
+  } catch (err) {
+    console.error('DTR error:', err);
+  }
+
   // Provide clear, helpful, and localized form error messages (UX Clarity)
   const getCustomErrorMessage = (field) => {
     if (!field) return 'This field is required.';
@@ -675,6 +750,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       trackEvent('form_submit_attempt');
       
+      const submitBtn = contactForm.querySelector('.btn-submit-consultation');
+      const originalBtnText = submitBtn ? submitBtn.textContent : 'Request My Evaluation';
+      
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending Request...';
+      }
+      
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
       try {
         const formData = new FormData(contactForm);
         
@@ -688,7 +774,10 @@ document.addEventListener('DOMContentLoaded', () => {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams(formData).toString(),
+          signal: controller.signal
         });
+
+        clearTimeout(timeoutId);
 
         if (response.ok) {
           contactForm.style.display = 'none';
@@ -734,13 +823,30 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           const errorText = await response.text();
           trackEvent('form_submit_error', { error_message: errorText });
-          throw new Error(`Submission failed: ${response.status} ${response.statusText}\n${errorText}`);
+          throw new Error(`Submission failed: ${response.status} ${response.statusText}`);
         }
       } catch (error) {
+        clearTimeout(timeoutId);
         trackEvent('form_submit_error', { error_message: error.message });
         console.error('Form submission error:', error);
+        
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+
         const formError = document.querySelector('.form-error-message');
         if (formError) {
+          const errorTextEl = formError.querySelector('.error-text');
+          if (errorTextEl) {
+            if (error.name === 'AbortError') {
+              errorTextEl.textContent = 'The request timed out. Please check your network connection and try again, or call us at (973) 322-0100 to book.';
+            } else if (!navigator.onLine) {
+              errorTextEl.textContent = 'You appear to be offline. Please verify your internet connection and try again, or call us at (973) 322-0100.';
+            } else {
+              errorTextEl.textContent = `A temporary network issue occurred: ${error.message || 'Unknown error'}. Please call us at (973) 322-0100 to complete your request.`;
+            }
+          }
           formError.classList.add('show');
           const closeBtn = formError.querySelector('.error-close-btn');
           if (closeBtn) {
@@ -1409,6 +1515,34 @@ document.addEventListener('DOMContentLoaded', () => {
       const value = sliderInput.value;
       sliderContainer.style.setProperty('--slide-pos', `${value}%`);
     };
+    
+    // Demo slide animation on scroll intersection (only once)
+    let hasAnimated = false;
+    const animateSliderDemo = () => {
+      if (hasAnimated) return;
+      hasAnimated = true;
+      
+      const values = [50, 42, 35, 42, 50, 58, 65, 58, 50];
+      let i = 0;
+      const interval = setInterval(() => {
+        if (i < values.length) {
+          sliderInput.value = values[i];
+          updateSliderPosition();
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 90);
+    };
+
+    const sliderObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setTimeout(animateSliderDemo, 400);
+        sliderObserver.unobserve(sliderContainer);
+      }
+    }, { threshold: 0.2 });
+
+    sliderObserver.observe(sliderContainer);
     
     sliderInput.addEventListener('input', updateSliderPosition);
     updateSliderPosition();
