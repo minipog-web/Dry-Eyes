@@ -11,9 +11,9 @@
   --accent-green-dark: #4E7A58;
   --surface-dark: #0B0D12; /* Rich warm-obsidian */
   --surface-mid: #151821;  /* Slate-charcoal */
-  --surface-card: rgba(21, 24, 33, 0.65);
-  --glass-blur: blur(28px);
-  --glass-border: rgba(197, 168, 128, 0.18);
+  --surface-card: rgba(21, 24, 33, 0.85);
+  --glass-blur: blur(12px);
+  --glass-border: rgba(197, 168, 128, 0.08);
   --surface-light: #FAF9F6; /* Premium Alabaster / Chalk */
   --text-primary: #EBF0F6;
   --text-muted: #94A1B8; /* Restrained slate grey */
@@ -170,6 +170,7 @@ img {
   background-clip: text;
   font-weight: 900 !important;
   letter-spacing: -0.01em;
+  text-shadow: none !important;
 }
 
 .gradient-text-green {
@@ -177,6 +178,7 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: none !important;
   filter: drop-shadow(0 2px 10px rgba(111, 168, 122, 0.3));
 }
 
@@ -187,6 +189,7 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: none !important;
   filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.5));
 }
 
@@ -433,15 +436,15 @@ img {
 }
 
 .btn-outline:hover {
-  background: linear-gradient(135deg, #9C8056 0%, #E6D7C3 50%, #7C5E33 100%);
+  background: var(--primary-light);
   color: #121A28 !important;
-  border-color: transparent;
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 6px 20px var(--glow);
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.45);
+  border-color: var(--primary-light);
+  box-shadow: 0 4px 12px var(--glow);
+  text-shadow: none;
 }
 
 .btn-glow {
-  animation: pulse-glow 4s ease-in-out infinite;
+  /* Removed glow animation to enhance premium medical feel */
 }
 
 /* ===================== NAVBAR ===================== */

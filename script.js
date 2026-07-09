@@ -1103,6 +1103,11 @@ document.addEventListener('DOMContentLoaded', () => {
       severity: severity,
       pathway: pathway
     });
+
+    // Explicit Google Ads conversion event for high-intent quiz completion
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion');
+    }
   };
 
   const saveQuizState = () => {
