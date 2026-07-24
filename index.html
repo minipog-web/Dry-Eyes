@@ -34,11 +34,11 @@
     <link rel="stylesheet" href="styles.css?v=1.4.0">
 
     <!-- Preload Critical Above-the-Fold and Interactive Assets -->
-    <link rel="preload" href="assets/marano_logo.png" as="image">
-    <link rel="preload" href="assets/tear_film_dry.webp" as="image">
-    <link rel="preload" href="assets/tear_film_full.webp" as="image">
-    <link rel="preload" href="assets/tear_film_aqueous.webp" as="image">
-    <link rel="preload" href="assets/tear_film_mucin.webp" as="image">
+    <link rel="preload" href="assets/marano_logo.png" as="image" type="image/png">
+    <link rel="preload" href="assets/tear_film_dry.webp" as="image" type="image/webp">
+    <link rel="preload" href="assets/tear_film_full.webp" as="image" type="image/webp">
+    <link rel="preload" href="assets/tear_film_aqueous.webp" as="image" type="image/webp">
+    <link rel="preload" href="assets/tear_film_mucin.webp" as="image" type="image/webp">
     <link rel="preload" href="assets/dr_marano.webp" as="image" type="image/webp">
 
     <!-- LocalBusiness / MedicalBusiness Structured JSON-LD Data for SEO -->
@@ -999,7 +999,7 @@
         <div class="container">
             <div class="section-header reveal">
                 <span class="luxury-subtitle">Elite Diagnostics</span>
-                <h2>Precision <span class="serif-italic">Diagnostics</span></h2>
+                <h2><span class="gradient-text">Precision Diagnostics</span></h2>
                 <p>We use state-of-the-art technology to pinpoint the exact root cause of your dry eye, allowing us to
                     customize a treatment plan for your specific needs.</p>
             </div>
@@ -1845,7 +1845,7 @@
                     <h2>Reclaim Clear, <span class="serif-italic text-pop-gold">Comfortable Vision</span></h2>
                     <p>Stop managing symptoms with temporary drops. Request a comprehensive diagnostic scan and begin your pathway to lasting comfort today.</p>
 
-                    <h3 class="cta-locations-heading">Our NJ Locations</h3>
+                    <h3 class="cta-locations-heading">Our Convenient NJ Locations</h3>
                     <div class="cta-locations-list">
                         <div class="cta-location-item">
                             <h4>Livingston Office</h4>
@@ -1855,7 +1855,9 @@
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                         <circle cx="12" cy="10" r="3"></circle>
                                     </svg>
-                                    200 South Orange Ave, Suite 209, Livingston, NJ 07039
+                                    <a href="https://maps.google.com/?q=200+South+Orange+Ave+Suite+209+Livingston+NJ+07039" target="_blank" rel="noopener noreferrer" class="map-link">
+                                        200 South Orange Ave, Suite 209, Livingston, NJ 07039 ↗
+                                    </a>
                                 </span>
                                 <span class="loc-detail-row">
                                     <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1873,7 +1875,9 @@
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                         <circle cx="12" cy="10" r="3"></circle>
                                     </svg>
-                                    16 Pocono Road, Suite 301, Denville, NJ 07834
+                                    <a href="https://maps.google.com/?q=16+Pocono+Road+Suite+301+Denville+NJ+07834" target="_blank" rel="noopener noreferrer" class="map-link">
+                                        16 Pocono Road, Suite 301, Denville, NJ 07834 ↗
+                                    </a>
                                 </span>
                                 <span class="loc-detail-row">
                                     <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1891,7 +1895,9 @@
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                         <circle cx="12" cy="10" r="3"></circle>
                                     </svg>
-                                    306 Martin Luther King Blvd, Newark, NJ 07102
+                                    <a href="https://maps.google.com/?q=306+Martin+Luther+King+Blvd+Newark+NJ+07102" target="_blank" rel="noopener noreferrer" class="map-link">
+                                        306 Martin Luther King Blvd, Newark, NJ 07102 ↗
+                                    </a>
                                 </span>
                                 <span class="loc-detail-row">
                                     <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1935,13 +1941,13 @@
 
                         <!-- Step Progress Indicator -->
                         <div class="form-steps-indicator">
+                            <div class="form-step-line-bg">
+                                <div class="form-step-line-fill" id="form-indicator-line"></div>
+                            </div>
                             <button type="button" class="form-step-node active" id="form-badge-1" data-step="1" aria-label="Step 1: Preferences">
                                 <span class="node-num">1</span>
                                 <span class="node-label">Preferences</span>
                             </button>
-                            <div class="form-step-line-bg">
-                                <div class="form-step-line-fill" id="form-indicator-line"></div>
-                            </div>
                             <button type="button" class="form-step-node" id="form-badge-2" data-step="2" aria-label="Step 2: Contact Details">
                                 <span class="node-num">2</span>
                                 <span class="node-label">Contact Details</span>
@@ -2135,7 +2141,7 @@
 
 
     <script src="script.js?v=1.4.0"></script>
-    <script type="text/javascript" src="//cdn.callrail.com/companies/764798499/aff735ebb2e830b3a6df/12/swap.js"></script>
+    <script type="text/javascript" src="https://cdn.callrail.com/companies/764798499/aff735ebb2e830b3a6df/12/swap.js"></script>
 </body>
 
 </html>

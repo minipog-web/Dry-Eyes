@@ -267,12 +267,14 @@ img {
 }
 
 .section-light-cool .gradient-text {
-  background: linear-gradient(135deg, #111827 0%, #4B5563 35%, #1F2937 70%, #6B7280 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  text-shadow: none !important; /* Fixes WebKit/Blink transparent text-fill rendering glitch with parent h2 text-shadow */
-  filter: drop-shadow(0px 2px 3px rgba(17, 24, 39, 0.22)) drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.95)) !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  color: #0F172A !important;
+  -webkit-text-fill-color: #0F172A !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+  filter: none !important;
 }
 
 .section-light-cool .diag-front {
@@ -443,9 +445,6 @@ img {
   text-shadow: none;
 }
 
-.btn-glow {
-  /* Removed glow animation to enhance premium medical feel */
-}
 
 /* ===================== NAVBAR ===================== */
 .navbar {
@@ -1198,7 +1197,6 @@ img {
 
 .diag-card:hover .diag-front {
   border-color: rgba(123, 150, 200, 0.4);
-  /* Replaced dynamic drop-shadow filter with hardware-accelerated box-shadow */
   box-shadow: 0 20px 48px rgba(10, 25, 60, 0.12);
 }
 
@@ -1243,6 +1241,42 @@ img {
 
 .diag-card:hover .diag-flip-hint .hint-svg {
   transform: rotate(180deg);
+}
+
+/* ===================== WARNING BOX ===================== */
+.warning-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 860px;
+  margin: 48px auto 0;
+  padding: 20px 24px;
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-left: 4px solid #EF4444;
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+}
+
+.warning-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.warning-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #2D3748;
+  text-shadow: none !important;
+}
+
+.warning-text strong {
+  color: #B91C1C;
+  font-weight: 700;
+  text-shadow: none !important;
+  filter: none !important;
 }
 
 /* ===================== TREATMENTS ===================== */
@@ -1534,6 +1568,7 @@ img {
   border: 1px solid rgba(111, 168, 122, 0.35);
 }
 
+
 /* ===================== TESTIMONIALS ===================== */
 .testimonial-carousel {
   position: relative;
@@ -1768,12 +1803,16 @@ img {
 }
 
 .cta-locations-heading {
-  font-size: 1.15rem;
-  color: var(--primary-light);
-  margin-top: 24px;
-  margin-bottom: 16px;
+  font-size: 1.3rem;
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-top: 32px;
+  margin-bottom: 18px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .cta-locations-list {
@@ -1784,59 +1823,139 @@ img {
 }
 
 .cta-location-item {
-  background: rgba(27, 45, 69, 0.3);
-  border: 1px solid var(--glass-border);
+  background: rgba(13, 27, 42, 0.75);
+  border: 1px solid rgba(197, 168, 128, 0.3);
   border-radius: var(--radius-sm);
-  padding: 16px 20px;
-  transition: border-color var(--transition), transform var(--transition), background-color var(--transition);
+  padding: 18px 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: border-color var(--transition), transform var(--transition), background-color var(--transition), box-shadow var(--transition);
 }
 
 .cta-location-item:hover {
   border-color: var(--primary);
   transform: translateY(-2px);
-  background: rgba(27, 45, 69, 0.5);
+  background: rgba(13, 27, 42, 0.95);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 12px var(--glow);
 }
 
 .cta-location-item h4 {
-  font-size: 1.05rem;
-  color: var(--text-primary);
-  margin-bottom: 6px;
+  font-size: 1.1rem;
+  color: var(--primary-light);
+  margin-bottom: 10px;
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .cta-location-details {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+}
+
+.loc-detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #FFFFFF !important;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.map-link {
+  color: #FFFFFF !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color var(--transition);
+}
+
+.map-link:hover {
+  color: var(--primary-light) !important;
+}
+
+.loc-icon {
+  width: 18px;
+  height: 18px;
+  stroke: var(--primary);
+  stroke-width: 2.2;
+  fill: none;
+  flex-shrink: 0;
+  margin-top: 3px;
 }
 
 .cta-location-details a {
-  color: var(--text-primary);
+  color: #FFFFFF !important;
   text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 700;
   transition: color var(--transition);
 }
 
 .cta-location-details a:hover {
-  color: var(--white);
+  color: var(--primary-light) !important;
 }
 
 .cta-details {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
 }
 
 .cta-details li {
-  padding: 10px 0;
+  background: rgba(13, 27, 42, 0.75);
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 14px 20px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 0.95rem;
+  gap: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: all var(--transition-fast);
 }
 
-.cta-details li span {
-  font-size: 1.2rem;
+.cta-details li:hover {
+  border-color: var(--primary);
+  background: rgba(13, 27, 42, 0.95);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 12px var(--glow);
+}
+
+.cta-details li a {
+  color: #FFFFFF !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+
+.cta-details li a:hover {
+  color: var(--primary-light) !important;
+}
+
+.contact-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(197, 168, 128, 0.2);
+  border: 1.5px solid var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-svg {
+  width: 20px;
+  height: 20px;
+  stroke: #FFF5E4;
+  stroke-width: 2.2;
+  fill: none;
 }
 
 /* Subtle standing out style for the booking form card */
@@ -1852,6 +1971,154 @@ img {
   border-color: rgba(123, 150, 200, 0.5);
   box-shadow: 0 20px 56px rgba(0, 0, 0, 0.55), 0 0 40px rgba(123, 150, 200, 0.18);
   transform: translateY(-3px);
+}
+
+/* Two-Step Form Progress Indicator */
+.form-steps-indicator {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  padding: 0 4px;
+}
+
+.form-step-line-bg {
+  position: absolute;
+  top: 18px; /* Vertically centered relative to 36px height node bubble */
+  left: 18px; /* Starts at center of node 1 bubble */
+  right: 18px; /* Ends at center of node 2 bubble */
+  height: 3px;
+  background: rgba(123, 150, 200, 0.2);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.form-step-line-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--glow);
+  border-radius: 2px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-step-node {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  transition: color 0.3s ease;
+}
+
+.form-step-node .node-num {
+  position: relative;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #151821; /* Solid dark surface so background line sits behind bubble edge */
+  border: 2px solid rgba(123, 150, 200, 0.3);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-step-node .node-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.form-step-node.active .node-num {
+  border-color: var(--primary);
+  background: #0B0D12; /* Solid dark background to hide line under center */
+  color: var(--primary-light);
+  box-shadow: 0 0 14px var(--glow);
+}
+
+.form-step-node.active .node-label {
+  color: var(--primary-light);
+}
+
+.form-step-node.completed .node-num {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #121A28;
+  box-shadow: 0 0 12px var(--glow);
+}
+
+.form-step-node.completed .node-label {
+  color: var(--text-primary);
+}
+
+.form-step-panel {
+  display: none;
+}
+
+.form-step-panel.active {
+  display: block;
+  animation: fadeInStep 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInStep {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-step-heading {
+  font-size: 1.15rem;
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.form-step-description {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.form-step-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.form-step-actions .btn-step-back {
+  padding: 12px 20px;
+  font-size: 0.9rem;
+}
+
+.form-step-actions .btn-submit-consultation {
+  flex: 1;
+  justify-content: center;
+}
+
+.form-group-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .contact-form {
@@ -2393,6 +2660,10 @@ img {
 
   .form-row {
     grid-template-columns: 1fr;
+  }
+
+  .form-step-node .node-label {
+    display: none;
   }
 }
 
@@ -5572,6 +5843,22 @@ textarea:disabled,
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* --- PERFORMANCE OPTIMIZATIONS --- */
+.navbar,
+.hero-eye,
+.diag-card-inner,
+.sliding-pill-bg,
+.form-step-line-fill,
+.testimonial-track {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 800px;
 }
 
 
