@@ -4872,16 +4872,18 @@ sup.cite a:hover {
 .form-steps-indicator {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
-  max-width: 320px;
-  margin: 0 auto 30px auto;
+  max-width: 260px;
+  margin: 0 auto 48px auto;
 }
 
 .form-step-node {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  width: 36px;
   z-index: 2;
   cursor: pointer;
   background: none;
@@ -4908,6 +4910,7 @@ sup.cite a:hover {
   font-weight: 700;
   color: var(--text-muted);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 
 .form-step-node.active .node-num {
@@ -4925,6 +4928,11 @@ sup.cite a:hover {
 }
 
 .form-step-node .node-label {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
   font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 600;
