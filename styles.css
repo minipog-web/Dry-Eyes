@@ -4868,6 +4868,34 @@ sup.cite a:hover {
   text-decoration: underline;
 }
 
+/* --- DOCTOR CLINICAL QUOTE BLOCK --- */
+.doctor-quote {
+  margin: 20px 0 24px 0;
+  padding: 16px 20px;
+  border-left: 3px solid var(--primary-light);
+  background: rgba(197, 168, 128, 0.06);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.doctor-quote p {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-style: italic;
+  color: var(--primary-light);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.doctor-quote cite {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-style: normal;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 /* --- TWO-STEP BOOKING FORM STYLES --- */
 .form-steps-indicator {
   display: flex;
