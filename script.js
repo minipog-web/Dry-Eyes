@@ -808,10 +808,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
           }
 
-          // GA4 Rich Form Submit Success Event
+          // GA4 Rich Form Submit Success Event & GA4 Standard Key Event
           const locationVal = document.getElementById('preferred-location')?.value || 'Not Specified';
           const concernVal = document.getElementById('primary-concern')?.value || 'Not Specified';
           const contactMethodVal = document.getElementById('contact-method')?.value || 'Not Specified';
+
+          trackEvent('generate_lead', {
+            'value': 1.0,
+            'currency': 'USD',
+            'lead_type': 'Consultation Booking',
+            'preferred_location': locationVal,
+            'primary_concern': concernVal,
+            'preferred_contact_method': contactMethodVal
+          });
 
           trackEvent('form_submit_success', {
             'event_category': 'Engagement',
@@ -1554,13 +1563,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-  // Google Ads Call-to-Conversion Tracking
+  // Google Ads Call-to-Conversion & GA4 Contact Tracking
   document.querySelectorAll('a[href^="tel:"]').forEach(link => {
     link.addEventListener('click', () => {
       const phoneNo = link.getAttribute('href').replace('tel:', '');
       // Infer section context for advanced localized analysis
       const sectionId = link.closest('section')?.getAttribute('id') || link.closest('header')?.getAttribute('id') || 'unknown';
       const labelText = link.textContent.trim() || 'Phone Link';
+
+      trackEvent('contact', {
+        'method': 'phone',
+        'phone_number': phoneNo,
+        'click_section': sectionId,
+        'click_text': labelText
+      });
 
       trackEvent('phone_link_click', {
         'phone_number': phoneNo,
@@ -1578,6 +1594,32 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Outbound Google Maps Direction Tracking (GA4 Location Engagement)
+  document.querySelectorAll('a[href*="maps.google.com"]').forEach(link => {
+    link.addEventListener('click', () => {
+      const locationName = link.closest('.cta-location-item')?.querySelector('h4')?.textContent.trim() || 'Map Link';
+      trackEvent('select_content', {
+        'content_type': 'map_directions',
+        'item_id': locationName,
+        'destination_url': link.getAttribute('href')
+      });
+    });
+  });
+
+  // GA4 Automated Scroll Depth Tracking (25%, 50%, 75%, 90%)
+  const trackedScrollDepths = new Set();
+  window.addEventListener('scroll', () => {
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (totalHeight <= 0) return;
+    const scrollPercent = Math.round((window.scrollY / totalHeight) * 100);
+    [25, 50, 75, 90].forEach(threshold => {
+      if (scrollPercent >= threshold && !trackedScrollDepths.has(threshold)) {
+        trackedScrollDepths.add(threshold);
+        trackEvent('scroll', { 'percent_scrolled': threshold });
+      }
+    });
+  }, { passive: true });
 
   // --- INTERACTIVE COST CALCULATOR ---
   const spendSlider = document.getElementById('calc-monthly-spend');

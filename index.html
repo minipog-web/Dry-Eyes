@@ -2,20 +2,22 @@
 <html lang="en">
 
     <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18197167741"></script>
+    <!-- Google tag (gtag.js) - GA4 & Google Ads -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JSEY2JK1TN"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'AW-18197167741');
-      gtag('config', 'G-JSEY2JK1TN');
+      // GA4 Measurement Configuration
+      gtag('config', 'G-JSEY2JK1TN', {
+        'send_page_view': true,
+        'cookie_flags': 'max-age=7200;secure;samesite=none',
+        'allow_google_signals': true,
+        'allow_ad_personalization_signals': true
+      });
 
-      // Google Ads Dynamic Call Forwarding configuration for office locations
-      // Note: Native Google Ads forwarding only supports one number reliably per page. 
-      // Using the primary Livingston number here. Consider CallRail for multi-number dynamic tracking.
+      // Google Ads Conversion Configuration
       gtag('config', 'AW-18197167741', {
         'phone_conversion_number': '(973) 322-0100'
       });
