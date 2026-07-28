@@ -9,8 +9,7 @@
 - **Asset/Layout Syncing**: Automating or manually copying the optimized files to the `dist/` folder kept local previews and Netlify hosting synchronized.
 
 ### What to Avoid
-- **Avoid Layout Snapping**: Avoid raw display state swaps for interactive components where custom cubic-bezier transitions can provide a luxury feel.
-- **Avoid Missing Focus States**: Ensure interactive custom elements have distinct `:focus-within` and `:focus-visible` styling so keyboard navigation remains visual.
+- **Avoid Automatic Netlify Deploys**: NEVER deploy to Netlify unless specifically and explicitly instructed to do so by the user.
 
 ## Milestone: Google Analytics 4 (GA4) Event Tracking Optimization (June 2026)
 
