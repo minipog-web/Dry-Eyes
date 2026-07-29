@@ -9,17 +9,27 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      // GA4 Measurement Configuration
+      // GA4 — enhanced measurement, signals, cross-domain
       gtag('config', 'G-JSEY2JK1TN', {
         'send_page_view': true,
         'cookie_flags': 'max-age=7200;secure;samesite=none',
         'allow_google_signals': true,
-        'allow_ad_personalization_signals': true
+        'allow_ad_personalization_signals': true,
+        'link_attribution': true
       });
 
-      // Google Ads Conversion Configuration
+      // Google Ads — enable auto phone call conversion tracking
+      // CallRail will swap the displayed number; gtag tracks the click
       gtag('config', 'AW-18197167741', {
-        'phone_conversion_number': '(973) 322-0100'
+        'phone_conversion_number': '(973) 322-0100',
+        'phone_conversion_callback': function() {
+          // Fired by gtag auto-detection on tel: click
+          gtag('event', 'conversion', {
+            'send_to': 'AW-18197167741/phone_call',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        }
       });
     </script>
 
@@ -2080,6 +2090,83 @@
 
 
     <script src="script.js?v=1.4.0"></script>
+
+    <!-- ============================================================
+         CALLRAIL + GA4 + GOOGLE ADS INTEGRATION
+         Adds what script.js does not cover:
+           1. CallRail _crLineSwap → GA4 event (attribution source)
+           2. Tel: link click → Google Ads phone call conversion
+         script.js already handles form conversions & CTA tracking.
+         CallRail swap.js loads AFTER this block (see below).
+         ============================================================ -->
+    <script>
+    (function() {
+      'use strict';
+
+      var GA4_ID = 'G-JSEY2JK1TN';
+      var ADS_ID = 'AW-18197167741';
+
+      // ── Google Ads Phone Call Conversion Label ────────────────────
+      // Find this in Google Ads › Goals › Conversions › your phone
+      // call conversion action › Conversion label (e.g. 'AbCdEfGh1')
+      // IMPORTANT: replace the value below with your actual label.
+      var ADS_CALL_LABEL = 'phone_call';
+
+      /* ----------------------------------------------------------
+         1. CALLRAIL → GA4
+         _crLineSwap is called by CallRail each time it swaps a
+         tracked number on the page. We forward that event to GA4
+         so you can see swap counts and pool names in reports.
+         This also confirms CallRail is working correctly.
+      ---------------------------------------------------------- */
+      var _prev = window._crLineSwap;
+      window._crLineSwap = function(data) {
+        if (typeof _prev === 'function') _prev(data);
+        if (typeof gtag !== 'function') return;
+        gtag('event', 'callrail_number_swap', {
+          'event_category': 'CallRail',
+          'swap_number': data && data.formatted_number ? data.formatted_number : '',
+          'pool_name':   data && data.pool_name        ? data.pool_name        : '',
+          'send_to': GA4_ID
+        });
+      };
+
+      /* ----------------------------------------------------------
+         2. TEL: LINK CLICKS → GOOGLE ADS PHONE CONVERSION
+         Uses event delegation so it works on CallRail-swapped
+         numbers (the href is updated by CallRail's swap.js).
+         Also sends a GA4 phone_call_click event for reporting.
+         NOTE: script.js already fires nav_click events on CTAs;
+         this focuses on the raw tel: anchors in the contact section.
+      ---------------------------------------------------------- */
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href^="tel:"]');
+        if (!link || typeof gtag !== 'function') return;
+
+        var rawNumber = link.getAttribute('href').replace('tel:', '');
+        var display   = link.textContent.trim();
+
+        // GA4 — phone call click (mid-funnel signal)
+        gtag('event', 'phone_call_click', {
+          'event_category': 'Contact',
+          'event_label': display || rawNumber,
+          'phone_number': rawNumber,
+          'send_to': GA4_ID
+        });
+
+        // Google Ads — phone call conversion
+        // Counts as a conversion in your Google Ads account
+        gtag('event', 'conversion', {
+          'send_to': ADS_ID + '/' + ADS_CALL_LABEL,
+          'value': 1.0,
+          'currency': 'USD'
+        });
+      });
+
+    })();
+    </script>
+
+    <!-- CallRail number swap — must load LAST so gtag is available -->
     <script type="text/javascript" src="//cdn.callrail.com/companies/764798499/aff735ebb2e830b3a6df/12/swap.js"></script>
 </body>
 
