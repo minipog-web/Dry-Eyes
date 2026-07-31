@@ -1522,34 +1522,6 @@ document.addEventListener('DOMContentLoaded', () => {
       sliderContainer.style.setProperty('--slide-pos', `${value}%`);
     };
     
-    // Demo slide animation on scroll intersection (only once)
-    let hasAnimated = false;
-    const animateSliderDemo = () => {
-      if (hasAnimated) return;
-      hasAnimated = true;
-      
-      const values = [50, 42, 35, 42, 50, 58, 65, 58, 50];
-      let i = 0;
-      const interval = setInterval(() => {
-        if (i < values.length) {
-          sliderInput.value = values[i];
-          updateSliderPosition();
-          i++;
-        } else {
-          clearInterval(interval);
-        }
-      }, 90);
-    };
-
-    const sliderObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        setTimeout(animateSliderDemo, 400);
-        sliderObserver.unobserve(sliderContainer);
-      }
-    }, { threshold: 0.2 });
-
-    sliderObserver.observe(sliderContainer);
-    
     sliderInput.addEventListener('input', updateSliderPosition);
     updateSliderPosition();
 
@@ -1653,8 +1625,10 @@ document.addEventListener('DOMContentLoaded', () => {
         rafPending = false;
 
         // Debounced Telemetry Event
-        if (telemetryTimeout) clearTimeout(telemetryTimeout);
-        telemetryTimeout = setTimeout(() => {
+        if (typeof telemetryTimeout !== 'undefined' && telemetryTimeout) clearTimeout(telemetryTimeout);
+        window.calculatorTelemetryTimeout = window.calculatorTelemetryTimeout || null;
+        if (window.calculatorTelemetryTimeout) clearTimeout(window.calculatorTelemetryTimeout);
+        window.calculatorTelemetryTimeout = setTimeout(() => {
           trackEvent('calculator_adjust', {
             monthly_spend: spend,
             daily_lost_minutes: minutes,
