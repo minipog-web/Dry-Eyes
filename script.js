@@ -1,10 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Google Analytics Event Tracking Helper
+  // Google Tag Manager & Google Analytics 4 Telemetry Helper
   const trackEvent = (eventName, params = {}) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: eventName,
+      ...params
+    });
+
     if (typeof gtag === 'function') {
       gtag('event', eventName, params);
     } else {
-      console.debug('[GA4 Telemetry]', eventName, params);
+      console.debug('[GTM / GA4 Telemetry]', eventName, params);
     }
   };
 

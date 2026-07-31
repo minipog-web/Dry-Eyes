@@ -2,36 +2,13 @@
 <html lang="en">
 
     <head>
-    <!-- Google tag (gtag.js) - GA4 & Google Ads -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JSEY2JK1TN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      // GA4 — enhanced measurement, signals, cross-domain
-      gtag('config', 'G-JSEY2JK1TN', {
-        'send_page_view': true,
-        'cookie_flags': 'max-age=7200;secure;samesite=none',
-        'allow_google_signals': true,
-        'allow_ad_personalization_signals': true,
-        'link_attribution': true
-      });
-
-      // Google Ads — enable auto phone call conversion tracking
-      // CallRail will swap the displayed number; gtag tracks the click
-      gtag('config', 'AW-18197167741', {
-        'phone_conversion_number': '(973) 322-0100',
-        'phone_conversion_callback': function() {
-          // Fired by gtag auto-detection on tel: click
-          gtag('event', 'conversion', {
-            'send_to': 'AW-18197167741/phone_call',
-            'value': 1.0,
-            'currency': 'USD'
-          });
-        }
-      });
-    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MNV959WJ');</script>
+    <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -144,6 +121,10 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNV959WJ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- Skip Link for Keyboard Accessibility -->
     <a href="#home" class="skip-link">Skip to main content</a>
@@ -2167,7 +2148,7 @@
     </script>
 
     <!-- CallRail number swap — must load LAST so gtag is available -->
-    <script type="text/javascript" src="//cdn.callrail.com/companies/764798499/aff735ebb2e830b3a6df/12/swap.js"></script>
+    <script type="text/javascript" src="https://cdn.callrail.com/companies/764798499/aff735ebb2e830b3a6df/12/swap.js"></script>
 </body>
 
 </html>
