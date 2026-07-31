@@ -1638,39 +1638,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const fiveYearTotal = document.getElementById('calc-5year-total');
     const lostHours = document.getElementById('calc-lost-hours');
     
-    // Debounce tracker for telemetry events to prevent high traffic while dragging
-    let telemetryTimeout = null;
-    
+    let rafPending = false;
+
     const updateCalculator = () => {
-      const spend = parseInt(spendSlider.value, 10);
-      const minutes = parseInt(minutesSlider.value, 10);
-      
-      // Calculations:
-      // Direct Annual Cost = spend * 12
-      // Lost productivity cost = minutes * 250 work days * $0.50 per min (standard salary translation)
-      const annualDirect = spend * 12;
-      const annualProductivity = minutes * 250 * 0.50;
-      const totalAnnual = annualDirect + annualProductivity;
-      const total5Year = totalAnnual * 5;
-      const totalHours = Math.round((minutes * 250 * 5) / 60);
-      
-      // Update Displays
-      if (spendVal) spendVal.textContent = `$${spend}`;
-      if (minutesVal) minutesVal.textContent = `${minutes} mins`;
-      if (annualTotal) annualTotal.textContent = `$${Math.round(totalAnnual).toLocaleString()}`;
-      if (fiveYearTotal) fiveYearTotal.textContent = `$${Math.round(total5Year).toLocaleString()}`;
-      if (lostHours) lostHours.textContent = `${totalHours} hours`;
-      
-      // Debounced Telemetry Event
-      if (telemetryTimeout) clearTimeout(telemetryTimeout);
-      telemetryTimeout = setTimeout(() => {
-        trackEvent('calculator_adjust', {
-          monthly_spend: spend,
-          daily_lost_minutes: minutes,
-          annual_cost: Math.round(totalAnnual),
-          five_year_cost: Math.round(total5Year)
-        });
-      }, 1000);
+      if (rafPending) return;
+      rafPending = true;
+
+      requestAnimationFrame(() => {
+        const spend = parseInt(spendSlider.value, 10);
+        const minutes = parseInt(minutesSlider.value, 10);
+        
+        // Calculations:
+        // Direct Annual Cost = spend * 12
+        // Lost productivity cost = minutes * 250 work days * $0.50 per min
+        const annualDirect = spend * 12;
+        const annualProductivity = minutes * 250 * 0.50;
+        const totalAnnual = annualDirect + annualProductivity;
+        const total5Year = totalAnnual * 5;
+        const totalHours = Math.round((minutes * 250 * 5) / 60);
+        
+        // Update Displays
+        if (spendVal) spendVal.textContent = `$${spend}`;
+        if (minutesVal) minutesVal.textContent = `${minutes} mins`;
+        if (annualTotal) annualTotal.textContent = `$${Math.round(totalAnnual).toLocaleString()}`;
+        if (fiveYearTotal) fiveYearTotal.textContent = `$${Math.round(total5Year).toLocaleString()}`;
+        if (lostHours) lostHours.textContent = `${totalHours} hours`;
+        
+        rafPending = false;
+
+        // Debounced Telemetry Event
+        if (telemetryTimeout) clearTimeout(telemetryTimeout);
+        telemetryTimeout = setTimeout(() => {
+          trackEvent('calculator_adjust', {
+            monthly_spend: spend,
+            daily_lost_minutes: minutes,
+            annual_cost: Math.round(totalAnnual),
+            five_year_cost: Math.round(total5Year)
+          });
+        }, 1000);
+      });
     };
     
     spendSlider.addEventListener('input', updateCalculator);
