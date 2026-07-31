@@ -4296,7 +4296,7 @@ img {
 
 /* Results Display styles */
 .quiz-results-container {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 16px;
   width: 100%;

@@ -1141,31 +1141,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const loadQuizState = () => {
     try {
-      const saved = localStorage.getItem('dryeye_quiz_state');
-      if (saved) {
-        const state = JSON.parse(saved);
-        currentQuizStep = state.currentQuizStep || 0;
-        quizStarted = state.quizStarted || false;
-        
-        if (state.symptomStates) {
-          checkboxes.forEach(cb => {
-            if (cb.id in state.symptomStates) {
-              cb.checked = state.symptomStates[cb.id];
-            }
-          });
-        }
-        
-        if (state.quizCompleted) {
-          showQuizResults();
-        } else {
-          if (quizResultsContainer) quizResultsContainer.style.display = 'none';
-          if (quizStepsContainer) quizStepsContainer.style.display = 'flex';
-          if (quizProgressWrapper) quizProgressWrapper.style.display = 'block';
-          updateQuizUI();
-        }
-      }
+      // Always start fresh on load unless user actively restarted or is mid-session
+      localStorage.removeItem('dryeye_quiz_state');
+      currentQuizStep = 0;
+      quizStarted = false;
+      checkboxes.forEach(cb => cb.checked = false);
+      if (quizResultsContainer) quizResultsContainer.style.display = 'none';
+      if (quizStepsContainer) quizStepsContainer.style.display = 'flex';
+      if (quizProgressWrapper) quizProgressWrapper.style.display = 'block';
+      updateQuizUI();
     } catch (e) {
-      console.error('Error loading quiz state:', e);
+      console.error('Error initializing quiz state:', e);
     }
   };
 
