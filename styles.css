@@ -271,9 +271,14 @@ img {
   background: linear-gradient(90deg, transparent 0%, rgba(197, 168, 128, 0.35) 50%, transparent 100%);
 }
 
+.section-light h1,
 .section-light h2,
-.section-light h3 {
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+.section-light h3,
+.section-light h4,
+.section-light h5,
+.section-light h6 {
+  color: #0F172A;
+  text-shadow: none;
 }
 
 .section-light .luxury-subtitle {
@@ -290,8 +295,23 @@ img {
   border-bottom: 1px solid var(--border-contrast-light);
 }
 
+.section-light .section-header h2,
+.section-light-warm .section-header h2,
+.section-light-cool .section-header h2,
+#faq h2 {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+#faq .section-header p,
+.section-light .section-header p,
 .section-light-warm .section-header p {
-  color: var(--text-dark-contrast);
+  color: #0F172A;
+  font-weight: 650;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
 }
 
 .section-light-warm .gradient-text {
@@ -313,12 +333,13 @@ img {
 }
 
 .section-light-warm .gradient-text-green {
-  background: linear-gradient(135deg, #163613, #254F20);
+  color: #0D3311;
+  background: linear-gradient(135deg, #0D3311 0%, #1B5E20 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: none !important; /* Fixes WebKit/Blink transparent text-fill rendering glitch with parent h2 text-shadow */
-  filter: drop-shadow(0 1px 2px rgba(22, 54, 19, 0.15));
+  filter: drop-shadow(0 1px 1px rgba(13, 51, 17, 0.2));
 }
 
 /* Crisp Ice-Blue — Diagnostics */
@@ -329,7 +350,11 @@ img {
 }
 
 .section-light-cool .section-header p {
-  color: #4A5568;
+  color: #0F172A;
+  font-weight: 650;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
 }
 
 .section-light-cool .gradient-text {
@@ -397,10 +422,6 @@ img {
   max-width: 680px;
   margin: 0 auto;
   line-height: 1.7;
-}
-
-.section-light .section-header p {
-  color: #5A6A7A;
 }
 
 .section-header-left {
@@ -771,7 +792,7 @@ img {
 
 .hero .subtitle {
   font-size: clamp(1.05rem, 2.5vw, 1.35rem);
-  color: var(--text-muted);
+  color: #F1F5F9;
   margin-bottom: 40px;
   max-width: 800px;
   margin-left: auto;
@@ -912,7 +933,7 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--text-dark);
+  color: #2D3748;
   font-family: var(--font-heading);
   text-align: center;
   border-radius: 80px;
@@ -922,13 +943,14 @@ img {
 }
 
 .stage-tab:hover {
-  color: #705943; /* Deepened bronze-brown for readable hover state */
+  color: #0F172A;
   transform: translateY(-1px);
 }
 
 .stages-tablist .stage-tab.active {
-  color: #121A28; /* Deep slate text for high-contrast legibility over gold/bronze sliding pill */
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+  color: #0F172A;
+  font-weight: 700;
+  text-shadow: none;
 }
 
 .stage-tab-label {
@@ -1031,21 +1053,33 @@ img {
 
 .section-light .stage-content {
   background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
 .section-light .stage-content h3 {
-  color: var(--primary-dark);
+  color: #0F172A;
+  font-weight: 700;
+}
+
+.section-light .stage-content .stage-intro {
+  color: #2D3748;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .section-light .stage-content .cause-title {
-  color: var(--text-dark);
+  color: #0F172A;
+  font-weight: 700;
 }
 
 .section-light .stage-content .cause-desc,
 .section-light .stage-content li {
-  color: #4A5568;
+  color: #1A202C;
+  font-size: 0.98rem;
+  line-height: 1.6;
 }
 
 /* ===================== TEAR FILM ===================== */
@@ -1166,6 +1200,39 @@ img {
   transition: transform var(--transition-bounce);
 }
 
+/* Interactive Hint Banner */
+.interactive-hint {
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1E293B;
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  padding: 10px 20px;
+  border-radius: 50px;
+  max-width: max-content;
+  margin: 0 auto 36px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.interactive-hint span {
+  font-size: 1.1rem;
+  color: #C67D28;
+  font-weight: bold;
+}
+
+.section-light .interactive-hint,
+.section-light-cool .interactive-hint,
+.section-light-warm .interactive-hint {
+  color: #0F172A;
+  background: rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.15);
+}
+
 /* ===================== DIAGNOSTICS ===================== */
 .diagnostics-grid {
   display: grid;
@@ -1259,33 +1326,54 @@ img {
   line-height: 1.5;
 }
 
-/* High contrast dark card inside all section backgrounds */
+/* Premium light gray card inside all section backgrounds */
 .section-light .diag-front,
 .section-light-cool .diag-front {
-  background: linear-gradient(145deg, #131E2E 0%, #0D1623 100%);
-  border: 2px solid rgba(123, 150, 200, 0.28);
+  background: linear-gradient(145deg, #E2E8F0 0%, #CBD5E1 100%);
+  border: 2px solid rgba(100, 116, 139, 0.45);
   border-top-width: 4px;
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.35),
-    0 2px 8px rgba(0, 0, 0, 0.2);
+    0 12px 28px rgba(15, 23, 42, 0.09),
+    0 4px 10px rgba(15, 23, 42, 0.05);
 }
 
 .diag-card:hover .diag-front {
   border-color: var(--accent-amber);
   box-shadow:
-    0 16px 36px rgba(0, 0, 0, 0.45),
-    0 0 20px rgba(245, 158, 11, 0.25);
+    0 16px 36px rgba(15, 23, 42, 0.12),
+    0 0 20px rgba(245, 158, 11, 0.15);
   transform: translateY(-4px);
 }
 
 .section-light .diag-front h3,
 .section-light-cool .diag-front h3 {
-  color: #FFFFFF !important;
+  color: #0F172A !important;
 }
 
 .section-light .diag-front p,
 .section-light-cool .diag-front p {
-  color: var(--text-muted) !important;
+  color: #334155 !important;
+}
+
+.section-light .diag-front .diag-icon,
+.section-light-cool .diag-front .diag-icon {
+  background: rgba(15, 23, 42, 0.04);
+  border-color: rgba(15, 23, 42, 0.15);
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.05);
+}
+
+.section-light .diag-flip-hint,
+.section-light-cool .diag-flip-hint {
+  color: #1E293B !important;
+  background: rgba(15, 23, 42, 0.05);
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+.section-light .diag-card:hover .diag-flip-hint,
+.section-light-cool .diag-card:hover .diag-flip-hint {
+  background: rgba(15, 23, 42, 0.1);
+  color: #0F172A !important;
+  border-color: rgba(15, 23, 42, 0.22);
 }
 
 .diag-back {
@@ -1812,6 +1900,9 @@ img {
 }
 
 .timeline-tag {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   padding: var(--space-xs) var(--space-sm);
   border-radius: 50px;
   font-size: 0.78rem;
@@ -1819,6 +1910,8 @@ img {
   background: rgba(245, 158, 11, 0.12);
   color: var(--accent-amber);
   border: 1px solid rgba(245, 158, 11, 0.35);
+  margin: 12px auto 0 auto !important;
+  width: fit-content !important;
 }
 
 
@@ -2011,7 +2104,7 @@ img {
 }
 
 .section-light .faq-answer p {
-  color: #4A5568;
+  color: #1E293B;
 }
 
 /* ===================== CTA / CONTACT ===================== */
@@ -2028,8 +2121,19 @@ img {
 }
 
 .cta-section .luxury-subtitle {
-  color: #FFE6BA; /* High-contrast champagne gold for luxury aesthetic and compliance (4.6:1 contrast against dark brown) */
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  color: #1E1B18 !important; /* High-contrast deep luxury charcoal for superior legibility on gold */
+  background: #ECC280 !important; /* Solid premium gold base that pops brilliantly against the dark section background */
+  border: 1px solid #FFF4E0 !important; /* Crisp champagne border highlight */
+  font-size: 0.8rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.15em !important;
+  padding: 6px 18px !important;
+  border-radius: 50px !important;
+  display: inline-block !important;
+  margin-bottom: 24px !important;
+  width: fit-content !important;
+  text-shadow: none !important; /* Remove dark text shadow to preserve pristine text edges on light background */
+  box-shadow: 0 4px 15px rgba(236, 194, 128, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 
 .cta-section::before {
@@ -4051,7 +4155,7 @@ img {
 }
 
 .section-dark-alt .doctor-bio {
-  color: var(--text-muted);
+  color: #E2E8F0;
 }
 
 .section-dark-alt .doctor-credentials-title {
@@ -4059,7 +4163,7 @@ img {
 }
 
 .section-dark-alt .doctor-credentials li {
-  color: var(--text-muted);
+  color: #E2E8F0;
 }
 
 .section-dark-alt .doctor-credentials li strong {
@@ -6103,6 +6207,37 @@ sup.cite a:hover {
   }
 }
 
+/* --- POST-SYMPTOM CTA CARD CENTERED VARIANT --- */
+.post-symptom-cta {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.cta-card-content--centered {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.cta-card-content--centered p {
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+.cta-card-actions--centered {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  flex-wrap: wrap !important;
+  margin-top: 16px !important;
+}
+
 /* --- HARDENING UTILITIES --- */
 
 /* Text overflow & wrapping */
@@ -6196,12 +6331,13 @@ textarea:disabled,
 
 /* 2. Post-Section Conversion Cards */
 .post-section-cta-card {
-  padding: 32px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
+  padding: 36px 40px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  gap: 20px !important;
   background: linear-gradient(135deg, rgba(20, 32, 48, 0.85) 0%, rgba(10, 18, 30, 0.95) 100%);
   border: 1px solid rgba(236, 194, 128, 0.25);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
@@ -6209,6 +6345,14 @@ textarea:disabled,
 
 .post-section-cta-card.gold-border {
   border: 1px solid rgba(236, 194, 128, 0.4);
+}
+
+.cta-card-content {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .cta-card-content h3 {
@@ -6219,25 +6363,30 @@ textarea:disabled,
   letter-spacing: -0.015em;
   line-height: 1.3;
   margin-bottom: 8px;
+  text-align: center !important;
 }
 
 .cta-card-content p {
   color: var(--text-muted);
   font-size: 0.95rem;
-  max-width: 620px;
-  margin: 0;
+  max-width: 680px;
+  margin: 0 auto !important;
+  text-align: center !important;
 }
 
 .cta-card-actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
   flex-shrink: 0;
+  flex-wrap: wrap !important;
+  margin: 0 auto !important;
 }
 
 @media (max-width: 768px) {
   .post-section-cta-card {
-    padding: 24px 20px;
+    padding: 28px 20px;
     flex-direction: column;
     text-align: center;
   }
@@ -6403,15 +6552,24 @@ textarea:disabled,
 .form-rating-callout {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  font-size: 0.84rem;
-  color: var(--text-muted);
-  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: #F1F5F9;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  padding: 6px 14px;
+  border-radius: 50px;
+  width: fit-content;
+  margin: 0 auto 24px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
 }
 
 .form-rating-callout .stars {
   color: #F59E0B;
   font-size: 0.95rem;
+  letter-spacing: 1px;
 }
 
 /* Accessibility: Motion Sensitivity */

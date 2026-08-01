@@ -11,7 +11,10 @@ def optimize_images():
         "tear_film_dry.png",
         "tear_film_full.png",
         "tear_film_lipid.png",
-        "tear_film_mucin.png"
+        "tear_film_mucin.png",
+        "patient_david.png",
+        "patient_linda.png",
+        "patient_sarah.png"
     ]
     
     print("Starting image optimization...")

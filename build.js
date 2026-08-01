@@ -51,7 +51,7 @@ function copyFolderSync(from, to) {
       copyFolderSync(fromPath, toPath);
     } else {
       // Exclude heavy unoptimized PNG source assets to keep the production build fast and light
-      if (item.endsWith('.png') && stat.size > 100 * 1024) {
+      if (item.endsWith('.png') && stat.size > 100 * 1024 && !item.startsWith('patient_')) {
         continue;
       }
       fs.copyFileSync(fromPath, toPath);
