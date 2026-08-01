@@ -99,14 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
       switch (field.id) {
         case 'preferred-location':
           return 'Please select a preferred office location near you to continue.';
-        case 'primary-concern':
-          return 'Please select your primary concern so our specialists can prepare for your visit.';
-        case 'contact-method':
-          return 'Please choose how you would prefer our clinic to contact you.';
-        case 'first-name':
-          return 'First name is required to personalize your consultation request.';
-        case 'last-name':
-          return 'Last name is required to register your secure record.';
+        case 'full-name':
+          return 'Full name is required to register your appointment evaluation.';
         case 'email-address':
           return 'Please provide an email address where we can send your appointment details.';
         case 'phone-number':
@@ -197,6 +191,13 @@ document.addEventListener('DOMContentLoaded', () => {
   navCTAs.forEach(cta => {
     cta.addEventListener('click', () => {
       trackEvent('nav_click', { link_text: 'Schedule Consultation (CTA)', link_url: cta.getAttribute('href') });
+    });
+  });
+
+  const navPhones = document.querySelectorAll('.nav-phone, .nav-phone-mobile, .mobile-header-call-btn');
+  navPhones.forEach(phone => {
+    phone.addEventListener('click', () => {
+      trackEvent('phone_call_click', { link_text: 'Header Phone Number', phone_number: '973-322-0100' });
     });
   });
 
