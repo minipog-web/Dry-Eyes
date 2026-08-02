@@ -131,8 +131,8 @@
             <a href="https://maranoeyecare.com" class="nav-logo">
                 <img src="assets/marano_logo.png" alt="Marano Eye Care" class="logo-img" width="180" height="60" loading="eager">
             </a>
-            <button class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
-            <ul class="nav-links">
+            <button class="mobile-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">☰</button>
+            <ul class="nav-links" id="primary-navigation">
                 <li><a href="#symptoms">Symptoms</a></li>
                 <li><a href="#diagnostics">Diagnostics</a></li>
                 <li><a href="#pathway">Your Pathway</a></li>
@@ -162,8 +162,8 @@
                     <circle cx="54" cy="46" r="4" fill="#ffffff" class="anim-shimmer" />
                 </svg>
             </div>
-            <h1 class="reveal reveal-delay-1" data-dtr="headline">New Jersey's Leading <br /><span class="gradient-text">Dry Eye &amp; MGD Specialists</span></h1>
-            <p class="subtitle reveal reveal-delay-2" data-dtr="subheadline">Stop relying on temporary eye drops. Our board-certified ophthalmologists pinpoint and treat the root cause of chronic eye burning, grittiness, and screen fatigue.</p>
+            <h1 class="reveal reveal-delay-1" data-dtr="headline">Find the Cause of Your Dry Eye<br /><span class="gradient-text">in One Focused Evaluation</span></h1>
+            <p class="subtitle reveal reveal-delay-2" data-dtr="subheadline">Our New Jersey board-certified ophthalmologists diagnose dry eye and meibomian gland dysfunction at the source, so you can move beyond temporary relief from eye drops.</p>
             <div class="hero-buttons reveal reveal-delay-3">
                 <a href="#treatments" class="btn btn-primary btn-glow">Explore Treatments</a>
                 <a href="#contact" class="btn btn-outline">Book an Appointment</a>
@@ -951,18 +951,18 @@
                     customize a treatment plan for your specific needs.</p>
             </div>
 
-            <p class="interactive-hint reveal"><span aria-hidden="true">↻</span> Tap any diagnostic card to flip it and see sample results</p>
+            <p class="interactive-hint reveal"><span aria-hidden="true">↻</span> Select a diagnostic card to learn what it measures and view a sample result.</p>
 
             <div class="diagnostics-grid reveal reveal-delay-1">
                 <!-- Card 1 -->
-                <div class="diag-card" tabindex="0" role="button" aria-expanded="false" aria-label="LipiView Interferometry: Click to flip for result details.">
+                <div class="diag-card" tabindex="0" role="button" aria-expanded="false" aria-label="View details for LipiView Interferometry.">
                     <div class="diag-card-inner">
                         <div class="diag-front">
                             <div class="diag-icon">👁️</div>
                             <h3>LipiView® Interferometry</h3>
                             <p>See if your protective oil layer is evaporating too fast.</p>
                             <span class="diag-flip-hint">
-                                <span>Click to flip</span>
+                                <span>View test details</span>
                                 <svg viewBox="0 0 24 24" class="hint-svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <path d="M23 4v6h-6"/>
                                     <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
@@ -997,7 +997,7 @@
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="diag-card" tabindex="0" role="button" aria-expanded="false" aria-label="Meibography: Click to flip for result details.">
+                <div class="diag-card" tabindex="0" role="button" aria-expanded="false" aria-label="View details for Meibography.">
                     <div class="diag-card-inner">
                         <div class="diag-front">
                             <div class="diag-icon">
@@ -1021,7 +1021,7 @@
                             <h3>Meibography</h3>
                             <p>Map your actual oil glands in under 60 seconds.</p>
                             <span class="diag-flip-hint">
-                                <span>Click to flip</span>
+                                <span>View test details</span>
                                 <svg viewBox="0 0 24 24" class="hint-svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <path d="M23 4v6h-6"/>
                                     <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
@@ -1038,14 +1038,14 @@
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="diag-card" tabindex="0" role="button" aria-expanded="false" aria-label="Tear Break-Up Time: Click to flip for result details.">
+                <div class="diag-card" tabindex="0" role="button" aria-expanded="false" aria-label="View details for Tear Break-Up Time.">
                     <div class="diag-card-inner">
                         <div class="diag-front">
                             <div class="diag-icon">⏱️</div>
                             <h3>Tear Break-Up Time</h3>
                             <p>Track exactly how many seconds tears stay on your eye.</p>
                             <span class="diag-flip-hint">
-                                <span>Click to flip</span>
+                                <span>View test details</span>
                                 <svg viewBox="0 0 24 24" class="hint-svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <path d="M23 4v6h-6"/>
                                     <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
@@ -1079,14 +1079,14 @@
                     </div>
                 </div>
                 <!-- Card 4 -->
-                <div class="diag-card" tabindex="0" role="button" aria-expanded="false" aria-label="Schirmer's Test: Click to flip for result details.">
+                <div class="diag-card" tabindex="0" role="button" aria-expanded="false" aria-label="View details for Schirmer's Test.">
                     <div class="diag-card-inner">
                         <div class="diag-front">
                             <div class="diag-icon">💧</div>
                             <h3>Schirmer's Test</h3>
                             <p>Assess if your eyes are producing enough raw moisture.</p>
                             <span class="diag-flip-hint">
-                                <span>Click to flip</span>
+                                <span>View test details</span>
                                 <svg viewBox="0 0 24 24" class="hint-svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <path d="M23 4v6h-6"/>
                                     <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
@@ -1128,14 +1128,14 @@
                     </div>
                 </div>
                 <!-- Card 5 -->
-                <div class="diag-card" tabindex="0" role="button" aria-expanded="false" aria-label="Osmolarity Testing: Click to flip for result details.">
+                <div class="diag-card" tabindex="0" role="button" aria-expanded="false" aria-label="View details for Osmolarity Testing.">
                     <div class="diag-card-inner">
                         <div class="diag-front">
                             <div class="diag-icon">🔬</div>
                             <h3>Osmolarity Testing</h3>
                             <p>Measure the salt concentration ('dryness level') of tears.</p>
                             <span class="diag-flip-hint">
-                                <span>Click to flip</span>
+                                <span>View test details</span>
                                 <svg viewBox="0 0 24 24" class="hint-svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <path d="M23 4v6h-6"/>
                                     <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
@@ -1170,14 +1170,14 @@
                     </div>
                 </div>
                 <!-- Card 6 -->
-                <div class="diag-card" tabindex="0" role="button" aria-expanded="false" aria-label="Inflammatory Markers: Click to flip for result details.">
+                <div class="diag-card" tabindex="0" role="button" aria-expanded="false" aria-label="View details for Inflammatory Markers.">
                     <div class="diag-card-inner">
                         <div class="diag-front">
                             <div class="diag-icon">🔥</div>
                             <h3>Inflammatory Markers</h3>
                             <p>Test for the specific inflammatory markers driving pain.</p>
                             <span class="diag-flip-hint">
-                                <span>Click to flip</span>
+                                <span>View test details</span>
                                 <svg viewBox="0 0 24 24" class="hint-svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <path d="M23 4v6h-6"/>
                                     <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
@@ -1215,7 +1215,7 @@
         <div class="container reveal mt-48">
             <div class="post-section-cta-card glass-card">
                 <div class="cta-card-content">
-                    <h3>Ready to See Your Gland Health?</h3>
+                    <h3>Ready to Discuss your <span class="cta-heading-emphasis">Gland Health</span></h3>
                     <p>Pinpoint tear film breakdown with FDA-cleared LipiView® interferometry and tear film osmolarity testing.</p>
                 </div>
                 <div class="cta-card-actions">

@@ -1183,14 +1183,6 @@ img {
   position: relative;
 }
 
-/* Per-card accent color via top border — cycles through brand palette */
-.diag-card:nth-child(1) .diag-front { border-top: 4px solid var(--mineral-gold); }
-.diag-card:nth-child(2) .diag-front { border-top: 4px solid var(--primary-dark); }
-.diag-card:nth-child(3) .diag-front { border-top: 4px solid var(--mineral-slate); }
-.diag-card:nth-child(4) .diag-front { border-top: 4px solid var(--mineral-sage); }
-.diag-card:nth-child(5) .diag-front { border-top: 4px solid var(--mineral-clay); }
-.diag-card:nth-child(6) .diag-front { border-top: 4px solid var(--mineral-rose); }
-
 .diag-card-inner {
   position: relative;
   width: 100%;
@@ -1223,7 +1215,7 @@ img {
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.35),
     0 2px 8px rgba(0, 0, 0, 0.2);
-  transition: all var(--transition);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 /* Icon ring badge — glowing dark variant for high-contrast card */
@@ -1368,7 +1360,7 @@ img {
 }
 
 .diag-front {
-  transition: all var(--transition);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 .diag-card:hover .diag-front {
@@ -1398,7 +1390,7 @@ img {
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   font-weight: 500;
 }
 
@@ -1417,6 +1409,29 @@ img {
 
 .diag-card:hover .diag-flip-hint .hint-svg {
   transform: rotate(180deg);
+}
+
+/* Normalized diagnostic-card states: one shared treatment, with a clear selected state. */
+.diag-card .diag-front,
+.diag-card .diag-back {
+  border-top: 4px solid var(--mineral-slate);
+}
+
+.diag-card[aria-expanded="true"] .diag-front,
+.diag-card[aria-expanded="true"] .diag-back {
+  border-color: var(--primary-dark);
+}
+
+.diag-card[aria-expanded="true"] .diag-flip-hint {
+  background: rgba(245, 158, 11, 0.16);
+  color: var(--text-primary);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.diag-card:focus-visible {
+  outline: 3px solid var(--primary-dark);
+  outline-offset: 6px;
+  border-radius: var(--radius);
 }
 
 /* Custom Visual Symptom Icon Badges */
@@ -6219,6 +6234,16 @@ textarea:disabled,
   letter-spacing: -0.015em;
   line-height: 1.3;
   margin-bottom: 8px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.32), 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.cta-heading-emphasis {
+  font-family: var(--font-body);
+  font-size: 0.92em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--primary-light);
+  text-shadow: 0 2px 10px rgba(229, 163, 84, 0.2);
 }
 
 .cta-card-content p {

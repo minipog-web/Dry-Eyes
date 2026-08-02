@@ -132,6 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = navLinks.classList.contains('open');
       mobileToggle.textContent = isOpen ? '✕' : '☰';
       mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      mobileToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      if (isOpen) navLinks.querySelector('a')?.focus();
       trackEvent('mobile_menu_toggle', { state: isOpen ? 'open' : 'close' });
     });
 
@@ -146,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.remove('open');
         mobileToggle.textContent = '☰';
         mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.setAttribute('aria-label', 'Open navigation menu');
       });
     });
 
@@ -172,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
           navLinks.classList.remove('open');
           mobileToggle.textContent = '☰';
           mobileToggle.setAttribute('aria-expanded', 'false');
+          mobileToggle.setAttribute('aria-label', 'Open navigation menu');
           mobileToggle.focus();
           e.preventDefault();
         }
@@ -454,6 +458,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleFlip = () => {
       const isFlipped = card.classList.toggle('flipped');
       card.setAttribute('aria-expanded', isFlipped ? 'true' : 'false');
+      card.setAttribute('aria-label', isFlipped ? 'Hide diagnostic details.' : `View details for ${card.querySelector('.diag-front h3')?.textContent.trim() || 'this diagnostic test'}.`);
+
+      // Keep the grid focused: only one result panel is open at a time.
+      if (isFlipped) {
+        diagCards.forEach(otherCard => {
+          if (otherCard !== card) {
+            otherCard.classList.remove('flipped');
+            otherCard.setAttribute('aria-expanded', 'false');
+            const otherName = otherCard.querySelector('.diag-front h3')?.textContent.trim();
+            if (otherName) otherCard.setAttribute('aria-label', `View details for ${otherName}.`);
+          }
+        });
+      }
       if (isFlipped) {
         const heading = card.querySelector('h3');
         const cardName = heading ? heading.textContent.trim() : 'Unknown';
@@ -477,6 +494,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (card.classList.contains('flipped')) {
           card.classList.remove('flipped');
           card.setAttribute('aria-expanded', 'false');
+          const cardName = card.querySelector('.diag-front h3')?.textContent.trim();
+          if (cardName) card.setAttribute('aria-label', `View details for ${cardName}.`);
         }
       }
     });
