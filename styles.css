@@ -5578,7 +5578,7 @@ sup.cite a:hover {
   background-clip: text !important;
   display: inline-block !important;
   text-shadow: none !important;
-  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0px 0px 15px rgba(236, 194, 128, 0.35)) !important;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.6)) !important;
   letter-spacing: -0.01em !important;
   padding-right: 4px; /* Avoid clipping the italic overhang */
 }
@@ -6605,7 +6605,7 @@ textarea:disabled,
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
     /* Ensure clear text borders and readability on mobile/low-brightness displays */
-    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0px 0px 10px rgba(245, 196, 83, 0.25)) !important;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.6)) !important;
   }
 }
 
