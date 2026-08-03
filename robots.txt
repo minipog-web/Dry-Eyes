@@ -1,0 +1,65 @@
+# ====================================================================
+# Robots.txt for Marano Eye Care - Dry Eye Center
+# Optimized for high SEO value and modern AI crawler permissions
+# ====================================================================
+
+# Global Defaults (Applies to all bots unless overridden)
+User-agent: *
+Allow: /
+Disallow: /dist/
+Disallow: /build.js
+Disallow: /hook_data.json
+Disallow: /scratch/
+Disallow: /.git/
+
+# --------------------------------------------------------------------
+# Traditional Search Crawlers
+# --------------------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+Disallow: /dist/
+Disallow: /build.js
+
+User-agent: Bingbot
+Allow: /
+Disallow: /dist/
+Disallow: /build.js
+
+# --------------------------------------------------------------------
+# Modern AI Search & LLM Scrapers
+# --------------------------------------------------------------------
+
+# OpenAI - ChatGPT's primary crawler (for model training data)
+User-agent: GPTBot
+Allow: /
+Disallow: /dist/
+Disallow: /build.js
+
+# OpenAI - ChatGPT-User (used for real-time user-driven web browsing)
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic - Claude's primary crawler
+User-agent: ClaudeBot
+Allow: /
+Disallow: /dist/
+
+# Anthropic - Claude's user-driven real-time web parser
+User-agent: Claude-Web
+Allow: /
+
+# Google-Extended - Used by Gemini & Google AI APIs
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity AI - Used for real-time search synthesis
+User-agent: PerplexityBot
+Allow: /
+
+# Common Crawl (Large-scale model pre-training corpus)
+User-agent: CCBot
+Allow: /
+Disallow: /dist/
+
+# XML Sitemap Location
+Sitemap: https://maranoeyecare.com/sitemap.xml

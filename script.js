@@ -1238,7 +1238,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const formBadge2 = document.getElementById('form-badge-2');
   const formIndicatorLine = document.getElementById('form-indicator-line');
 
-  const updateFormStepUI = () => {
+  const updateFormStepUI = (shouldFocus = false) => {
     if (currentFormStep === 1) {
       if (stepPanel1) stepPanel1.classList.add('active');
       if (stepPanel2) stepPanel2.classList.remove('active');
@@ -1253,6 +1253,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (formIndicatorLine) {
         formIndicatorLine.style.width = '0%';
       }
+      if (shouldFocus) {
+        const firstField = document.getElementById('preferred-location');
+        if (firstField) firstField.focus();
+      }
     } else {
       if (stepPanel1) stepPanel1.classList.remove('active');
       if (stepPanel2) stepPanel2.classList.add('active');
@@ -1266,6 +1270,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (formIndicatorLine) {
         formIndicatorLine.style.width = '100%';
+      }
+      if (shouldFocus) {
+        const firstField = document.getElementById('first-name');
+        if (firstField) firstField.focus();
       }
     }
   };
@@ -1282,6 +1290,7 @@ document.addEventListener('DOMContentLoaded', () => {
       errorSpan = document.createElement('span');
       errorSpan.className = 'input-error-message';
       errorSpan.id = `${field.id}-error`;
+      errorSpan.setAttribute('aria-live', 'polite');
       formGroup.appendChild(errorSpan);
     }
     errorSpan.textContent = message;
@@ -1379,7 +1388,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnNextStep.addEventListener('click', () => {
       if (validateStep1()) {
         currentFormStep = 2;
-        updateFormStepUI();
+        updateFormStepUI(true);
         trackEvent('form_step_1_complete');
       } else {
         reportStep1Validity();
@@ -1391,7 +1400,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnPrevStep) {
     btnPrevStep.addEventListener('click', () => {
       currentFormStep = 1;
-      updateFormStepUI();
+      updateFormStepUI(true);
       trackEvent('form_step_2_back');
     });
   }
@@ -1399,7 +1408,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (formBadge1) {
     formBadge1.addEventListener('click', () => {
       currentFormStep = 1;
-      updateFormStepUI();
+      updateFormStepUI(true);
     });
   }
 
@@ -1407,7 +1416,7 @@ document.addEventListener('DOMContentLoaded', () => {
     formBadge2.addEventListener('click', () => {
       if (validateStep1()) {
         currentFormStep = 2;
-        updateFormStepUI();
+        updateFormStepUI(true);
       } else {
         reportStep1Validity();
       }

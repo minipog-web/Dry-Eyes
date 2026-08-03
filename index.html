@@ -16,6 +16,26 @@
     <meta name="description"
         content="Tired of temporary eye drops? Dr. Marano provides FDA-cleared dry eye diagnostics &amp; root-cause treatments across 3 NJ locations. Schedule your evaluation today.">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://maranoeyecare.com/">
+
+    <!-- Open Graph (Facebook / LinkedIn / Slack / WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://maranoeyecare.com/">
+    <meta property="og:title" content="Dry Eye Specialists NJ: Advanced Relief | Marano Eye Care">
+    <meta property="og:description" content="Tired of temporary eye drops? Get advanced, FDA-cleared dry eye diagnostics &amp; treatments in Livingston, Denville &amp; Newark with Dr. Marano.">
+    <meta property="og:image" content="https://maranoeyecare.com/assets/meibography_scan.png">
+    <meta property="og:site_name" content="Marano Eye Care">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Cards (X) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://maranoeyecare.com/">
+    <meta name="twitter:title" content="Dry Eye Specialists NJ: Advanced Relief | Marano Eye Care">
+    <meta name="twitter:description" content="Get advanced, FDA-cleared dry eye diagnostics &amp; root-cause treatments across 3 NJ locations.">
+    <meta name="twitter:image" content="https://maranoeyecare.com/assets/meibography_scan.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" as="style">
@@ -25,7 +45,7 @@
     <!-- Preload Critical Above-the-Fold Assets -->
     <link rel="preload" href="assets/marano_logo.png" as="image" type="image/png">
 
-    <!-- LocalBusiness / MedicalBusiness Structured JSON-LD Data for SEO -->
+    <!-- Advanced Connected Medical & Local Business Schema.org Graph -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -37,14 +57,23 @@
           "url": "https://maranoeyecare.com",
           "logo": "https://maranoeyecare.com/assets/marano_logo.png",
           "image": "https://maranoeyecare.com/assets/meibography_scan.png",
-          "description": "New Jersey's premier dry eye care center specializing in advanced, FDA-cleared diagnostics and customized treatments.",
-          "telephone": "(973) 322-0100"
+          "description": "New Jersey's premier dry eye care center specializing in advanced, FDA-cleared diagnostics and customized, root-cause treatments.",
+          "telephone": "(973) 322-0100",
+          "medicalSpecialty": "Ophthalmology",
+          "knowsAbout": ["Dry Eye Syndrome", "Meibomian Gland Dysfunction", "LipiFlow", "BlephEx"],
+          "priceRange": "$$",
+          "subOrganization": [
+            { "@id": "https://maranoeyecare.com/#livingston" },
+            { "@id": "https://maranoeyecare.com/#denville" },
+            { "@id": "https://maranoeyecare.com/#newark" }
+          ]
         },
         {
           "@type": "MedicalBusiness",
           "@id": "https://maranoeyecare.com/#livingston",
           "name": "Marano Eye Care - Livingston Office",
           "telephone": "(973) 322-0100",
+          "parentOrganization": { "@id": "https://maranoeyecare.com/#organization" },
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "200 South Orange Ave, Suite 209",
@@ -52,13 +81,20 @@
             "addressRegion": "NJ",
             "postalCode": "07039",
             "addressCountry": "US"
-          }
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.7812,
+            "longitude": -74.3259
+          },
+          "openingHours": "Mo-Fr 08:00-17:00"
         },
         {
           "@type": "MedicalBusiness",
           "@id": "https://maranoeyecare.com/#denville",
           "name": "Marano Eye Care - Denville Office",
           "telephone": "(973) 625-7970",
+          "parentOrganization": { "@id": "https://maranoeyecare.com/#organization" },
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "16 Pocono Road, Suite 301",
@@ -66,13 +102,20 @@
             "addressRegion": "NJ",
             "postalCode": "07834",
             "addressCountry": "US"
-          }
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.8931,
+            "longitude": -74.4782
+          },
+          "openingHours": "Mo-Fr 08:00-17:00"
         },
         {
           "@type": "MedicalBusiness",
           "@id": "https://maranoeyecare.com/#newark",
           "name": "Marano Eye Care - Newark Office",
           "telephone": "(973) 877-5534",
+          "parentOrganization": { "@id": "https://maranoeyecare.com/#organization" },
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "306 Martin Luther King Blvd",
@@ -80,7 +123,13 @@
             "addressRegion": "NJ",
             "postalCode": "07102",
             "addressCountry": "US"
-          }
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.7397,
+            "longitude": -74.1793
+          },
+          "openingHours": "Mo-Fr 08:00-17:00"
         },
         {
           "@type": "Physician",
@@ -88,7 +137,14 @@
           "name": "Dr. Matthew J. Marano, Jr., MD",
           "telephone": "(973) 322-0100",
           "medicalSpecialty": "Ophthalmology",
-          "knowsAbout": "Dry Eye Syndrome, Meibomian Gland Dysfunction (MGD), LipiFlow, BlephEx",
+          "affiliation": { "@id": "https://maranoeyecare.com/#organization" },
+          "knowsAbout": [
+            "Dry Eye Syndrome",
+            "Meibomian Gland Dysfunction (MGD)",
+            "LipiFlow",
+            "BlephEx",
+            "Intense Pulsed Light (IPL)"
+          ],
           "memberOf": {
             "@type": "MedicalOrganization",
             "name": "American Board of Ophthalmology"
@@ -99,14 +155,17 @@
           "@id": "https://maranoeyecare.com/#condition",
           "name": "Dry Eye Syndrome",
           "alternateName": "Keratoconjunctivitis Sicca",
+          "description": "A chronic disease characterized by insufficient lubrication and moisture on the surface of the eye, often caused by Meibomian Gland Dysfunction.",
           "possibleTreatment": [
             {
               "@type": "MedicalProcedure",
-              "name": "LipiFlow Thermal Pulsation"
+              "name": "LipiFlow Thermal Pulsation System",
+              "description": "An FDA-cleared medical device that applies targeted heat and pressure to unlock blocked meibomian glands."
             },
             {
               "@type": "MedicalProcedure",
-              "name": "BlephEx Microblepharoexfoliation"
+              "name": "BlephEx Microblepharoexfoliation",
+              "description": "A clinical treatment that exfoliates and cleanses the eyelid margins to eliminate inflammatory biofilm."
             }
           ]
         }
@@ -122,7 +181,7 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- Skip Link for Keyboard Accessibility -->
-    <a href="#home" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- NAVBAR -->
     <nav class="navbar">
@@ -146,6 +205,7 @@
         </div>
     </nav>
 
+    <main id="main-content">
     <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div class="ambient-glow"></div>
@@ -643,17 +703,17 @@
             <div class="tear-film-container mt-48">
                 <div class="tear-layer-info reveal" role="tablist" aria-label="Tear Film Layers">
                     <div class="layer-card active" data-layer="lipid" tabindex="0" role="tab" aria-selected="true" id="tab-lipid" aria-controls="panel-lipid">
-                        <h4><span class="layer-dot bg-yellow"></span> 1. Lipid Layer (Outer)</h4>
+                        <h3><span class="layer-dot bg-yellow"></span> 1. Lipid Layer (Outer)</h3>
                         <p>Produced by the Meibomian glands in your eyelids. This oily layer seals the tears and prevents
                             them from evaporating too quickly.<sup class="cite">[2]</sup></p>
                     </div>
                     <div class="layer-card" data-layer="aqueous" tabindex="0" role="tab" aria-selected="false" id="tab-aqueous" aria-controls="panel-aqueous">
-                        <h4><span class="layer-dot bg-blue"></span> 2. Aqueous Layer (Middle)</h4>
+                        <h3><span class="layer-dot bg-blue"></span> 2. Aqueous Layer (Middle)</h3>
                         <p>Produced by the lacrimal glands. This watery layer makes up most of the tear, providing essential
                             nutrients, oxygen, and washing away particles.</p>
                     </div>
                     <div class="layer-card" data-layer="mucin" tabindex="0" role="tab" aria-selected="false" id="tab-mucin" aria-controls="panel-mucin">
-                        <h4><span class="layer-dot bg-green"></span> 3. Mucin Layer (Inner)</h4>
+                        <h3><span class="layer-dot bg-green"></span> 3. Mucin Layer (Inner)</h3>
                         <p>Produced by goblet cells on the eye's surface. This mucous layer acts like an adhesive, helping
                             the watery layer stick evenly to the eye.</p>
                     </div>
@@ -702,7 +762,7 @@
         <div class="container reveal reveal-delay-3 mt-48">
             <div class="comparison-reframing">
                 <div class="reframing-card bad-route">
-                    <h5>The OTC Drop Trap</h5>
+                    <h4>The OTC Drop Trap</h4>
                     <p class="cost">Cost: ~$360+/year (recurring)</p>
                     <ul>
                         <li>❌ Out-of-pocket expenses that compound annually</li>
@@ -711,20 +771,21 @@
                     </ul>
                 </div>
                 <div class="reframing-card good-route">
-                    <h5>The Precision Route</h5>
+                    <h4>The Precision Route</h4>
                     <p class="cost">Value: Definitive root-cause resolution</p>
                     <ul>
                         <li>✅ A clinical assessment to pinpoint your failing tear layer</li>
                         <li>✅ Early intervention to save gland structures from atrophy</li>
                         <li>✅ Customized medical therapies covered by insurance</li>
-            </div>
+                    </ul>
+                </div>
         </div>
 
         <!-- Interactive Drop Loop Calculator -->
         <div class="container reveal reveal-delay-4 mt-48">
             <div class="calculator-container glass-card p-40">
                 <div class="calculator-header">
-                    <h4>Calculate Your <span class="gradient-text">"Drop Loop" Cost</span></h4>
+                    <h3>Calculate Your <span class="gradient-text">"Drop Loop" Cost</span></h3>
                     <p>Symptom management is a compounding financial leak. Find out how much you are spending on temporary relief over time.</p>
                 </div>
                 <div class="calculator-grid">
@@ -1242,7 +1303,7 @@
                     <div class="treatment-header">
                         <div class="treatment-icon">🧬</div>
                         <div>
-                            <h3>Restasis® <span class="font-sm font-normal text-muted">(Cyclosporine 0.05%)</span></h3>
+                            <h4>Restasis® <span class="font-sm font-normal text-muted">(Cyclosporine 0.05%)</span></h4>
                             <span class="treatment-type">Anti-Inflammatory Drop</span>
                         </div>
                     </div>
@@ -1277,7 +1338,7 @@
                     <div class="treatment-header">
                         <div class="treatment-icon">🛑</div>
                         <div>
-                            <h3>Xiidra® <span class="font-sm font-normal text-muted">(Lifitegrast 5%)</span></h3>
+                            <h4>Xiidra® <span class="font-sm font-normal text-muted">(Lifitegrast 5%)</span></h4>
                             <span class="treatment-type">Targeted Inflammation Blocker</span>
                         </div>
                     </div>
@@ -1311,7 +1372,7 @@
                     <div class="treatment-header">
                         <div class="treatment-icon">🧪</div>
                         <div>
-                            <h3>Vevye® <span class="font-sm font-normal text-muted">(Cyclosporine Ophthalmic Solution 0.1%)</span></h3>
+                            <h4>Vevye® <span class="font-sm font-normal text-muted">(Cyclosporine Ophthalmic Solution 0.1%)</span></h4>
                             <span class="treatment-type">Water-Free Anti-Inflammatory Drop</span>
                         </div>
                     </div>
@@ -1343,7 +1404,7 @@
                     <div class="treatment-header">
                         <div class="treatment-icon">⚡</div>
                         <div>
-                            <h3>Tryptyr® <span class="font-sm font-normal text-muted">(TRPM8 Agonist Drop)</span></h3>
+                            <h4>Tryptyr® <span class="font-sm font-normal text-muted">(TRPM8 Agonist Drop)</span></h4>
                             <span class="treatment-type">Sensory Receptor Eye Drop</span>
                         </div>
                     </div>
@@ -1375,7 +1436,7 @@
                     <div class="treatment-header">
                         <div class="treatment-icon">🛡️</div>
                         <div>
-                            <h3>Miebo® <span class="font-sm font-normal text-muted">(100% Perfluorohexyloctane)</span></h3>
+                            <h4>Miebo® <span class="font-sm font-normal text-muted">(100% Perfluorohexyloctane)</span></h4>
                             <span class="treatment-type">Evaporation Shield Drop</span>
                         </div>
                     </div>
@@ -1407,7 +1468,7 @@
                     <div class="treatment-header">
                         <div class="treatment-icon">🔬</div>
                         <div>
-                            <h3>Cequa® <span class="font-sm font-normal text-muted">(Cyclosporine 0.09%)</span></h3>
+                            <h4>Cequa® <span class="font-sm font-normal text-muted">(Cyclosporine 0.09%)</span></h4>
                             <span class="treatment-type">Nanomicelle Technology</span>
                         </div>
                     </div>
@@ -2114,6 +2175,7 @@
                 </div>
             </div>
         </div>
+    </main>
 
 
     <!-- FOOTER -->

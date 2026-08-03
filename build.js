@@ -70,10 +70,20 @@ function build() {
   console.log("Copying assets...");
   copyFolderSync(assetsSrcDir, assetsDistDir);
   
-  // 3. Process index.html
+  // 3. Process index.html & static files (robots.txt, sitemap.xml)
   console.log("Processing index.html...");
   let html = fs.readFileSync(path.join(rootDir, 'index.html'), 'utf8');
   fs.writeFileSync(path.join(distDir, 'index.html'), html, 'utf8');
+
+  console.log("Copying robots.txt and sitemap.xml to dist/...");
+  const robotsSrc = path.join(rootDir, 'robots.txt');
+  const sitemapSrc = path.join(rootDir, 'sitemap.xml');
+  if (fs.existsSync(robotsSrc)) {
+    fs.copyFileSync(robotsSrc, path.join(distDir, 'robots.txt'));
+  }
+  if (fs.existsSync(sitemapSrc)) {
+    fs.copyFileSync(sitemapSrc, path.join(distDir, 'sitemap.xml'));
+  }
   
   // 4. Minify CSS
   console.log("Minifying styles.css...");

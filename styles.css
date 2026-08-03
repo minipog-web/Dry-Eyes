@@ -273,6 +273,8 @@ img {
 
 .section-light h1,
 .section-light h2,
+.section-light-warm h1,
+.section-light-warm h2,
 .section-light h3,
 .section-light h4,
 .section-light h5,
@@ -485,7 +487,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 45%, #E06D53 100%);
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 45%, #E5836E 100%);
   z-index: -2;
   border-radius: inherit;
   transition: all var(--transition);
@@ -6629,5 +6631,31 @@ img {
   height: auto;
 }
 
+/* ===================== WCAG AAA ACCESSIBILITY HIGH CONTRAST OVERRIDES ===================== */
 
+/* High-contrast focus outline rings for all interactive elements in light-background sections */
+.section-light :focus-visible,
+.section-light-warm :focus-visible,
+.section-light-cool :focus-visible,
+#faq :focus-visible,
+#contact :focus-visible {
+  border-color: #121A28 !important;
+  box-shadow: 0 0 0 3px rgba(18, 26, 40, 0.4), 0 0 12px rgba(18, 26, 40, 0.15) !important;
+}
 
+/* High-contrast styles for outline buttons inside light-background sections */
+.section-light .btn-outline,
+.section-light-warm .btn-outline,
+.section-light-cool .btn-outline {
+  color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  text-shadow: none !important;
+}
+
+.section-light .btn-outline:hover,
+.section-light-warm .btn-outline:hover,
+.section-light-cool .btn-outline:hover {
+  background: var(--primary-dark) !important;
+  color: #ffffff !important;
+  border-color: var(--primary-dark) !important;
+}
