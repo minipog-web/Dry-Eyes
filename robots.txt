@@ -20,14 +20,30 @@ Allow: /
 Disallow: /dist/
 Disallow: /build.js
 
+# Traditional Search & AI Crawlers (Microsoft / Bing / Copilot)
+# --------------------------------------------------------------------
 User-agent: Bingbot
 Allow: /
 Disallow: /dist/
 Disallow: /build.js
 
-# --------------------------------------------------------------------
-# Modern AI Search & LLM Scrapers
-# --------------------------------------------------------------------
+User-agent: BingPreview
+Allow: /
+Disallow: /dist/
+
+User-agent: MSNBot
+Allow: /
+
+# Microsoft Copilot, Copilot Studio, and Enterprise Connectors
+User-agent: MicrosoftPropertyDiscovery
+Allow: /
+Disallow: /dist/
+
+User-agent: Copilot
+Allow: /
+
+User-agent: Microsoft-Copilot
+Allow: /
 
 # OpenAI - ChatGPT's primary crawler (for model training data)
 User-agent: GPTBot
@@ -62,4 +78,4 @@ Allow: /
 Disallow: /dist/
 
 # XML Sitemap Location
-Sitemap: https://maranoeyecare.com/sitemap.xml
+Sitemap: https://dryeye.maranoeye.com/sitemap.xml
