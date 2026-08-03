@@ -6462,22 +6462,22 @@ textarea:disabled,
 
 .cert-badges-grid {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-wrap: nowrap;
+  gap: 14px;
   justify-content: center;
   align-items: stretch;
 }
 
 .cert-badge-item {
-  flex: 1 1 220px;
-  max-width: 280px;
+  flex: 1 1 0px;
+  min-width: 0;
   background: rgba(21, 24, 33, 0.7);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm, 10px);
-  padding: 16px;
+  padding: 14px 12px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   text-align: left;
   transition: transform var(--transition), border-color var(--transition);
 }
@@ -6488,10 +6488,17 @@ textarea:disabled,
   background: rgba(27, 45, 69, 0.4);
 }
 
-@media (max-width: 580px) {
+@media (max-width: 768px) {
+  .cert-badges-grid {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
   .cert-badge-item {
     flex: 1 1 100%;
     max-width: 100%;
+    padding: 16px;
+    gap: 14px;
   }
 }
 
