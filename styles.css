@@ -6572,6 +6572,30 @@ textarea:disabled,
   letter-spacing: 1px;
 }
 
+
+/* --- MOBILE GOLD TEXT CONTRAST & VISIBILITY ENHANCEMENTS --- */
+@media (max-width: 768px) {
+  /* Provide a highly radiant, high-contrast gold gradient for dark background elements on mobile devices */
+  :not(.section-light):not(.section-light-warm):not(.section-light-cool) > * > .gradient-text,
+  :not(.section-light):not(.section-light-warm):not(.section-light-cool) > .gradient-text,
+  .text-pop-gold,
+  .hero h1 .gradient-text {
+    background: linear-gradient(
+      135deg,
+      #FFFDF0 0%,   /* Ultra-bright champagne highlight */
+      #FFE8B8 20%,  /* Light radiant gold */
+      #F5C453 50%,  /* High-contrast vibrant core gold */
+      #FFE8B8 80%,  /* Light radiant gold return */
+      #FFFDF0 100%  /* Brilliant finish */
+    ) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    /* Ensure clear text borders and readability on mobile/low-brightness displays */
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0px 0px 10px rgba(245, 196, 83, 0.25)) !important;
+  }
+}
+
 /* Accessibility: Motion Sensitivity */
 @media (prefers-reduced-motion: reduce) {
   *,
