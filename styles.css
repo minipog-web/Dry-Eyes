@@ -180,6 +180,13 @@ textarea:focus-visible,
   outline-offset: 4px;
 }
 
+/* Focus Indicator Contrast overrides for Light Sections (WCAG AAA) */
+.section-light *:focus-visible,
+.section-light-warm *:focus-visible,
+.section-light-cool *:focus-visible {
+  outline-color: #0F172A !important;
+}
+
 /* Custom interactive components focus styling */
 .stage-tab:focus-visible {
   outline: 3px solid var(--primary-light);
@@ -488,7 +495,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 45%, #E5836E 100%);
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 45%, #FFB394 100%);
   z-index: -2;
   border-radius: inherit;
   transition: all var(--transition);
@@ -533,6 +540,23 @@ img {
   background: var(--primary-light);
   color: #121A28 !important;
   border-color: var(--primary-light);
+}
+
+/* Outline button contrast fallback inside light sections */
+.section-light .btn-outline,
+.section-light-warm .btn-outline,
+.section-light-cool .btn-outline {
+  color: #0F172A !important;
+  border-color: #0F172A !important;
+  text-shadow: none !important;
+}
+
+.section-light .btn-outline:hover,
+.section-light-warm .btn-outline:hover,
+.section-light-cool .btn-outline:hover {
+  background: #0F172A !important;
+  color: #FFFFFF !important;
+  border-color: #0F172A !important;
   box-shadow: 0 4px 12px var(--glow);
   text-shadow: none;
 }
@@ -4302,6 +4326,10 @@ img {
 
 .tab-btn {
   flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 12px 16px;
   min-height: 44px;
   border-radius: 8px;
