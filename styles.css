@@ -5946,6 +5946,11 @@ sup.cite a:hover {
   gap: 20px;
 }
 
+.btn-calc-cta {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
 .calculator-footer p {
   font-size: 0.92rem;
   color: var(--text-muted);
@@ -5956,6 +5961,10 @@ sup.cite a:hover {
   .calculator-footer {
     flex-direction: column;
     text-align: center;
+  }
+  .btn-calc-cta {
+    width: 100% !important;
+    justify-content: center !important;
   }
 }
 
