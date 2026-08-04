@@ -565,7 +565,7 @@
                                 <span>Estimated Gland Health Level:</span>
                                 <strong id="gland-health-label">90% Function</strong>
                             </div>
-                            <p class="gland-disclaimer">Educational estimate only — not a clinical diagnosis. A LipiView® scan provides your actual gland imaging.</p>
+                            <p class="gland-disclaimer">Educational estimate only — not a clinical diagnosis. A non-invasive LipiView® thermal scan at our clinic is required to map your actual gland structure.</p>
                             <div class="glands-container" id="glands-container">
                                 <!-- 5 glands represented in SVG -->
                                 <svg viewBox="0 0 250 85" class="glands-row-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="gland-chart-title">
@@ -2121,31 +2121,35 @@
 
                             <!-- Field 1: Full Name -->
                             <div class="form-group mb-16">
-                                <label for="full-name">Full Name <span class="required-asterisk" aria-hidden="true">*</span></label>
-                                <input type="text" id="full-name" name="name" required placeholder="Jane Doe" autocomplete="name" maxlength="100">
+                                <label for="full-name">Your Full Name <span class="required-asterisk" aria-hidden="true">*</span></label>
+                                <input type="text" id="full-name" name="name" required placeholder="Jane Doe" autocomplete="name" maxlength="100" aria-describedby="full-name-helper">
+                                <span class="form-helper-text" id="full-name-helper">Enter your first and last name.</span>
                             </div>
 
                             <!-- Field 2 & 3: Phone & Email -->
                             <div class="form-row mb-16">
                                 <div class="form-group">
                                     <label for="phone-number">Phone Number <span class="required-asterisk" aria-hidden="true">*</span></label>
-                                    <input type="tel" id="phone-number" name="phone" required placeholder="(973) 000-0000" autocomplete="tel" maxlength="20" pattern="[0-9 \(\)\+\-\.]{7,20}">
+                                    <input type="tel" id="phone-number" name="phone" required placeholder="(973) 555-0100" autocomplete="tel" maxlength="20" pattern="[0-9 \(\)\+\-\.]{7,20}" aria-describedby="phone-number-helper">
+                                    <span class="form-helper-text" id="phone-number-helper">Include your area code so our coordinators can call you.</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="email-address">Email Address <span class="required-asterisk" aria-hidden="true">*</span></label>
-                                    <input type="email" id="email-address" name="email" required placeholder="jane@example.com" autocomplete="email" maxlength="100">
+                                    <input type="email" id="email-address" name="email" required placeholder="jane@example.com" autocomplete="email" maxlength="100" aria-describedby="email-address-helper">
+                                    <span class="form-helper-text" id="email-address-helper">We'll send your evaluation details here.</span>
                                 </div>
                             </div>
 
                             <!-- Field 4: Preferred Location -->
                             <div class="form-group mb-24">
                                 <label for="preferred-location">Preferred Location <span class="required-asterisk" aria-hidden="true">*</span></label>
-                                <select id="preferred-location" name="preferred-location" required aria-label="Preferred Location">
+                                <select id="preferred-location" name="preferred-location" required aria-label="Preferred Location" aria-describedby="preferred-location-helper">
                                     <option value="">Select clinic location...</option>
                                     <option value="livingston">Livingston, NJ Office</option>
                                     <option value="denville">Denville, NJ Office</option>
                                     <option value="newark">Newark, NJ Office</option>
                                 </select>
+                                <span class="form-helper-text" id="preferred-location-helper">Select the clinic nearest to you. All locations offer our complete diagnostic suite.</span>
                             </div>
 
                             <div class="form-step-actions">

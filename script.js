@@ -98,13 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (field.validity.valueMissing || (isSelect && !field.value)) {
       switch (field.id) {
         case 'preferred-location':
-          return 'Please select a preferred office location near you to continue.';
+          return 'Please choose which of our 3 New Jersey locations is most convenient for you.';
         case 'full-name':
-          return 'Full name is required to register your appointment evaluation.';
+          return 'Please enter your full name so we know who to prepare the evaluation for.';
         case 'email-address':
-          return 'Please provide an email address where we can send your appointment details.';
+          return 'An email address is required so we can send you diagnostic preparation instructions and booking confirmations.';
         case 'phone-number':
-          return 'A phone number is required so our clinical coordinators can reach you.';
+          return 'Please provide your phone number so our New Jersey clinical coordinators can call you to confirm your appointment time.';
         default:
           return 'This field is required.';
       }
@@ -112,10 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (field.validity.typeMismatch || field.validity.patternMismatch) {
       if (field.id === 'email-address') {
-        return 'Email address format appears incorrect. Please include an "@" symbol and a valid domain (e.g., name@example.com).';
+        return 'The email format doesn\'t look quite right. Please include an "@" symbol and a valid domain name (e.g. name@example.com).';
       }
       if (field.id === 'phone-number') {
-        return 'Please enter a valid 10-digit phone number (e.g., (973) 555-0100).';
+        return 'The phone number format doesn\'t look quite right. Please enter a valid 10-digit phone number (e.g. (973) 555-0100).';
       }
     }
 
