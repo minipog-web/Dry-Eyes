@@ -1963,6 +1963,10 @@ img {
 
 
 /* ===================== TESTIMONIALS ===================== */
+.testimonials-section {
+  padding: clamp(48px, 5vw, 72px) 0;
+}
+
 .testimonial-carousel {
   position: relative;
   overflow: hidden;
