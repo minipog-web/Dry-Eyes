@@ -2,7 +2,8 @@ import os
 from PIL import Image
 
 def optimize_images():
-    assets_dir = r"c:\adamp\Documents\Dry Eye App\assets"
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    assets_dir = os.path.join(base_dir, "assets")
     
     images_to_optimize = [
         "dr_marano.png",

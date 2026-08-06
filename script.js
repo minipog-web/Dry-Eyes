@@ -363,52 +363,34 @@ document.addEventListener('DOMContentLoaded', () => {
       if (sliderContainer && sliderInput) {
         sliderContainer.classList.add('slider-transitioning');
         
+        const animateSliderTo = (targetVal) => {
+          let currentVal = parseFloat(sliderInput.value);
+          const steps = 15;
+          const stepVal = (targetVal - currentVal) / steps;
+          let stepCount = 0;
+          
+          const step = () => {
+            if (stepCount < steps) {
+              currentVal += stepVal;
+              sliderInput.value = currentVal;
+              sliderInput.dispatchEvent(new Event('input'));
+              stepCount++;
+              requestAnimationFrame(step);
+            } else {
+              sliderInput.value = targetVal;
+              sliderInput.dispatchEvent(new Event('input'));
+              sliderContainer.classList.remove('slider-transitioning');
+            }
+          };
+          step();
+        };
+
         if (targetLayer === 'lipid') {
           sliderContainer.classList.remove('slider-disabled');
-          // Smoothly animate back to 50% split comparison
-          let currentVal = parseFloat(sliderInput.value);
-          const targetVal = 50;
-          const steps = 15;
-          const stepVal = (targetVal - currentVal) / steps;
-          let stepCount = 0;
-          
-          const animateSlider = () => {
-            if (stepCount < steps) {
-              currentVal += stepVal;
-              sliderInput.value = currentVal;
-              sliderInput.dispatchEvent(new Event('input'));
-              stepCount++;
-              requestAnimationFrame(animateSlider);
-            } else {
-              sliderInput.value = targetVal;
-              sliderInput.dispatchEvent(new Event('input'));
-              sliderContainer.classList.remove('slider-transitioning');
-            }
-          };
-          animateSlider();
+          animateSliderTo(50);
         } else {
           sliderContainer.classList.add('slider-disabled');
-          // Smoothly animate to 100% to fully hide comparison
-          let currentVal = parseFloat(sliderInput.value);
-          const targetVal = 100;
-          const steps = 15;
-          const stepVal = (targetVal - currentVal) / steps;
-          let stepCount = 0;
-          
-          const animateSlider = () => {
-            if (stepCount < steps) {
-              currentVal += stepVal;
-              sliderInput.value = currentVal;
-              sliderInput.dispatchEvent(new Event('input'));
-              stepCount++;
-              requestAnimationFrame(animateSlider);
-            } else {
-              sliderInput.value = targetVal;
-              sliderInput.dispatchEvent(new Event('input'));
-              sliderContainer.classList.remove('slider-transitioning');
-            }
-          };
-          animateSlider();
+          animateSliderTo(100);
         }
       }
 
@@ -482,14 +464,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Treatments Selection custom tab buttons controller
-  const medicationTabs = document.getElementById('medication-tabs');
-  const medicationCards = document.querySelectorAll('.medications-display .treatment-card');
-  const procedureTabs = document.getElementById('procedure-tabs');
-  const procedureCards = document.querySelectorAll('.procedures-display .treatment-card');
+  // Treatments Selection custom tab buttons controller helper
+  const setupTreatmentTabs = (containerId, displaySelector, categoryName) => {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const cards = document.querySelectorAll(`${displaySelector} .treatment-card`);
+    const tabButtons = container.querySelectorAll('.tab-btn');
 
-  if (medicationTabs) {
-    const tabButtons = medicationTabs.querySelectorAll('.tab-btn');
     tabButtons.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -502,18 +483,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const selectedValue = btn.dataset.value;
         const targetId = `treatment-${selectedValue}`;
-        trackEvent('treatment_tab_click', { treatment_type: 'medications', tab_name: selectedValue });
+        trackEvent('treatment_tab_click', { treatment_type: categoryName, tab_name: selectedValue });
 
-        medicationCards.forEach(card => {
-          if (card.id === targetId) {
-            card.classList.add('active');
-          } else {
-            card.classList.remove('active');
-          }
+        cards.forEach(card => {
+          card.classList.toggle('active', card.id === targetId);
         });
       });
 
-      // Keyboard support for medication tabs navigation
+      // Keyboard support for tab navigation
       btn.addEventListener('keydown', (e) => {
         const btnArray = Array.from(tabButtons);
         const index = btnArray.indexOf(btn);
@@ -539,60 +516,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
-  }
+  };
 
-  if (procedureTabs) {
-    const tabButtons = procedureTabs.querySelectorAll('.tab-btn');
-    tabButtons.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        tabButtons.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-
-        const selectedValue = btn.dataset.value;
-        const targetId = `treatment-${selectedValue}`;
-        trackEvent('treatment_tab_click', { treatment_type: 'procedures', tab_name: selectedValue });
-
-        procedureCards.forEach(card => {
-          if (card.id === targetId) {
-            card.classList.add('active');
-          } else {
-            card.classList.remove('active');
-          }
-        });
-      });
-
-      // Keyboard support for procedure tabs navigation
-      btn.addEventListener('keydown', (e) => {
-        const btnArray = Array.from(tabButtons);
-        const index = btnArray.indexOf(btn);
-        let targetBtn = null;
-
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-          e.preventDefault();
-          targetBtn = btnArray[(index + 1) % btnArray.length];
-        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-          e.preventDefault();
-          targetBtn = btnArray[(index - 1 + btnArray.length) % btnArray.length];
-        } else if (e.key === 'Home') {
-          e.preventDefault();
-          targetBtn = btnArray[0];
-        } else if (e.key === 'End') {
-          e.preventDefault();
-          targetBtn = btnArray[btnArray.length - 1];
-        }
-
-        if (targetBtn) {
-          targetBtn.focus();
-          targetBtn.click();
-        }
-      });
-    });
-  }
+  setupTreatmentTabs('medication-tabs', '.medications-display', 'medications');
+  setupTreatmentTabs('procedure-tabs', '.procedures-display', 'procedures');
 
   // Testimonials Carousel
   const track = document.querySelector('.testimonial-track');

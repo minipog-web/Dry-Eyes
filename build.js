@@ -30,7 +30,7 @@ function minifyCSS(css) {
 function minifyJS(js) {
   return js
     .replace(/\/\*[\s\S]*?\*\//g, '') // Remove block comments
-    .replace(/\/\/.*/g, '')           // Remove inline comments safely
+    .replace(/(^|[^:])\/\/.*/g, '$1')  // Remove inline comments safely without corrupting URLs (http:// or //cdn...)
     .replace(/\s+/g, ' ')             // Collapse whitespace
     .trim();
 }

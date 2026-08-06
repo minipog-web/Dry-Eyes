@@ -143,9 +143,9 @@ h5 {
   font-weight: 600;
 }
 
-/* Body text contrast & legibility */
-p, li, span, label, input, select, textarea {
-  font-family: var(--font-body);
+/* Form elements font inheritance & legibility */
+input, select, textarea, button {
+  font-family: inherit;
 }
 
 a {
