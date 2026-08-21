@@ -325,12 +325,16 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(() => updateSlidingPill(initialActiveTab));
   }
 
+  let resizeRafId = null;
   window.addEventListener('resize', () => {
-    const currentActiveTab = document.querySelector('.stage-tab.active');
-    if (currentActiveTab) {
-      updateSlidingPill(currentActiveTab);
-    }
-  });
+    if (resizeRafId) cancelAnimationFrame(resizeRafId);
+    resizeRafId = requestAnimationFrame(() => {
+      const currentActiveTab = document.querySelector('.stage-tab.active');
+      if (currentActiveTab) {
+        updateSlidingPill(currentActiveTab);
+      }
+    });
+  }, { passive: true });
 
   // Tear Film Anatomy
   const layerCards = document.querySelectorAll('.layer-card');

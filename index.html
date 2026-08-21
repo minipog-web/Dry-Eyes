@@ -60,8 +60,15 @@
           "description": "New Jersey's premier dry eye care center specializing in advanced, FDA-cleared diagnostics and customized, root-cause treatments.",
           "telephone": "(973) 322-0100",
           "medicalSpecialty": "Ophthalmology",
-          "knowsAbout": ["Dry Eye Syndrome", "Meibomian Gland Dysfunction", "LipiFlow", "BlephEx"],
+          "knowsAbout": ["Dry Eye Syndrome", "Meibomian Gland Dysfunction", "LipiFlow", "BlephEx", "AmbioDisk"],
           "priceRange": "$$",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "680",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
           "subOrganization": [
             { "@id": "https://maranoeyecare.com/#livingston" },
             { "@id": "https://maranoeyecare.com/#denville" },
@@ -166,6 +173,65 @@
               "@type": "MedicalProcedure",
               "name": "BlephEx Microblepharoexfoliation",
               "description": "A clinical treatment that exfoliates and cleanses the eyelid margins to eliminate inflammatory biofilm."
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "AmbioDisk Amniotic Membrane Biological Therapy",
+              "description": "An in-office biological allograft procedure delivering essential growth factors and regenerative cytokines to heal and restore severe dry eye disease."
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://dryeye.maranoeye.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is dry eye a permanent condition?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "While dry eye is often a chronic condition, it is highly manageable. With the right diagnostic approach and a tailored treatment plan, we can significantly reduce your symptoms, prevent further damage to the ocular surface, and restore your quality of life."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long until I feel relief — and how many visits will I need?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Timeline varies by patient and treatment. Some patients feel improvement within days of starting prescription drops or having punctal plugs inserted. In-office procedures like NearTear® often provide relief within a few weeks, while prescription drops like Restasis® or Xiidra® may take 2 to 12 weeks to reach full effect. Most patients notice significant improvement in comfort and screen-time endurance within 2 to 6 weeks. We schedule follow-up checks at 1 month and 3 months to monitor gland function and adjust your plan as your tear film stabilizes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does insurance cover dry eye treatments?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Many diagnostic tests and prescription medications (like Restasis or Xiidra) are covered by standard health or vision insurance, though co-pays vary. Some advanced in-office procedures or specific custom options may be considered out-of-pocket expenses. Our team will verify your benefits and explain all costs prior to treatment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are the diagnostic scans and in-office procedures painful?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. All of our diagnostic tests—including LipiView® interferometry and infrared Meibography—are completely non-invasive, quick, and touch-free. For procedures like Punctal Plugs, we use numbing drops to ensure you feel no pain or scratchiness. Most patients describe the sensation as a mild cooling or pressure, and you can resume normal activities immediately after your visit."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens at my first dry eye evaluation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Your first visit typically takes 45–60 minutes. We'll review your symptom history, then run non-invasive diagnostic scans — including LipiView® interferometry and infrared Meibography — to image your oil glands and measure your tear film. You'll see your results on screen, and your specialist will explain which tear layer is failing and recommend a customized treatment plan. No referral is required."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "I get temporary relief from drugstore eye drops. Why should I switch to a clinical treatment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Drugstore drops act as a temporary band-aid, masking symptoms for minutes without treating the underlying cause. If your meibomian glands are blocked, tears will continue to evaporate instantly. Over time, untreated gland blockage leads to irreversible gland atrophy (shrinkage). Our treatments target the root cause—inflammation and gland blockages—to restore your eyes' natural ability to produce and maintain tears, preventing permanent damage."
+              }
             }
           ]
         }
@@ -222,7 +288,7 @@
                     <circle cx="54" cy="46" r="4" fill="#ffffff" class="anim-shimmer" />
                 </svg>
             </div>
-            <h1 class="reveal reveal-delay-1" data-dtr="headline">New Jersey's Leading <br /><span class="gradient-text">Dry Eye &amp; MGD Specialists</span></h1>
+            <h1 class="reveal reveal-delay-1" data-dtr="headline">New Jersey's Leading <br /><span class="gradient-text">Dry Eye Specialists</span></h1>
             <p class="subtitle reveal reveal-delay-2" data-dtr="subheadline">Break free from the endless cycle of temporary eye drops. Our board-certified specialists diagnose and treat the true biological root cause of your dry eyes—restoring natural moisture to end chronic burning, grittiness, and screen fatigue.</p>
             <div class="hero-buttons reveal reveal-delay-3">
                 <a href="#treatments" class="btn btn-primary btn-glow">Explore Treatments</a>
@@ -971,7 +1037,7 @@
                         <tr>
                             <td data-label="Clinical Feature"><strong>In-Office Procedures</strong></td>
                             <td data-label="Standard Eye Care">Unavailable / not offered</td>
-                            <td data-label="Marano Specialty"><span class="status-yes">✓</span> Punctal Plugs & NearTear® Neurostimulation</td>
+                            <td data-label="Marano Specialty"><span class="status-yes">✓</span> Punctal Plugs, NearTear® & AmbioDisk™</td>
                         </tr>
                         <tr>
                             <td data-label="Clinical Feature"><strong>Insurance & Rx Support</strong></td>
@@ -1508,6 +1574,7 @@
                 <div class="custom-tab-container" id="procedure-tabs" role="tablist" aria-label="In-Office Procedures">
                     <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="treatment-plugs" id="tab-plugs" data-value="plugs">Punctal Plugs</button>
                     <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-neartear" id="tab-neartear" data-value="neartear">NearTear®</button>
+                    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-ambiodisk" id="tab-ambiodisk" data-value="ambiodisk">AmbioDisk™</button>
                 </div>
             </div>
             
@@ -1602,6 +1669,56 @@
                     </div>
                 </div>
 
+                <!-- AmbioDisk -->
+                <div class="treatment-card" id="treatment-ambiodisk" role="tabpanel" aria-labelledby="tab-ambiodisk">
+                    <div class="treatment-header">
+                        <div class="treatment-icon">
+                            <svg viewBox="0 0 32 32" class="w-32 h-32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="ambiodisk-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#C5A880" stop-opacity="0.95" />
+                                        <stop offset="50%" stop-color="#7B96C8" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#5B6BA8" stop-opacity="0.6" />
+                                    </linearGradient>
+                                    <filter id="ambiodisk-glow" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="1" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                </defs>
+                                <circle cx="16" cy="16" r="12" stroke="url(#ambiodisk-grad)" stroke-width="1.5" stroke-dasharray="2 2" fill="rgba(123, 150, 200, 0.1)" />
+                                <circle cx="16" cy="16" r="8" fill="url(#ambiodisk-grad)" filter="url(#ambiodisk-glow)" />
+                                <circle cx="16" cy="16" r="4" fill="#FFFFFF" opacity="0.85" />
+                                <path d="M12 16h8 M16 12v8" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" opacity="0.7" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>AmbioDisk™</h3>
+                            <span class="treatment-type">Amniotic Membrane Biological Therapy</span>
+                        </div>
+                    </div>
+                    <div class="treatment-body">
+                        <div class="moa-section">
+                            <h4>How It Works</h4>
+                            <p>AmbioDisk™ is a sutureless, dehydrated amniotic membrane graft placed comfortably on the corneal surface during a brief in-office procedure under a protective bandage contact lens. Rich in regenerative growth factors, biological nutrients, and anti-inflammatory cytokines, it actively accelerates corneal re-epithelialization, rejuvenates damaged ocular surface nerves, and delivers profound healing for severe, refractory dry eye disease.</p>
+                            <div class="ideal-for">
+                                <span class="ideal-tag-label">Best For:</span>
+                                <span class="ideal-tag">Severe Dry Eye Disease</span>
+                                <span class="ideal-tag">Corneal Damage & Erosion</span>
+                                <span class="timeline-tag">⏱️ Expected Relief: 3–5 Days</span>
+                            </div>
+                        </div>
+                        <div class="moa-diagram">
+                            <div class="moa-steps">
+                                <div class="moa-step">Severe Surface<br />Damage</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step highlight">In-Office AmbioDisk™<br />Placement</div>
+                                <div class="moa-arrow">→</div>
+                                <div class="moa-step border-accent-green">Rapid Biological<br />Tissue Healing</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div> <!-- Close procedures-display -->
         </div> <!-- Close second treatment-block -->
     </div> <!-- Close treatments-grid -->
@@ -1637,7 +1754,7 @@
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" class="cred-icon" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span><strong>Advanced Procedures:</strong> Punctal Plugs, NearTear® & Custom Drop Therapies</span>
+                            <span><strong>Advanced Procedures:</strong> Punctal Plugs, NearTear®, AmbioDisk™ & Custom Drop Therapies</span>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" class="cred-icon" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -1646,12 +1763,6 @@
                     </ul>
                     
                     <div class="practice-trust-badges">
-                        <div class="trust-badge-item">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            </svg>
-                            <span>ABO Board Certified</span>
-                        </div>
                         <div class="trust-badge-item">
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
@@ -1765,7 +1876,7 @@
                             <p class="testimonial-quote">"Years of screen-time burning left me dreading every workday. After a LipiView® scan revealed blocked Meibomian glands, Dr. Marano started me on Xiidra® — within six weeks, I could work a full day without constant stinging."</p>
                             <div class="testimonial-profile">
                                 <div class="testimonial-avatar-wrapper">
-                                    <img src="assets/patient_maria.jpg" alt="Maria T., typing her review on her computer screen" class="testimonial-avatar">
+                                    <img src="assets/patient_maria.jpg" alt="Maria T., typing her review on her computer screen" class="testimonial-avatar" width="48" height="48" loading="lazy" decoding="async">
                                 </div>
                                 <div>
                                     <div class="testimonial-author testimonial-author-name">Maria T.</div>
@@ -1780,7 +1891,7 @@
                             <p class="testimonial-quote">"I tried every artificial tear on the market. Meibography showed my oil glands were nearly gone — Dr. Marano treated my Meibomian gland dysfunction with a plan that actually works. I wish I'd come here sooner."</p>
                             <div class="testimonial-profile">
                                 <div class="testimonial-avatar-wrapper">
-                                    <img src="assets/patient_robert.jpg" alt="Robert K., writing his review on his laptop" class="testimonial-avatar">
+                                    <img src="assets/patient_robert.jpg" alt="Robert K., writing his review on his laptop" class="testimonial-avatar" width="48" height="48" loading="lazy" decoding="async">
                                 </div>
                                 <div>
                                     <div class="testimonial-author testimonial-author-name">Robert K.</div>
@@ -1795,7 +1906,7 @@
                             <p class="testimonial-quote">"They showed me infrared images of my actual tear glands and explained exactly why my drops weren't working. Understanding the science behind my dry eye made me trust the treatment plan completely."</p>
                             <div class="testimonial-profile">
                                 <div class="testimonial-avatar-wrapper">
-                                    <img src="assets/patient_susan.jpg" alt="Susan L., writing her review on her smartphone" class="testimonial-avatar">
+                                    <img src="assets/patient_susan.jpg" alt="Susan L., writing her review on her smartphone" class="testimonial-avatar" width="48" height="48" loading="lazy" decoding="async">
                                 </div>
                                 <div>
                                     <div class="testimonial-author testimonial-author-name">Susan L.</div>
@@ -1810,7 +1921,7 @@
                             <p class="testimonial-quote">"After cataract surgery, my dry eye got much worse. Punctal plugs plus Xiidra® gave me comfortable eyes for the first time in years — I can read and drive at night again without dreading the glare."</p>
                             <div class="testimonial-profile">
                                 <div class="testimonial-avatar-wrapper">
-                                    <img src="assets/patient_patricia.jpg" alt="Patricia M., writing her review on her desktop computer" class="testimonial-avatar">
+                                    <img src="assets/patient_patricia.jpg" alt="Patricia M., writing her review on her desktop computer" class="testimonial-avatar" width="48" height="48" loading="lazy" decoding="async">
                                 </div>
                                 <div>
                                     <div class="testimonial-author testimonial-author-name">Patricia M.</div>
@@ -1825,7 +1936,7 @@
                             <p class="testimonial-quote">"As a financial analyst spending 12 hours a day in front of Bloomberg terminals, my eyes were constantly bloodshot and burning. Dr. Marano explained my glands were struggling to secrete oil. Within weeks of starting a custom LipiFlow® and Restasis® plan, the heavy, gritty feeling was gone. My focus is back."</p>
                             <div class="testimonial-profile">
                                 <div class="testimonial-avatar-wrapper">
-                                    <img src="assets/patient_david.webp" alt="David L., smiling while reviewing documents in his office" class="testimonial-avatar" loading="lazy">
+                                    <img src="assets/patient_david.webp" alt="David L., smiling while reviewing documents in his office" class="testimonial-avatar" width="48" height="48" loading="lazy" decoding="async">
                                 </div>
                                 <div>
                                     <div class="testimonial-author testimonial-author-name">David L.</div>
@@ -1840,7 +1951,7 @@
                             <p class="testimonial-quote">"Even a simple walk outside in the breeze was painful—my eyes watered constantly yet felt incredibly dry and scratchy. Dr. Marano identified severe aqueous deficiency and placed comfortable punctal plugs in-office. It was completely painless, and my eyes feel normally hydrated for the first time in ten years."</p>
                             <div class="testimonial-profile">
                                 <div class="testimonial-avatar-wrapper">
-                                    <img src="assets/patient_linda.webp" alt="Linda J., enjoying a sunny day outdoors in New Jersey" class="testimonial-avatar" loading="lazy">
+                                    <img src="assets/patient_linda.webp" alt="Linda J., enjoying a sunny day outdoors in New Jersey" class="testimonial-avatar" width="48" height="48" loading="lazy" decoding="async">
                                 </div>
                                 <div>
                                     <div class="testimonial-author testimonial-author-name">Linda J.</div>
@@ -1855,7 +1966,7 @@
                             <p class="testimonial-quote">"I had to stop wearing my contact lenses entirely due to the raw, dry irritation under my eyelids. Dr. Marano’s team diagnosed a combined tear film deficiency and started me on Xiidra. I’m back to wearing my lenses during long surgical shifts with absolutely zero irritation or scratchiness."</p>
                             <div class="testimonial-profile">
                                 <div class="testimonial-avatar-wrapper">
-                                    <img src="assets/patient_sarah.webp" alt="Sarah P., smiling confidently in her dental clinic" class="testimonial-avatar" loading="lazy">
+                                    <img src="assets/patient_sarah.webp" alt="Sarah P., smiling confidently in her dental clinic" class="testimonial-avatar" width="48" height="48" loading="lazy" decoding="async">
                                 </div>
                                 <div>
                                     <div class="testimonial-author testimonial-author-name">Sarah P.</div>
@@ -1870,7 +1981,7 @@
                             <p class="testimonial-quote">"I spent years living in fear that my chronic dry eye was permanent gland atrophy that would end my career as an architect. Dr. Marano’s Meibography scan showed my oil glands were still viable—just heavily congested. After targeted LipiFlow® treatments, the constant burning and fear are gone."</p>
                             <div class="testimonial-profile">
                                 <div class="testimonial-avatar-wrapper">
-                                    <img src="assets/patient_michael.webp" alt="Michael R., smiling in his office" class="testimonial-avatar" loading="lazy">
+                                    <img src="assets/patient_michael.webp" alt="Michael R., smiling in his office" class="testimonial-avatar" width="48" height="48" loading="lazy" decoding="async">
                                 </div>
                                 <div>
                                     <div class="testimonial-author testimonial-author-name">Michael R.</div>
@@ -1885,7 +1996,7 @@
                             <p class="testimonial-quote">"Over-the-counter drops left my eyes stinging even worse, making me dread driving home after teaching all day. Dr. Marano diagnosed severe tear film instability and put me on a prescription routine that targeted the root inflammation. I finally have clear, pain-free vision from morning to night."</p>
                             <div class="testimonial-profile">
                                 <div class="testimonial-avatar-wrapper">
-                                    <img src="assets/patient_elizabeth.webp" alt="Elizabeth S., smiling warmly outdoors" class="testimonial-avatar" loading="lazy">
+                                    <img src="assets/patient_elizabeth.webp" alt="Elizabeth S., smiling warmly outdoors" class="testimonial-avatar" width="48" height="48" loading="lazy" decoding="async">
                                 </div>
                                 <div>
                                     <div class="testimonial-author testimonial-author-name">Elizabeth S.</div>
@@ -2362,7 +2473,7 @@
     </script>
 
     <!-- CallRail number swap — must load LAST so gtag is available -->
-    <script type="text/javascript" src="//cdn.callrail.com/companies/184406271/2daa9b17ce8405854d16/12/swap.js"></script>
+    <script type="text/javascript" src="https://cdn.callrail.com/companies/184406271/2daa9b17ce8405854d16/12/swap.js"></script>
 </body>
 
 </html>
