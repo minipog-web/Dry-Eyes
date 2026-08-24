@@ -30,4 +30,5 @@
 - **Form Heading Amplification (`/bolder`)**: Elevated `"Request Diagnostic Evaluation"` with a commanding visual hierarchy: added `Priority Clinical Access` uppercase gold eyebrow (`.form-step-eyebrow`), scaled heading typography to `1.85rem` weight 800 with italicized gold editorial accent (`Request Diagnostic <span class="text-pop-gold serif-italic">Evaluation</span>`), and upgraded the CTA button to `1.05rem` with high-contrast ambient glow.
 - **Legal & Compliance Links**: Updated the Privacy Policy link (`https://sa1s3.patientpop.com/assets/docs/425417.pdf`) and the Terms of Service link (`https://www.maranoeyecare.com/our-terms`) across footer navigation and consultation forms.
 - **Production Build Synchronization**: Ran `build.js` to compile, minify, and sync `index.html`, `styles.css`, and `script.js` into the `dist/` directory.
+- **GitHub & Netlify Deployment**: Committed and pushed commit `7418071` to GitHub (`minipog-web/Dry-Eyes.git`), triggering the Netlify continuous deployment production build using `netlify.toml` (`node build.js` -> `dist`).
 
