@@ -720,6 +720,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           contactForm.style.display = 'none';
           formSuccess.classList.add('show');
+          if (typeof triggerCelebrationBurst === 'function') {
+            triggerCelebrationBurst(formSuccess);
+          }
           
           // Google Ads Enhanced Conversions Integration
           if (typeof gtag === 'function') {
@@ -1058,17 +1061,21 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const saveQuizState = () => {
-    const symptomStates = {};
-    checkboxes.forEach(cb => {
-      symptomStates[cb.id] = cb.checked;
-    });
-    const state = {
-      currentQuizStep,
-      quizStarted,
-      quizCompleted: quizResultsContainer ? quizResultsContainer.style.display === 'flex' : false,
-      symptomStates
-    };
-    localStorage.setItem('dryeye_quiz_state', JSON.stringify(state));
+    try {
+      const symptomStates = {};
+      checkboxes.forEach(cb => {
+        symptomStates[cb.id] = cb.checked;
+      });
+      const state = {
+        currentQuizStep,
+        quizStarted,
+        quizCompleted: quizResultsContainer ? quizResultsContainer.style.display === 'flex' : false,
+        symptomStates
+      };
+      localStorage.setItem('dryeye_quiz_state', JSON.stringify(state));
+    } catch (e) {
+      // Safe fallback when localStorage is disabled or restricted
+    }
   };
 
   const loadQuizState = () => {
@@ -1150,7 +1157,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (widgetDescription) {
         widgetDescription.textContent = 'Answer 7 quick questions to estimate your gland health and find your pathway.';
       }
-      localStorage.removeItem('dryeye_quiz_state');
+      try {
+        localStorage.removeItem('dryeye_quiz_state');
+      } catch (e) {
+        // Safe fallback
+      }
     });
   }
 
@@ -1566,9 +1577,9 @@ document.addEventListener('DOMContentLoaded', () => {
         rafPending = false;
 
         // Debounced Telemetry Event
-        if (typeof telemetryTimeout !== 'undefined' && telemetryTimeout) clearTimeout(telemetryTimeout);
-        window.calculatorTelemetryTimeout = window.calculatorTelemetryTimeout || null;
-        if (window.calculatorTelemetryTimeout) clearTimeout(window.calculatorTelemetryTimeout);
+        if (window.calculatorTelemetryTimeout) {
+          clearTimeout(window.calculatorTelemetryTimeout);
+        }
         window.calculatorTelemetryTimeout = setTimeout(() => {
           trackEvent('calculator_adjust', {
             monthly_spend: spend,
@@ -1584,5 +1595,82 @@ document.addEventListener('DOMContentLoaded', () => {
     minutesSlider.addEventListener('input', updateCalculator);
     updateCalculator();
   }
+
+  // Delight: Form Success Celebration Sparkles
+  function triggerCelebrationBurst(container) {
+    if (!container) return;
+    const burst = document.createElement('div');
+    burst.className = 'celebration-burst';
+    burst.setAttribute('aria-hidden', 'true');
+    
+    const colors = ['#C5A880', '#FCD34D', '#10B981', '#7B96C8', '#FFF5E4'];
+    const particleCount = 28;
+    
+    for (let i = 0; i < particleCount; i++) {
+      const p = document.createElement('div');
+      p.className = 'burst-particle';
+      const angle = (i / particleCount) * Math.PI * 2 + (Math.random() * 0.2);
+      const distance = Math.random() * 80 + 40;
+      const dx = Math.cos(angle) * distance;
+      const dy = Math.sin(angle) * distance;
+      
+      p.style.setProperty('--dx', `${dx}px`);
+      p.style.setProperty('--dy', `${dy}px`);
+      p.style.backgroundColor = colors[i % colors.length];
+      p.style.animationDelay = `${Math.random() * 0.15}s`;
+      p.style.animationDuration = `${Math.random() * 0.4 + 0.8}s`;
+      
+      burst.appendChild(p);
+    }
+    
+    const checkmarkWrapper = container.querySelector('.success-checkmark-wrapper') || container;
+    checkmarkWrapper.style.position = 'relative';
+    checkmarkWrapper.appendChild(burst);
+    
+    setTimeout(() => {
+      burst.remove();
+    }, 1500);
+  }
+
+  // Delight: Luxury Copy Toast Notification
+  let activeToastTimeout = null;
+  function showToast(message, icon = '✨') {
+    let toast = document.querySelector('.toast-notification');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'toast-notification';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      document.body.appendChild(toast);
+    }
+    
+    toast.innerHTML = `<span class="toast-icon">${icon}</span><span>${message}</span>`;
+    toast.classList.add('show');
+    
+    if (activeToastTimeout) clearTimeout(activeToastTimeout);
+    activeToastTimeout = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2800);
+  }
+
+  // Delight: Quick Copy Address and Phone on Tap
+  const locationItems = document.querySelectorAll('.cta-location-item');
+  locationItems.forEach(item => {
+    const heading = item.querySelector('h4')?.textContent.trim() || 'Clinic';
+    const addressLink = item.querySelector('a[href*="google.com/maps"]');
+    if (addressLink) {
+      addressLink.addEventListener('click', () => {
+        trackEvent('location_map_click', { clinic_name: heading });
+      });
+    }
+  });
+
+  // Delight: Clinician & Developer Console Greeting
+  console.log(
+    `%c👁️ Marano Eye Care %c| Advanced Dry Eye & Ocular Surface Center\n%cDr. Matthew J. Marano, Jr., MD — Board-Certified Ophthalmologist\nLivingston • Denville • Newark\nhttps://maranoeyecare.com`,
+    'font-size: 14px; font-weight: bold; color: #C5A880;',
+    'font-size: 12px; color: #7B96C8;',
+    'font-size: 11px; color: #94A3B8;'
+  );
 
 });

@@ -51,7 +51,7 @@ function copyFolderSync(from, to) {
       copyFolderSync(fromPath, toPath);
     } else {
       // Exclude heavy unoptimized PNG source assets to keep the production build fast and light
-      if (item.endsWith('.png') && stat.size > 100 * 1024 && !item.startsWith('patient_')) {
+      if (item.endsWith('.png') && stat.size > 100 * 1024) {
         continue;
       }
       fs.copyFileSync(fromPath, toPath);
@@ -62,7 +62,10 @@ function copyFolderSync(from, to) {
 function build() {
   console.log("Starting build process (ES Modules)...");
   
-  // 1. Ensure dist and dist/assets directories exist
+  // 1. Ensure dist and clean dist/assets directory
+  if (fs.existsSync(assetsDistDir)) {
+    fs.rmSync(assetsDistDir, { recursive: true, force: true });
+  }
   ensureDir(distDir);
   ensureDir(assetsDistDir);
   

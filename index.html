@@ -256,16 +256,31 @@
             <a href="https://maranoeyecare.com" class="nav-logo">
                 <img src="assets/marano_logo.png" alt="Marano Eye Care" class="logo-img" width="180" height="60" loading="eager">
             </a>
-            <button class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
+            <div class="mobile-nav-right mobile-only">
+                <a href="tel:9733220100" class="mobile-header-call-btn" aria-label="Call Livingston clinic at (973) 322-0100">
+                    <svg class="phone-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+                        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+                    </svg>
+                    <span>(973) 322-0100</span>
+                </a>
+                <button class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
+            </div>
             <ul class="nav-links">
                 <li><a href="#symptoms">Symptoms</a></li>
                 <li><a href="#diagnostics">Diagnostics</a></li>
                 <li><a href="#pathway">Your Pathway</a></li>
                 <li><a href="#treatments">Treatments</a></li>
                 <li><a href="#faq">FAQ</a></li>
+                <li class="mobile-only"><a href="tel:9733220100" class="nav-phone-mobile">📞 Call Livingston: (973) 322-0100</a></li>
                 <li class="mobile-only"><a href="#contact" class="btn btn-primary nav-cta">Schedule Consultation</a></li>
             </ul>
             <div class="nav-actions desktop-only">
+                <a href="tel:9733220100" class="nav-phone" aria-label="Call Livingston Office at (973) 322-0100">
+                    <svg class="phone-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+                    </svg>
+                    <span>(973) 322-0100</span>
+                </a>
                 <a href="#contact" class="btn btn-primary nav-cta">Schedule Consultation</a>
             </div>
         </div>
@@ -287,6 +302,10 @@
                     <circle cx="50" cy="50" r="15" fill="#5B6BA8" />
                     <circle cx="54" cy="46" r="4" fill="#ffffff" class="anim-shimmer" />
                 </svg>
+            </div>
+            <div class="hero-live-badge reveal" aria-label="Clinic availability status">
+                <span class="live-pulse-dot" aria-hidden="true"></span>
+                <span>Accepting New Patients • Livingston • Denville • Newark</span>
             </div>
             <h1 class="reveal reveal-delay-1" data-dtr="headline">New Jersey's Leading <br /><span class="gradient-text">Dry Eye Specialists</span></h1>
             <p class="subtitle reveal reveal-delay-2" data-dtr="subheadline">Break free from the endless cycle of temporary eye drops. Our board-certified specialists diagnose and treat the true biological root cause of your dry eyes—restoring natural moisture to end chronic burning, grittiness, and screen fatigue.</p>
@@ -989,6 +1008,9 @@
             <div class="stage-content" id="stage-seniors" role="tabpanel" aria-labelledby="tab-seniors">
                 <h3>Seniors (60+)</h3>
                 <p class="stage-intro">Burning eyes after reading or driving aren't an inevitable part of aging — they're often treatable when the root cause is identified.</p>
+                <div class="subtle-gold-box">
+                    <p class="gold-box-text">Over 30% of adults over 60 experience chronic dry eye. Because early symptoms are frequently dismissed as normal aging, early diagnostic testing is critical to save meibomian gland architecture before irreversible atrophy occurs.</p>
+                </div>
                 <ul>
                     <li><span class="cause-title">Gland Atrophy:</span> <span class="cause-desc">Age-related reduction
                             in overall tear production volume.</span></li>
@@ -1058,8 +1080,7 @@
             <div class="section-header reveal">
                 <span class="luxury-subtitle">Elite Diagnostics</span>
                 <h2><span class="gradient-text">Precision Diagnostics</span></h2>
-                <p>We use state-of-the-art technology to pinpoint the exact root cause of your dry eye, allowing us to
-                    customize a treatment plan for your specific needs.</p>
+                <p>Housed at our flagship Livingston facility, our complete advanced diagnostic suite pinpoints the exact biological root cause of your dry eye, allowing us to customize a targeted treatment plan for your specific needs.</p>
             </div>
 
             <p class="interactive-hint reveal"><span aria-hidden="true">↻</span> Tap any diagnostic card to flip it and see sample results</p>
@@ -1344,7 +1365,7 @@
             <div class="section-header reveal">
                 <span class="luxury-subtitle">Therapeutic Solutions</span>
                 <h2><span class="gradient-text">Advanced Treatments</span></h2>
-                <p>Your specialist will match the right therapy after diagnostics — here's many of prescription medications and in-office procedures we offer.</p>
+                <p>Your specialist will match the right therapy after diagnostics — here is an overview of the targeted prescription medications and in-office procedures we offer.</p>
             </div>
 
             <div class="treatments-grid">
@@ -1378,13 +1399,20 @@
                             <h4>How It Works</h4>
                             <p>Your immune system can mistakenly attack your own tear glands, causing inflammation that
                                 halts tear production. Restasis contains cyclosporine, which calms this specific immune
-                                response—like telling overactive immune cells to stand down—so your glands can produce
-                                tears naturally again.</p>
-                            <div class="ideal-for">
-                                <span class="ideal-tag-label">Best For:</span>
-                                <span class="ideal-tag">Aqueous Deficiency</span>
-                                <span class="ideal-tag">Autoimmune Related</span>
-                                <span class="timeline-tag">⏱️ Expected Relief: 3–6 Weeks</span>
+                                              <div class="treatment-meta-box">
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Best For:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="ideal-tag">Aqueous Deficiency</span>
+                                        <span class="ideal-tag">Autoimmune Related</span>
+                                    </div>
+                                </div>
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Relief:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="timeline-tag">⏱️ Expected Relief: 3–6 Weeks</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="moa-diagram">
@@ -1414,11 +1442,20 @@
                             <p>Dry eye inflammation starts when certain immune cells (T-cells) stick to the surface of
                                 your eye. Xiidra works by blocking the molecular "handshake" (LFA-1/ICAM-1 interaction)
                                 that lets these cells latch on, reducing inflammation directly at the source.</p>
-                            <div class="ideal-for">
-                                <span class="ideal-tag-label">Best For:</span>
-                                <span class="ideal-tag">Rapid Surface Inflammation</span>
-                                <span class="ideal-tag">Severe Stinging & Burn</span>
-                                <span class="timeline-tag">⏱️ Expected Relief: 2–4 Weeks</span>
+                            <div class="treatment-meta-box">
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Best For:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="ideal-tag">Rapid Surface Inflammation</span>
+                                        <span class="ideal-tag">Severe Stinging & Burn</span>
+                                    </div>
+                                </div>
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Relief:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="timeline-tag">⏱️ Expected Relief: 2–4 Weeks</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="moa-diagram">
@@ -1446,11 +1483,20 @@
                         <div class="moa-section">
                             <h4>How It Works</h4>
                             <p>Vevye® is a water-free cyclosporine drop formulated in a unique semifluorinated alkane vehicle. Because it contains no water, it does not require harsh preservatives, oils, or surfactants. It spreads rapidly across the ocular surface, delivering anti-inflammatory medication directly into the target tissues to reduce surface inflammation and restore natural tear production.</p>
-                            <div class="ideal-for">
-                                <span class="ideal-tag-label">Best For:</span>
-                                <span class="ideal-tag">Preservative Sensitivity</span>
-                                <span class="ideal-tag">Water-Free Surface Spread</span>
-                                <span class="timeline-tag">⏱️ Expected Relief: 2–4 Weeks</span>
+                            <div class="treatment-meta-box">
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Best For:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="ideal-tag">Preservative Sensitivity</span>
+                                        <span class="ideal-tag">Water-Free Surface Spread</span>
+                                    </div>
+                                </div>
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Relief:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="timeline-tag">⏱️ Expected Relief: 2–4 Weeks</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="moa-diagram">
@@ -1478,11 +1524,20 @@
                         <div class="moa-section">
                             <h4>How It Works</h4>
                             <p>Tryptyr is a unique eye drop that targets the TRPM8 cold-sensing receptors on the surface of your eye. By triggering these receptors with a mild cooling sensation, it signals the lacrimal gland to produce reflex tears and encourages natural blinking, providing refreshing moisture.</p>
-                            <div class="ideal-for">
-                                <span class="ideal-tag-label">Best For:</span>
-                                <span class="ideal-tag">Neuropathic / Sensory Discomfort</span>
-                                <span class="ideal-tag">Reflex Tear Activation</span>
-                                <span class="timeline-tag">⏱️ Expected Relief: 1–2 Weeks</span>
+                            <div class="treatment-meta-box">
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Best For:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="ideal-tag">Neuropathic / Sensory Discomfort</span>
+                                        <span class="ideal-tag">Reflex Tear Activation</span>
+                                    </div>
+                                </div>
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Relief:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="timeline-tag">⏱️ Expected Relief: 1–2 Weeks</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="moa-diagram">
@@ -1510,11 +1565,20 @@
                         <div class="moa-section">
                             <h4>How It Works</h4>
                             <p>Formulated as a water-free shield, Miebo® acts as a microscopic barrier that mimics your eye's natural lipid layer. As the first FDA-approved treatment specifically targeting evaporative dry eye disease, it directly addresses lipid layer degradation—a common biological decline that occurs as our meibomian glands degrade with age. It locks in moisture instantly, preventing tear evaporation without the blur or preservatives common in traditional drops.</p>
-                            <div class="ideal-for">
-                                <span class="ideal-tag-label">Best For:</span>
-                                <span class="ideal-tag">Evaporative Dry Eye / MGD</span>
-                                <span class="ideal-tag">Lipid Layer Deficiency</span>
-                                <span class="timeline-tag">⏱️ Expected Relief: Immediate to 2 Weeks</span>
+                            <div class="treatment-meta-box">
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Best For:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="ideal-tag">Evaporative Dry Eye / MGD</span>
+                                        <span class="ideal-tag">Lipid Layer Deficiency</span>
+                                    </div>
+                                </div>
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Relief:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="timeline-tag">⏱️ Expected Relief: Immediate to 2 Weeks</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="moa-diagram">
@@ -1545,11 +1609,20 @@
                                 nanomicelles. These microscopic carriers help the medication penetrate deeper into your
                                 eye tissue, delivering a stronger dose of immune-calming cyclosporine exactly where it's
                                 needed most.</p>
-                            <div class="ideal-for">
-                                <span class="ideal-tag-label">Best For:</span>
-                                <span class="ideal-tag">Deep Tissue Penetration</span>
-                                <span class="ideal-tag">Refractory Chronic Dry Eye</span>
-                                <span class="timeline-tag">⏱️ Expected Relief: 2–4 Weeks</span>
+                            <div class="treatment-meta-box">
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Best For:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="ideal-tag">Deep Tissue Penetration</span>
+                                        <span class="ideal-tag">Refractory Chronic Dry Eye</span>
+                                    </div>
+                                </div>
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Relief:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="timeline-tag">⏱️ Expected Relief: 3–6 Weeks</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="moa-diagram">
@@ -1577,7 +1650,7 @@
                     <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-ambiodisk" id="tab-ambiodisk" data-value="ambiodisk">AmbioDisk™</button>
                 </div>
             </div>
-            
+
             <div class="procedures-display">
 
                 <!-- Punctal Plugs -->
@@ -1609,7 +1682,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h3>Punctal Plugs</h3>
+                            <h4>Punctal Plugs</h4>
                             <span class="treatment-type">Tear Conservation Therapy</span>
                         </div>
                     </div>
@@ -1617,9 +1690,20 @@
                         <div class="moa-section">
                             <h4>How It Works</h4>
                             <p>Micro-scale, biocompatible shields placed in the tear ducts to naturally conserve your own real tears. Think of it as a smart valve: by slowing drainage, it allows your eyes to bathe in their own natural, nutrient-rich moisture all day.</p>
-                            <div class="ideal-for">
-                                <span class="ideal-tag">Aqueous Deficiency</span>
-                                <span class="ideal-tag">Post-Surgical Dryness</span>
+                            <div class="treatment-meta-box">
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Best For:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="ideal-tag">Aqueous Deficiency</span>
+                                        <span class="ideal-tag">Post-Surgical Dryness</span>
+                                    </div>
+                                </div>
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Relief:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="timeline-tag">⏱️ Expected Relief: Immediate</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="moa-diagram">
@@ -1634,14 +1718,12 @@
                     </div>
                 </div>
 
-
-
                 <!-- NearTear -->
                 <div class="treatment-card" id="treatment-neartear" role="tabpanel" aria-labelledby="tab-neartear">
                     <div class="treatment-header">
                         <div class="treatment-icon">⚡</div>
                         <div>
-                            <h3>NearTear®</h3>
+                            <h4>NearTear®</h4>
                             <span class="treatment-type">Intranasal Neurostimulation</span>
                         </div>
                     </div>
@@ -1652,9 +1734,20 @@
                                 natural nerve pathways that trigger tear production. Think of it as gently "turning up
                                 the volume" on your body's own tear-making system. The treatment stimulates both the
                                 aqueous (watery) and lipid (oily) components of your tears.</p>
-                            <div class="ideal-for">
-                                <span class="ideal-tag">Low Tear Volume</span>
-                                <span class="ideal-tag">Natural Tear Stimulation</span>
+                            <div class="treatment-meta-box">
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Best For:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="ideal-tag">Low Tear Volume</span>
+                                        <span class="ideal-tag">Natural Tear Stimulation</span>
+                                    </div>
+                                </div>
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Relief:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="timeline-tag">⏱️ Expected Relief: 1–3 Weeks</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="moa-diagram">
@@ -1692,7 +1785,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h3>AmbioDisk™</h3>
+                            <h4>AmbioDisk™</h4>
                             <span class="treatment-type">Amniotic Membrane Biological Therapy</span>
                         </div>
                     </div>
@@ -1700,11 +1793,20 @@
                         <div class="moa-section">
                             <h4>How It Works</h4>
                             <p>AmbioDisk™ is a sutureless, dehydrated amniotic membrane graft placed comfortably on the corneal surface during a brief in-office procedure under a protective bandage contact lens. Rich in regenerative growth factors, biological nutrients, and anti-inflammatory cytokines, it actively accelerates corneal re-epithelialization, rejuvenates damaged ocular surface nerves, and delivers profound healing for severe, refractory dry eye disease.</p>
-                            <div class="ideal-for">
-                                <span class="ideal-tag-label">Best For:</span>
-                                <span class="ideal-tag">Severe Dry Eye Disease</span>
-                                <span class="ideal-tag">Corneal Damage & Erosion</span>
-                                <span class="timeline-tag">⏱️ Expected Relief: 3–5 Days</span>
+                            <div class="treatment-meta-box">
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Best For:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="ideal-tag">Severe Dry Eye Disease</span>
+                                        <span class="ideal-tag">Corneal Damage & Erosion</span>
+                                    </div>
+                                </div>
+                                <div class="treatment-meta-row">
+                                    <span class="treatment-meta-label">Relief:</span>
+                                    <div class="treatment-meta-pills">
+                                        <span class="timeline-tag">⏱️ Expected Relief: 3–5 Days</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="moa-diagram">
@@ -2150,7 +2252,7 @@
                     <h3 class="cta-locations-heading">Visit Our Dry Eye Clinics in Essex &amp; Morris County</h3>
                     <div class="cta-locations-list">
                         <div class="cta-location-item">
-                            <h4>Livingston Office</h4>
+                            <h4>Livingston Office <span class="location-badge">Complete Diagnostic Suite</span></h4>
                             <div class="cta-location-details">
                                 <span class="loc-detail-row">
                                     <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -2170,7 +2272,7 @@
                             </div>
                         </div>
                         <div class="cta-location-item">
-                            <h4>Denville Office</h4>
+                            <h4>Denville Office <span class="location-badge-sub">Consultations &amp; Treatments</span></h4>
                             <div class="cta-location-details">
                                 <span class="loc-detail-row">
                                     <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -2190,7 +2292,7 @@
                             </div>
                         </div>
                         <div class="cta-location-item">
-                            <h4>Newark Office</h4>
+                            <h4>Newark Office <span class="location-badge-sub">Consultations &amp; Treatments</span></h4>
                             <div class="cta-location-details">
                                 <span class="loc-detail-row">
                                     <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -2259,8 +2361,11 @@
                                 <span class="stars">★★★★★</span>
                                 <span><strong>4.9/5.0</strong> on Google (680+ Reviews)</span>
                             </div>
-                            <h3 class="form-step-heading">Request Diagnostic Evaluation</h3>
-                            <p class="form-step-description">Fill out 4 simple fields to schedule your evaluation with Dr. Marano's team.</p>
+                            <div class="form-step-header">
+                                <span class="form-step-eyebrow">Priority Clinical Access</span>
+                                <h3 class="form-step-heading">Request Diagnostic <span class="text-pop-gold serif-italic">Evaluation</span></h3>
+                                <p class="form-step-description">Fill out 4 simple fields to schedule your comprehensive evaluation with Dr. Marano's team.</p>
+                            </div>
 
                             <!-- Field 1: Full Name -->
                             <div class="form-group mb-16">
@@ -2288,11 +2393,11 @@
                                 <label for="preferred-location">Preferred Location <span class="required-asterisk" aria-hidden="true">*</span></label>
                                 <select id="preferred-location" name="preferred-location" required aria-label="Preferred Location" aria-describedby="preferred-location-helper">
                                     <option value="">Select clinic location...</option>
-                                    <option value="livingston">Livingston, NJ Office</option>
-                                    <option value="denville">Denville, NJ Office</option>
-                                    <option value="newark">Newark, NJ Office</option>
+                                    <option value="livingston">Livingston, NJ Office (Complete Diagnostic Suite)</option>
+                                    <option value="denville">Denville, NJ Office (Consultations &amp; Treatments)</option>
+                                    <option value="newark">Newark, NJ Office (Consultations &amp; Treatments)</option>
                                 </select>
-                                <span class="form-helper-text" id="preferred-location-helper">Select the clinic nearest to you. All locations offer our complete diagnostic suite.</span>
+                                <span class="form-helper-text" id="preferred-location-helper">Note: Our complete advanced diagnostic suite (HD Meibography, TearLab &amp; InflammaDry) is located exclusively at our flagship Livingston office. Consultations &amp; follow-up care are available across all locations.</span>
                             </div>
 
                             <div class="form-step-actions">
@@ -2300,7 +2405,7 @@
                             </div>
                             <div class="form-security-badge">
                                 <span class="security-icon">🔒</span>
-                                <span><strong>HIPAA Compliant</strong> — Your personal & medical information is 256-bit encrypted & strictly protected</span>
+                                <span><strong>HIPAA Compliant</strong> — Your personal &amp; medical information is 256-bit encrypted &amp; strictly protected under our <a href="https://sa1s3.patientpop.com/assets/docs/425417.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">Privacy Policy</a></span>
                             </div>
                         </form>
                         <div class="form-success" role="status" aria-live="polite">
@@ -2369,8 +2474,8 @@
                         <li><a href="#contact">Contact Us</a></li>
                         <li><a href="https://www.maranoeyecare.com" target="_blank" rel="noopener">Marano Eye Care Main Site</a></li>
                         <li><a href="https://www.onjeyecare.com" target="_blank" rel="noopener">Ophthalmology NJ LLC (ONJ Eye Care)</a></li>
-                        <li><a href="https://maranoeyecare.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a></li>
-                        <li><a href="https://maranoeyecare.com/terms-of-service/" target="_blank" rel="noopener">Terms of Service</a></li>
+                        <li><a href="https://sa1s3.patientpop.com/assets/docs/425417.pdf" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+                        <li><a href="https://www.maranoeyecare.com/our-terms" target="_blank" rel="noopener noreferrer">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>

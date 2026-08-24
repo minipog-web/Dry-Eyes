@@ -22,11 +22,16 @@
   --text-dark: #121A28;
   --glow: rgba(245, 158, 11, 0.35);
   --glow-green: rgba(111, 168, 122, 0.2);
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
   --radius: 16px;
-  --radius-sm: 10px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
   --transition: 0.35s cubic-bezier(.16, 1, .3, 1);
-  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-heading: 'Playfair Display', Georgia, serif;
+  --font-display: var(--font-heading);
 
   /* UX Audit Consolidated Variables */
   --bg-warm-start: #FCFCFB;
@@ -383,36 +388,157 @@ img {
   box-shadow: 0 4px 24px rgba(10, 40, 80, 0.04);
 }
 
-/* Professional Slate-Blue — Symptoms */
-.section-dark-alt {
-  background: var(--bg-dark-alt);
-  color: var(--text-primary);
+/* ===================== BESPOKE SECTION BACKGROUND SYSTEM ===================== */
+
+/* 1. Hero (#home) — Radiant Obsidian & Champagne Amber Horizon */
+#home.hero {
+  position: relative;
+  background: 
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(245, 158, 11, 0.16) 0%, transparent 70%),
+    radial-gradient(circle 600px at 85% 25%, rgba(111, 168, 122, 0.07) 0%, transparent 60%),
+    radial-gradient(circle 500px at 15% 40%, rgba(56, 189, 248, 0.05) 0%, transparent 60%),
+    linear-gradient(180deg, #05070D 0%, #090C15 100%);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+/* 2. Signs & Symptoms (#symptoms) — Midnight Slate Charcoal with Coral/Amber Irritation Underglow */
+#symptoms {
+  position: relative;
+  background: 
+    radial-gradient(circle 750px at 85% 30%, rgba(245, 158, 11, 0.08) 0%, transparent 65%),
+    radial-gradient(circle 650px at 12% 70%, rgba(224, 109, 83, 0.06) 0%, transparent 60%),
+    linear-gradient(180deg, #090C15 0%, #0E121A 50%, #0A0D15 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.04);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-.section-dark-alt::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 75% 20%, rgba(123, 150, 200, 0.04) 0%, transparent 60%);
-  pointer-events: none;
+/* 3. Tear Film Anatomy (#anatomy) — Bio-Navy Hydration Aura & Cost Calculator Focus */
+#anatomy {
+  position: relative;
+  background: 
+    radial-gradient(circle 800px at 18% 35%, rgba(56, 189, 248, 0.11) 0%, transparent 65%),
+    radial-gradient(circle 650px at 82% 65%, rgba(245, 158, 11, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, #0A0D15 0%, #070D1A 50%, #080E1C 100%);
+  border-top: 1px solid rgba(56, 189, 248, 0.15);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.15);
 }
 
-/* Deep Slate-Black — Testimonials */
-.section-dark-deep {
-  background: var(--bg-dark-deep);
-  color: var(--text-primary);
+/* 4. Life Stages Timeline (#understanding) — Warm Alabaster Chalk & Sage Mineral Light */
+#understanding {
+  position: relative;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(245, 158, 11, 0.06) 0%, transparent 60%),
+    radial-gradient(circle 600px at 90% 80%, rgba(139, 155, 132, 0.07) 0%, transparent 65%),
+    linear-gradient(180deg, #FAF9F6 0%, #F5F4EE 50%, #EFEFE8 100%);
+  border-top: 1px solid rgba(229, 163, 84, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* 5. Standard vs Specialized Care (#comparison) — High-Contrast Titanium & Central Table Spotlight */
+#comparison {
+  position: relative;
+  background: 
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(229, 163, 84, 0.09) 0%, transparent 70%),
+    radial-gradient(circle 500px at 15% 85%, rgba(56, 189, 248, 0.05) 0%, transparent 60%),
+    linear-gradient(180deg, #070A0F 0%, #0D131E 50%, #080B10 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.18);
+}
+
+/* 6. Precision Diagnostics (#diagnostics) — Frost-Cyan Optometric Platinum */
+#diagnostics {
+  position: relative;
+  background: 
+    radial-gradient(circle 700px at 15% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 55%),
+    radial-gradient(circle 600px at 85% 75%, rgba(245, 158, 11, 0.06) 0%, transparent 55%),
+    linear-gradient(180deg, #F8FAFC 0%, #F0F5FA 50%, #E7EFF6 100%);
+  border-top: 1px solid rgba(56, 189, 248, 0.25);
+  border-bottom: 1px solid rgba(0, 40, 80, 0.10);
+}
+
+/* 7. Advanced Treatments & Medications (#treatments) — Obsidian Velvet with Dual Amber & Healing Emerald Halo */
+#treatments {
+  position: relative;
+  background: 
+    radial-gradient(circle 800px at 18% 30%, rgba(245, 158, 11, 0.11) 0%, transparent 60%),
+    radial-gradient(circle 700px at 82% 70%, rgba(111, 168, 122, 0.10) 0%, transparent 60%),
+    linear-gradient(180deg, #06080E 0%, #0B1019 50%, #07090F 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.12);
+}
+
+/* 8. Physician Profile (#physician) — Executive Warm Bronze & Directional Portrait Glow */
+#physician {
+  position: relative;
+  background: 
+    radial-gradient(circle 650px at 28% 45%, rgba(245, 158, 11, 0.14) 0%, transparent 60%),
+    radial-gradient(circle 500px at 85% 70%, rgba(123, 150, 200, 0.06) 0%, transparent 60%),
+    linear-gradient(180deg, #07090F 0%, #0E1219 50%, #090B10 100%);
+  border-top: 1px solid rgba(245, 158, 11, 0.12);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.18);
+}
+
+/* 9. Clinical Accreditations (#affiliations) — Burnished Gold & Platinum Rim Trust Bar */
+#affiliations.certifications-trust-bar {
+  position: relative;
+  background: 
+    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(245, 158, 11, 0.12) 0%, transparent 70%),
+    linear-gradient(180deg, #07090E 0%, #101622 50%, #07090E 100%);
+  border-top: 1px solid rgba(245, 158, 11, 0.25);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+/* 10. Patient Success Stories (#testimonials) — Deep Celestial Onyx with Star-Gold Core */
+#testimonials.testimonials-section {
+  position: relative;
+  background: 
+    radial-gradient(ellipse 70% 50% at 50% 45%, rgba(245, 158, 11, 0.09) 0%, transparent 65%),
+    radial-gradient(circle 500px at 12% 20%, rgba(111, 168, 122, 0.05) 0%, transparent 55%),
+    linear-gradient(180deg, #040508 0%, #070A12 50%, #040508 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.04);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-.section-dark-deep::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 80%, rgba(91, 107, 168, 0.04) 0%, transparent 50%);
-  pointer-events: none;
+/* 11. 3-Step Pathway (#pathway) — Diagnostic Amber to Relief Green Progression Flow */
+#pathway {
+  position: relative;
+  background: 
+    radial-gradient(circle 650px at 15% 50%, rgba(245, 158, 11, 0.10) 0%, transparent 60%),
+    radial-gradient(circle 650px at 85% 50%, rgba(111, 168, 122, 0.11) 0%, transparent 60%),
+    linear-gradient(180deg, #040508 0%, #0B1019 50%, #06080E 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(229, 163, 84, 0.25);
+}
+
+/* 12. Frequently Asked Questions (#faq) — Warm Sand, Ivory Linen & Golden Guidance Light */
+#faq {
+  position: relative;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(229, 163, 84, 0.08) 0%, transparent 60%),
+    radial-gradient(circle 550px at 85% 85%, rgba(56, 189, 248, 0.05) 0%, transparent 55%),
+    linear-gradient(180deg, #FBFBF9 0%, #F6F4EE 50%, #ECEAE2 100%);
+  border-top: 1px solid rgba(229, 163, 84, 0.30);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+/* 13. Consultation & Clinic Locations (#contact) — Grand Finale Champagne Gold & Dual Card Spotlights */
+#contact.cta-section {
+  position: relative;
+  background: 
+    radial-gradient(circle 750px at 20% 35%, rgba(245, 158, 11, 0.13) 0%, transparent 60%),
+    radial-gradient(circle 650px at 80% 45%, rgba(111, 168, 122, 0.10) 0%, transparent 60%),
+    linear-gradient(180deg, #06080E 0%, #0C111C 50%, #05070B 100%);
+  border-top: 1px solid rgba(245, 158, 11, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 14. Grounding Brand Footer (.footer) — Deep Obsidian Ground with Warm Gold Horizon */
+footer.footer {
+  position: relative;
+  background: 
+    radial-gradient(circle 800px at 50% 0%, rgba(245, 158, 11, 0.06) 0%, transparent 60%),
+    linear-gradient(180deg, #05070B 0%, #030406 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .section-header {
@@ -612,24 +738,31 @@ img {
 
 @media (min-width: 901px) {
   .navbar .container {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 24px;
   }
 
   .nav-logo {
-    justify-self: start;
+    flex-shrink: 0;
   }
 
   .nav-links {
-    justify-self: center;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .nav-actions {
-    justify-self: end;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 18px !important;
+    flex-shrink: 0;
   }
 }
 
@@ -638,7 +771,7 @@ img {
   align-items: center;
   gap: 8px;
   font-size: 0.92rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
   text-decoration: none;
   transition: color var(--transition), transform var(--transition);
@@ -695,7 +828,7 @@ img {
 }
 
 .desktop-only {
-  display: block;
+  display: inline-flex;
 }
 
 @media (max-width: 900px) {
@@ -704,11 +837,11 @@ img {
   }
 
   .mobile-only {
-    display: block;
+    display: inline-flex;
   }
 
   .desktop-only {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -1128,6 +1261,25 @@ img {
   color: #1A202C;
   font-size: 0.98rem;
   line-height: 1.6;
+}
+
+.subtle-gold-box {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(229, 163, 84, 0.14) 100%);
+  border: 1px solid rgba(198, 125, 40, 0.35);
+  border-left: 4px solid var(--primary-dark);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin: 16px 0 20px;
+  box-shadow: 0 2px 10px rgba(198, 125, 40, 0.06);
+}
+
+.subtle-gold-box .gold-box-text {
+  color: #1A202C;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0;
+  letter-spacing: -0.01em;
 }
 
 /* ===================== TEAR FILM ===================== */
@@ -1869,17 +2021,26 @@ img {
   }
 }
 
+.moa-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .moa-section h4 {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--primary-light);
   margin-bottom: 12px;
-  font-weight: 600;
+  font-weight: 700;
+  font-family: var(--font-heading);
 }
 
 .moa-section p {
   font-size: 0.95rem;
   line-height: 1.8;
   color: var(--text-muted);
+  flex-grow: 1;
+  margin-bottom: 20px;
 }
 
 .moa-diagram {
@@ -1922,44 +2083,75 @@ img {
   font-size: 1.2rem;
 }
 
-.ideal-for {
+.treatment-meta-box {
+  margin-top: auto;
   display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: var(--space-sm);
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  background: rgba(13, 27, 42, 0.65);
+  border: 1px solid rgba(123, 150, 200, 0.16);
+  border-radius: var(--radius-sm, 10px);
 }
 
-.ideal-tag-label {
-  font-size: 0.8rem;
+.treatment-meta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@media (min-width: 480px) {
+  .treatment-meta-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.treatment-meta-label {
+  font-size: 0.76rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--accent-gold);
-  margin-right: 2px;
+  line-height: 1.2;
+}
+
+.treatment-meta-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
 }
 
 .ideal-tag {
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: 50px;
-  font-size: 0.78rem;
-  font-weight: 500;
-  background: rgba(111, 168, 122, 0.12);
-  color: var(--accent-green-light);
-  border: 1px solid rgba(111, 168, 122, 0.35);
-}
-
-.timeline-tag {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: var(--space-xs) var(--space-sm);
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
   border-radius: 50px;
   font-size: 0.78rem;
   font-weight: 600;
-  background: rgba(245, 158, 11, 0.12);
-  color: var(--accent-amber);
+  background: rgba(111, 168, 122, 0.14);
+  color: #A3E6B5;
+  border: 1px solid rgba(111, 168, 122, 0.35);
+  line-height: 1.3;
+}
+
+.timeline-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(245, 158, 11, 0.14);
+  color: #FCD34D;
   border: 1px solid rgba(245, 158, 11, 0.35);
-  margin: 12px auto 0 auto !important;
+  line-height: 1.3;
   width: fit-content !important;
+  margin: 0 !important;
 }
 
 
@@ -2260,6 +2452,35 @@ img {
   font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: 0.02em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+
+.location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(197, 168, 128, 0.18);
+  color: var(--accent-gold);
+  border: 1px solid rgba(197, 168, 128, 0.4);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+}
+
+.location-badge-sub {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.3;
 }
 
 .cta-location-details {
@@ -2500,23 +2721,42 @@ img {
   }
 }
 
+.form-step-header {
+  margin-bottom: 22px;
+}
+
+.form-step-eyebrow {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-gold);
+  margin-bottom: 6px;
+}
+
 .form-step-heading {
-  font-size: 1.15rem;
-  font-family: var(--font-heading);
-  color: var(--text-primary);
-  margin-bottom: 4px;
+  font-size: clamp(1.45rem, 2.8vw, 1.85rem) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
+  color: #FFFFFF !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.01em !important;
+  margin-bottom: 8px !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .form-step-description {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 20px;
+  font-size: 0.94rem !important;
+  color: #CBD5E1 !important;
+  line-height: 1.5 !important;
+  margin-bottom: 0 !important;
 }
 
 .form-step-actions {
   display: flex;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 24px;
   align-items: center;
 }
 
@@ -2528,6 +2768,11 @@ img {
 .form-step-actions .btn-submit-consultation {
   flex: 1;
   justify-content: center;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  padding: 16px 28px !important;
+  letter-spacing: 0.02em !important;
+  box-shadow: 0 4px 20px var(--glow), inset 0 1px 2px rgba(255, 255, 255, 0.6) !important;
 }
 
 .form-group-vertical {
@@ -6793,3 +7038,155 @@ img {
   color: #ffffff !important;
   border-color: var(--primary-dark) !important;
 }
+
+/* ===================== DELIGHT & REFINED MICRO-INTERACTIONS ===================== */
+
+/* Hero Live Availability Status Badge */
+.hero-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(13, 27, 42, 0.75);
+  border: 1px solid rgba(111, 168, 122, 0.45);
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #A3E6B5;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 12px rgba(111, 168, 122, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #10B981;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8);
+  animation: livePulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+  flex-shrink: 0;
+}
+
+@keyframes livePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8);
+    transform: scale(0.95);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    transform: scale(0.95);
+  }
+}
+
+/* Subtle Optical Precision Card Glint */
+.diag-card,
+.treatment-card,
+.cta-location-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.diag-card::after,
+.treatment-card::after,
+.cta-location-item::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 42%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 58%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.8s ease-in-out;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.diag-card:hover::after,
+.treatment-card:hover::after,
+.cta-location-item:hover::after {
+  transform: translateX(100%);
+}
+
+/* Luxury Copy Toast Notification */
+.toast-notification {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(13, 27, 42, 0.95);
+  border: 1px solid var(--accent-gold);
+  color: #FFF5E4;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm, 8px);
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 0 16px rgba(197, 168, 128, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.toast-notification.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.toast-icon {
+  color: var(--accent-gold);
+  font-size: 1.1rem;
+}
+
+/* Celebration Confetti Sparkles for Form Submission */
+.celebration-burst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.burst-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  animation: burstParticle 1s ease-out forwards;
+}
+
+@keyframes burstParticle {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(0.2);
+  }
+}
+
