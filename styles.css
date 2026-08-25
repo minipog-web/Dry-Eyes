@@ -1095,19 +1095,38 @@ footer.footer {
   text-shadow: none;
 }
 
+.stage-tab-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #4A5568;
+  margin-bottom: 3px;
+  transition: color 0.2s ease;
+}
+
+.stage-tab.active .stage-tab-badge {
+  color: #1E3A8A;
+  font-weight: 700;
+}
+
 .stage-tab-label {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.2;
 }
 
 .stage-tab-age {
   font-size: 0.78rem;
-  opacity: 0.75;
+  opacity: 0.8;
   margin-top: 2px;
 }
 
 .stage-tab.active .stage-tab-age {
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 /* Mobile & Tablet Responsiveness */
@@ -1766,9 +1785,40 @@ footer.footer {
 /* ===================== TREATMENTS ===================== */
 .treatment-select-wrapper {
   position: relative;
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto 48px;
   text-align: center;
+}
+
+.treatment-deescalation-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(197, 168, 128, 0.08);
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  border-radius: var(--radius-full);
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.deescalation-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.deescalation-text {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.deescalation-text strong {
+  color: var(--accent-gold);
+  font-weight: 600;
 }
 
 .treatment-select-label {
@@ -6080,7 +6130,19 @@ sup.cite a:hover {
   gap: 16px;
 }
 
-@media (min-width: 480px) and (max-width: 768px) {
+.cost-card-grid--three {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 640px) {
+  .cost-card-grid--three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 480px) and (max-width: 639px) {
   .cost-card-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -6090,7 +6152,7 @@ sup.cite a:hover {
   background: rgba(10, 15, 22, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: var(--radius-sm);
-  padding: 20px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -6103,8 +6165,13 @@ sup.cite a:hover {
   box-shadow: 0 8px 24px rgba(197, 168, 128, 0.05);
 }
 
+.cost-card-hours {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.06) 0%, rgba(10, 15, 22, 0.5) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
 .cost-card-title {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
@@ -6112,14 +6179,25 @@ sup.cite a:hover {
 
 .cost-card-amount {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.1;
 }
 
 .cost-card.highlight .cost-card-amount {
-  font-size: 2.3rem;
+  font-size: 1.95rem;
+}
+
+.cost-card-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+.text-pop-coral {
+  color: #F87171 !important;
 }
 
 .calculator-verdict {

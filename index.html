@@ -346,7 +346,7 @@
                 <span>Accepting New Patients • Livingston • Denville • Newark</span>
             </div>
             <h1 class="reveal reveal-delay-1" data-dtr="headline">New Jersey's Leading <br /><span class="gradient-text">Dry Eye Specialists</span></h1>
-            <p class="subtitle reveal reveal-delay-2" data-dtr="subheadline">Break free from the endless cycle of temporary eye drops. Our board-certified specialists diagnose and treat the true biological root cause of your dry eyes—restoring natural moisture to end chronic burning, grittiness, and screen fatigue.</p>
+            <p class="subtitle reveal reveal-delay-2" data-dtr="subheadline">Break free from the endless cycle of temporary eye drops. In one 45-minute comprehensive evaluation at our Livingston diagnostic suite, Dr. Marano's team pinpoints the exact biological root cause of your dry eyes—restoring your natural tear film to end chronic burning, grittiness, and screen fatigue.</p>
             <div class="hero-buttons reveal reveal-delay-3">
                 <a href="#treatments" class="btn btn-primary btn-glow">Explore Treatments</a>
                 <a href="#contact" class="btn btn-outline">Book an Appointment</a>
@@ -789,7 +789,7 @@
                         </div>
                         <div class="quiz-results-nav-buttons">
                             <button type="button" class="btn btn-outline" id="btn-quiz-restart">Restart Quiz</button>
-                            <a href="#contact" class="btn btn-primary widget-cta">Book a Scan</a>
+                            <a href="#contact" class="btn btn-primary widget-cta">Claim My Assessment &amp; Schedule →</a>
                         </div>
                     </div>
                 </div>
@@ -943,14 +943,21 @@
                     </div>
                     
                     <div class="calculator-results">
-                        <div class="cost-card-grid">
+                        <div class="cost-card-grid cost-card-grid--three">
                             <div class="cost-card">
-                                <span class="cost-card-title">Annual Cost</span>
+                                <span class="cost-card-title">Annual Out-of-Pocket</span>
                                 <span class="cost-card-amount" id="calc-annual-total">$510</span>
+                                <span class="cost-card-sub">Temporary drops &amp; masks</span>
                             </div>
                             <div class="cost-card highlight">
                                 <span class="cost-card-title">5-Year Cumulative Cost</span>
                                 <span class="cost-card-amount text-pop-gold" id="calc-5year-total">$2,550</span>
+                                <span class="cost-card-sub">Recurring symptomatic spend</span>
+                            </div>
+                            <div class="cost-card cost-card-hours">
+                                <span class="cost-card-title">Time Lost to Fatigue</span>
+                                <span class="cost-card-amount text-pop-coral" id="calc-lost-hours-badge">300+ hrs</span>
+                                <span class="cost-card-sub">Screen endurance lost</span>
                             </div>
                         </div>
                         <div class="calculator-verdict">
@@ -986,18 +993,22 @@
                 <div class="sliding-pill-bg"></div>
                 <div class="stages-tablist" role="tablist" aria-label="Dry Eye Life Stages">
                     <button class="stage-tab btn-reset active" id="tab-teens" role="tab" aria-selected="true" aria-controls="stage-teens" data-stage="teens">
-                        <span class="stage-tab-label">Children & Teens</span>
+                        <span class="stage-tab-badge">📱 Screens</span>
+                        <span class="stage-tab-label">Children &amp; Teens</span>
                         <span class="stage-tab-age">Under 20</span>
                     </button>
                     <button class="stage-tab btn-reset" id="tab-young" role="tab" aria-selected="false" aria-controls="stage-young" data-stage="young">
+                        <span class="stage-tab-badge">👓 Contacts &amp; Work</span>
                         <span class="stage-tab-label">Young Adults</span>
                         <span class="stage-tab-age">20s – 30s</span>
                     </button>
                     <button class="stage-tab btn-reset" id="tab-middle" role="tab" aria-selected="false" aria-controls="stage-middle" data-stage="middle">
+                        <span class="stage-tab-badge">🔬 Hormones &amp; MGD</span>
                         <span class="stage-tab-label">Middle Age</span>
                         <span class="stage-tab-age">40s – 50s</span>
                     </button>
                     <button class="stage-tab btn-reset" id="tab-seniors" role="tab" aria-selected="false" aria-controls="stage-seniors" data-stage="seniors">
+                        <span class="stage-tab-badge">🛡️ Gland Health</span>
                         <span class="stage-tab-label">Seniors</span>
                         <span class="stage-tab-age">60+</span>
                     </button>
@@ -1410,6 +1421,10 @@
                 <div class="treatment-block reveal">
                 <h3 class="treatment-block-title">Prescription Medications</h3>
                 <div class="treatment-select-wrapper">
+                    <div class="treatment-deescalation-pill">
+                        <span class="deescalation-icon" aria-hidden="true">⚡</span>
+                        <span class="deescalation-text"><strong>Custom-Matched Care:</strong> Dr. Marano selects the exact biological therapy based on your LipiView® tear layer scan — no need to choose your medication in advance.</span>
+                    </div>
                     <span class="treatment-select-label">Select a Medication to Explore:</span>
                     <div class="custom-tab-container" id="medication-tabs" role="tablist" aria-label="Prescription Medications">
                         <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="treatment-restasis" id="tab-restasis" data-value="restasis">🧬 Restasis®</button>

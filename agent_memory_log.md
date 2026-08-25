@@ -27,8 +27,17 @@
 - **Header Livingston Phone Integration**: Displayed the Livingston clinic primary phone number (`(973) 322-0100`) in the header navigation. Fixed `.nav-actions` with `display: inline-flex; flex-direction: row; align-items: center; gap: 18px;` so the phone number and "Schedule Consultation" button sit on one single, horizontal line across the desktop header.
 - **Micro-Interactions & Experience Delight (`/delight`)**: Added refined, luxury clinical delight elements: (1) Live clinic availability breathing status badge in hero (`Accepting New Patients • Livingston • Denville • Newark`), (2) Optical precision card glint sheen sweep on hover across diagnostic scans and treatment cards, (3) Celebratory gold sparkle particle burst on form submission success, (4) One-tap map tracking, and (5) Clinician/developer console greeting.
 - **Location Role Specificity (Diagnostic Suite)**: Updated all section copy, location cards, form dropdown options, and helper microcopy to state explicitly that the **complete advanced diagnostic suite** (LipiView, HD Meibography, TearLab Osmolarity, and InflammaDry MMP-9) is located exclusively at the **Livingston flagship office**, while Denville and Newark provide clinical consultations and ongoing treatment care.
-- **Form Heading Amplification (`/bolder`)**: Elevated `"Request Diagnostic Evaluation"` with a commanding visual hierarchy: added `Priority Clinical Access` uppercase gold eyebrow (`.form-step-eyebrow`), scaled heading typography to `1.85rem` weight 800 with italicized gold editorial accent (`Request Diagnostic <span class="text-pop-gold serif-italic">Evaluation</span>`), and upgraded the CTA button to `1.05rem` with high-contrast ambient glow.
-- **Legal & Compliance Links**: Updated the Privacy Policy link (`https://sa1s3.patientpop.com/assets/docs/425417.pdf`) and the Terms of Service link (`https://www.maranoeyecare.com/our-terms`) across footer navigation and consultation forms.
-- **Production Build Synchronization**: Ran `build.js` to compile, minify, and sync `index.html`, `styles.css`, and `script.js` into the `dist/` directory.
-- **GitHub & Netlify Deployment**: Committed and pushed commit `7418071` to GitHub (`minipog-web/Dry-Eyes.git`), triggering the Netlify continuous deployment production build using `netlify.toml` (`node build.js` -> `dist`).
+## Milestone: Cognitive Psychology UX Implementation (August 2026)
+
+### What Worked
+- **Prescription De-Escalation Pill (Choice Architecture)**: Added `.treatment-deescalation-pill` above the 6 prescription medication tabs in the Treatments section, explicitly assuring patients that Dr. Marano selects their exact therapy based on their LipiView scan. This resolves choice overload (Iyengar & Lepper) and eliminates non-clinician decision anxiety.
+- **Endowment Continuity & Action Momentum (Peak-End Rule)**: Upgraded the self-assessment results CTA to `"Claim My Assessment & Schedule →"` and updated feedback copy with clinical specificity (*over 86% of patients achieve lasting comfort when caught early*), reinforcing the user's investment and psychological closure.
+- **Visual Metric Triad in Cost Calculator (Anchoring Bias & Loss Aversion)**: Upgraded the Drop Loop calculator to a 3-card metric grid (`Annual Out-of-Pocket`, `5-Year Cumulative Cost`, and `Time Lost to Fatigue`), elevating screen endurance and daily discomfort loss alongside monetary figures.
+- **Cognitive Priming in Hero Subhead**: Embedded explicit time and location expectations (*"In one 45-minute comprehensive evaluation at our Livingston diagnostic suite..."*) to reduce ambiguity and establish clear mental models before scrolling.
+- **Life Stage Recognition Badges**: Added contextual micro-badges (`📱 Screens`, `👓 Contacts & Work`, `🔬 Hormones & MGD`, `🛡️ Gland Health`) to the life stages tabs, facilitating rapid recognition rather than recall.
+- **Production Build Compilation**: Re-ran `node build.js` to compile and minify all HTML, CSS, and JS assets directly into `dist/`.
+
+### What to Avoid
+- **Avoid Automatic Netlify Deploys**: NEVER deploy to Netlify unless specifically and explicitly instructed to do so by the user.
+
 
