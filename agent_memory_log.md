@@ -36,7 +36,8 @@
 - **Cognitive Priming in Hero Subhead**: Embedded explicit time and location expectations (*"In one 45-minute comprehensive evaluation at our Livingston diagnostic suite..."*) to reduce ambiguity and establish clear mental models before scrolling.
 - **Life Stage Recognition Badges**: Added contextual micro-badges (`📱 Screens`, `👓 Contacts & Work`, `🔬 Hormones & MGD`, `🛡️ Gland Health`) to the life stages tabs, facilitating rapid recognition rather than recall.
 - **Production Build Compilation**: Re-ran `node build.js` to compile and minify all HTML, CSS, and JS assets directly into `dist/`.
-- **GitHub Deployment**: Committed and pushed commit `7988756` to GitHub (`minipog-web/Dry-Eyes.git`).
+- **GitHub Deployment**: Committed and pushed commit `7988756` and `90d22de` to GitHub (`minipog-web/Dry-Eyes.git`).
+- **Netlify Production Deployment**: Deployed live to production (`deployId: 6a8d0309ed80c161f9f6ec7a`) at [https://dryeye.maranoeye.com](https://dryeye.maranoeye.com).
 
 ### What to Avoid
 - **Avoid Automatic Netlify Deploys**: NEVER deploy to Netlify unless specifically and explicitly instructed to do so by the user.
