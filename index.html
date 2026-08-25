@@ -7,7 +7,12 @@
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KBWXBRFV');</script>
+    })(window,document,'script','dataLayer','GTM-KBWXBRFV');
+    // Ensure window.gtag helper forwards directly to dataLayer
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = window.gtag || gtag;
+    </script>
     <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8">
@@ -60,7 +65,7 @@
           "description": "New Jersey's premier dry eye care center specializing in advanced, FDA-cleared diagnostics and customized, root-cause treatments.",
           "telephone": "(973) 322-0100",
           "medicalSpecialty": "Ophthalmology",
-          "knowsAbout": ["Dry Eye Syndrome", "Meibomian Gland Dysfunction", "LipiFlow", "BlephEx", "AmbioDisk"],
+          "knowsAbout": ["Dry Eye Syndrome", "Meibomian Gland Dysfunction", "LipiFlow", "AmbioDisk"],
           "priceRange": "$$",
           "aggregateRating": {
             "@type": "AggregateRating",
@@ -149,7 +154,6 @@
             "Dry Eye Syndrome",
             "Meibomian Gland Dysfunction (MGD)",
             "LipiFlow",
-            "BlephEx",
             "Intense Pulsed Light (IPL)"
           ],
           "memberOf": {
@@ -168,11 +172,6 @@
               "@type": "MedicalProcedure",
               "name": "LipiFlow Thermal Pulsation System",
               "description": "An FDA-cleared medical device that applies targeted heat and pressure to unlock blocked meibomian glands."
-            },
-            {
-              "@type": "MedicalProcedure",
-              "name": "BlephEx Microblepharoexfoliation",
-              "description": "A clinical treatment that exfoliates and cleanses the eyelid margins to eliminate inflammatory biofilm."
             },
             {
               "@type": "MedicalProcedure",
@@ -231,6 +230,14 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Drugstore drops act as a temporary band-aid, masking symptoms for minutes without treating the underlying cause. If your meibomian glands are blocked, tears will continue to evaporate instantly. Over time, untreated gland blockage leads to irreversible gland atrophy (shrinkage). Our treatments target the root cause—inflammation and gland blockages—to restore your eyes' natural ability to produce and maintain tears, preventing permanent damage."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the TFOS DEWS II study, and how does it directly validate your testing regimen and treatment approach?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The landmark TFOS DEWS II (Tear Film & Ocular Surface Society Dry Eye WorkShop II) global consensus study redefined dry eye as a multi-factorial disease driven by a self-perpetuating vicious cycle of tear instability, hyperosmolarity, and ocular surface inflammation. To break this cycle, TFOS DEWS II established an evidence-based, staged diagnostic and therapeutic protocol that directly maps to our clinic's exact regimen: sub-type diagnostic testing via LipiView® interferometry, TearLab® osmolarity, and InflammaDry® MMP-9 screening; targeted lipid restoration via thermal pulsation therapy and meibomian gland expression to clear hardened wax and restore oil flow; and interrupting ocular surface inflammation using Restasis®, Xiidra®, Cequa®, Miebo®, or AmbioDisk™ tissue grafts."
               }
             }
           ]
@@ -650,7 +657,7 @@
                                 <span>Estimated Gland Health Level:</span>
                                 <strong id="gland-health-label">90% Function</strong>
                             </div>
-                            <p class="gland-disclaimer">Educational estimate only — not a clinical diagnosis. A non-invasive LipiView® thermal scan at our clinic is required to map your actual gland structure.</p>
+                            <p class="gland-disclaimer">Note: This score is a symptom screener, not a medical diagnosis. A quick, painless LipiView® scan at our clinic captures HD imaging of your actual oil glands.</p>
                             <div class="glands-container" id="glands-container">
                                 <!-- 5 glands represented in SVG -->
                                 <svg viewBox="0 0 250 85" class="glands-row-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="gland-chart-title">
@@ -1833,7 +1840,7 @@
             <div class="doctor-profile-grid">
                 <div class="doctor-image-wrapper reveal">
                     <div class="doctor-image-glow"></div>
-                    <img src="assets/dr_marano.webp" alt="Dr. Matthew J. Marano, Jr., MD" class="doctor-headshot" width="400" height="480">
+                    <img src="assets/dr_marano.webp" alt="Dr. Matthew J. Marano, Jr., MD - Board Certified Dry Eye Specialist and Chief of Ophthalmology in NJ" class="doctor-headshot" width="400" height="480" loading="lazy" decoding="async">
                 </div>
                 <div class="doctor-info reveal reveal-delay-1">
                     <span class="luxury-subtitle">Elite Practitioners</span>
@@ -2237,6 +2244,24 @@
                         </div>
                     </div>
                 </div>
+                <div class="faq-item">
+                    <button class="faq-question" id="faq-question-7" aria-expanded="false" aria-controls="faq-answer-7">
+                        What is the TFOS DEWS II study, and how does it directly validate your testing regimen and treatment approach?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-7" role="region" aria-labelledby="faq-question-7">
+                        <div class="faq-answer-inner">
+                            <p>The landmark <strong>TFOS DEWS II</strong> (Tear Film &amp; Ocular Surface Society Dry Eye WorkShop II) global consensus study redefined dry eye disease as a complex, multi-factorial condition driven by a self-perpetuating "vicious cycle" of tear film instability, hyperosmolarity (tear salt concentration), and ocular surface inflammation.<sup class="cite"><a href="#ref-2">[2]</a></sup></p>
+                            <p>To break this cycle, TFOS DEWS II established an evidence-based, <strong>staged diagnostic and therapeutic protocol</strong> that directly maps to our clinic's exact regimen:</p>
+                            <ul>
+                                <li><strong>Sub-type Diagnostic Testing:</strong> TFOS DEWS II requires identifying whether a patient suffers from Evaporative Dry Eye (caused by Meibomian Gland Dysfunction in over 85% of cases) or Aqueous Deficiency.<sup class="cite"><a href="#ref-1">[1]</a></sup> We fulfill this by using non-invasive <strong>LipiView® interferometry</strong> (imaging lipid layer thickness &amp; gland atrophy), <strong>TearLab® osmolarity testing</strong>, and <strong>InflammaDry® (MMP-9)</strong> biomarker screening before prescribing any care.</li>
+                                <li><strong>Targeted Lipid Restoration:</strong> To treat evaporative loss caused by MGD, TFOS DEWS II recommends physical unblocking of the meibomian glands. We utilize <strong>thermal pulsation therapy</strong> and clinical gland expression to clear hardened wax, restore natural oil flow, and prevent permanent gland loss.</li>
+                                <li><strong>Interrupting Ocular Surface Inflammation:</strong> To heal the cornea and stop inflammatory damage, TFOS DEWS II recommends targeted immunomodulation. We prescribe advanced anti-inflammatory drops (such as <strong>Restasis®</strong>, <strong>Xiidra®</strong>, <strong>Cequa®</strong>, or <strong>Miebo®</strong>) and utilize biological tissue grafts (<strong>AmbioDisk™</strong>) for severe cases.</li>
+                            </ul>
+                            <p>By mapping our testing technologies and therapeutic procedures directly to the TFOS DEWS II clinical algorithms, we ensure your treatment targets the precise biological mechanism failing in your eyes for long-term, root-cause relief.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -2249,7 +2274,7 @@
                     <h2>Reclaim Clear, <span class="serif-italic text-pop-gold">Comfortable Vision</span></h2>
                     <p>Stop managing symptoms with temporary drops. Request a comprehensive diagnostic scan and begin your pathway to lasting comfort today.</p>
 
-                    <h3 class="cta-locations-heading">Visit Our Dry Eye Clinics in Essex &amp; Morris County</h3>
+                    <h4 class="cta-locations-heading">Call to Schedule an Evaluation in Essex &amp; Morris County</h4>
                     <div class="cta-locations-list">
                         <div class="cta-location-item">
                             <h4>Livingston Office <span class="location-badge">Complete Diagnostic Suite</span></h4>
@@ -2363,7 +2388,7 @@
                             </div>
                             <div class="form-step-header">
                                 <span class="form-step-eyebrow">Priority Clinical Access</span>
-                                <h3 class="form-step-heading">Request Diagnostic <span class="text-pop-gold serif-italic">Evaluation</span></h3>
+                                <h3 class="form-step-heading">Request Diagnostic Evaluation</h3>
                                 <p class="form-step-description">Fill out 4 simple fields to schedule your comprehensive evaluation with Dr. Marano's team.</p>
                             </div>
 
@@ -2418,7 +2443,7 @@
                             <h3>Request Received!</h3>
                             <p>Thank you! Your self-assessment and consultation request have been safely received by Dr. Marano's team. A clinical coordinator will call you within one business day to confirm your personalized diagnostic evaluation. If you need immediate assistance, please reach out to us at (973) 322-0100.</p>
                         </div>
-                        <div class="form-error-message" role="alert" aria-live="assertive">
+                        <div class="form-error-message" role="alert" aria-live="assertive" tabindex="-1">
                             <span class="error-close-btn" aria-label="Close error message">✕</span>
                             <h3>Oops, something went wrong</h3>
                             <p class="error-text">We encountered a temporary network issue. Please call us at (973) 322-0100 or email info@maranoeyecare.com so we can secure your booking immediately.</p>
