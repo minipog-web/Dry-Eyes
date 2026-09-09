@@ -14,6 +14,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // --- GOOGLE ADS CONVERSION TRACKING HELPERS ---
+  // Global Site Tag: AW-18197167741
+  // Lead Form Conversion: AW-17962563730/P12NCJ6IgdwcEJLxm_VC
+  // Book Appointment Conversion: AW-17962563730/IsEZCL66_dscEJLxm_VC
+  const trackGoogleAdsConversion = (conversionId, conversionLabel, customParams = {}) => {
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        'send_to': `${conversionId}/${conversionLabel}`,
+        'value': 1.0,
+        'currency': 'USD',
+        ...customParams
+      });
+    }
+  };
+
+  const trackLeadFormConversion = (customParams = {}) => {
+    trackEvent('lead_form_conversion', customParams);
+    trackGoogleAdsConversion('AW-17962563730', 'P12NCJ6IgdwcEJLxm_VC', customParams);
+  };
+
+  const trackBookAppointmentConversion = (label = 'Book Appointment CTA', customParams = {}) => {
+    trackEvent('book_appointment_conversion', { cta_label: label, ...customParams });
+    trackGoogleAdsConversion('AW-17962563730', 'IsEZCL66_dscEJLxm_VC', {
+      event_label: label,
+      ...customParams
+    });
+  };
+
+  window.trackGoogleAdsConversion = trackGoogleAdsConversion;
+  window.trackLeadFormConversion = trackLeadFormConversion;
+  window.trackBookAppointmentConversion = trackBookAppointmentConversion;
+
   // --- DYNAMIC TEXT REPLACEMENT (DTR) SYSTEM ---
   const initDTR = () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -212,6 +244,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // Google Ads "Book Appointment" Conversion Triggers (AW-17962563730/IsEZCL66_dscEJLxm_VC)
+  const setupAppointmentBookingTriggers = () => {
+    const bookingSelectors = [
+      '.nav-cta',
+      '.hero-buttons a[href="#contact"]',
+      '.widget-cta',
+      '.btn-calc-cta',
+      'a.btn[href="#contact"]'
+    ];
+    document.querySelectorAll(bookingSelectors.join(',')).forEach(cta => {
+      if (cta.dataset.adsTrackingBound) return;
+      cta.dataset.adsTrackingBound = 'true';
+      cta.addEventListener('click', () => {
+        const label = cta.textContent.trim() || 'Book Appointment CTA';
+        trackBookAppointmentConversion(label);
+      });
+    });
+  };
+  setupAppointmentBookingTriggers();
 
   // Navbar Scroll Effect using IntersectionObserver (GPU-friendly, zero layout thrashing)
   const navbar = document.querySelector('.navbar');
@@ -741,11 +793,10 @@ document.addEventListener('DOMContentLoaded', () => {
               }
             });
 
-            // Google Ads Conversion Event
-            gtag('event', 'conversion', {
-              'send_to': 'AW-18197167741/lead_form_submit',
-              'value': 1.0,
-              'currency': 'USD'
+            // Google Ads Conversion Event - Lead Form (AW-17962563730/P12NCJ6IgdwcEJLxm_VC)
+            trackLeadFormConversion({
+              event_category: 'Lead Form',
+              event_label: 'Consultation Request Form'
             });
           }
 
@@ -1054,10 +1105,11 @@ document.addEventListener('DOMContentLoaded', () => {
       pathway: pathway
     });
 
-    // Explicit Google Ads conversion event for high-intent quiz completion
-    if (typeof gtag === 'function') {
-      gtag('event', 'conversion');
-    }
+    // GA4 Telemetry event for high-intent quiz completion
+    trackEvent('quiz_assessment_completed', {
+      score: checkedCount,
+      severity: severity
+    });
   };
 
   const saveQuizState = () => {

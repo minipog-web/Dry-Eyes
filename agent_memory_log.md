@@ -52,5 +52,12 @@
 - **GitHub Deployment**: Committed and pushed changes to GitHub (`minipog-web/Dry-Eyes.git`).
 - **Netlify Production Deployment**: Deployed live to Netlify production per explicit user instruction.
 
+## Milestone: Google Tag & Conversion Trigger Deployment (September 2026)
 
-
+### What Worked
+- **Google Tag Container & Global Site Tag**: Deployed `AW-18197167741` immediately following `<head>` in `index.html`, configuring `AW-18197167741`, `AW-17962563730`, and `GT-WKTZM5GN`.
+- **Lead Form Conversion Trigger**: Configured `AW-17962563730/P12NCJ6IgdwcEJLxm_VC` on successful consultation form submission with Google Ads Enhanced Conversions data hashing.
+- **Book Appointment Conversion Triggers**: Configured `AW-17962563730/IsEZCL66_dscEJLxm_VC` across all booking action buttons (hero CTA, header/mobile navigation CTAs, assessment quiz CTA, and cost calculator CTA).
+- **Production Build Compilation**: Re-ran `node build.js` to compile and minify all HTML, CSS, and JS assets directly into `dist/`.
+- **GitHub Deployment**: Committed and pushed changes to GitHub (`minipog-web/Dry-Eyes.git`).
+- **Netlify Production Deployment**: Deployed live to Netlify production per explicit user instruction.
