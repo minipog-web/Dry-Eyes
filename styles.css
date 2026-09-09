@@ -1790,37 +1790,6 @@ footer.footer {
   text-align: center;
 }
 
-.treatment-deescalation-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(197, 168, 128, 0.08);
-  border: 1px solid rgba(197, 168, 128, 0.25);
-  border-radius: var(--radius-full);
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  text-align: left;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.deescalation-icon {
-  font-size: 1.1rem;
-  flex-shrink: 0;
-}
-
-.deescalation-text {
-  font-size: 0.88rem;
-  line-height: 1.45;
-  color: var(--text-secondary);
-}
-
-.deescalation-text strong {
-  color: var(--accent-gold);
-  font-weight: 600;
-}
-
 .treatment-select-label {
   display: block;
   font-family: var(--font-heading);
@@ -5717,6 +5686,8 @@ sup.cite a:hover {
   display: block;
   opacity: 1;
   transform: translateY(0);
+}
+
 .form-group-vertical {
   display: flex;
   flex-direction: column;

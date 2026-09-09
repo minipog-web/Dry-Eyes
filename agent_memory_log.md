@@ -42,4 +42,15 @@
 ### What to Avoid
 - **Avoid Automatic Netlify Deploys**: NEVER deploy to Netlify unless specifically and explicitly instructed to do so by the user.
 
+## Milestone: CSS Parser Fix & Treatments Section Alignment (September 2026)
+
+### What Worked
+- **CSS Parser Syntax Fix**: Resolved missing closing brace `}` on `.form-step-panel.active` at line 5719 in `styles.css`. This had caused browser CSS parsers to treat all 1,500 subsequent CSS lines as nested selectors, preventing `.cert-svg` and `.cert-icon-wrapper` from sizing properly and blowing up SVG icons to full viewport dimensions.
+- **Treatments Column Symmetry**: Removed the `.treatment-deescalation-pill` ("Custom-Matched Care") per user directive to eliminate vertical displacement. Harmonized the top baselines of "Prescription Medications" and "In-Office Procedures" so titles, category selector labels, tab bars, and treatment cards align in perfect horizontal symmetry.
+- **Cache Busting**: Bumped stylesheet version query in `index.html` to `v=1.4.6` to guarantee immediate client updates.
+- **Production Build Compilation**: Re-ran `node build.js` to compile and minify all HTML, CSS, and JS assets directly into `dist/`.
+- **GitHub Deployment**: Committed and pushed changes to GitHub (`minipog-web/Dry-Eyes.git`).
+- **Netlify Production Deployment**: Deployed live to Netlify production per explicit user instruction.
+
+
 
