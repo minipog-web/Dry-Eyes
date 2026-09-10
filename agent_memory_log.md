@@ -61,3 +61,11 @@
 - **Production Build Compilation**: Re-ran `node build.js` to compile and minify all HTML, CSS, and JS assets directly into `dist/`.
 - **GitHub Deployment**: Committed and pushed changes to GitHub (`minipog-web/Dry-Eyes.git`).
 - **Netlify Production Deployment**: Deployed live to Netlify production per explicit user instruction.
+
+## Milestone: SEO Canonical & Open Graph URL Synchronization (September 2026)
+
+### What Worked
+- **SEO Canonical & OG URL Standardization**: Formatted `<link rel="canonical" href="https://dryeye.maranoeye.com/" />` and `<meta property="og:url" content="https://dryeye.maranoeye.com/" />` in `index.html` <head> to strict self-closing XML syntax.
+- **Production Build Compilation**: Re-ran `node build.js` to synchronize `dist/index.html`.
+- **GitHub & Netlify Deployment**: Committed and pushed changes to GitHub (`minipog-web/Dry-Eyes.git`) triggering automated Netlify production deployment per explicit user instruction.
+
