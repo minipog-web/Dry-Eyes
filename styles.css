@@ -739,6 +739,9 @@ footer.footer {
   text-decoration: none;
   transition: color var(--transition), transform var(--transition);
   white-space: nowrap;
+  min-height: 44px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm, 6px);
 }
 
 .nav-phone:hover {
@@ -759,12 +762,14 @@ footer.footer {
 .mobile-header-call-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   background: linear-gradient(135deg, #DAB785 0%, #FFF5E4 50%, #CFA565 100%);
   color: #121A28 !important;
   font-weight: 700;
   font-size: 0.85rem;
   padding: 8px 14px;
+  min-height: 44px;
   border-radius: var(--radius-sm, 6px);
   text-decoration: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -839,6 +844,10 @@ footer.footer {
 }
 
 .nav-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 10px;
   font-size: 0.92rem;
   font-weight: 500;
   color: var(--text-muted);
@@ -3053,7 +3062,19 @@ footer.footer {
   margin-top: 12px;
 }
 
-.footer h4 {
+.footer-brand p a {
+  color: var(--primary-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition);
+}
+
+.footer-brand p a:hover {
+  color: #ffffff;
+}
+
+.footer h4,
+.footer h3 {
   font-size: 0.95rem;
   margin-bottom: 16px;
   color: var(--primary-light);
@@ -3356,7 +3377,7 @@ footer.footer {
     grid-template-columns: 1fr 1fr;
     gap: 16px 12px;
     margin-top: 36px;
-    padding-top: 16px;
+    padding: 16px 0;
   }
 
   .trust-item {
@@ -3990,8 +4011,8 @@ footer.footer {
   justify-content: center;
   align-items: center;
   gap: clamp(12px, 2vw, 24px); /* Tighter gap to prevent wrapping on standard desktop screens */
-  margin-top: 50px;
-  padding-top: 24px;
+  margin-top: clamp(28px, 4vh, 48px);
+  padding: 26px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   flex-wrap: wrap;
 }
@@ -4170,7 +4191,8 @@ footer.footer {
   box-shadow: 0 0 16px var(--glow);
 }
 
-.pathway-step-card h4 {
+.pathway-step-card h4,
+.pathway-step-card h3 {
   font-size: 1.15rem;
   color: var(--primary-light);
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 12px rgba(123, 150, 200, 0.2);
@@ -4496,6 +4518,306 @@ footer.footer {
   
   .doctor-bio {
     text-align: center;
+  }
+}
+
+/* --- PHYSICIANS TEAM GRID (DR. RAOUF & DR. DECKER) --- */
+.team-grid-header {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 36px;
+}
+
+.team-grid-title {
+  font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 10px 0 12px;
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
+.team-grid-subtitle {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: #94A3B8;
+  margin: 0;
+}
+
+.physicians-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+.physician-card {
+  background: rgba(18, 30, 49, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(123, 150, 200, 0.2);
+  border-radius: var(--radius-lg, 16px);
+  padding: 30px 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.physician-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary, #38BDF8), var(--accent-gold, #F59E0B));
+  opacity: 0.9;
+}
+
+.physician-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.38);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.45);
+}
+
+.physician-card-header {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.physician-photo-wrapper {
+  position: relative;
+  width: 116px;
+  height: 142px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  background: #0B1524;
+}
+
+.physician-photo-glow {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.physician-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.physician-header-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  flex-grow: 1;
+}
+
+.physician-card-title h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 4px 0;
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
+.physician-card-role {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary, #38BDF8);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.physician-meta-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.physician-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #7DD3FC;
+}
+
+.physician-chip .chip-icon {
+  width: 13px;
+  height: 13px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  flex-shrink: 0;
+}
+
+.physician-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex-grow: 1;
+  margin-bottom: 22px;
+}
+
+.physician-card-bio {
+  font-size: 0.92rem;
+  line-height: 1.66;
+  color: #CBD5E1;
+  margin: 0;
+}
+
+.physician-focus-area {
+  background: rgba(10, 20, 35, 0.45);
+  border: 1px solid rgba(123, 150, 200, 0.14);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.focus-title {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94A3B8;
+  margin-bottom: 10px;
+}
+
+.physician-focus-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.physician-focus-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #E2E8F0;
+}
+
+.focus-icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--accent-gold, #F59E0B);
+  stroke-width: 2.5;
+  fill: none;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.physician-pedigree-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.pedigree-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pedigree-label {
+  font-size: 0.69rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748B;
+}
+
+.pedigree-val {
+  font-size: 0.81rem;
+  font-weight: 600;
+  color: #E2E8F0;
+  line-height: 1.35;
+}
+
+.physician-card-footer {
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: auto;
+}
+
+.physician-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.physician-tag {
+  font-size: 0.76rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(123, 150, 200, 0.1);
+  color: #94A3B8;
+  border: 1px solid rgba(123, 150, 200, 0.15);
+}
+
+@media (max-width: 920px) {
+  .physicians-team-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .physician-card {
+    padding: 22px 18px;
+  }
+  
+  .physician-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .physician-photo-wrapper {
+    width: 100px;
+    height: 125px;
+  }
+  
+  .physician-pedigree-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -5505,29 +5827,45 @@ sup.cite {
 }
 
 sup.cite a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--primary-light);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
   font-weight: 600;
   transition: color var(--transition);
 }
 
-sup.cite a:hover {
-  color: #FFFFFF;
-  text-decoration: underline;
+sup.cite a::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 44px;
+  min-height: 44px;
 }
 
-/* Force citation links to be visible on light sections (WCAG AAA 7.1:1 contrast) */
+sup.cite a:hover {
+  color: #FFFFFF;
+}
+
+/* Force citation links to be visible on light sections (WCAG AAA 7:1 contrast + underline) */
 .section-light sup.cite a,
 .section-light-warm sup.cite a,
 .section-light-cool sup.cite a {
-  color: #4A3623;
+  color: #2D2012;
   font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .section-light sup.cite a:hover,
 .section-light-warm sup.cite a:hover,
 .section-light-cool sup.cite a:hover {
-  color: var(--surface-dark);
+  color: #000000;
 }
 
 /* References section in footer */
@@ -5568,7 +5906,8 @@ sup.cite a:hover {
 
 .references-list li a {
   color: var(--primary-light);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
   transition: color var(--transition);
 }
 

@@ -906,7 +906,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentQuizStep = 0;
 
   const messages = {
-    mild: "Your responses indicate early tear film instability. Even mild symptoms can signal the start of Meibomian Gland Dysfunction (MGD) — over 86% of patients achieve lasting comfort when caught early with a baseline diagnostic scan.",
+    mild: "Your responses indicate early tear film instability. Even mild symptoms can signal the start of Meibomian Gland Dysfunction (MGD). Over 86% of patients achieve lasting comfort when identified early with a baseline diagnostic scan.",
     moderate: "Your responses indicate moderate evaporative dry eye stress. A high-definition LipiView® gland scan at our Livingston diagnostic suite will pinpoint your exact lipid layer thickness and prevent active gland shrinkage.",
     severe: "Your responses indicate advanced ocular surface inflammation. Comprehensive multi-spectral diagnostics (LipiView + Osmolarity + MMP-9) are strongly recommended to arrest progressive gland atrophy and restore tear stability."
   };
@@ -1721,7 +1721,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Delight: Clinician & Developer Console Greeting
   console.log(
-    `%c👁️ Marano Eye Care %c| Advanced Dry Eye & Ocular Surface Center\n%cDr. Matthew J. Marano, Jr., MD — Board-Certified Ophthalmologist\nLivingston • Denville • Newark\nhttps://maranoeyecare.com`,
+    `%c👁️ Marano Eye Care %c| Advanced Dry Eye & Ocular Surface Center\n%cDr. Matthew J. Marano, Jr., MD | Board-Certified Ophthalmologist\nLivingston • Denville • Newark\nhttps://maranoeyecare.com`,
     'font-size: 14px; font-weight: bold; color: #C5A880;',
     'font-size: 12px; color: #7B96C8;',
     'font-size: 11px; color: #94A3B8;'
