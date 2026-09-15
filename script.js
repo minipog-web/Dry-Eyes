@@ -288,6 +288,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   navbarObserver.observe(scrollSentinel);
 
+  // Mobile Quick-Action Sticky Bar visibility management (GPU-friendly, auto-hides at contact form)
+  const mobileStickyBar = document.getElementById('mobile-sticky-bar');
+  const heroHome = document.getElementById('home');
+  const contactSection = document.getElementById('contact');
+
+  if (mobileStickyBar && heroHome) {
+    let heroVisible = true;
+    let contactVisible = false;
+
+    const updateMobileBar = () => {
+      // Show only when scrolled past hero AND not actively in contact form
+      if (!heroVisible && !contactVisible) {
+        mobileStickyBar.classList.add('visible');
+      } else {
+        mobileStickyBar.classList.remove('visible');
+      }
+    };
+
+    const heroObserver = new IntersectionObserver((entries) => {
+      heroVisible = entries[0].isIntersecting;
+      updateMobileBar();
+    }, { threshold: 0.1 });
+    heroObserver.observe(heroHome);
+
+    if (contactSection) {
+      const contactObserver = new IntersectionObserver((entries) => {
+        contactVisible = entries[0].isIntersecting;
+        updateMobileBar();
+      }, { threshold: 0.05 });
+      contactObserver.observe(contactSection);
+    }
+  }
+
   // Reveal Animations on Scroll
   const observerOptions = {
     root: null,
@@ -1429,7 +1462,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { once: true });
   }
 
-  // Handle booking CTA integration from assessment widget
+  // Handle booking CTA integration from assessment widget (Endowment & Transfer pass-through)
   const widgetCta = document.querySelector('.widget-cta');
   if (widgetCta) {
     widgetCta.addEventListener('click', (e) => {
@@ -1451,46 +1484,39 @@ document.addEventListener('DOMContentLoaded', () => {
           return map[val] || val;
         });
       
-      const concernSelect = document.getElementById('primary-concern');
-      const messageTextArea = document.getElementById('message');
       const checkedCount = checkedSymptoms.length;
+      const severityBadge = document.getElementById('result-severity-badge');
+      const scoreVal = document.getElementById('result-score-value');
+      const pathwayVal = document.getElementById('result-pathway-value');
       
-      trackEvent('form_widget_cta_click', {
-        checked_count: checkedCount,
-        suggested_pathway: concernSelect ? concernSelect.value : ''
-      });
-
-      if (concernSelect) {
-        if (checkedCount >= 5) {
-          concernSelect.value = 'procedures';
-        } else {
-          concernSelect.value = 'evaluation';
-        }
+      const severityText = severityBadge ? severityBadge.textContent.trim() : 'Dry Eye Screener';
+      const scoreText = scoreVal ? scoreVal.textContent.trim() : `${checkedCount}/7`;
+      const pathwayText = pathwayVal ? pathwayVal.textContent.trim() : 'Diagnostic Scan';
+      
+      const transferDetail = `${severityText} (${scoreText}) • Pathway: ${pathwayText}`;
+      
+      // Update form transfer pill & hidden input
+      const transferPill = document.getElementById('screener-transfer-pill');
+      const transferText = document.getElementById('screener-transfer-text');
+      const assessmentInput = document.getElementById('screener-assessment-input');
+      
+      if (transferText) transferText.textContent = transferDetail;
+      if (assessmentInput) assessmentInput.value = transferDetail;
+      if (transferPill) {
+        transferPill.style.display = 'flex';
       }
 
-      // Pre-fill Step 1 selections to minimize booking friction
+      // Pre-select Livingston flagship for diagnostic suite if not chosen
       const preferredLocation = document.getElementById('preferred-location');
       if (preferredLocation && !preferredLocation.value) {
         preferredLocation.value = 'livingston';
       }
 
-      const contactMethod = document.getElementById('contact-method');
-      if (contactMethod && !contactMethod.value) {
-        contactMethod.value = 'email';
-      }
-      
-      if (messageTextArea && checkedSymptoms.length > 0) {
-        messageTextArea.value = `Hello, I completed the self-assessment and scored ${checkedCount}/${checkboxes.length} with these symptoms: ${checkedSymptoms.join(', ')}. I'd like to schedule a diagnostic evaluation.`;
-      }
-      
-      const assessmentBanner = document.getElementById('form-assessment-banner');
-      if (assessmentBanner) {
-        assessmentBanner.style.display = 'flex';
-      }
-      
-      // Since Step 1 is now fully selected, programmatically skip to Step 2
-      currentFormStep = 2;
-      updateFormStepUI();
+      trackEvent('form_widget_cta_click', {
+        checked_count: checkedCount,
+        severity: severityText,
+        suggested_pathway: pathwayText
+      });
 
       const bookingCard = document.getElementById('booking-card');
       if (bookingCard) {
@@ -1502,16 +1528,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
       }
       
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
+      const contactTarget = document.getElementById('contact');
+      if (contactTarget) {
+        contactTarget.scrollIntoView({ behavior: 'smooth' });
         
         setTimeout(() => {
-          const firstNameInput = document.getElementById('first-name');
-          if (firstNameInput) firstNameInput.focus();
-        }, 800);
+          const fullNameInput = document.getElementById('full-name');
+          if (fullNameInput) fullNameInput.focus();
+        }, 750);
       }
     });
+
+    // Allow user to dismiss attached assessment
+    const pillDismissBtn = document.getElementById('screener-pill-dismiss');
+    if (pillDismissBtn) {
+      pillDismissBtn.addEventListener('click', () => {
+        const transferPill = document.getElementById('screener-transfer-pill');
+        const assessmentInput = document.getElementById('screener-assessment-input');
+        if (transferPill) transferPill.style.display = 'none';
+        if (assessmentInput) assessmentInput.value = '';
+      });
+    }
   }
 
 

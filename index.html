@@ -57,7 +57,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.5.0">
+    <link rel="stylesheet" href="styles.css?v=1.6.5">
 
     <!-- Preload Critical Above-the-Fold Assets -->
     <link rel="preload" href="assets/marano_logo.png" as="image" type="image/png">
@@ -802,7 +802,7 @@
                         </div>
                         <div class="quiz-results-nav-buttons">
                             <button type="button" class="btn btn-outline" id="btn-quiz-restart">Restart Quiz</button>
-                            <a href="#contact" class="btn btn-primary widget-cta">Claim My Assessment &amp; Schedule →</a>
+                            <a href="#contact" class="btn btn-primary widget-cta" id="btn-quiz-claim">Transfer My Results &amp; Schedule →</a>
                         </div>
                     </div>
                 </div>
@@ -2556,15 +2556,10 @@
 
                 <div class="cta-form reveal reveal-delay-2" id="cta-form-container">
                     <div class="glass-card p-40" id="booking-card">
-                        <!-- Persuasive Banner (Endowment/Feedback loop) -->
-                        <div class="form-banner form-banner-hidden" id="form-assessment-banner">
-                            <span class="banner-icon">📋</span>
-                            <span class="banner-text">Self-Assessment details successfully linked to your request!</span>
-                        </div>
-
                         <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true" novalidate>
                             <input type="hidden" name="form-name" value="contact">
                             <input type="hidden" name="subject" value="New Patient Consult Request">
+                            <input type="hidden" name="screener_assessment" id="screener-assessment-input" value="">
                             
                             <div class="form-honeypot" aria-hidden="true">
                                 <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
@@ -2584,6 +2579,18 @@
                                 <span class="form-step-eyebrow">Priority Clinical Access</span>
                                 <h3 class="form-step-heading">Request Diagnostic Evaluation</h3>
                                 <p class="form-step-description">Fill out 4 simple fields to schedule your comprehensive evaluation with Dr. Marano's team.</p>
+                            </div>
+
+                            <!-- Screener Dynamic Transfer Badge -->
+                            <div id="screener-transfer-pill" class="screener-transfer-pill" style="display: none;" role="status" aria-live="polite">
+                                <div class="screener-pill-main">
+                                    <span class="screener-pill-icon" aria-hidden="true">📋</span>
+                                    <div class="screener-pill-text">
+                                        <strong class="screener-pill-title">Screener Assessment Attached:</strong>
+                                        <span class="screener-pill-detail" id="screener-transfer-text"></span>
+                                    </div>
+                                </div>
+                                <button type="button" class="screener-pill-dismiss" id="screener-pill-dismiss" aria-label="Remove attached screener">✕</button>
                             </div>
 
                             <!-- Field 1: Full Name -->
@@ -2716,7 +2723,20 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.4.3" defer></script>
+    <!-- PERSISTENT MOBILE QUICK-ACTION BAR (≤768px) -->
+    <aside class="mobile-sticky-bar" id="mobile-sticky-bar" aria-label="Quick Actions">
+        <div class="mobile-sticky-bar-inner">
+            <a href="tel:9733220100" class="mobile-bar-phone">
+                <svg class="phone-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+                </svg>
+                <span>Call Clinic</span>
+            </a>
+            <a href="#contact" class="btn btn-primary mobile-bar-cta">Request Evaluation →</a>
+        </div>
+    </aside>
+
+    <script src="script.js?v=1.5.0" defer></script>
 
     <!-- ============================================================
          CALLRAIL + GA4 + GOOGLE ADS INTEGRATION
