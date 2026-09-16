@@ -93,7 +93,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  scroll-padding-top: clamp(70px, 8vh, 90px);
+  scroll-padding-top: clamp(88px, 10vh, 108px);
 }
 
 body {
@@ -105,6 +105,35 @@ body {
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- UNIVERSAL SCROLL MARGINS & ANCHOR CLEARANCE ---
+   Guarantees that when any navigation link, button, or deep-link hash is clicked,
+   the target section header lands cleanly with luxury breathing room below the fixed navbar */
+section[id],
+main[id],
+article[id],
+.section,
+#home,
+#symptoms,
+#anatomy,
+#understanding,
+#comparison,
+#diagnostics,
+#treatments,
+#physician,
+#affiliations,
+#testimonials,
+#pathway,
+#faq,
+#contact,
+#booking-card,
+#references,
+[id^="stage-"],
+[id^="treatment-"],
+[id^="faq-"],
+[id^="ref-"] {
+  scroll-margin-top: clamp(88px, 10vh, 108px) !important;
 }
 
 /* Explicit Heading Hierarchy with Serif Font ('Playfair Display') & Scaled Contrast */
@@ -851,6 +880,7 @@ footer.footer {
   font-size: 0.92rem;
   font-weight: 500;
   color: var(--text-muted);
+  white-space: nowrap;
   transition: color var(--transition);
 }
 
@@ -7420,9 +7450,30 @@ textarea:disabled,
   transform: translateZ(0);
 }
 
+/* Ensure all sections remain deterministic in height for flawless in-page anchor navigation */
 .section {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 800px;
+  content-visibility: visible !important;
+  contain-intrinsic-size: none !important;
+}
+
+#home.hero,
+.hero,
+#contact {
+  content-visibility: visible !important;
+  contain-intrinsic-size: none !important;
+}
+
+/* Layout & Text Overflow Resilience */
+h1, h2, h3, h4, h5, h6, p, li, span, td, th {
+  overflow-wrap: break-word;
+}
+
+.container,
+.treatment-grid,
+.diagnostics-grid,
+.pricing-grid,
+.location-cards-grid {
+  min-width: 0;
 }
 
 img {

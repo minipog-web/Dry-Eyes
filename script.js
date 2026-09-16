@@ -167,19 +167,16 @@ document.addEventListener('DOMContentLoaded', () => {
       trackEvent('mobile_menu_toggle', { state: isOpen ? 'open' : 'close' });
     });
 
-    // Close mobile nav when a link is clicked
-    const navLinksItems = document.querySelectorAll('.nav-links a');
-    navLinksItems.forEach(link => {
-      link.addEventListener('click', () => {
-        trackEvent('nav_click', {
-          link_text: link.textContent.trim(),
-          link_url: link.getAttribute('href')
-        });
+    // Close mobile nav helper
+    const closeMobileNav = () => {
+      if (navLinks && navLinks.classList.contains('open')) {
         navLinks.classList.remove('open');
-        mobileToggle.textContent = '☰';
-        mobileToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
+        if (mobileToggle) {
+          mobileToggle.textContent = '☰';
+          mobileToggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+    };
 
     // Trap keyboard focus inside the mobile menu when open
     document.addEventListener('keydown', (e) => {
@@ -201,15 +198,155 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           }
         } else if (e.key === 'Escape') {
-          navLinks.classList.remove('open');
-          mobileToggle.textContent = '☰';
-          mobileToggle.setAttribute('aria-expanded', 'false');
+          closeMobileNav();
           mobileToggle.focus();
           e.preventDefault();
         }
       }
     });
   }
+
+  // --- COMPREHENSIVE VIEW & SECTION NAVIGATION ENGINE ---
+  // Ensures every button, link, and deep-link URL (including queries like #physician?t=123)
+  // scrolls smoothly to the exact target section with perfect clearance below the fixed navbar.
+  const scrollToTargetSection = (targetInput, smooth = true) => {
+    if (!targetInput) return;
+
+    // Strip leading hash, query parameters, or trailing slashes (e.g. "#physician?t=123" -> "physician")
+    const cleanId = targetInput.replace(/^#/, '').split('?')[0].split('&')[0].replace(/\/$/, '').trim();
+    if (!cleanId) return;
+
+    // Sub-view activation triggers before scrolling
+    // 1. Treatment tab activation (e.g., #treatment-restasis, #treatment-lipiflow)
+    if (cleanId.startsWith('treatment-')) {
+      const treatmentVal = cleanId.replace('treatment-', '');
+      const tabBtn = document.querySelector(`.tab-btn[data-value="${treatmentVal}"]`);
+      if (tabBtn) {
+        tabBtn.click();
+      }
+    }
+
+    // 2. Life stages tab activation (e.g., #stage-teens, #stage-young, #stage-adults, #stage-seniors)
+    if (cleanId.startsWith('stage-')) {
+      const stageVal = cleanId.replace('stage-', '');
+      const stageTab = document.querySelector(`.stage-tab[data-stage="${stageVal}"]`);
+      if (stageTab) {
+        stageTab.click();
+      }
+    }
+
+    // 3. FAQ item accordion activation (e.g., #faq-item-1, #faq-1, #faq-question-1)
+    if (cleanId.startsWith('faq-')) {
+      const faqTarget = document.getElementById(cleanId);
+      if (faqTarget) {
+        const faqItem = faqTarget.closest('.faq-item') || faqTarget;
+        const faqBtn = faqItem.querySelector('.faq-question');
+        if (faqBtn && !faqItem.classList.contains('open')) {
+          faqBtn.click();
+        }
+      }
+    }
+
+    // Locate target element in DOM
+    let targetEl = document.getElementById(cleanId);
+
+    // Contextual aliases/fallbacks
+    if (!targetEl) {
+      if (cleanId === 'booking' || cleanId === 'appointment') {
+        targetEl = document.getElementById('booking-card') || document.getElementById('contact');
+      } else if (cleanId === 'quiz' || cleanId === 'assessment') {
+        targetEl = document.getElementById('symptoms');
+      }
+    }
+
+    if (!targetEl) return;
+
+    // Compute exact offset considering fixed navbar and luxury breathing space
+    const navbarEl = document.querySelector('.navbar');
+    const navHeight = navbarEl ? navbarEl.getBoundingClientRect().height : 72;
+    const breathingRoom = 24;
+    const totalOffset = navHeight + breathingRoom;
+
+    const elTop = targetEl.getBoundingClientRect().top + window.pageYOffset;
+    const scrollDest = Math.max(0, elTop - totalOffset);
+
+    if (smooth) {
+      window.scrollTo({
+        top: scrollDest,
+        behavior: 'smooth'
+      });
+    } else {
+      window.scrollTo(0, scrollDest);
+    }
+
+    // Accessibility: manage focus so screen readers announce the destination
+    if (!targetEl.hasAttribute('tabindex')) {
+      targetEl.setAttribute('tabindex', '-1');
+    }
+    targetEl.focus({ preventScroll: true });
+
+    // Update URL hash cleanly without query artifacts
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', `#${cleanId}`);
+    }
+  };
+
+  // Global In-Page Anchor Interceptor
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href*="#"]');
+    if (!anchor) return;
+
+    const href = anchor.getAttribute('href');
+    if (!href || href === '#' || href === '#!' || href.startsWith('#popup')) return;
+
+    // Check if link points to an in-page section
+    const url = new URL(anchor.href, window.location.origin);
+    if (url.pathname === window.location.pathname && url.hash) {
+      const navLinksEl = document.querySelector('.nav-links');
+      const mobileToggleEl = document.querySelector('.mobile-toggle');
+      if (navLinksEl && navLinksEl.classList.contains('open')) {
+        navLinksEl.classList.remove('open');
+        if (mobileToggleEl) {
+          mobileToggleEl.textContent = '☰';
+          mobileToggleEl.setAttribute('aria-expanded', 'false');
+        }
+      }
+
+      const cleanTargetId = url.hash.replace(/^#/, '').split('?')[0].split('&')[0];
+      const targetElement = document.getElementById(cleanTargetId);
+      if (targetElement) {
+        e.preventDefault();
+        trackEvent('nav_click', {
+          link_text: anchor.textContent.trim(),
+          link_url: href,
+          target_section: cleanTargetId
+        });
+        setTimeout(() => {
+          scrollToTargetSection(cleanTargetId, true);
+        }, 20);
+      }
+    }
+  });
+
+  // Handle Initial Deep-Link URL on Page Load (e.g. #physician?t=123, #treatments, etc.)
+  const handleInitialDeepLink = () => {
+    if (window.location.hash) {
+      const rawHash = window.location.hash;
+      const cleanId = rawHash.replace(/^#/, '').split('?')[0].split('&')[0];
+      if (cleanId) {
+        setTimeout(() => {
+          scrollToTargetSection(cleanId, true);
+        }, 150);
+      }
+    }
+  };
+
+  handleInitialDeepLink();
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash) {
+      scrollToTargetSection(window.location.hash, true);
+    }
+  });
 
   // Logo & CTA clicks
   const navLogo = document.querySelector('.nav-logo');
@@ -744,8 +881,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!firstInvalid) firstInvalid = contactMethod;
       }
 
-      // Step 2 check
-      const step2FieldsToValidate = ['first-name', 'last-name', 'email-address', 'phone-number'];
+      // Step 2 check (supports both single full-name or split first/last fields)
+      const step2FieldsToValidate = ['full-name', 'first-name', 'last-name', 'email-address', 'phone-number'];
       step2FieldsToValidate.forEach(id => {
         const field = document.getElementById(id);
         if (field) {
@@ -771,13 +908,28 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      // Check online status before proceeding
+      if (!navigator.onLine) {
+        const formError = document.querySelector('.form-error-message');
+        if (formError) {
+          const errorTextEl = formError.querySelector('.error-text');
+          if (errorTextEl) {
+            errorTextEl.innerHTML = '<strong>You appear to be offline:</strong> Please check your internet connection and try again, or tap <a href="tel:9733220100" style="color: var(--accent-gold); text-decoration: underline; font-weight: 700;">(973) 322-0100</a> to schedule immediately by phone.';
+          }
+          formError.classList.add('show');
+          formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        return;
+      }
+
       trackEvent('form_submit_attempt');
       
       const submitBtn = contactForm.querySelector('.btn-submit-consultation');
-      const originalBtnText = submitBtn ? submitBtn.textContent : 'Request My Evaluation';
+      const originalBtnText = submitBtn ? submitBtn.textContent : 'Request My Evaluation →';
       
       if (submitBtn) {
         submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
         submitBtn.textContent = 'Sending Request...';
       }
       
@@ -787,10 +939,25 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const formData = new FormData(contactForm);
         
-        // Also sanitize phone format in formData payload before sending
+        // Sanitize and trim text inputs before packaging payload
+        const fullNameInput = document.getElementById('full-name');
+        if (fullNameInput) {
+          const cleanName = fullNameInput.value.replace(/[<>]/g, '').trim().slice(0, 100);
+          fullNameInput.value = cleanName;
+          formData.set('name', cleanName);
+        }
+
+        const emailInput = document.getElementById('email-address');
+        if (emailInput) {
+          const cleanEmail = emailInput.value.replace(/[<>]/g, '').trim().slice(0, 100);
+          emailInput.value = cleanEmail;
+          formData.set('email', cleanEmail);
+        }
+
+        // Sanitize phone format in formData payload before sending
         const phoneInput = document.getElementById('phone-number');
         if (phoneInput) {
-          formData.set('phone-number', sanitizePhoneNumber(phoneInput.value));
+          formData.set('phone', sanitizePhoneNumber(phoneInput.value));
         }
 
         const response = await fetch("/", {
@@ -814,8 +981,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const emailVal = document.getElementById('email-address')?.value || '';
             const phoneValRaw = document.getElementById('phone-number')?.value || '';
             const phoneVal = sanitizePhoneNumber(phoneValRaw);
-            const firstNameVal = document.getElementById('first-name')?.value || '';
-            const lastNameVal = document.getElementById('last-name')?.value || '';
+            
+            let firstNameVal = document.getElementById('first-name')?.value || '';
+            let lastNameVal = document.getElementById('last-name')?.value || '';
+            if (!firstNameVal && fullNameInput) {
+              const parts = fullNameInput.value.trim().split(/\s+/);
+              firstNameVal = parts[0] || '';
+              lastNameVal = parts.slice(1).join(' ') || '';
+            }
             
             gtag('set', 'user_data', {
               'email': emailVal.trim().toLowerCase(),
@@ -866,6 +1039,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (submitBtn) {
           submitBtn.disabled = false;
+          submitBtn.removeAttribute('aria-busy');
           submitBtn.textContent = originalBtnText;
         }
 
@@ -874,14 +1048,15 @@ document.addEventListener('DOMContentLoaded', () => {
           const errorTextEl = formError.querySelector('.error-text');
           if (errorTextEl) {
             if (error.name === 'AbortError') {
-              errorTextEl.textContent = 'The request timed out. Please check your network connection and try again, or call us at (973) 322-0100 to book.';
-            } else if (!navigator.onLine) {
-              errorTextEl.textContent = 'You appear to be offline. Please verify your internet connection and try again, or call us at (973) 322-0100.';
+              errorTextEl.innerHTML = '<strong>Request Timed Out:</strong> The network connection was too slow. Your entered details have been preserved. Please click <em>Request My Evaluation</em> to retry, or call our clinic directly at <a href="tel:9733220100" style="color: var(--accent-gold); text-decoration: underline; font-weight: 700;">(973) 322-0100</a>.';
+            } else if (error.message === 'OFFLINE_DETECTED' || !navigator.onLine) {
+              errorTextEl.innerHTML = '<strong>You appear to be offline:</strong> Please check your internet connection and try again, or call us at <a href="tel:9733220100" style="color: var(--accent-gold); text-decoration: underline; font-weight: 700;">(973) 322-0100</a>.';
             } else {
-              errorTextEl.textContent = `A temporary network issue occurred: ${error.message || 'Unknown error'}. Please call us at (973) 322-0100 to complete your request.`;
+              errorTextEl.innerHTML = `<strong>Submission Notice:</strong> A temporary network issue occurred (${error.message || 'Unknown'}). Your information is saved. Please retry below or call us at <a href="tel:9733220100" style="color: var(--accent-gold); text-decoration: underline; font-weight: 700;">(973) 322-0100</a>.`;
             }
           }
           formError.classList.add('show');
+          formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           const closeBtn = formError.querySelector('.error-close-btn');
           if (closeBtn) {
             closeBtn.addEventListener('click', () => {
@@ -1612,17 +1787,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // GA4 Automated Scroll Depth Tracking (25%, 50%, 75%, 90%)
+  // GA4 Automated Scroll Depth Tracking (25%, 50%, 75%, 90%) with rAF throttling
   const trackedScrollDepths = new Set();
+  let scrollDepthRafPending = false;
   window.addEventListener('scroll', () => {
-    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-    if (totalHeight <= 0) return;
-    const scrollPercent = Math.round((window.scrollY / totalHeight) * 100);
-    [25, 50, 75, 90].forEach(threshold => {
-      if (scrollPercent >= threshold && !trackedScrollDepths.has(threshold)) {
-        trackedScrollDepths.add(threshold);
-        trackEvent('scroll', { 'percent_scrolled': threshold });
+    if (scrollDepthRafPending) return;
+    scrollDepthRafPending = true;
+    requestAnimationFrame(() => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const scrollPercent = Math.round((window.scrollY / totalHeight) * 100);
+        [25, 50, 75, 90].forEach(threshold => {
+          if (scrollPercent >= threshold && !trackedScrollDepths.has(threshold)) {
+            trackedScrollDepths.add(threshold);
+            trackEvent('scroll', { 'percent_scrolled': threshold });
+          }
+        });
       }
+      scrollDepthRafPending = false;
     });
   }, { passive: true });
 

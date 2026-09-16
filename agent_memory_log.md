@@ -39,6 +39,16 @@
 - **GitHub Deployment**: Committed and pushed commit `7988756` and `90d22de` to GitHub (`minipog-web/Dry-Eyes.git`).
 - **Netlify Production Deployment**: Deployed live to production (`deployId: 6a8d0309ed80c161f9f6ec7a`) at [https://dryeye.maranoeye.com](https://dryeye.maranoeye.com).
 
+## Milestone: In-Page Navigation, Anchor Clearance & Deep Linking Engine (September 2026)
+
+### What Worked
+- **Universal Section Clearance (`scroll-margin-top`)**: Setting `scroll-margin-top: clamp(88px, 10vh, 108px) !important;` across all sections, sub-views, and anchor targets guarantees that any navigation link, button, or deep-link hash lands with 24px of negative space between the fixed 72px navbar and the section top, completely preventing header and badge occlusion.
+- **Query-Safe Hash Normalization**: Normalizing incoming hashes by stripping queries (`targetInput.replace(/^#/, '').split('?')[0].split('&')[0]`) ensures that deep links like `#physician?t=123` resolve immediately to their DOM elements (`#physician`) without failing native ID lookups.
+- **Sub-View Auto-Activation Engine**: Inspecting target IDs for sub-features (`#treatment-*`, `#stage-*`, `#faq-*`) and automatically triggering clicks on the corresponding tab buttons or accordion toggles ensures the target content is expanded and visible before the viewport finishes scrolling.
+- **Deterministic Section Heights**: Replacing `content-visibility: auto` on `.section` with `content-visibility: visible !important;` completely eliminates mid-scroll height layout shifts during cross-page anchor jumps.
+- **Asynchronous Mobile Navigation Transition**: Intercepting mobile nav link clicks, immediately closing the mobile dropdown, and computing target offsets via `getBoundingClientRect` eliminates mobile scroll coordinate distortion.
+- **Quick Links Completeness**: Added "Our Specialists" (`#physician`) to the footer Quick Links for direct access to Dr. Marano's credentials and practice leadership.
+
 ### What to Avoid
 - **Avoid Automatic Netlify Deploys**: NEVER deploy to Netlify unless specifically and explicitly instructed to do so by the user.
 
