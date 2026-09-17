@@ -48,6 +48,9 @@
 - **Deterministic Section Heights**: Replacing `content-visibility: auto` on `.section` with `content-visibility: visible !important;` completely eliminates mid-scroll height layout shifts during cross-page anchor jumps.
 - **Asynchronous Mobile Navigation Transition**: Intercepting mobile nav link clicks, immediately closing the mobile dropdown, and computing target offsets via `getBoundingClientRect` eliminates mobile scroll coordinate distortion.
 - **Quick Links Completeness**: Added "Our Specialists" (`#physician`) to the footer Quick Links for direct access to Dr. Marano's credentials and practice leadership.
+- **Production Build Compilation**: Re-ran `node build.js` to compile and minify all HTML, CSS, and JS assets directly into `dist/`.
+- **GitHub Deployment**: Committed and pushed commit `0228585` to GitHub (`minipog-web/Dry-Eyes.git`).
+- **Netlify Production Deployment**: Deployed live to production (`deployId: 6aab0b10b747ee1d652fa7cb`) at [https://dryeye.maranoeye.com](https://dryeye.maranoeye.com).
 
 ### What to Avoid
 - **Avoid Automatic Netlify Deploys**: NEVER deploy to Netlify unless specifically and explicitly instructed to do so by the user.
