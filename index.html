@@ -74,11 +74,11 @@
           "name": "Marano Eye Care - Dry Eye Care Center",
           "url": "https://maranoeyecare.com",
           "logo": "https://maranoeyecare.com/assets/marano_logo.png",
-          "image": "https://maranoeyecare.com/assets/meibography_scan.png",
+          "image": "https://dryeye.maranoeye.com/assets/meibography_scan.webp",
           "description": "New Jersey's premier dry eye care center specializing in advanced, FDA-cleared diagnostics and customized, root-cause treatments.",
           "telephone": "(973) 322-0100",
           "medicalSpecialty": "Ophthalmology",
-          "knowsAbout": ["Dry Eye Syndrome", "Meibomian Gland Dysfunction", "LipiFlow", "AmbioDisk"],
+          "knowsAbout": ["Dry Eye Syndrome", "Meibomian Gland Dysfunction", "LipiFlow", "TearCare", "Punctal Plugs", "AmbioDisk"],
           "priceRange": "$$",
           "aggregateRating": {
             "@type": "AggregateRating",
@@ -87,6 +87,11 @@
             "bestRating": "5",
             "worstRating": "1"
           },
+          "employee": [
+            { "@id": "https://maranoeyecare.com/#physician" },
+            { "@id": "https://maranoeyecare.com/#physician-raouf" },
+            { "@id": "https://maranoeyecare.com/#physician-decker" }
+          ],
           "subOrganization": [
             { "@id": "https://maranoeyecare.com/#livingston" },
             { "@id": "https://maranoeyecare.com/#denville" },
@@ -97,6 +102,7 @@
           "@type": "MedicalBusiness",
           "@id": "https://maranoeyecare.com/#livingston",
           "name": "Marano Eye Care - Livingston Office",
+          "image": "https://dryeye.maranoeye.com/assets/meibography_scan.webp",
           "telephone": "(973) 322-0100",
           "parentOrganization": { "@id": "https://maranoeyecare.com/#organization" },
           "address": {
@@ -130,6 +136,7 @@
           "@type": "MedicalBusiness",
           "@id": "https://maranoeyecare.com/#denville",
           "name": "Marano Eye Care - Denville Office",
+          "image": "https://dryeye.maranoeye.com/assets/meibography_scan.webp",
           "telephone": "(973) 625-7970",
           "parentOrganization": { "@id": "https://maranoeyecare.com/#organization" },
           "address": {
@@ -161,6 +168,7 @@
           "@type": "MedicalBusiness",
           "@id": "https://maranoeyecare.com/#newark",
           "name": "Marano Eye Care - Newark Office",
+          "image": "https://dryeye.maranoeye.com/assets/meibography_scan.webp",
           "telephone": "(973) 877-5534",
           "parentOrganization": { "@id": "https://maranoeyecare.com/#organization" },
           "address": {
@@ -191,14 +199,63 @@
           "@type": "Physician",
           "@id": "https://maranoeyecare.com/#physician",
           "name": "Dr. Matthew J. Marano, Jr., MD",
+          "image": "https://dryeye.maranoeye.com/assets/dr_marano.webp",
           "telephone": "(973) 322-0100",
           "medicalSpecialty": "Ophthalmology",
           "affiliation": { "@id": "https://maranoeyecare.com/#organization" },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "200 South Orange Ave, Suite 209",
+            "addressLocality": "Livingston",
+            "addressRegion": "NJ",
+            "postalCode": "07039",
+            "addressCountry": "US"
+          },
           "knowsAbout": [
             "Dry Eye Syndrome",
             "Meibomian Gland Dysfunction (MGD)",
             "LipiFlow",
+            "TearCare",
             "Intense Pulsed Light (IPL)"
+          ],
+          "memberOf": {
+            "@type": "MedicalOrganization",
+            "name": "American Board of Ophthalmology"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://maranoeyecare.com/#physician-raouf",
+          "name": "Dr. Sherief Raouf, MD",
+          "image": "https://dryeye.maranoeye.com/assets/dr_raouf.jpg",
+          "telephone": "(973) 322-0100",
+          "medicalSpecialty": "Ophthalmology",
+          "affiliation": { "@id": "https://maranoeyecare.com/#organization" },
+          "knowsAbout": [
+            "Cornea & External Eye Disease",
+            "Dry Eye Syndrome",
+            "Meibomian Gland Dysfunction (MGD)",
+            "Amniotic Membrane Biological Therapy",
+            "Ocular Surface Disease Rehabilitation"
+          ],
+          "memberOf": {
+            "@type": "MedicalOrganization",
+            "name": "American Board of Ophthalmology"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://maranoeyecare.com/#physician-decker",
+          "name": "Dr. Edward Decker, MD",
+          "image": "https://dryeye.maranoeye.com/assets/dr_decker.jpg",
+          "telephone": "(973) 322-0100",
+          "medicalSpecialty": "Ophthalmology",
+          "affiliation": { "@id": "https://maranoeyecare.com/#organization" },
+          "knowsAbout": [
+            "Comprehensive Ophthalmology",
+            "Dry Eye Syndrome",
+            "Meibomian Gland Dysfunction (MGD)",
+            "Ocular Surface Health"
           ],
           "memberOf": {
             "@type": "MedicalOrganization",
@@ -216,6 +273,16 @@
               "@type": "MedicalProcedure",
               "name": "LipiFlow Thermal Pulsation System",
               "description": "An FDA-cleared medical device that applies targeted heat and pressure to unlock blocked meibomian glands."
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "TearCare® Thermal-Activated Gland Expression System",
+              "description": "An advanced wearable open-eye thermal therapy system that liquefies obstructive meibomian oils followed by direct clearance under magnification."
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Punctal Plugs (Tear Conservation Therapy)",
+              "description": "Tiny, biocompatible devices inserted into tear ducts to preserve natural and artificial tears on the ocular surface for sustained lubrication."
             },
             {
               "@type": "MedicalProcedure",
@@ -304,7 +371,7 @@
     <nav class="navbar">
         <div class="navbar-bg"></div>
         <div class="container">
-            <a href="https://maranoeyecare.com" class="nav-logo">
+            <a href="https://maranoeyecare.com" class="nav-logo" aria-label="Marano Eye Care Home">
                 <img src="assets/marano_logo.png" alt="Marano Eye Care" class="logo-img" width="180" height="60" loading="eager">
             </a>
             <div class="mobile-nav-right mobile-only">
@@ -2680,7 +2747,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="https://maranoeyecare.com" class="nav-logo">
+                    <a href="https://maranoeyecare.com" class="nav-logo" aria-label="Marano Eye Care Home">
                         <img src="assets/marano_logo.png" alt="Marano Eye Care" class="logo-img" width="180" height="60" loading="lazy">
                     </a>
                     <p>Northern New Jersey's destination for advanced dry eye diagnostics and customized treatment plans by <a href="https://www.maranoeyecare.com" target="_blank" rel="noopener">Marano Eye Care</a>, in partnership with <a href="https://www.onjeyecare.com" target="_blank" rel="noopener">Ophthalmology NJ LLC</a>.</p>

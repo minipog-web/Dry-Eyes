@@ -106,5 +106,19 @@
 - **Background-Appropriate Card Shadowing (`box-shadow`)**:
   - *Light Sections (`#understanding`, `#diagnostics`, `#faq`)*: Eliminated all harsh upward neon color halos (`0 -3px 14px rgba(..., 0.45) !important`) and residual amber blooms. Implemented multi-layered neutral dark-slate ambient occlusion shadows (`rgba(15, 23, 42, 0.05–0.13)`) that simulate authentic soft daylight.
   - *Dark Sections (`#symptoms`, `#anatomy`, `#comparison`, `#treatments`, `#physician`, `#testimonials`, `#pathway`, `#contact`)*: Replaced weak floaty shadows and mismatched blue/purple color halos with deep physical umbra drop shadows (`rgba(0, 0, 0, 0.45–0.8)`) paired with subtle inner hairline top light reflection (`inset 0 1px 0 rgba(255, 255, 255, 0.06–0.12)`).
-- **Verified via Chromium DevTools Visual Screenshots**: Inspected all cards across light and dark breakpoints to verify physical grounding and clean edge definitions.
+## Milestone: Comprehensive SEO & Structured Data Expansion (September 2026)
 
+### What Worked
+- **Schema.org Connected Knowledge Graph Expansion**:
+  - Expanded `@graph` to 9 verified entities, cross-linking parent organization, 3 physical clinic offices (Livingston, Denville, Newark), 3 board-certified physicians, clinical condition, and interactive FAQ page.
+  - Added dedicated `Physician` schemas for associate specialists Dr. Sherief Raouf, MD and Dr. Edward Decker, MD with verified subspecialties, Board affiliations, and high-resolution clinical headshots.
+  - Enriched Dr. Matthew J. Marano, Jr., MD schema with image and Livingston office address.
+  - Linked all 3 specialists to the primary `MedicalBusiness` via `employee` relationship.
+  - Added FDA-cleared `TearCare® Thermal-Activated Gland Expression System` and `Punctal Plugs (Tear Conservation Therapy)` to `MedicalCondition` (`#condition`) `possibleTreatment` array alongside LipiFlow and AmbioDisk.
+  - Associated branch office schemas with the clinical diagnostic imaging asset (`meibography_scan.webp`).
+- **Technical SEO & Crawlability**:
+  - Updated `sitemap.xml` with `<lastmod>2026-09-20</lastmod>`.
+  - Added descriptive `aria-label="Marano Eye Care Home"` to primary navbar and footer brand logo anchors.
+  - Verified 100% of images feature explicit `width`, `height`, descriptive `alt` text, and optimized `loading` attributes (`eager` for hero/nav logo, `lazy` for sub-sections).
+  - Confirmed live HTTP security headers (`strict-transport-security`, Brotli compression, `x-frame-options: DENY`).
+- **Production Build & Live Netlify Deployment**: Rebuilt production package via `node build.js` and deployed directly to GitHub and Netlify production.
