@@ -15,7 +15,7 @@
 
 ### What Worked
 - **Copy Consistency & Medical Accuracy**: Replaced an out-of-context cataract callout in the Seniors Life Stage tab with relevant clinical dry eye guidance (gland atrophy prevention in 60+ patients) and corrected grammar in the Treatments header.
-- **Card Hierarchy Alignment**: Normalized all in-office procedure cards (`Punctal Plugs`, `NearTear®`, `AmbioDisk™`) to use consistent `<h4>` headings, `ideal-tag-label` containers, and `timeline-tag` badges matching the prescription medication cards.
+- **Card Hierarchy Alignment**: Normalized all in-office procedure cards (`Punctal Plugs`, `TearCare®`, `AmbioDisk™`) to use consistent `<h4>` headings, `ideal-tag-label` containers, and `timeline-tag` badges matching the prescription medication cards.
 - **Telemetry Debounce Cleanliness**: Streamlined the cost calculator telemetry timeout in `script.js` to eliminate redundant scope checks while guaranteeing smooth input responsiveness.
 - **Design Token Normalization**: Standardized `:root` token scale with complete radius tokens (`--radius-xs`, `--radius-sm`, `--radius-md`, `--radius`, `--radius-lg`, `--radius-full`), system font fallbacks, and mapped `--font-display: var(--font-heading);` to prevent un-tokenized typography fallbacks.
 - **Multi-Device Adaptation**: Verified responsive reflows across mobile (320px–480px), tablet (768px–1024px), desktop (1200px–1440px), and print media. Confirmed stacked card reflow for the comparison table, 44px+ touch targets, and mobile floating contact actions.
@@ -90,3 +90,21 @@
 - **Production Build Compilation**: Re-ran `node build.js` to compile and minify all HTML, CSS, and JS assets directly into `dist/`.
 - **GitHub Deployment**: Committed and pushed changes to GitHub (`minipog-web/Dry-Eyes.git`).
 - **Netlify Production Deployment**: Deployed live to production (`https://dryeye.maranoeye.com`) per explicit user instruction.
+
+## Milestone: TearCare® by Sight Sciences Clinical Integration (September 2026)
+
+### What Worked
+- **Complete Elimination of Outdated NearTear References**: Fully excised all mentions of NearTear intranasal neurostimulation across Schema.org FAQ JSON-LD, In-Office Procedures comparison matrix, procedure interactive tabs, procedure cards, practice trust credentials, and FAQ body accordions.
+- **Deeply Researched Clinical Integration of TearCare® by Sight Sciences**: Integrated FDA-cleared thermal-activated gland expression therapy indicated to improve meibomian gland function in evaporative dry eye due to MGD. Documented the two-step mechanism: 15-minute wearable open-eye thermal therapy via flexible SmartLids™ (41–45°C) with natural blinking, followed by clinician-directed manual gland clearance with the specialized Clearance Assistant™ under direct visualization.
+- **Bespoke Medical-Grade SVG Iconography**: Crafted a custom, elegant SVG icon depicting the contoured SmartLids eyelid curves with radiant thermal heat waves and restored clear lipid core, seamlessly matching Punctal Plugs and AmbioDisk visual tokens.
+- **Interactive Deep-Linking Synchronization**: Updated tab controls to `id="tab-tearcare"`, `data-value="tearcare"`, and `aria-controls="treatment-tearcare"`, automatically integrating with the global `scrollToTargetSection()` deep-linking architecture (`#treatment-tearcare`).
+
+## Milestone: Monolithic Section Backgrounds & Card Shadowing System Calibration (September 2026)
+
+### What Worked
+- **Excised Radial Spot Blobs & Micro-Dots**: Replaced localized colorful radial gradients with elegant, full-canvas monolithic gradients and 1px hairline separators across all 14 sections.
+- **Background-Appropriate Card Shadowing (`box-shadow`)**:
+  - *Light Sections (`#understanding`, `#diagnostics`, `#faq`)*: Eliminated all harsh upward neon color halos (`0 -3px 14px rgba(..., 0.45) !important`) and residual amber blooms. Implemented multi-layered neutral dark-slate ambient occlusion shadows (`rgba(15, 23, 42, 0.05–0.13)`) that simulate authentic soft daylight.
+  - *Dark Sections (`#symptoms`, `#anatomy`, `#comparison`, `#treatments`, `#physician`, `#testimonials`, `#pathway`, `#contact`)*: Replaced weak floaty shadows and mismatched blue/purple color halos with deep physical umbra drop shadows (`rgba(0, 0, 0, 0.45–0.8)`) paired with subtle inner hairline top light reflection (`inset 0 1px 0 rgba(255, 255, 255, 0.06–0.12)`).
+- **Verified via Chromium DevTools Visual Screenshots**: Inspected all cards across light and dark breakpoints to verify physical grounding and clean edge definitions.
+

@@ -1678,6 +1678,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (transferText) transferText.textContent = transferDetail;
       if (assessmentInput) assessmentInput.value = transferDetail;
       if (transferPill) {
+        transferPill.classList.add('active');
         transferPill.style.display = 'flex';
       }
 
@@ -1720,7 +1721,10 @@ document.addEventListener('DOMContentLoaded', () => {
       pillDismissBtn.addEventListener('click', () => {
         const transferPill = document.getElementById('screener-transfer-pill');
         const assessmentInput = document.getElementById('screener-assessment-input');
-        if (transferPill) transferPill.style.display = 'none';
+        if (transferPill) {
+          transferPill.classList.remove('active');
+          transferPill.style.display = 'none';
+        }
         if (assessmentInput) assessmentInput.value = '';
       });
     }

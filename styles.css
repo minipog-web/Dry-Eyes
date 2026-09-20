@@ -421,7 +421,9 @@ img {
   box-shadow: 0 4px 24px rgba(10, 40, 80, 0.04);
 }
 
-/* ===================== CLEAN EDITORIAL SECTION SYSTEM ===================== */
+/* ===================== BESPOKE SECTION BACKGROUND SYSTEM ===================== */
+/* Each section has a unique, beautiful background tailored to its clinical narrative,
+   rhythmically distinct from previous and proceeding sections, with WCAG AAA contrast. */
 
 /* 1. Hero (#home) — Deep obsidian base without ambient color spots */
 #home.hero {
@@ -430,107 +432,159 @@ img {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* 2. Signs & Symptoms (#symptoms) — Clean midnight charcoal */
+/* 2. Signs & Symptoms (#symptoms) — Refined Deep Warm Charcoal */
 #symptoms {
   position: relative;
-  background: #090C15;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(180deg, #090B12 0%, #0D0E17 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* 3. Tear Film Anatomy (#anatomy) — Deep tailored slate-obsidian */
+#symptoms::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.12) 50%, transparent 100%);
+}
+
+/* 3. Tear Film Anatomy (#anatomy) — Deep Tailored Oceanic Slate */
 #anatomy {
   position: relative;
-  background: #0B0F19;
+  background: linear-gradient(180deg, #060D17 0%, #0A1422 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* 4. Life Stages Timeline (#understanding) — Crisp alabaster chalk */
+#anatomy::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.2) 50%, transparent 100%);
+}
+
+/* 4. Life Stages Timeline (#understanding) — Architectural Executive Alabaster (Light Break) */
 #understanding {
   position: relative;
-  background: #FAF9F6;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: linear-gradient(180deg, #FAF8F5 0%, #F4EFE8 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 
-/* 5. Standard vs Specialized Care (#comparison) — Clean dark charcoal */
+#understanding::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(180, 140, 90, 0.3) 50%, transparent 100%);
+}
+
+/* 5. Standard vs Specialized Care (#comparison) — Clinical Prestige Graphite Vault (Dark) */
 #comparison {
   position: relative;
-  background: #080B10;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, #07090F 0%, #0A0D15 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-/* 6. Precision Diagnostics (#diagnostics) — Pristine cool platinum */
+#comparison::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.14) 50%, transparent 100%);
+}
+
+/* 6. Precision Diagnostics (#diagnostics) — High-Tech Diagnostic Platinum (Light Break) */
 #diagnostics {
   position: relative;
-  background: #F8FAFC;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: linear-gradient(180deg, #F6F9FC 0%, #EDF3F8 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 
-/* 7. Advanced Treatments & Medications (#treatments) — Pure midnight obsidian */
+#diagnostics::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(14, 165, 233, 0.25) 50%, transparent 100%);
+}
+
+/* 7. Advanced Treatments & Medications (#treatments) — Dignified Deep Midnight Sapphire (Dark) */
 #treatments {
   position: relative;
-  background: #07090F;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, #060B16 0%, #091020 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-/* 8. Physician Profile (#physician) — Executive dark slate */
+#treatments::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(245, 158, 11, 0.25) 50%, transparent 100%);
+}
+
+/* 8. Physician Profile (#physician) — Academic Executive Slate (Dark) */
 #physician {
   position: relative;
-  background: #0A0D15;
+  background: linear-gradient(180deg, #080B12 0%, #0D111C 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* 9. Clinical Accreditations (#affiliations) — Solid grounding charcoal */
+#physician::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(217, 119, 6, 0.25) 50%, transparent 100%);
+}
+
+/* 9. Clinical Accreditations (#affiliations) — Sleek Institutional Carbon Bar (Dark Anchor) */
 #affiliations.certifications-trust-bar {
   position: relative;
-  background: #080A10;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* 10. Patient Success Stories (#testimonials) — Deep obsidian */
-#testimonials.testimonials-section {
-  position: relative;
   background: #05070B;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* 11. 3-Step Pathway (#pathway) — Deep slate obsidian */
-#pathway {
-  position: relative;
-  background: #080C14;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* 12. Frequently Asked Questions (#faq) — Warm light linen */
+#affiliations::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+}
+
+/* 10. Patient Success Stories (#testimonials) — Reassuring Deep Midnight Indigo (Dark) */
+#testimonials.testimonials-section {
+  position: relative;
+  background: linear-gradient(180deg, #060714 0%, #090B1E 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#testimonials::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(99, 102, 241, 0.25) 50%, transparent 100%);
+}
+
+/* 11. 3-Step Pathway (#pathway) — Focused Midnight Teal-Slate (Dark) */
+#pathway {
+  position: relative;
+  background: linear-gradient(180deg, #050E14 0%, #08151E 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#pathway::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(20, 184, 166, 0.25) 50%, transparent 100%);
+}
+
+/* 12. Frequently Asked Questions (#faq) — Warm Curated Parchment (Light Editorial) */
 #faq {
   position: relative;
-  background: #FAF9F6;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: linear-gradient(180deg, #FAF8F5 0%, #F2EDE4 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 
-/* 13. Consultation & Clinic Locations (#contact) — Deep clean obsidian */
+#faq::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(180, 140, 90, 0.3) 50%, transparent 100%);
+}
+
+/* 13. Consultation & Clinic Locations (#contact) — Deep Focused Velvet Obsidian (Dark) */
 #contact.cta-section {
   position: relative;
-  background: #060910;
+  background: linear-gradient(180deg, #050711 0%, #080C1B 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* 14. Grounding Brand Footer (.footer) — Pure clean obsidian */
+#contact::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(245, 158, 11, 0.3) 50%, transparent 100%);
+}
+
+/* 14. Grounding Brand Footer (.footer) — Pure Clean Obsidian */
 footer.footer {
   position: relative;
-  background: #040508;
+  background: #030407;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+footer.footer::before {
+  background: linear-gradient(90deg, transparent 5%, rgba(245, 158, 11, 0.3) 50%, transparent 95%);
 }
 
 .section-header {
@@ -569,14 +623,20 @@ footer.footer {
   backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.15);
+  box-shadow: 
+    0 10px 30px -4px rgba(0, 0, 0, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .glass-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(123, 150, 200, 0.45);
-  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.15), 0 16px 40px rgba(123, 150, 200, 0.12);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 
+    0 18px 44px -6px rgba(0, 0, 0, 0.65),
+    0 4px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 /* --- BUTTONS --- */
@@ -1253,8 +1313,10 @@ footer.footer {
 
 .section-light .stage-content {
   background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 2px 8px -2px rgba(35, 28, 20, 0.04),
+    0 14px 32px -4px rgba(35, 28, 20, 0.07);
 }
 
 .section-light .stage-content h3 {
@@ -1283,13 +1345,13 @@ footer.footer {
 }
 
 .subtle-gold-box {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(229, 163, 84, 0.14) 100%);
-  border: 1px solid rgba(198, 125, 40, 0.35);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.07) 0%, rgba(229, 163, 84, 0.12) 100%);
+  border: 1px solid rgba(198, 125, 40, 0.28);
   border-left: 4px solid var(--primary-dark);
   border-radius: var(--radius-sm);
   padding: 14px 18px;
   margin: 16px 0 20px;
-  box-shadow: 0 2px 10px rgba(198, 125, 40, 0.06);
+  box-shadow: 0 4px 14px -2px rgba(198, 125, 40, 0.08);
 }
 
 .subtle-gold-box .gold-box-text {
@@ -1321,8 +1383,11 @@ footer.footer {
   aspect-ratio: 1 / 1;
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(123, 150, 200, 0.15);
+  box-shadow: 
+    0 18px 46px -8px rgba(0, 0, 0, 0.75),
+    0 4px 14px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(123, 150, 200, 0.18);
 }
 
 .anatomy-layer {
@@ -1357,14 +1422,19 @@ footer.footer {
   border-radius: var(--radius-sm);
   cursor: pointer;
   background: var(--surface-card);
-  border: 1px solid rgba(123, 150, 200, 0.08);
+  border: 1px solid rgba(123, 150, 200, 0.1);
   transition: all var(--transition), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    0 4px 16px -2px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .layer-card:hover {
   transform: translateX(6px);
-  background: rgba(27, 45, 69, 0.35);
+  background: rgba(27, 45, 69, 0.4);
+  box-shadow: 
+    0 8px 24px -3px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
 }
 
 .layer-card[data-layer="lipid"]:hover {
@@ -1373,7 +1443,10 @@ footer.footer {
 
 .layer-card[data-layer="lipid"].active {
   border-color: var(--accent-gold);
-  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.08), 0 0 24px var(--glow-gold);
+  box-shadow: 
+    0 10px 28px -4px rgba(0, 0, 0, 0.65),
+    0 0 14px rgba(244, 197, 66, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .layer-card[data-layer="aqueous"]:hover {
@@ -1382,7 +1455,10 @@ footer.footer {
 
 .layer-card[data-layer="aqueous"].active {
   border-color: var(--primary);
-  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.08), 0 0 24px var(--glow);
+  box-shadow: 
+    0 10px 28px -4px rgba(0, 0, 0, 0.65),
+    0 0 14px rgba(123, 150, 200, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .layer-card[data-layer="mucin"]:hover {
@@ -1391,7 +1467,10 @@ footer.footer {
 
 .layer-card[data-layer="mucin"].active {
   border-color: var(--accent-green);
-  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.08), 0 0 24px var(--glow-green);
+  box-shadow: 
+    0 10px 28px -4px rgba(0, 0, 0, 0.65),
+    0 0 14px rgba(111, 168, 122, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .layer-card h4 {
@@ -1478,10 +1557,6 @@ footer.footer {
 .diag-card:nth-of-type(1):hover .diag-front { 
   border-top: 4px solid #D97706 !important; 
 }
-.diag-card:nth-child(1):hover .diag-front,
-.diag-card:nth-of-type(1):hover .diag-front {
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12), 0 -3px 14px rgba(217, 119, 6, 0.45) !important;
-}
 
 /* 2. Meibography: Royal Amethyst Violet (Infrared gland mapping) */
 .diag-card:nth-child(2) .diag-front,
@@ -1489,10 +1564,6 @@ footer.footer {
 .diag-card:nth-of-type(2) .diag-front,
 .diag-card:nth-of-type(2):hover .diag-front { 
   border-top: 4px solid #7C3AED !important; 
-}
-.diag-card:nth-child(2):hover .diag-front,
-.diag-card:nth-of-type(2):hover .diag-front {
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12), 0 -3px 14px rgba(124, 58, 237, 0.45) !important;
 }
 
 /* 3. Tear Break-Up Time: Fluorescein Emerald Green (Tear film stability under cobalt illumination) */
@@ -1502,10 +1573,6 @@ footer.footer {
 .diag-card:nth-of-type(3):hover .diag-front { 
   border-top: 4px solid #059669 !important; 
 }
-.diag-card:nth-child(3):hover .diag-front,
-.diag-card:nth-of-type(3):hover .diag-front {
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12), 0 -3px 14px rgba(5, 150, 105, 0.45) !important;
-}
 
 /* 4. Schirmer's Test: Deep Cobalt Blue (Aqueous tear moisture volume) */
 .diag-card:nth-child(4) .diag-front,
@@ -1513,10 +1580,6 @@ footer.footer {
 .diag-card:nth-of-type(4) .diag-front,
 .diag-card:nth-of-type(4):hover .diag-front { 
   border-top: 4px solid #1D4ED8 !important; 
-}
-.diag-card:nth-child(4):hover .diag-front,
-.diag-card:nth-of-type(4):hover .diag-front {
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12), 0 -3px 14px rgba(29, 78, 216, 0.45) !important;
 }
 
 /* 5. Osmolarity Testing: Ruby Crimson (TearLab hyperosmolarity salt stress) */
@@ -1526,10 +1589,6 @@ footer.footer {
 .diag-card:nth-of-type(5):hover .diag-front { 
   border-top: 4px solid #DC2626 !important; 
 }
-.diag-card:nth-child(5):hover .diag-front,
-.diag-card:nth-of-type(5):hover .diag-front {
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12), 0 -3px 14px rgba(220, 38, 38, 0.45) !important;
-}
 
 /* 6. Inflammatory Markers: Radiant Tangerine Flame (MMP-9 inflammatory activity) */
 .diag-card:nth-child(6) .diag-front,
@@ -1537,10 +1596,6 @@ footer.footer {
 .diag-card:nth-of-type(6) .diag-front,
 .diag-card:nth-of-type(6):hover .diag-front { 
   border-top: 4px solid #EA580C !important; 
-}
-.diag-card:nth-child(6):hover .diag-front,
-.diag-card:nth-of-type(6):hover .diag-front {
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12), 0 -3px 14px rgba(234, 88, 12, 0.45) !important;
 }
 
 .diag-card-inner {
@@ -1614,21 +1669,21 @@ footer.footer {
 /* Premium light gray card inside all section backgrounds */
 .section-light .diag-front,
 .section-light-cool .diag-front {
-  background: linear-gradient(145deg, #E2E8F0 0%, #CBD5E1 100%);
-  border: 2px solid rgba(100, 116, 139, 0.45);
+  background: linear-gradient(145deg, #F8FAFC 0%, #EDF2F7 100%);
+  border: 1.5px solid rgba(100, 116, 139, 0.35);
   border-top-width: 4px;
   box-shadow:
-    0 12px 28px rgba(15, 23, 42, 0.09),
-    0 4px 10px rgba(15, 23, 42, 0.05);
+    0 2px 8px -1px rgba(15, 23, 42, 0.05),
+    0 12px 28px -4px rgba(15, 23, 42, 0.08);
 }
 
 .diag-card:hover .diag-front {
-  border-left-color: rgba(100, 116, 139, 0.6);
-  border-right-color: rgba(100, 116, 139, 0.6);
-  border-bottom-color: rgba(100, 116, 139, 0.6);
+  border-left-color: rgba(100, 116, 139, 0.5);
+  border-right-color: rgba(100, 116, 139, 0.5);
+  border-bottom-color: rgba(100, 116, 139, 0.5);
   box-shadow:
-    0 16px 36px rgba(15, 23, 42, 0.12),
-    0 0 20px rgba(245, 158, 11, 0.15);
+    0 4px 14px -2px rgba(15, 23, 42, 0.07),
+    0 20px 42px -4px rgba(15, 23, 42, 0.13) !important;
   transform: none;
 }
 
@@ -1923,7 +1978,7 @@ footer.footer {
   background: rgba(20, 35, 55, 0.85); /* Premium glass background */
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
   padding: 16px 54px 16px 24px;
   font-family: var(--font-body);
@@ -1931,20 +1986,24 @@ footer.footer {
   font-weight: 600;
   color: var(--text-primary);
   cursor: pointer;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  box-shadow: 
+    0 4px 16px -2px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
   transition: border-color var(--transition), box-shadow var(--transition), transform 0.2s ease;
   outline: none;
 }
 
 .treatment-select:hover {
-  border-color: var(--primary-light);
-  box-shadow: 0 12px 40px rgba(123, 150, 200, 0.18);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 10px 28px -4px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
   transform: translateY(-1px);
 }
 
 .treatment-select:focus {
   border-color: var(--primary-light);
-  box-shadow: 0 0 0 3px rgba(168, 189, 224, 0.25);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
 }
 
 .select-arrow {
@@ -2045,11 +2104,11 @@ footer.footer {
   background: var(--surface-card);
   -webkit-backdrop-filter: var(--glass-blur);
   backdrop-filter: var(--glass-blur);
-  border: 6px solid rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 
-    inset 0 1px 1px rgba(255, 255, 255, 0.1),
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 8px 32px rgba(0, 0, 0, 0.2);
+    0 20px 54px -10px rgba(0, 0, 0, 0.75),
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
   padding: 24px;
   margin-bottom: 24px;
@@ -2270,10 +2329,14 @@ footer.footer {
   background: var(--surface-card);
   -webkit-backdrop-filter: var(--glass-blur);
   backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius);
   padding: var(--space-lg);
   text-align: center;
+  box-shadow: 
+    0 18px 46px -8px rgba(0, 0, 0, 0.7),
+    0 4px 14px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .testimonial-stars {
@@ -2451,9 +2514,9 @@ footer.footer {
 .cta-section,
 #contact.cta-section {
   scroll-margin-top: 90px;
-  background: linear-gradient(180deg, #18130D 0%, #201912 40%, #12151D 100%) !important;
-  border-top: 1px solid rgba(229, 163, 84, 0.25);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  background: linear-gradient(180deg, #050711 0%, #080C1B 100%) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   position: relative;
   overflow: hidden;
   padding: 80px 0 200px !important;
@@ -2528,19 +2591,24 @@ footer.footer {
 }
 
 .cta-location-item {
-  background: rgba(13, 27, 42, 0.75);
-  border: 1px solid rgba(197, 168, 128, 0.3);
+  background: rgba(14, 18, 28, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-sm);
   padding: 12px 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 
+    0 6px 20px -2px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition: border-color var(--transition), transform var(--transition), background-color var(--transition), box-shadow var(--transition);
 }
 
 .cta-location-item:hover {
-  border-color: var(--primary);
+  border-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
-  background: rgba(13, 27, 42, 0.95);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 12px var(--glow);
+  background: rgba(20, 26, 40, 0.95);
+  box-shadow: 
+    0 12px 28px -4px rgba(0, 0, 0, 0.75),
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .cta-location-item h4 {
@@ -2641,8 +2709,8 @@ footer.footer {
 }
 
 .cta-details li {
-  background: rgba(13, 27, 42, 0.75);
-  border: 1px solid rgba(197, 168, 128, 0.3);
+  background: rgba(14, 18, 28, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-sm);
   padding: 14px 20px;
   display: flex;
@@ -2651,14 +2719,19 @@ footer.footer {
   font-size: 1rem;
   font-weight: 600;
   color: #FFFFFF !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 
+    0 6px 20px -2px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition: all var(--transition-fast);
 }
 
 .cta-details li:hover {
-  border-color: var(--primary);
-  background: rgba(13, 27, 42, 0.95);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 12px var(--glow);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(20, 26, 40, 0.95);
+  box-shadow: 
+    0 12px 28px -4px rgba(0, 0, 0, 0.75),
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .cta-details li a {
@@ -2694,16 +2767,22 @@ footer.footer {
 
 /* Subtle standing out style for the booking form card */
 #booking-card {
-  background: rgba(13, 27, 42, 0.75); /* more solid than default surface-card to stand out */
-  border: 1px solid rgba(123, 150, 200, 0.35); /* higher contrast border */
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45), 0 0 32px rgba(123, 150, 200, 0.12); /* smooth floating shadow + subtle soft blue backdrop glow */
-  border-top: 3px solid var(--primary); /* subtle horizontal accent bar at the top edge */
+  background: rgba(14, 20, 32, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 24px 60px -12px rgba(0, 0, 0, 0.8),
+    0 4px 16px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-top: 3px solid var(--accent);
   transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 #booking-card:hover {
-  border-color: rgba(123, 150, 200, 0.5);
-  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.55), 0 0 40px rgba(123, 150, 200, 0.18);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 
+    0 30px 72px -12px rgba(0, 0, 0, 0.9),
+    0 6px 20px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
   transform: translateY(-3px);
 }
 
@@ -3636,13 +3715,20 @@ footer.footer {
   border-radius: var(--radius-sm);
   background: var(--surface-card);
   border: 1px solid var(--glass-border);
+  box-shadow: 
+    0 4px 16px -2px rgba(0, 0, 0, 0.45),
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
   transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
 
 .symptom-card:hover {
   transform: translateY(-4px);
-  border-color: var(--primary);
-  box-shadow: 0 12px 30px rgba(91, 107, 168, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 16px 36px -4px rgba(0, 0, 0, 0.7),
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .symptom-card-header {
@@ -3673,12 +3759,13 @@ footer.footer {
 .assessment-widget {
   padding: 32px;
   border-radius: var(--radius);
-  background: linear-gradient(rgba(10, 20, 38, 0.95), rgba(6, 12, 24, 0.98)),
-              repeating-linear-gradient(0deg, rgba(123, 150, 200, 0.03) 0px, rgba(123, 150, 200, 0.03) 1px, transparent 1px, transparent 8px),
-              repeating-linear-gradient(90deg, rgba(123, 150, 200, 0.03) 0px, rgba(123, 150, 200, 0.03) 1px, transparent 1px, transparent 8px);
-  border: 1px solid rgba(123, 150, 200, 0.35);
+  background: linear-gradient(145deg, rgba(16, 20, 30, 0.95), rgba(10, 12, 18, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-top: 3px solid var(--primary-light);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 24px rgba(123, 150, 200, 0.1);
+  box-shadow: 
+    0 20px 50px -10px rgba(0, 0, 0, 0.75),
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
 }
@@ -3933,9 +4020,12 @@ footer.footer {
 .comp-table-wrapper {
   overflow-x: auto;
   border-radius: var(--radius);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   background: var(--surface-card);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 
+    0 18px 48px -8px rgba(0, 0, 0, 0.75),
+    0 4px 14px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .comp-table {
@@ -4276,6 +4366,23 @@ footer.footer {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  background: var(--surface-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  box-shadow: 
+    0 12px 36px -6px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.pathway-step-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(20, 184, 166, 0.35);
+  box-shadow: 
+    0 18px 44px -8px rgba(0, 0, 0, 0.75),
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .step-number {
@@ -4290,7 +4397,7 @@ footer.footer {
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.15rem;
-  box-shadow: 0 0 16px var(--glow);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 0 12px rgba(56, 189, 248, 0.25);
 }
 
 .pathway-step-card h4,
@@ -4425,14 +4532,21 @@ footer.footer {
   margin: 0 auto;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 20px 50px -10px rgba(0, 0, 0, 0.75),
+    0 6px 16px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .doctor-image-wrapper:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 28px 60px -10px rgba(0, 0, 0, 0.85),
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 .doctor-headshot {
@@ -4659,17 +4773,20 @@ footer.footer {
 }
 
 .physician-card {
-  background: rgba(18, 30, 49, 0.5);
-  backdrop-filter: blur(12px);
+  background: rgba(14, 20, 32, 0.75);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(123, 150, 200, 0.2);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg, 16px);
   padding: 30px 32px;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+  box-shadow: 
+    0 16px 44px -8px rgba(0, 0, 0, 0.65),
+    0 4px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -4686,8 +4803,11 @@ footer.footer {
 
 .physician-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(56, 189, 248, 0.38);
-  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 24px 54px -10px rgba(0, 0, 0, 0.8),
+    0 6px 16px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .physician-card-header {
@@ -6337,8 +6457,11 @@ sup.cite a:hover {
 }
 
 .glass-card:hover {
-  border-color: rgba(197, 168, 128, 0.28);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 0 0 25px rgba(197, 168, 128, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 
+    0 18px 44px -6px rgba(0, 0, 0, 0.65),
+    0 4px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 /* --- DELIGHT GOLD SPARKLE MICRO-INTERACTION --- */
@@ -6372,8 +6495,11 @@ sup.cite a:hover {
   margin-top: 48px;
   background: var(--surface-card);
   border-radius: var(--radius);
-  border: 1px solid var(--glass-border);
-  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 
+    0 18px 48px -8px rgba(0, 0, 0, 0.75),
+    0 4px 14px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .calculator-header {
@@ -7526,8 +7652,8 @@ img {
   color: #A3E6B5;
   margin-bottom: 24px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 12px rgba(111, 168, 122, 0.15);
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .live-pulse-dot {
@@ -7601,8 +7727,8 @@ img {
   font-size: 0.88rem;
   font-weight: 600;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 0 16px rgba(197, 168, 128, 0.35);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   opacity: 0;
   transform: translateY(20px) scale(0.95);
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -7724,8 +7850,8 @@ img {
     padding: 10px 16px;
     padding-bottom: max(12px, env(safe-area-inset-bottom));
     background: rgba(13, 22, 38, 0.94);
-    backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
     border-top: 1px solid rgba(229, 163, 84, 0.35);
     box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.6);
     transform: translateY(115%);
@@ -7796,7 +7922,7 @@ img {
    SCREENER DYNAMIC TRANSFER PILL
    ============================================================ */
 .screener-transfer-pill {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -7808,6 +7934,10 @@ img {
   margin-bottom: 20px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 16px rgba(229, 163, 84, 0.12);
   animation: pillFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.screener-transfer-pill.active {
+  display: flex;
 }
 
 @keyframes pillFadeIn {
@@ -7881,6 +8011,20 @@ img {
   background: rgba(255, 255, 255, 0.12);
 }
 
+/* ============================================================
+   FORM SECURITY BADGE & PRIVACY LINK
+   ============================================================ */
+.form-security-badge a,
+.privacy-policy-link {
+  color: var(--accent-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast, 0.2s ease);
+}
 
-
-
+.form-security-badge a:hover,
+.privacy-policy-link:hover,
+.form-security-badge a:focus-visible,
+.privacy-policy-link:focus-visible {
+  color: var(--accent-gold-light, #FCD34D);
+}

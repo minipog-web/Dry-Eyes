@@ -241,7 +241,7 @@
               "name": "How long until I feel relief, and how many visits will I need?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Timeline varies by patient and treatment. Some patients feel improvement within days of starting prescription drops or having punctal plugs inserted. In-office procedures like NearTear® often provide relief within a few weeks, while prescription drops like Restasis® or Xiidra® may take 2 to 12 weeks to reach full effect. Most patients notice significant improvement in comfort and screen-time endurance within 2 to 6 weeks. We schedule follow-up checks at 1 month and 3 months to monitor gland function and adjust your plan as your tear film stabilizes."
+                "text": "Timeline varies by patient and treatment. In-office procedures like TearCare® provide rapid relief within days to a couple of weeks by melting blockages and clearing meibomian glands (with benefits lasting up to 12 months), while punctal plugs conserve moisture immediately. Prescription drops like Restasis® or Xiidra® may take 2 to 12 weeks to reach full effect. Most patients notice significant improvement in comfort and screen-time endurance within 2 to 6 weeks. We schedule follow-up checks at 1 month and 3 months to monitor gland function and adjust your plan as your tear film stabilizes."
               }
             },
             {
@@ -1117,7 +1117,7 @@
                         <tr>
                             <td data-label="Clinical Feature"><strong>In-Office Procedures</strong></td>
                             <td data-label="Standard Eye Care">Unavailable / not offered</td>
-                            <td data-label="Marano Specialty"><span class="status-yes">✓</span> Punctal Plugs, NearTear® & AmbioDisk™</td>
+                            <td data-label="Marano Specialty"><span class="status-yes">✓</span> TearCare®, Punctal Plugs & AmbioDisk™</td>
                         </tr>
                         <tr>
                             <td data-label="Clinical Feature"><strong>Insurance & Rx Support</strong></td>
@@ -1704,7 +1704,7 @@
                 <span class="treatment-select-label">Select a Procedure to Explore:</span>
                 <div class="custom-tab-container" id="procedure-tabs" role="tablist" aria-label="In-Office Procedures">
                     <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="treatment-plugs" id="tab-plugs" data-value="plugs">Punctal Plugs</button>
-                    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-neartear" id="tab-neartear" data-value="neartear">NearTear®</button>
+                    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-tearcare" id="tab-tearcare" data-value="tearcare">TearCare®</button>
                     <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-ambiodisk" id="tab-ambiodisk" data-value="ambiodisk">AmbioDisk™</button>
                 </div>
             </div>
@@ -1747,7 +1747,7 @@
                     <div class="treatment-body">
                         <div class="moa-section">
                             <h4>How It Works</h4>
-                            <p>Micro-scale, biocompatible shields placed in the tear ducts to naturally conserve your own real tears. Think of it as a smart valve: by slowing drainage, it allows your eyes to bathe in their own natural, nutrient-rich moisture all day.</p>
+                            <p>Punctal plugs are microscopic, biocompatible implants inserted into the eyelid's tear drainage ducts to conserve your eye's natural moisture. Made of medical-grade collagen that naturally dissolves over a 4–6 month period, they act like a precision reservoir valve—slowing tear outflow so your ocular surface stays continuously bathed in your own nutrient-rich, lubricating tears. Placed painlessly in seconds during an in-office visit, they provide instant relief for many patients suffering from aqueous deficiency, immediately soothing burning, grittiness, and screen-induced dryness.</p>
                             <div class="treatment-meta-box">
                                 <div class="treatment-meta-row">
                                     <span class="treatment-meta-label">Best For:</span>
@@ -1759,62 +1759,84 @@
                                 <div class="treatment-meta-row">
                                     <span class="treatment-meta-label">Relief:</span>
                                     <div class="treatment-meta-pills">
-                                        <span class="timeline-tag">⏱️ Expected Relief: Immediate</span>
+                                        <span class="timeline-tag">⏱️ Expected Relief: Instant Relief (Lasts 4–6 Mo)</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="moa-diagram">
                             <div class="moa-steps">
-                                <div class="moa-step">Fast Drainage</div>
+                                <div class="moa-step">Collagen Plug<br />Inserted in Seconds</div>
                                 <div class="moa-arrow">→</div>
-                                <div class="moa-step highlight">Plugs Inserted</div>
+                                <div class="moa-step highlight">Slows Drainage &amp;<br />Conserves Tears</div>
                                 <div class="moa-arrow">→</div>
-                                <div class="moa-step border-accent-green">Tears Retained<br />Longer</div>
+                                <div class="moa-step border-accent-green">Instant Relief &amp;<br />4–6 Mo Hydration</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- NearTear -->
-                <div class="treatment-card" id="treatment-neartear" role="tabpanel" aria-labelledby="tab-neartear">
+                <!-- TearCare -->
+                <div class="treatment-card" id="treatment-tearcare" role="tabpanel" aria-labelledby="tab-tearcare">
                     <div class="treatment-header">
-                        <div class="treatment-icon">⚡</div>
+                        <div class="treatment-icon">
+                            <svg viewBox="0 0 32 32" class="w-32 h-32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="tearcare-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.95" />
+                                        <stop offset="50%" stop-color="#E0A96D" stop-opacity="0.85" />
+                                        <stop offset="100%" stop-color="#14B8A6" stop-opacity="0.65" />
+                                    </linearGradient>
+                                    <filter id="tearcare-glow" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="1.2" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                </defs>
+                                <!-- Upper SmartLid™ Wearable Heating Strip -->
+                                <path d="M4 9C10 6 22 6 28 9C28 11.5 22 13 16 13C10 13 4 11.5 4 9Z" fill="url(#tearcare-grad)" opacity="0.9" />
+                                <path d="M7 9.2C11 7.8 21 7.8 25 9.2" stroke="#FFFFFF" stroke-width="0.8" stroke-linecap="round" opacity="0.9" />
+
+                                <!-- Lower SmartLid™ Wearable Heating Strip -->
+                                <path d="M4 23C10 26 22 26 28 23C28 20.5 22 19 16 19C10 19 4 20.5 4 23Z" fill="url(#tearcare-grad)" opacity="0.9" />
+                                <path d="M7 22.8C11 24.2 21 24.2 25 22.8" stroke="#FFFFFF" stroke-width="0.8" stroke-linecap="round" opacity="0.9" />
+
+                                <!-- Therapeutic Radiant Thermal Heat Waves -->
+                                <path d="M9 14.5C11.5 13.5 13.5 13.5 16 14.5C18.5 15.5 20.5 15.5 23 14.5" stroke="url(#tearcare-grad)" stroke-width="1.6" stroke-linecap="round" filter="url(#tearcare-glow)" />
+                                <path d="M9 17.5C11.5 16.5 13.5 16.5 16 17.5C18.5 18.5 20.5 18.5 23 17.5" stroke="url(#tearcare-grad)" stroke-width="1.6" stroke-linecap="round" filter="url(#tearcare-glow)" />
+                            </svg>
+                        </div>
                         <div>
-                            <h4>NearTear®</h4>
-                            <span class="treatment-type">Intranasal Neurostimulation</span>
+                            <h4>TearCare®</h4>
+                            <span class="treatment-type">Thermal-Activated MGD Expression</span>
                         </div>
                     </div>
                     <div class="treatment-body">
                         <div class="moa-section">
                             <h4>How It Works</h4>
-                            <p>NearTear uses tiny electrical impulses delivered inside your nose to activate the same
-                                natural nerve pathways that trigger tear production. Think of it as gently "turning up
-                                the volume" on your body's own tear-making system. The treatment stimulates both the
-                                aqueous (watery) and lipid (oily) components of your tears.</p>
+                            <p>TearCare® by Sight Sciences is an advanced, FDA-cleared open-eye thermal therapy designed to treat the root cause of 86% of dry eye cases: Meibomian Gland Dysfunction (MGD). Flexible, wearable SmartLids™ deliver continuous, precisely calibrated therapeutic heat (41–45°C) to the outer eyelids for 15 minutes, liquifying hardened, waxy meibum while allowing you to blink naturally. Your specialized eye care provider immediately follows with the Clearance Assistant™ to gently express and unblock obstructed oil glands under direct visualization—restoring your tear film's protective lipid layer.</p>
                             <div class="treatment-meta-box">
                                 <div class="treatment-meta-row">
                                     <span class="treatment-meta-label">Best For:</span>
                                     <div class="treatment-meta-pills">
-                                        <span class="ideal-tag">Low Tear Volume</span>
-                                        <span class="ideal-tag">Natural Tear Stimulation</span>
+                                        <span class="ideal-tag">Meibomian Gland Dysfunction (MGD)</span>
+                                        <span class="ideal-tag">Evaporative Dry Eye / Blocked Glands</span>
                                     </div>
                                 </div>
                                 <div class="treatment-meta-row">
                                     <span class="treatment-meta-label">Relief:</span>
                                     <div class="treatment-meta-pills">
-                                        <span class="timeline-tag">⏱️ Expected Relief: 1–3 Weeks</span>
+                                        <span class="timeline-tag">⏱️ Expected Relief: 1–2 Weeks (Lasts 6–12+ Mo)</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="moa-diagram">
                             <div class="moa-steps">
-                                <div class="moa-step">Electrical<br />Impulse</div>
+                                <div class="moa-step">Wearable SmartLids™<br />(41–45°C Heat)</div>
                                 <div class="moa-arrow">→</div>
-                                <div class="moa-step highlight">Nerve Pathway<br />Activation</div>
+                                <div class="moa-step highlight">Liquifies Hardened<br />Gland Obstructions</div>
                                 <div class="moa-arrow">→</div>
-                                <div class="moa-step border-accent-green">Body's Own<br />Tears Produced</div>
+                                <div class="moa-step border-accent-green">Clearance Assistant™<br />Restores Oil Flow</div>
                             </div>
                         </div>
                     </div>
@@ -1850,30 +1872,30 @@
                     <div class="treatment-body">
                         <div class="moa-section">
                             <h4>How It Works</h4>
-                            <p>AmbioDisk™ is a sutureless, dehydrated amniotic membrane graft placed comfortably on the corneal surface during a brief in-office procedure under a protective bandage contact lens. Rich in regenerative growth factors, biological nutrients, and anti-inflammatory cytokines, it actively accelerates corneal re-epithelialization, rejuvenates damaged ocular surface nerves, and delivers profound healing for severe, refractory dry eye disease.</p>
+                            <p>AmbioDisk™ is a sutureless, biological amniotic membrane allograft placed comfortably on the corneal surface during a quick, non-surgical in-office procedure under a protective bandage contact lens. Naturally rich in regenerative growth factors, extracellular matrix proteins, and potent anti-inflammatory cytokines, it acts as a biological shield that actively accelerates corneal re-epithelialization and rejuvenates damaged ocular surface nerves. AmbioDisk delivers profound therapeutic healing for severe, refractory dry eye disease and persistent corneal erosion—restoring cellular integrity and long-term surface comfort when traditional drops fail.</p>
                             <div class="treatment-meta-box">
                                 <div class="treatment-meta-row">
                                     <span class="treatment-meta-label">Best For:</span>
                                     <div class="treatment-meta-pills">
                                         <span class="ideal-tag">Severe Dry Eye Disease</span>
-                                        <span class="ideal-tag">Corneal Damage & Erosion</span>
+                                        <span class="ideal-tag">Corneal Damage &amp; Erosion</span>
                                     </div>
                                 </div>
                                 <div class="treatment-meta-row">
                                     <span class="treatment-meta-label">Relief:</span>
                                     <div class="treatment-meta-pills">
-                                        <span class="timeline-tag">⏱️ Expected Relief: 3–5 Days</span>
+                                        <span class="timeline-tag">⏱️ Expected Relief: 3–5 Days (Deep Healing)</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="moa-diagram">
                             <div class="moa-steps">
-                                <div class="moa-step">Severe Surface<br />Damage</div>
+                                <div class="moa-step">Biologic Amniotic<br />Graft Applied</div>
                                 <div class="moa-arrow">→</div>
-                                <div class="moa-step highlight">In-Office AmbioDisk™<br />Placement</div>
+                                <div class="moa-step highlight">Regenerates Nerves<br />&amp; Corneal Cells</div>
                                 <div class="moa-arrow">→</div>
-                                <div class="moa-step border-accent-green">Rapid Biological<br />Tissue Healing</div>
+                                <div class="moa-step border-accent-green">Profound Healing<br />in 3–5 Days</div>
                             </div>
                         </div>
                     </div>
@@ -1914,7 +1936,7 @@
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" class="cred-icon" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span><strong>Advanced Procedures:</strong> Punctal Plugs, NearTear®, AmbioDisk™ & Custom Drop Therapies</span>
+                            <span><strong>Advanced Procedures:</strong> TearCare® by Sight Sciences, Punctal Plugs, AmbioDisk™ & Custom Drop Therapies</span>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" class="cred-icon" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -2387,7 +2409,7 @@
                     </button>
                     <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
                         <div class="faq-answer-inner">
-                            <p>Timeline varies by patient and treatment. Some patients feel improvement within days of starting prescription drops or having punctal plugs inserted. In-office procedures like NearTear® often provide relief within a few weeks, while prescription drops like Restasis® or Xiidra® may take 2 to 12 weeks to reach full effect. Most patients notice significant improvement in comfort and screen-time endurance within 2 to 6 weeks. We schedule follow-up checks at 1 month and 3 months to monitor gland function and adjust your plan as your tear film stabilizes.</p>
+                            <p>Timeline varies by patient and treatment. In-office procedures like TearCare® provide rapid relief within days to a couple of weeks by melting blockages and clearing meibomian glands (with benefits lasting up to 12 months), while punctal plugs conserve moisture immediately. Prescription drops like Restasis® or Xiidra® may take 2 to 12 weeks to reach full effect. Most patients notice significant improvement in comfort and screen-time endurance within 2 to 6 weeks. We schedule follow-up checks at 1 month and 3 months to monitor gland function and adjust your plan as your tear film stabilizes.</p>
                         </div>
                     </div>
                 </div>
@@ -2582,7 +2604,7 @@
                             </div>
 
                             <!-- Screener Dynamic Transfer Badge -->
-                            <div id="screener-transfer-pill" class="screener-transfer-pill" style="display: none;" role="status" aria-live="polite">
+                            <div id="screener-transfer-pill" class="screener-transfer-pill" role="status" aria-live="polite">
                                 <div class="screener-pill-main">
                                     <span class="screener-pill-icon" aria-hidden="true">📋</span>
                                     <div class="screener-pill-text">
@@ -2628,7 +2650,7 @@
                             </div>
                             <div class="form-security-badge">
                                 <span class="security-icon">🔒</span>
-                                <span><strong>HIPAA Compliant:</strong> Your personal &amp; medical information is 256-bit encrypted &amp; strictly protected under our <a href="https://sa1s3.patientpop.com/assets/docs/425417.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">Privacy Policy</a></span>
+                                <span><strong>HIPAA Compliant:</strong> Your personal &amp; medical information is 256-bit encrypted &amp; strictly protected under our <a href="https://sa1s3.patientpop.com/assets/docs/425417.pdf" target="_blank" rel="noopener noreferrer" class="privacy-policy-link">Privacy Policy</a></span>
                             </div>
                         </form>
                         <div class="form-success" role="status" aria-live="polite">
