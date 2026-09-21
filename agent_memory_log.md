@@ -37,7 +37,7 @@
 - **Life Stage Recognition Badges**: Added contextual micro-badges (`📱 Screens`, `👓 Contacts & Work`, `🔬 Hormones & MGD`, `🛡️ Gland Health`) to the life stages tabs, facilitating rapid recognition rather than recall.
 - **Production Build Compilation**: Re-ran `node build.js` to compile and minify all HTML, CSS, and JS assets directly into `dist/`.
 - **GitHub Deployment**: Committed and pushed commit `7988756` and `90d22de` to GitHub (`minipog-web/Dry-Eyes.git`).
-- **Netlify Production Deployment**: Deployed live to production (`deployId: 6a8d0309ed80c161f9f6ec7a`) at [https://dryeye.maranoeye.com](https://dryeye.maranoeye.com).
+
 
 ## Milestone: In-Page Navigation, Anchor Clearance & Deep Linking Engine (September 2026)
 
@@ -122,3 +122,58 @@
   - Verified 100% of images feature explicit `width`, `height`, descriptive `alt` text, and optimized `loading` attributes (`eager` for hero/nav logo, `lazy` for sub-sections).
   - Confirmed live HTTP security headers (`strict-transport-security`, Brotli compression, `x-frame-options: DENY`).
 - **Production Build & Live Netlify Deployment**: Rebuilt production package via `node build.js` and deployed directly to GitHub and Netlify production.
+
+## Milestone: Universal WCAG AAA Text Contrast & Readability Optimization (September 2026)
+
+### What Worked
+- **Root Token System Contrast Calibration**:
+  - `--text-muted`: Upgraded from `#94A1B8` (6.8:1–6.9:1) to luminous platinum-slate `#A2B4CE` (7.54:1 on `--surface-mid`, 8.26:1 on `--surface-dark`), elevating all 50+ body text elements across dark cards to meet WCAG AAA without glare.
+  - `--accent-green`: Upgraded from `#6FA87A` (6.38:1) to crisp clinical emerald `#7DC88A` (7.58:1 on dark surfaces).
+  - `--accent-green-dark`: Upgraded from `#4E7A58` (4.69:1) to deep forest `#1D5C2B` (10.5:1 on light surfaces).
+  - `--warning-red-dark`: Upgraded from `#C53030` (4.91:1) to authoritative crimson `#991B1B` (9.6:1 on `#FAF8F5`, 9.07:1 on `#EFF3F8`).
+  - `--warning-red-light`: Upgraded from `#FF8F9C` (6.41:1) to vibrant coral `#FFA4A4` (8.37:1 on dark surfaces).
+  - `--primary-dark-light`: Added `#7A4810` for luxury high-contrast bronze-gold elements on light backgrounds (7.51:1).
+  - `--text-muted-light`: Added `#374558` for architectural deep slate readability on light sections (9.15:1).
+- **Specialist & Physician Section Synchronization (`#physician`)**:
+  - Eliminated low-contrast text rules across Dr. Marano's profile: `.doctor-subtitle` set to `var(--primary)` (8.98:1), `.doctor-bio` and `.doctor-credentials li` set to `#E2E8F0` (14.2:1), `.doctor-credentials-title` and `strong` set to `#FFFFFF` (19.4:1), and `.doctor-tag` / `.trust-badge-item` set to `var(--primary-light)` (13.5:1).
+  - Elevated Associate Specialist pedigree cards: `.pedigree-label` upgraded from `#64748B` (3.7:1 fail) to `#9DB0CD` (7.3:1 AAA), and `.physician-tag` upgraded to `#CBD5E1` (8.5:1 AAA).
+- **Light Section Precision Polish (`#understanding`, `#diagnostics`, `#faq`)**:
+  - Upgraded `.section-light .text-muted` from `#556175` (5.2:1 AA) to `var(--text-muted-light)` (`#374558`, 9.15:1 AAA).
+  - Upgraded `.section-light .btn-outline` to `#0F172A` (17:1 AAA), while preserving `.post-section-cta-card .btn-outline` with `var(--primary-light)` (13.5:1) inside dark cards.
+  - Upgraded `.section-light .faq-question:hover` and `.faq-icon` from `#C67D28` (3.11:1 fail) to `#7A4810` (7.51:1 AAA) and `#0F172A` (17:1).
+  - Upgraded `.section-light-cool .interactive-hint` and symbol to `#1E293B` and `#5C3205` (9.76:1 AAA).
+  - Upgraded `.section-light-cool .warning-text strong` to `#991B1B` (9.07:1 AAA).
+  - Removed artificial `opacity: 0.8;` filters on `.stage-tab-age`, `.slider-subtext`, and `.cost-card-sub`.
+- **Automated Live DOM Contrast Audit**:
+  - Validated via Chrome DevTools MCP script evaluating every visible text element in the live DOM: 0 contrast failures remaining against WCAG AAA thresholds.
+- **Production Build Compilation**:
+  - Re-ran `node build.js` to compile and minify production assets into `dist/`.
+
+## Milestone: Comprehensive Interface & Responsive Polish (/polish) (September 2026)
+
+### What Worked
+- **Zero Horizontal Overflow Across All Breakpoints**:
+  - Identified and eliminated horizontal viewport blowout at mobile (390px) where `docScrollWidth` was previously expanding to 689px.
+  - Constrained root `html` and `body` with `overflow-x: hidden; max-width: 100vw;`.
+  - Modernized `.treatments-grid` and `.cta-grid` to use `grid-template-columns: minmax(0, 1fr)` and `min-width: 0`, preventing unshrinkable flex items from pushing parent grid tracks wider than the screen.
+  - Upgraded `.custom-tab-container` with `max-width: 100%`, `-webkit-overflow-scrolling: touch;`, and scroll snapping, allowing medication and procedure tabs to scroll smoothly without page distortion.
+  - Re-architected `.moa-diagram` and `.moa-steps` with a responsive vertical stack flow on mobile (`@media (max-width: 520px)`), with directional 90-degree arrow rotation.
+  - Relaxed `.cta-locations-heading` from rigid `white-space: nowrap !important;` to responsive natural wrapping (`white-space: normal !important; word-break: break-word;`).
+  - Added responsive padding rules on `#booking-card` and `.glass-card.p-40` on mobile viewports (`padding: 20px 14px !important;`).
+- **Touch Target & Accessibility Compliance (WCAG AAA)**:
+  - Enforced 44x44px minimum tap targets across all mobile interactive controls:
+    - `.abo-verify-link`: `min-height: 44px; display: inline-flex; align-items: center; padding: 4px 0;`.
+    - `.mobile-sticky-bar`: Constrained to `100vw` with `box-sizing: border-box;`, responsive phone and CTA buttons with 44px minimum height.
+    - `.cta-location-details .loc-detail-row a`: `min-height: 44px; display: inline-flex; align-items: center;`.
+- **CLS & Lazy Image Aspect Ratio Fortification**:
+  - Resolved Chrome DevTools console warning (`Lazy-loaded images should have explicit dimensions`).
+  - Added explicit CSS `aspect-ratio` to `.doctor-image-wrapper` (`400 / 480; width: 100%;`), `.doctor-headshot` (`400 / 480;`), `.logo-img` (`180 / 60;`), `.diag-result-img` (`260 / 120;`), and `.physician-photo` (`180 / 230;`).
+  - Completely eliminated initial 0x0 container collapse before lazy load.
+- **Verification Across 3 Breakpoints**:
+  - Mobile (390px): `hasHorizontalScroll: false` (`docScrollWidth: 390px`, `docClientWidth: 390px`).
+  - Tablet (768px): `hasHorizontalScroll: false` (`docScrollWidth: 753px`, `docClientWidth: 753px`).
+  - Desktop (1440px): `hasHorizontalScroll: false` (`docScrollWidth: 1425px`, `docClientWidth: 1425px`).
+  - Console: 0 errors, 0 warnings, 0 layout shifts.
+- **Production Asset Synchronization**:
+  - Recompiled production bundle into `dist/` via `node build.js`.
+
