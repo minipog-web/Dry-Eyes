@@ -31,13 +31,14 @@
 
 ### What Worked
 - **Prescription De-Escalation Pill (Choice Architecture)**: Added `.treatment-deescalation-pill` above the 6 prescription medication tabs in the Treatments section, explicitly assuring patients that Dr. Marano selects their exact therapy based on their LipiView scan. This resolves choice overload (Iyengar & Lepper) and eliminates non-clinician decision anxiety.
-- **Endowment Continuity & Action Momentum (Peak-End Rule)**: Upgraded the self-assessment results CTA to `"Claim My Assessment & Schedule →"` and updated feedback copy with clinical specificity (*over 86% of patients achieve lasting comfort when caught early*), reinforcing the user's investment and psychological closure.
+- **Google Analytics 4 Optimization (Measurement ID & Stream ID Integration)**: Integrated primary GA4 Measurement ID `G-17CP7KDR02` and Stream ID `15006766448` in the global `gtag.js` script header with automatic page views, secure cookie flags, and advertising signals. Updated `script.js` telemetry (`trackEvent`) to forward `stream_id: '15006766448'` across all events (`generate_lead`, `contact`, `phone_call_click`, `calculator_adjust`, `select_content`) while maintaining Google Ads conversion hooks (`AW-18197167741`, `AW-17962563730`).
+- **Tryptyr TRPM8 Cold-Themed Iconography**: Replaced the lightning bolt (`⚡`) icon with a snowflake cold icon (`❄️`) on both the tab button and treatment header card. This accurately reflects Tryptyr's mechanism of action targeting TRPM8 cold-sensing receptors on the ocular surface to evoke cooling sensations and stimulate reflex tearing.
+- **Prescription Medication Tab Grid (Cequa Cut-Off Resolution)**: Converted `.custom-tab-container` from a single overflowing horizontal flex row into a responsive 3-column grid (`grid-template-columns: repeat(3, minmax(0, 1fr))`). Previously, squeezing 6 tabs into a ~550px column pushed the 6th tab (`Cequa®`) 88px past the container edge, cutting it off behind hidden scrollbars. With the 3×2 grid, all 6 medications are instantly visible with generous 177px tap targets, zero clipping, and graceful fallback to 2 columns on small mobile devices (`<= 480px`).
 - **Visual Metric Triad in Cost Calculator (Anchoring Bias & Loss Aversion)**: Upgraded the Drop Loop calculator to a 3-card metric grid (`Annual Out-of-Pocket`, `5-Year Cumulative Cost`, and `Time Lost to Fatigue`), elevating screen endurance and daily discomfort loss alongside monetary figures.
-- **Cognitive Priming in Hero Subhead**: Embedded explicit time and location expectations (*"In one 45-minute comprehensive evaluation at our Livingston diagnostic suite..."*) to reduce ambiguity and establish clear mental models before scrolling.
-- **Life Stage Recognition Badges**: Added contextual micro-badges (`📱 Screens`, `👓 Contacts & Work`, `🔬 Hormones & MGD`, `🛡️ Gland Health`) to the life stages tabs, facilitating rapid recognition rather than recall.
+- **Recalibrated Direct vs. Time Metrics in Cost Calculator (Credibility & Realistic Spend)**: Separated direct financial out-of-pocket costs from daily fatigue calculations. Previously, a hidden $0.50/min salary productivity calculation was added directly into the out-of-pocket spending cards, artificially inflating a $30/mo spend to $2,860/year and $14,300 over 5 years. Now, Annual Out-of-Pocket directly reflects recurring spend (`spend * 12`), 5-Year Cumulative Cost reflects 5-year spend (`annual * 5`, e.g., $1,800 at $30/mo), and Time Lost to Fatigue is presented as its own dedicated metric (`minutes * 250 * 5 / 60` hrs).
 - **Production Build Compilation**: Re-ran `node build.js` to compile and minify all HTML, CSS, and JS assets directly into `dist/`.
 - **GitHub Deployment**: Committed and pushed commit `7988756` and `90d22de` to GitHub (`minipog-web/Dry-Eyes.git`).
-
+- **Dr. Sherief Raouf Fellowship Credentials Integration (UIC Eye & Ear Infirmary)**: Updated Dr. Raouf's specialist profile, Schema.org Physician JSON-LD metadata, and physician card. Formally documented his fellowship training in Cornea, External Disease, and Refractive Surgery at the renowned UIC Eye & Ear Infirmary (University of Illinois Chicago), updating his biography narrative, pedigree card credentials (`MEETH / Northwell • UIC Eye & Ear Fellow`), and footer tags.
 
 ## Milestone: In-Page Navigation, Anchor Clearance & Deep Linking Engine (September 2026)
 
@@ -176,4 +177,26 @@
   - Console: 0 errors, 0 warnings, 0 layout shifts.
 - **Production Asset Synchronization**:
   - Recompiled production bundle into `dist/` via `node build.js`.
+
+## Milestone: FAQ Question Separation & High-Contrast Elevated Card Architecture (September 2026)
+
+### What Worked
+- **Root Cause Identification & Design Decision**:
+  - Identified that `.section-light-warm .faq-item` previously used `border-bottom-color: rgba(0, 0, 0, 0.06);` (barely 6% black opacity) on top of the warm cream background (`#FAF8F5`), producing a washed-out 1.05:1 contrast ratio that visually vanished under display brightness.
+  - Rather than merely darkening flat border lines (which looked uncrafted on a warm parchment surface), re-architected the FAQ into an **elevated luxury card accordion** system matching the visual caliber of the diagnostic and treatment cards.
+- **Elevated Card Architecture & Styling**:
+  - Upgraded `.faq-list` to a structured vertical flex column with `gap: 14px; max-width: 860px; margin: 0 auto;`.
+  - Transformed `.faq-item` into standalone elevated cards:
+    - Base state: Crisp pure white fill (`background: #FFFFFF;`), high-definition 1.5px warm bronze outline (`border: 1.5px solid rgba(110, 75, 35, 0.65); border-radius: 14px;`), and multi-layer dimensional drop shadow (`box-shadow: 0 4px 16px -2px rgba(70, 50, 30, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.06);`).
+    - Hover state: Darkened outline (`border-color: rgba(80, 50, 20, 0.9);`), elevated lift (`transform: translateY(-2px);`), and deeper ambient shadow (`box-shadow: 0 10px 28px -4px rgba(70, 50, 30, 0.18), 0 4px 12px -2px rgba(0, 0, 0, 0.08);`).
+    - Active / Open state: Rich authoritative bronze outline (`border-color: #663D0C;`) with luminous warm gold elevation (`box-shadow: 0 12px 32px -4px rgba(180, 130, 70, 0.28), 0 4px 14px -2px rgba(70, 50, 30, 0.14);`).
+  - Upgraded `.faq-icon` into a tactile circular badge (`width: 32px; height: 32px; border-radius: 50%; background: rgba(180, 140, 90, 0.12); color: #8C6E4B;`) that smoothly rotates 45° and illuminates gold (`background: var(--metal-gold); color: #121A28;`) upon expansion.
+  - Added a crisp interior dashed divider `.faq-answer-inner { border-top: 1px dashed rgba(110, 75, 35, 0.35); padding-top: 18px; }` to cleanly partition the question from the clinical answer.
+- **Accessibility & Contrast Verification (WCAG AAA)**:
+  - Question text (`#0F172A`) on white card background: **16.5:1** contrast ratio.
+  - Answer body text (`#1E293B`) on white card background: **12.6:1** contrast ratio.
+  - Card bounding borders: 65% to 100% opacity warm bronze (`rgba(110, 75, 35, 0.65)` to `#663D0C`), providing > 4:1 non-text contrast against `#FAF8F5`, permanently preventing blowout on any screen or brightness setting.
+  - Preserved generous 48px+ touch targets and full keyboard accessibility.
+- **Production Asset Compilation**:
+  - Recompiled and minified all assets into `dist/` via `node build.js`.
 

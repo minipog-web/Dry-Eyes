@@ -5,13 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google tag (gtag.js) - Global Site Tag -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18197167741"></script>
+    <!-- Google tag (gtag.js) - Google Analytics 4 & Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-17CP7KDR02"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      // Google Analytics 4 (Stream ID: 15006766448)
+      gtag('config', 'G-17CP7KDR02', {
+        stream_id: '15006766448',
+        send_page_view: true,
+        cookie_flags: 'SameSite=None;Secure',
+        allow_google_signals: true,
+        allow_ad_personalization_signals: true
+      });
+
+      // Google Ads & Tag IDs
       gtag('config', 'AW-18197167741');
       gtag('config', 'AW-17962563730');
       gtag('config', 'GT-WKTZM5GN');
@@ -231,6 +241,24 @@
           "telephone": "(973) 322-0100",
           "medicalSpecialty": "Ophthalmology",
           "affiliation": { "@id": "https://maranoeyecare.com/#organization" },
+          "alumniOf": [
+            {
+              "@type": "EducationalOrganization",
+              "name": "Swarthmore College"
+            },
+            {
+              "@type": "EducationalOrganization",
+              "name": "Stony Brook University School of Medicine"
+            },
+            {
+              "@type": "MedicalOrganization",
+              "name": "Manhattan Eye, Ear & Throat Hospital / Northwell Health"
+            },
+            {
+              "@type": "MedicalOrganization",
+              "name": "UIC Eye & Ear Infirmary (University of Illinois Chicago)"
+            }
+          ],
           "knowsAbout": [
             "Cornea & External Eye Disease",
             "Dry Eye Syndrome",
@@ -1026,17 +1054,17 @@
                         <div class="cost-card-grid cost-card-grid--three">
                             <div class="cost-card">
                                 <span class="cost-card-title">Annual Out-of-Pocket</span>
-                                <span class="cost-card-amount" id="calc-annual-total">$510</span>
+                                <span class="cost-card-amount" id="calc-annual-total">$360</span>
                                 <span class="cost-card-sub">Temporary drops &amp; masks</span>
                             </div>
                             <div class="cost-card highlight">
                                 <span class="cost-card-title">5-Year Cumulative Cost</span>
-                                <span class="cost-card-amount text-pop-gold" id="calc-5year-total">$2,550</span>
+                                <span class="cost-card-amount text-pop-gold" id="calc-5year-total">$1,800</span>
                                 <span class="cost-card-sub">Recurring symptomatic spend</span>
                             </div>
                             <div class="cost-card cost-card-hours">
                                 <span class="cost-card-title">Time Lost to Fatigue</span>
-                                <span class="cost-card-amount text-pop-coral" id="calc-lost-hours-badge">300+ hrs</span>
+                                <span class="cost-card-amount text-pop-coral" id="calc-lost-hours-badge">415+ hrs</span>
                                 <span class="cost-card-sub">Screen endurance lost</span>
                             </div>
                         </div>
@@ -1048,7 +1076,7 @@
                                     <line x1="12" y1="17" x2="12.01" y2="17"></line>
                                 </svg>
                             </span>
-                            <p class="verdict-text">At this level, you are on track to lose over <strong id="calc-lost-hours">300 hours</strong> of focused productivity and comfortable vision. Worse, untreated Meibomian Gland Dysfunction leads to progressive, irreversible gland loss.</p>
+                            <p class="verdict-text">At this level, you are on track to lose over <strong id="calc-lost-hours">415 hours</strong> of focused productivity and comfortable vision. Worse, untreated Meibomian Gland Dysfunction leads to progressive, irreversible gland loss.</p>
                         </div>
                     </div>
                 </div>
@@ -1502,7 +1530,7 @@
                         <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="treatment-restasis" id="tab-restasis" data-value="restasis">🧬 Restasis®</button>
                         <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-xiidra" id="tab-xiidra" data-value="xiidra">🛑 Xiidra®</button>
                         <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-vevye" id="tab-vevye" data-value="vevye">🧪 Vevye®</button>
-                        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-tryptyr" id="tab-tryptyr" data-value="tryptyr">⚡ Tryptyr®</button>
+                        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-tryptyr" id="tab-tryptyr" data-value="tryptyr">❄️ Tryptyr®</button>
                         <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-miebo" id="tab-miebo" data-value="miebo">🛡️ Miebo®</button>
                         <button class="tab-btn" role="tab" aria-selected="false" aria-controls="treatment-cequa" id="tab-cequa" data-value="cequa">🔬 Cequa®</button>
                     </div>
@@ -1639,7 +1667,7 @@
                 <!-- Tryptyr -->
                 <div class="treatment-card" id="treatment-tryptyr" role="tabpanel" aria-labelledby="tab-tryptyr">
                     <div class="treatment-header">
-                        <div class="treatment-icon">⚡</div>
+                        <div class="treatment-icon">❄️</div>
                         <div>
                             <h4>Tryptyr® <span class="font-sm font-normal text-muted">(TRPM8 Agonist Drop)</span></h4>
                             <span class="treatment-type">Sensory Receptor Eye Drop</span>
@@ -2065,7 +2093,7 @@
                     </div>
 
                     <div class="physician-card-body">
-                        <p class="physician-card-bio">A fellowship-trained cornea and external disease specialist raised in Bergen County, Dr. Raouf graduated from Swarthmore College and earned his medical degree with honors from Stony Brook University School of Medicine. Following his ophthalmology residency at Manhattan Eye, Ear &amp; Throat Hospital and Northwell Health, he completed advanced fellowship training in complex corneal disorders, ocular surface rehabilitation, and targeted dry eye interventions.</p>
+                        <p class="physician-card-bio">A fellowship-trained cornea and external disease specialist raised in Bergen County, Dr. Raouf graduated from Swarthmore College and earned his medical degree with honors from Stony Brook University School of Medicine. Following his ophthalmology residency at Manhattan Eye, Ear &amp; Throat Hospital and Northwell Health, he completed advanced fellowship training in Cornea, External Disease, and Refractive Surgery at the prestigious UIC Eye &amp; Ear Infirmary in Chicago, specializing in complex corneal disorders, ocular surface rehabilitation, and targeted dry eye interventions.</p>
                         
                         <div class="physician-focus-area">
                             <span class="focus-title">Clinical Expertise &amp; Focus:</span>
@@ -2092,7 +2120,7 @@
                             </div>
                             <div class="pedigree-box">
                                 <span class="pedigree-label">Residency &amp; Fellowship</span>
-                                <span class="pedigree-val">MEETH / Northwell &bull; Cornea Fellow</span>
+                                <span class="pedigree-val">MEETH / Northwell &bull; UIC Eye &amp; Ear Fellow</span>
                             </div>
                         </div>
                     </div>
@@ -2100,7 +2128,7 @@
                     <div class="physician-card-footer">
                         <div class="physician-card-tags">
                             <span class="physician-tag">Manhattan Eye, Ear &amp; Throat</span>
-                            <span class="physician-tag">Corneal Disease Fellowship</span>
+                            <span class="physician-tag">UIC Eye &amp; Ear Fellowship</span>
                             <span class="physician-tag">AAO &amp; ASCRS Member</span>
                         </div>
                     </div>

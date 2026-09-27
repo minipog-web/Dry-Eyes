@@ -378,7 +378,18 @@ img {
 }
 
 .section-light-warm .faq-item {
-  border-bottom-color: rgba(0, 0, 0, 0.06);
+  background: #FFFFFF;
+  border-color: rgba(110, 75, 35, 0.65);
+}
+
+.section-light-warm .faq-item:hover {
+  background: #FFFFFF;
+  border-color: rgba(80, 50, 20, 0.9);
+}
+
+.section-light-warm .faq-item.open {
+  background: #FFFFFF;
+  border-color: #663D0C;
 }
 
 .section-light-warm .stages-control-wrapper {
@@ -2468,43 +2479,91 @@ footer.footer::before {
 
 /* ===================== FAQ ===================== */
 .faq-list {
-  max-width: 800px;
+  max-width: 860px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .faq-item {
-  border-bottom: 1px solid rgba(123, 150, 200, 0.1);
+  background: #FFFFFF;
+  border: 1.5px solid rgba(110, 75, 35, 0.65);
+  border-radius: 14px;
+  padding: 0 28px;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px -2px rgba(70, 50, 30, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .faq-item {
+    padding: 0 20px;
+    border-radius: 12px;
+  }
+}
+
+.faq-item:hover {
+  border-color: rgba(80, 50, 20, 0.9);
+  background: #FFFFFF;
+  box-shadow: 0 10px 28px -4px rgba(70, 50, 30, 0.18), 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.faq-item.open {
+  border-color: #663D0C;
+  background: #FFFFFF;
+  box-shadow: 0 12px 32px -4px rgba(180, 130, 70, 0.28), 0 4px 14px -2px rgba(70, 50, 30, 0.14);
 }
 
 .faq-question {
   width: 100%;
-  padding: 24px 0;
+  padding: 22px 0;
   background: none;
   border: none;
-  color: var(--text-primary);
+  color: #0F172A;
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.12rem;
   font-weight: 600;
   text-align: left;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   transition: color var(--transition);
 }
 
 .faq-question:hover {
-  color: var(--primary-light);
+  color: var(--primary-dark, #0A192F);
 }
 
 .faq-icon {
-  font-size: 1.5rem;
-  transition: transform var(--transition);
-  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(180, 140, 90, 0.12);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+  transition: all var(--transition);
+  color: #8C6E4B;
+  flex-shrink: 0;
+}
+
+.faq-item:hover .faq-icon {
+  background: rgba(180, 140, 90, 0.22);
+  color: #5C452D;
 }
 
 .faq-item.open .faq-icon {
   transform: rotate(45deg);
+  background: var(--metal-gold);
+  color: #121A28;
+  box-shadow: 0 2px 8px rgba(197, 168, 128, 0.4);
 }
 
 .faq-answer {
@@ -2520,41 +2579,26 @@ footer.footer::before {
 
 .faq-answer-inner {
   min-height: 0;
+  border-top: 1px dashed rgba(110, 75, 35, 0.35);
+  padding-top: 18px;
 }
 
 .faq-answer p {
-  padding-bottom: 24px;
-  color: var(--text-muted);
+  padding-bottom: 22px;
+  color: #1E293B;
   line-height: 1.8;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
+  margin: 0;
 }
 
-.section-light .faq-question {
-  color: var(--text-dark);
-}
-
-.section-light .faq-question:hover {
-  color: var(--primary-dark-light);
-}
-
-.section-light .faq-icon {
-  color: var(--primary-dark-light);
-}
-
-.section-light .faq-item.open .faq-icon {
-  color: #0F172A;
-}
-
-.section-light .faq-answer p {
+.faq-answer li {
   color: #1E293B;
+  line-height: 1.8;
 }
 
-.section-light .faq-answer li {
-  color: #1E293B;
-}
-
-.section-light .faq-answer strong {
+.faq-answer strong {
   color: #0F172A;
+  font-weight: 600;
 }
 
 /* ===================== CTA / CONTACT (#contact) ===================== */
@@ -5170,18 +5214,27 @@ footer.footer::before {
 
 /* --- CUSTOM TAB SEGMENTED CONTROLLERS (TREATMENTS) --- */
 .custom-tab-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   background: rgba(13, 27, 42, 0.6);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
-  padding: 4px;
-  gap: 4px;
+  padding: 6px;
+  gap: 6px;
   margin-top: 12px;
   width: 100%;
   max-width: 100%;
-  overflow-x: auto;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  #medication-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #procedure-tabs {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
 
 .treatment-select-wrapper {
@@ -5191,29 +5244,12 @@ footer.footer::before {
   box-sizing: border-box;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.custom-tab-container::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.custom-tab-container {
-  -ms-overflow-style: none;  /* IE and Edge */
-}
-
-@supports (scrollbar-width: none) {
-  .custom-tab-container {
-    scrollbar-width: none;  /* Firefox */
-  }
-}
-
 .tab-btn {
-  flex: 1 0 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 10px 14px;
+  padding: 10px 12px;
   min-height: 44px;
   border-radius: 8px;
   font-family: var(--font-heading);
@@ -5225,7 +5261,9 @@ footer.footer::before {
   cursor: pointer;
   white-space: nowrap;
   transition: all var(--transition);
-  min-width: 84px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .tab-btn:hover {

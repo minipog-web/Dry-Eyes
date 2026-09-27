@@ -1,16 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Google Analytics 4 (GA4) & Google Tag Manager Configuration
+  const GA4_MEASUREMENT_ID = 'G-17CP7KDR02';
+  const GA4_STREAM_ID = '15006766448';
+  window.GA4_MEASUREMENT_ID = GA4_MEASUREMENT_ID;
+  window.GA4_STREAM_ID = GA4_STREAM_ID;
+
   // Google Tag Manager & Google Analytics 4 Telemetry Helper
   const trackEvent = (eventName, params = {}) => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
+    const payload = {
       event: eventName,
+      stream_id: GA4_STREAM_ID,
       ...params
-    });
+    };
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(payload);
 
     if (typeof gtag === 'function') {
-      gtag('event', eventName, params);
+      gtag('event', eventName, {
+        stream_id: GA4_STREAM_ID,
+        ...params
+      });
     } else {
-      console.debug('[GTM / GA4 Telemetry]', eventName, params);
+      console.debug('[GTM / GA4 Telemetry]', eventName, payload);
     }
   };
 
@@ -1835,11 +1847,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const minutes = parseInt(minutesSlider.value, 10);
         
         // Calculations:
-        // Direct Annual Cost = spend * 12
-        // Lost productivity cost = minutes * 250 work days * $0.50 per min
-        const annualDirect = spend * 12;
-        const annualProductivity = minutes * 250 * 0.50;
-        const totalAnnual = annualDirect + annualProductivity;
+        // Direct Annual Out-of-Pocket Cost = spend * 12
+        // 5-Year Cumulative Spend = Direct Annual * 5
+        // Time lost over 5 years (250 active work days per year)
+        const totalAnnual = spend * 12;
         const total5Year = totalAnnual * 5;
         const totalHours = Math.round((minutes * 250 * 5) / 60);
         
@@ -1848,8 +1859,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (minutesVal) minutesVal.textContent = `${minutes} mins`;
         if (annualTotal) annualTotal.textContent = `$${Math.round(totalAnnual).toLocaleString()}`;
         if (fiveYearTotal) fiveYearTotal.textContent = `$${Math.round(total5Year).toLocaleString()}`;
-        if (lostHours) lostHours.textContent = `${totalHours} hours`;
-        if (lostHoursBadge) lostHoursBadge.textContent = `${totalHours} hrs`;
+        if (lostHours) lostHours.textContent = `${totalHours.toLocaleString()} hours`;
+        if (lostHoursBadge) lostHoursBadge.textContent = `${totalHours.toLocaleString()} hrs`;
         
         rafPending = false;
 
