@@ -39,6 +39,8 @@
 - **Production Build Compilation**: Re-ran `node build.js` to compile and minify all HTML, CSS, and JS assets directly into `dist/`.
 - **GitHub Deployment**: Committed and pushed commit `7988756` and `90d22de` to GitHub (`minipog-web/Dry-Eyes.git`).
 - **Dr. Sherief Raouf Fellowship Credentials Integration (UIC Eye & Ear Infirmary)**: Updated Dr. Raouf's specialist profile, Schema.org Physician JSON-LD metadata, and physician card. Formally documented his fellowship training in Cornea, External Disease, and Refractive Surgery at the renowned UIC Eye & Ear Infirmary (University of Illinois Chicago), updating his biography narrative, pedigree card credentials (`MEETH / Northwell • UIC Eye & Ear Fellow`), and footer tags.
+- **GitHub Deployment**: Committed and pushed commit `64639b0` to GitHub (`minipog-web/Dry-Eyes.git`).
+- **Netlify Production Deployment**: Deployed live to production (`deployId: 6ab98e7aa04142afc41209eb`) at [https://dryeye.maranoeye.com](https://dryeye.maranoeye.com).
 
 ## Milestone: In-Page Navigation, Anchor Clearance & Deep Linking Engine (September 2026)
 
