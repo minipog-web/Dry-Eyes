@@ -220,6 +220,8 @@
 - **Google Analytics 4 Telemetry Optimization (Stream ID: 15006766448 & Measurement ID: G-17CP7KDR02)**:
   - Configured GA4 web stream `15006766448` under `G-17CP7KDR02` with automatic secure cookies (`cookie_domain: 'auto'`, `SameSite=None;Secure`), `content_group: 'Dry Eye Center'`, and medical practice parameters.
   - Enhanced telemetry engine in `script.js` to dispatch explicit `send_to: 'G-17CP7KDR02'` and `stream_id: '15006766448'` across both Google Tag Manager `dataLayer` and native `gtag` events, guaranteeing 100% data stream attribution for all user engagement and conversion events.
+- **GitHub Deployment**: Committed and pushed changes to GitHub (`minipog-web/Dry-Eyes.git`, commit `fb3d871`).
+- **Netlify Production Deployment**: Deployed live to production (`deployId: 6abb10531add5af96a0bffd9`) at [https://dryeye.maranoeye.com](https://dryeye.maranoeye.com).
 
 
 ### What to Avoid
