@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const payload = {
       event: eventName,
       stream_id: GA4_STREAM_ID,
+      send_to: GA4_MEASUREMENT_ID,
       ...params
     };
 
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof gtag === 'function') {
       gtag('event', eventName, {
         stream_id: GA4_STREAM_ID,
+        send_to: GA4_MEASUREMENT_ID,
         ...params
       });
     } else {

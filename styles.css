@@ -925,20 +925,20 @@ footer.footer::before {
 }
 
 .logo-img {
-  height: 60px;
+  height: 45px;
   width: auto;
-  aspect-ratio: 180 / 60;
+  aspect-ratio: 180 / 45;
   transition: height var(--transition);
   display: block;
 }
 
 .navbar.scrolled .logo-img {
-  height: 48px;
+  height: 38px;
 }
 
 @media (max-width: 480px) {
   .logo-img {
-    height: 45px;
+    height: 36px;
   }
 }
 
@@ -5000,6 +5000,12 @@ footer.footer::before {
   background: rgba(56, 189, 248, 0.1);
   border: 1px solid rgba(56, 189, 248, 0.25);
   color: #7DD3FC;
+}
+
+.physician-chip-fellow {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #FBBF24;
 }
 
 .physician-chip .chip-icon {
