@@ -222,7 +222,26 @@
   - Enhanced telemetry engine in `script.js` to dispatch explicit `send_to: 'G-17CP7KDR02'` and `stream_id: '15006766448'` across both Google Tag Manager `dataLayer` and native `gtag` events, guaranteeing 100% data stream attribution for all user engagement and conversion events.
 - **GitHub Deployment**: Committed and pushed changes to GitHub (`minipog-web/Dry-Eyes.git`, commit `fb3d871`).
 - **Netlify Production Deployment**: Deployed live to production (`deployId: 6abb10531add5af96a0bffd9`) at [https://dryeye.maranoeye.com](https://dryeye.maranoeye.com).
-
+- **Anatomy Section Heading Update**: Renamed `#anatomy` section header from "The OTC Drop Trap: Why More Drops Won't Fix Dry Eyes" to "Anatomy of Dry Eye" to elevate educational and clinical credibility while preserving the underlying tear film layer cards and Drop Loop cost calculator.
+- **Anatomy of Dry Eye Disease Typographic Refinement**:
+  - Updated title copy from "Anatomy of Dry Eye" to "Anatomy of Dry Eye Disease".
+  - Calibrated font sizing from the oversized `4.25rem` (68px) down to a refined clamp: `clamp(2.35rem, 4.4vw, 3.4rem)` (`54.4px` on desktop) with line-height `1.18`.
+  - Scaled mobile viewport sizing to `clamp(1.85rem, 6.5vw, 2.35rem)`.
+  - Preserved the luxury eyebrow badge (`.luxury-subtitle`: "Tear Film Pathology & Architecture"), upright architectural serif "Anatomy of", and radiant italic gold highlight `<span class="serif-italic gradient-text">Dry Eye Disease</span>`.
+- **Tear Film Architecture & Clinical Copy Optimization**:
+  - Integrated landmark clinical citations: `[1]` Lemp et al. 2012 (PMID: 22378109) for 86% MGD prevalence and `[2]` TFOS DEWS II (PMID: 28736337) for tear film evaporation architecture.
+  - Added balanced single-sentence targeted clinical treatments across all 3 tear film layers (Lipid, Aqueous, Mucin) highlighting TearCare®, Miebo®, punctal plugs, Restasis®, Xiidra®, and AmbioDisk™.
+  - Enforced exact clinical accuracy: TearCare® melts gland blockages via thermal expression, while Miebo® prescription drops directly replace and fortify the protective lipid seal.
+- **Tear Film Visual & Layout Enhancement**:
+  - Expanded interactive anatomy slider container and tear film SVG from `500px` to `580px` (`max-width: 580px; width: 100%; aspect-ratio: 1 / 1;`), achieving a clean vertical alignment with the stack of three layer cards.
+  - Re-engineered layer cards into bespoke glassmorphic consoles with vertical glowing indicator rails (`::before`), jewel-dot aura indicators, interactive rotating chevrons, and sunken treatment capsules.
+  - Eliminated the amber wash from the Lipid layer card active state, restoring a deep obsidian base (`rgba(20, 23, 32, 0.96)`) with luminous pure white headings and `#D6E2F0` body text for pristine contrast.
+  - Resolved `Interactive controls must not be nested` accessibility lint error in `#anatomy` tab cards.
+- **Precision Medical Route & CTA Refinement**:
+  - Renamed "The Precision Route" to "The Precision Medical Route" and removed "Value:" prefix.
+  - Redesigned the CTA "Request Consultation" pill from a heavy yellow block into a frosted glass capsule (`rgba(245, 158, 11, 0.08)`) with a hairline gold rim and pulsing status jewel dot.
+- **Clinical Catalog Realignment (TearCare® Over LipiFlow)**:
+  - Replaced LipiFlow with TearCare® across patient testimonials (David L.) and pruned obsolete LipiFlow references from Schema.org structured data (`knowsAbout`, `possibleTreatment`).
 
 ### What to Avoid
 - **Avoid Automatic Netlify Deploys**: NEVER deploy to Netlify unless specifically and explicitly instructed to do so by the user.

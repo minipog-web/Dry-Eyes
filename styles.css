@@ -1382,22 +1382,60 @@ footer.footer::before {
   letter-spacing: -0.01em;
 }
 
-/* ===================== TEAR FILM ===================== */
+/* ===================== TEAR FILM / ANATOMY ===================== */
+.anatomy-title,
+#anatomy .section-header h2 {
+  font-size: clamp(2.35rem, 4.4vw, 3.4rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.02em !important;
+  margin-top: 0 !important;
+  margin-bottom: 18px !important;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.95), 0 0 40px rgba(245, 196, 83, 0.22) !important;
+  position: relative;
+}
+
+#anatomy .section-header .anatomy-title .serif-italic {
+  font-family: var(--font-heading) !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  padding-left: 2px;
+}
+
+#anatomy .section-header .anatomy-title .gradient-text {
+  font-weight: 900 !important;
+  background: linear-gradient(135deg, #FFFDF5 0%, #FFE9B3 20%, #F7CE85 45%, #E5AC32 75%, #FFFDF5 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 25px rgba(245, 196, 83, 0.35)) !important;
+}
+
+@media (max-width: 480px) {
+  .anatomy-title,
+  #anatomy .section-header h2 {
+    font-size: clamp(1.85rem, 6.5vw, 2.35rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 14px !important;
+  }
+}
+
 .tear-film-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: 40px;
   align-items: center;
 }
 
 .tear-film-visual {
   position: relative;
+  width: 100%;
 }
 
 .interactive-anatomy-container {
   position: relative;
   width: 100%;
-  max-width: 500px;
+  max-width: 580px;
   margin: 0 auto;
   aspect-ratio: 1 / 1;
   border-radius: var(--radius);
@@ -1426,7 +1464,7 @@ footer.footer::before {
 
 .tear-film-svg {
   width: 100%;
-  max-width: 500px;
+  max-width: 580px;
   margin: 0 auto;
 }
 
@@ -1436,85 +1474,305 @@ footer.footer::before {
   gap: 20px;
 }
 
+/* --- LUXURY TEAR FILM LAYER CARDS --- */
 .layer-card {
-  padding: 24px;
-  border-radius: var(--radius-sm);
+  position: relative;
+  padding: 22px 24px;
+  border-radius: var(--radius);
   cursor: pointer;
-  background: var(--surface-card);
-  border: 1px solid rgba(123, 150, 200, 0.1);
-  transition: all var(--transition), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: linear-gradient(135deg, rgba(22, 27, 38, 0.88) 0%, rgba(13, 16, 24, 0.96) 100%);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s ease, 
+              box-shadow 0.4s ease, 
+              background 0.4s ease;
   box-shadow: 
-    0 4px 16px -2px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    0 10px 28px -4px rgba(0, 0, 0, 0.55),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  overflow: hidden;
 }
 
+/* Luminous Vertical Accent Rail */
+.layer-card::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 0;
+  width: 3.5px;
+  border-radius: 0 4px 4px 0;
+  opacity: 0;
+  transform: scaleY(0.4);
+  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+/* Hover State */
 .layer-card:hover {
   transform: translateX(6px);
-  background: rgba(27, 45, 69, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
   box-shadow: 
-    0 8px 24px -3px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+    0 14px 36px -4px rgba(0, 0, 0, 0.65),
+    0 4px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
-.layer-card[data-layer="lipid"]:hover {
-  border-color: rgba(244, 197, 66, 0.4);
+.layer-card:hover::before {
+  opacity: 0.65;
+  transform: scaleY(0.75);
 }
 
-.layer-card[data-layer="lipid"].active {
-  border-color: var(--accent-gold);
-  box-shadow: 
-    0 10px 28px -4px rgba(0, 0, 0, 0.65),
-    0 0 14px rgba(244, 197, 66, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+/* Layer Card Header Layout */
+.layer-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
 }
 
-.layer-card[data-layer="aqueous"]:hover {
-  border-color: rgba(123, 150, 200, 0.4);
-}
-
-.layer-card[data-layer="aqueous"].active {
-  border-color: var(--primary);
-  box-shadow: 
-    0 10px 28px -4px rgba(0, 0, 0, 0.65),
-    0 0 14px rgba(123, 150, 200, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.layer-card[data-layer="mucin"]:hover {
-  border-color: rgba(111, 168, 122, 0.4);
-}
-
-.layer-card[data-layer="mucin"].active {
-  border-color: var(--accent-green);
-  box-shadow: 
-    0 10px 28px -4px rgba(0, 0, 0, 0.65),
-    0 0 14px rgba(111, 168, 122, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.layer-card h4 {
-  font-size: 1.1rem;
-  margin-bottom: var(--space-xs);
-}
-
-.layer-card p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+.layer-card h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.28rem, 1.9vw, 1.55rem);
+  font-weight: 700;
+  color: #FFFFFF;
   margin: 0;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  transition: color 0.3s ease;
+}
+
+/* Interactive Chevron Indicator */
+.layer-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.layer-card:hover .layer-indicator {
+  background: rgba(255, 255, 255, 0.09);
+  color: #FFFFFF;
+  transform: translateX(2px);
+}
+
+.layer-card.active .layer-indicator {
+  transform: rotate(90deg);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+
+/* Luminous Dot Gem Indicators */
+.layer-dot {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  margin-right: 12px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  position: relative;
+  transition: transform var(--transition-bounce), box-shadow 0.35s ease;
 }
 
 .layer-card:hover .layer-dot {
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 
-.layer-dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-right: 8px;
-  vertical-align: middle;
-  transition: transform var(--transition-bounce);
+/* Dot Color Themes */
+.bg-yellow {
+  background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 100%);
+  color: #F59E0B;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+.bg-blue {
+  background: linear-gradient(135deg, #BAE6FD 0%, #38BDF8 100%);
+  color: #38BDF8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+.bg-green {
+  background: linear-gradient(135deg, #A7F3D0 0%, #34D399 100%);
+  color: #34D399;
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+}
+
+/* Body Description */
+.layer-desc,
+.layer-card p {
+  font-size: 0.92rem;
+  color: #D6E2F0;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Treatment Capsule Inset */
+.layer-treatment {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(6, 8, 12, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  transition: all 0.35s ease;
+}
+
+.layer-treatment-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+}
+
+.layer-treatment-text {
+  font-size: 0.86rem;
+  line-height: 1.48;
+  color: #E2E8F0;
+}
+
+/* ─── Layer 1: Lipid Accent (Gold/Amber) ─── */
+.layer-card[data-layer="lipid"]::before {
+  background: linear-gradient(180deg, #FDE68A 0%, #F59E0B 100%);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.7);
+}
+
+.layer-card[data-layer="lipid"] .layer-treatment-label {
+  color: #FBBF24;
+}
+
+.layer-card[data-layer="lipid"]:hover {
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.layer-card[data-layer="lipid"].active {
+  background: linear-gradient(135deg, rgba(20, 23, 32, 0.96) 0%, rgba(12, 14, 20, 0.98) 100%),
+              radial-gradient(circle at 0% 0%, rgba(245, 158, 11, 0.08), transparent 45%);
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 
+    0 16px 42px -6px rgba(0, 0, 0, 0.75),
+    0 0 16px rgba(245, 158, 11, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.layer-card[data-layer="lipid"].active::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.layer-card[data-layer="lipid"].active h3 {
+  color: #FFFFFF;
+}
+
+.layer-card[data-layer="lipid"].active .layer-treatment {
+  background: rgba(6, 8, 12, 0.85);
+  border-color: rgba(245, 158, 11, 0.28);
+}
+
+.layer-card[data-layer="lipid"].active .layer-dot {
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.9);
+}
+
+/* ─── Layer 2: Aqueous Accent (Azure/Sky Blue) ─── */
+.layer-card[data-layer="aqueous"]::before {
+  background: linear-gradient(180deg, #BAE6FD 0%, #38BDF8 100%);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
+}
+
+.layer-card[data-layer="aqueous"] .layer-treatment-label {
+  color: #38BDF8;
+}
+
+.layer-card[data-layer="aqueous"]:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.layer-card[data-layer="aqueous"].active {
+  background: linear-gradient(135deg, rgba(20, 24, 34, 0.96) 0%, rgba(12, 14, 20, 0.98) 100%),
+              radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.08), transparent 45%);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 
+    0 16px 42px -6px rgba(0, 0, 0, 0.75),
+    0 0 16px rgba(56, 189, 248, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.layer-card[data-layer="aqueous"].active::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.layer-card[data-layer="aqueous"].active h3 {
+  color: #FFFFFF;
+}
+
+.layer-card[data-layer="aqueous"].active .layer-treatment {
+  background: rgba(6, 8, 12, 0.85);
+  border-color: rgba(56, 189, 248, 0.28);
+}
+
+.layer-card[data-layer="aqueous"].active .layer-dot {
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.9);
+}
+
+/* ─── Layer 3: Mucin Accent (Jade/Emerald) ─── */
+.layer-card[data-layer="mucin"]::before {
+  background: linear-gradient(180deg, #A7F3D0 0%, #34D399 100%);
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.7);
+}
+
+.layer-card[data-layer="mucin"] .layer-treatment-label {
+  color: #34D399;
+}
+
+.layer-card[data-layer="mucin"]:hover {
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+.layer-card[data-layer="mucin"].active {
+  background: linear-gradient(135deg, rgba(20, 24, 30, 0.96) 0%, rgba(12, 14, 20, 0.98) 100%),
+              radial-gradient(circle at 0% 0%, rgba(52, 211, 153, 0.08), transparent 45%);
+  border-color: rgba(52, 211, 153, 0.45);
+  box-shadow: 
+    0 16px 42px -6px rgba(0, 0, 0, 0.75),
+    0 0 16px rgba(52, 211, 153, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.layer-card[data-layer="mucin"].active::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.layer-card[data-layer="mucin"].active h3 {
+  color: #FFFFFF;
+}
+
+.layer-card[data-layer="mucin"].active .layer-treatment {
+  background: rgba(6, 8, 12, 0.85);
+  border-color: rgba(52, 211, 153, 0.28);
+}
+
+.layer-card[data-layer="mucin"].active .layer-dot {
+  box-shadow: 0 0 14px rgba(52, 211, 153, 0.9);
 }
 
 /* Interactive Hint Banner */
@@ -2620,19 +2878,48 @@ footer.footer::before {
 }
 
 .cta-section .luxury-subtitle {
-  color: #1E1B18 !important; /* High-contrast deep luxury charcoal for superior legibility on gold */
-  background: #ECC280 !important; /* Solid premium gold base that pops brilliantly against the dark section background */
-  border: 1px solid #FFF4E0 !important; /* Crisp champagne border highlight */
-  font-size: 0.8rem !important;
-  font-weight: 900 !important;
-  letter-spacing: 0.15em !important;
-  padding: 6px 18px !important;
-  border-radius: 50px !important;
-  display: inline-block !important;
-  margin-bottom: 24px !important;
+  color: #FDE68A !important; /* Luminous warm champagne gold */
+  background: rgba(245, 158, 11, 0.08) !important; /* Translucent smoked-gold glass plate */
+  border: 1px solid rgba(245, 158, 11, 0.3) !important; /* Refined hairline gold rim */
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  padding: 6px 16px !important;
+  border-radius: 9999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 20px !important;
   width: fit-content !important;
-  text-shadow: none !important; /* Remove dark text shadow to preserve pristine text edges on light background */
-  box-shadow: 0 4px 15px rgba(236, 194, 128, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.cta-section .luxury-subtitle::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #F59E0B;
+  box-shadow: 0 0 8px #F59E0B, 0 0 14px rgba(245, 158, 11, 0.6);
+  flex-shrink: 0;
+  animation: pulseGoldDot 2.4s ease-in-out infinite;
+}
+
+@keyframes pulseGoldDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+    box-shadow: 0 0 10px #F59E0B, 0 0 16px rgba(245, 158, 11, 0.8);
+  }
 }
 
 .cta-section::before {
@@ -5829,7 +6116,7 @@ a:focus-visible,
 .slider-comparison {
   position: relative;
   width: 100%;
-  max-width: 500px;
+  max-width: 580px;
   margin: 0 auto;
   aspect-ratio: 1 / 1;
   border-radius: var(--radius);
