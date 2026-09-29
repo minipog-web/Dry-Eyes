@@ -242,6 +242,10 @@
   - Redesigned the CTA "Request Consultation" pill from a heavy yellow block into a frosted glass capsule (`rgba(245, 158, 11, 0.08)`) with a hairline gold rim and pulsing status jewel dot.
 - **Clinical Catalog Realignment (TearCare® Over LipiFlow)**:
   - Replaced LipiFlow with TearCare® across patient testimonials (David L.) and pruned obsolete LipiFlow references from Schema.org structured data (`knowsAbout`, `possibleTreatment`).
+- **Production Deployment (GitHub & Netlify)**:
+  - Committed and pushed changes to GitHub (`minipog-web/Dry-Eyes.git`, commit `47502dd`).
+  - Deployed live to production via Netlify (`deployId: 6abb548276c2319ea9b99c4a`) at [https://dryeye.maranoeye.com](https://dryeye.maranoeye.com).
+  - Preview URL: [https://6abb548276c2319ea9b99c4a--premium-dry-eye-treatment.netlify.app](https://6abb548276c2319ea9b99c4a--premium-dry-eye-treatment.netlify.app).
 
 ### What to Avoid
 - **Avoid Automatic Netlify Deploys**: NEVER deploy to Netlify unless specifically and explicitly instructed to do so by the user.
