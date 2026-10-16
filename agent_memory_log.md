@@ -10,6 +10,8 @@
 - **High-Intent Commercial Keyword Infusion**: Naturally integrated exact-match search phrases (`"dry eye treatment in NJ"`, `"chronic dry eye treatment"`, `"dry eye doctor in Essex & Morris County"`) into the hero subtitle, Treatments section heading and introduction, and Contact evaluation prompt.
 - **XML Sitemap Synchronization**: Refreshed `sitemap.xml` `<lastmod>` to `2026-10-16` to alert search engine crawlers of the updated schema and asset graph.
 - **Production Compilation**: Re-ran `node build.js` to compile the production bundle in `dist/` with automated asset copying, HTML sync, and CSS/JS minification.
+- **GitHub Deployment**: Committed and pushed commit `6ae40da` to GitHub (`minipog-web/Dry-Eyes.git`).
+- **Netlify Production Deployment**: Deployed live to production (`deployId: 6ad2949db7e9a7e35a257f8c`) at [https://dryeye.maranoeye.com](https://dryeye.maranoeye.com).
 
 ## Milestone: Website Polish & Accessibility Implementation (June 2026)
 
