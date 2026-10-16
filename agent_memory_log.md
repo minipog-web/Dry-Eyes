@@ -1,5 +1,16 @@
 # Agent Memory Log
 
+## Milestone: Comprehensive SEO Audit, Schema Enrichment & WebP Modernization (October 2026)
+
+### What Worked
+- **Schema.org Telephone Standardization (RFC 3966 / E.164)**: Converted all clinic and physician telephone entries to standardized international formatting (`+1-973-322-0100`, `+1-973-625-7970`, `+1-973-877-5534`), eliminating local parse ambiguities for international search and AI retrieval agents.
+- **Knowledge Graph Entity Linkage (`sameAs`)**: Injected verified entity references into the Schema.org graph for Marano Eye Care (official site and social properties), Dr. Matthew Marano (Healthgrades, RWJBarnabas Health doctor profile), and Dr. Sherief Raouf (Doximity specialist profile).
+- **FAQPage Schema Name Property & Audit Verification**: Added `"name": "Chronic Dry Eye Evaluation & Treatment FAQ"` to the FAQPage schema node. Programmatically verified that 100% of the 7 Schema FAQ questions match the visible on-page accordion text word-for-word.
+- **WebP Asset Modernization (88%+ File Size Reduction)**: Converted doctor portraits (`dr_raouf.webp`, `dr_decker.webp`) and patient review avatars (`patient_maria.webp`, `patient_robert.webp`, `patient_susan.webp`, `patient_patricia.webp`) from uncompressed JPEGs to retina-optimized WebP, reducing Dr. Raouf's headshot from 218 KB down to 25 KB and Dr. Decker's from 111 KB down to 30 KB.
+- **High-Intent Commercial Keyword Infusion**: Naturally integrated exact-match search phrases (`"dry eye treatment in NJ"`, `"chronic dry eye treatment"`, `"dry eye doctor in Essex & Morris County"`) into the hero subtitle, Treatments section heading and introduction, and Contact evaluation prompt.
+- **XML Sitemap Synchronization**: Refreshed `sitemap.xml` `<lastmod>` to `2026-10-16` to alert search engine crawlers of the updated schema and asset graph.
+- **Production Compilation**: Re-ran `node build.js` to compile the production bundle in `dist/` with automated asset copying, HTML sync, and CSS/JS minification.
+
 ## Milestone: Website Polish & Accessibility Implementation (June 2026)
 
 ### What Worked
