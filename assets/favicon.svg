@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="drop-grad" x1="16" y1="4" x2="16" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A8BDE0" />
+      <stop offset="100%" stop-color="#7B96C8" />
+    </linearGradient>
+    <linearGradient id="glow-grad" x1="16" y1="12" x2="16" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6FA87A" />
+      <stop offset="100%" stop-color="#4E7A58" />
+    </linearGradient>
+  </defs>
+  <!-- Outer Tear / Eye Hybrid Shape -->
+  <path d="M16 4C16 4 8 13.5 8 19C8 23.4183 11.5817 27 16 27C20.4183 27 24 23.4183 24 19C24 13.5 16 4 16 4Z" fill="url(#drop-grad)" />
+  <!-- Inner Pupil / Tear reflection -->
+  <circle cx="16" cy="19" r="5" fill="#0D1B2A" />
+  <circle cx="17.5" cy="17.5" r="1.8" fill="#FFFFFF" />
+  <!-- Accent highlight curve -->
+  <path d="M11 19C11 16.2386 13.2386 14 16 14" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" opacity="0.4" />
+</svg>

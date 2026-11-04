@@ -1,0 +1,11 @@
+# ====================================================================
+# Robots.txt for Marano Eye Care - Dry Eye Center
+# Optimized for high SEO value and modern AI crawler permissions
+# ====================================================================
+
+# Allow all web search engines and AI assistants to crawl and index
+User-agent: *
+Allow: /
+
+# XML Sitemap Location
+Sitemap: https://dryeye.maranoeye.com/sitemap.xml
