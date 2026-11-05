@@ -1,0 +1,7 @@
+# ====================================================================
+# Netlify Redirects for Marano Eye Care - Dry Eye Center
+# 301 Permanent Redirect default .netlify.app subdomain to custom domain
+# ====================================================================
+
+https://premium-dry-eye-treatment.netlify.app/*  https://dryeye.maranoeye.com/:splat  301!
+http://premium-dry-eye-treatment.netlify.app/*   https://dryeye.maranoeye.com/:splat  301!
