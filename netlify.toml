@@ -1,15 +1,8 @@
 [build]
   publish = "."
 
-# Force 301 redirect from Netlify default subdomain to primary custom domain
 [[redirects]]
-  from = "https://premium-dry-eye-treatment.netlify.app/*"
-  to = "https://dryeye.maranoeye.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://premium-dry-eye-treatment.netlify.app/*"
+  from = "/*"
   to = "https://dryeye.maranoeye.com/:splat"
   status = 301
   force = true
